@@ -2,12 +2,14 @@
 
 import Image from "next/image";
 import CoreValues from "../components/CoreValues";
+import FAQs from "../components/FAQs";
+import Footer from "../Footer/page";
 
 export default function Company() {
     return (
         <section className="w-full bg-[#010101] py-16 px-4 md:px-10">
             <div className="max-w-7xl mx-auto mt-20">
-                <h1 className="text-white lg:text-[10rem] text-6xl text-center font-semibold">Who we are</h1>
+                <h1 className="lg:text-[10rem] text-white bg-clip-text text-6xl text-center">Who we are</h1>
             </div>
 
             <div className="max-w-7xl mt-20 mx-auto border-[3px] border-black rounded-2xl overflow-hidden grid md:grid-cols-2">
@@ -58,6 +60,7 @@ export default function Company() {
             </div>
 
             <CoreValues />
+            <FAQs />
         </section>
     );
 }

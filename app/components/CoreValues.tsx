@@ -13,11 +13,11 @@ type Card = {
 
 const cards: Card[] = [
     { title: "Clear Communication", type: "circles" },
-    { title: "Creative Direction", type: "blob" },
-    { title: "Product Design", type: "oval" },
-    { title: "3D Visualization", type: "square" },
-    { title: "Web Experience", type: "mix" },
-    { title: "Brand Identity", type: "rotate" },
+    { title: "Creativity", type: "blob" },
+    { title: "Integrity", type: "oval" },
+    { title: "Reliability", type: "square" },
+    { title: "Innovation", type: "mix" },
+    { title: "Discipline", type: "rotate" },
 ];
 
 export default function HorizontalGallery() {
@@ -66,51 +66,51 @@ export default function HorizontalGallery() {
             case "circles":
                 return (
                     <div className="absolute bottom-0 w-full h-[65%] flex flex-wrap justify-center items-end">
-                        <div className="w-[55%] aspect-square bg-purple-400 rounded-full -mr-10" />
-                        <div className="w-[55%] aspect-square bg-purple-400 rounded-full" />
-                        <div className="w-[55%] aspect-square bg-purple-400 rounded-full -mr-10 -mt-10" />
-                        <div className="w-[55%] aspect-square bg-purple-400 rounded-full -mt-10" />
+                        <div className="w-[55%] aspect-square bg-black rounded-full -mr-10" />
+                        <div className="w-[55%] aspect-square bg-black rounded-full" />
+                        <div className="w-[55%] aspect-square bg-black rounded-full -mr-10 -mt-10" />
+                        <div className="w-[55%] aspect-square bg-black rounded-full -mt-10" />
                     </div>
                 );
 
             case "blob":
                 return (
                     <div className="absolute bottom-0 w-full h-[65%] flex justify-center items-end">
-                        <div className="w-[80%] aspect-square bg-purple-400 rounded-[60%_40%_70%_30%/40%_60%_30%_70%]" />
+                        <div className="w-[80%] aspect-square bg-black rounded-[60%_40%_70%_30%/40%_60%_30%_70%]" />
                     </div>
                 );
 
             case "oval":
                 return (
                     <div className="absolute bottom-0 w-full h-[65%] flex flex-col items-center justify-end gap-4">
-                        <div className="w-[70%] h-24 bg-purple-400 rounded-full" />
-                        <div className="w-[50%] h-20 bg-purple-400 rounded-full" />
+                        <div className="w-[70%] h-24 bg-black rounded-full" />
+                        <div className="w-[50%] h-20 bg-black rounded-full" />
                     </div>
                 );
 
             case "square":
                 return (
                     <div className="absolute bottom-0 w-full h-[65%] flex flex-wrap justify-center gap-3">
-                        <div className="w-[40%] aspect-square bg-purple-400 rounded-2xl" />
-                        <div className="w-[40%] aspect-square bg-purple-400 rounded-2xl" />
-                        <div className="w-[40%] aspect-square bg-purple-400 rounded-2xl" />
+                        <div className="w-[40%] aspect-square bg-black rounded-2xl" />
+                        <div className="w-[40%] aspect-square bg-black rounded-2xl" />
+                        <div className="w-[40%] aspect-square bg-black rounded-2xl" />
                     </div>
                 );
 
             case "mix":
                 return (
                     <div className="absolute bottom-0 w-full h-[65%] flex flex-wrap justify-center gap-3">
-                        <div className="w-[40%] aspect-square bg-purple-400 rounded-full" />
-                        <div className="w-[40%] aspect-square bg-purple-400 rounded-2xl" />
-                        <div className="w-[40%] h-20 bg-purple-400 rounded-full" />
+                        <div className="w-[40%] aspect-square bg-black rounded-full" />
+                        <div className="w-[40%] aspect-square bg-black rounded-2xl" />
+                        <div className="w-[40%] h-20 bg-black rounded-full" />
                     </div>
                 );
 
             case "rotate":
                 return (
                     <div className="absolute bottom-0 w-full h-[65%] flex justify-center items-end">
-                        <div className="w-32 h-32 bg-purple-400 rounded-xl rotate-12" />
-                        <div className="w-32 h-32 bg-purple-400 rounded-full -ml-10 opacity-80" />
+                        <div className="w-32 h-32 bg-black rounded-xl rotate-12" />
+                        <div className="w-32 h-32 bg-black rounded-full -ml-10 opacity-80" />
                     </div>
                 );
 
@@ -121,21 +121,22 @@ export default function HorizontalGallery() {
 
     return (
         <div className="overflow-x-hidden bg-black">
-            <section ref={sectionRef} className="relative mt-32">
+            <section ref={sectionRef} className="relative mt-32 px-5">
                 <div className="flex lg:flex-row flex-col items-center gap-2 mb-20">
-                    <h1 className="text-white text-6xl md:text-[7rem] lg:text-left text-left">
+                    <h1 className="text-white text-6xl md:text-[6rem] lg:text-left text-left">
                         Core Values
                     </h1>
-                    <p className="text-white text-sm lg:mt-20 lg:text-left text-left">
-                        Principles that guide our work and define our approach to every project.
+                    <p className="text-white/50 text-sm lg:text-xl lg:mt-20 lg:text-left text-left">
+                        Principles that guide our work.
                     </p>
                 </div>
-                <div className="flex">
+
+                <div className="flex pr-56">
                     <div ref={stripRef} className="flex flex-nowrap">
                         {cards.map((card, i) => (
                             <div
                                 key={i}
-                                className="w-[85vw] sm:w-[65vw] md:w-[45vw] lg:w-[30vw] xl:w-[25vw] p-4 flex-shrink-0"
+                                className="w-[85vw] sm:w-[65vw] md:w-[45vw] lg:w-[30vw] xl:w-[25vw] p-4 shrink-0"
                             >
                                 <div className="relative w-full h-[420px] rounded-3xl bg-[#c9c6de] overflow-hidden flex flex-col items-center pt-10 hover:scale-[1.03] transition">
 
@@ -152,11 +153,11 @@ export default function HorizontalGallery() {
             </section>
 
             {/* Bottom */}
-            <section className="h-screen flex items-center justify-center">
+            {/* <section className="h-screen flex items-center justify-center">
                 <h3 className="text-white text-2xl md:text-4xl">
                     That's it!
                 </h3>
-            </section>
+            </section> */}
         </div>
     );
 }

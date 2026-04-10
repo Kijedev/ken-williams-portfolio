@@ -48,8 +48,8 @@ export default function Revolutionalize() {
               
               text-4xl sm:text-5xl md:text-7xl lg:text-[9rem] xl:text-[11rem]
               
-              ${i === 1 ? "italic font-semibold" : ""}
-              ${i !== 0 ? "mt-4 sm:mt-4 md:mt-6 lg:mt-8" : ""}
+              ${i === 1 ? "italic" : ""}
+              ${i !== 0 ? "mt-4 sm:mt-4 md:mt-6 lg:mt-8 text-white/70" : ""}
             `}
                     >
                         {text}

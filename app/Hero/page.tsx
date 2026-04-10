@@ -144,7 +144,7 @@ export default function AirPodsSequence() {
               PROJECTS 👋
             </p> */}
 
-            <p className="text-xl text-white/40">You've found</p>
+            {/* <p className="text-xl text-white/40">You've found</p> */}
             <h1
               style={{
                 fontSize: "clamp(2.5rem, 10vw, 10rem)",
@@ -159,7 +159,7 @@ export default function AirPodsSequence() {
               Ekho Studios
             </h1>
 
-            <button
+            {/* <button
               style={{
                 padding: "0.75rem 1.5rem",
                 borderRadius: "9999px",
@@ -184,7 +184,7 @@ export default function AirPodsSequence() {
               }
             >
               CONTACT ME
-            </button>
+            </button> */}
           </div>
 
           <div
