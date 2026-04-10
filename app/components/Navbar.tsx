@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const NAV_LINKS = [
-  { label: "Who We Are", href: "/about" },
+  { label: "Company", href: "/Company" },
   { label: "What We Do", href: "/services" },
   { label: "Projects",   href: "/projects" },
 ];
@@ -26,7 +26,6 @@ export default function Navbar() {
 
   return (
     <>
-      {/* ── Main bar — z-[9999] clears everything ─────────────── */}
       <nav
         style={{ zIndex: 9999 }}
         className={`

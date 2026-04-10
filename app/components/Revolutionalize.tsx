@@ -1,19 +1,61 @@
+"use client";
+
 import type { Metadata } from "next";
-import SplitText from "../components/ui/SplitText";
+import { motion } from "framer-motion";
+import { easeOut } from "framer-motion";
 
 export const metadata: Metadata = {
     title: "",
     description: "",
 };
 
+// Animation variants
+const textVariant = {
+    hidden: {
+        opacity: 0,
+        y: 80,
+    },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.8,
+            ease: easeOut,
+        },
+    },
+};
+
 export default function Revolutionalize() {
+    const texts = ["Revolutionalizing", "Product", "Visualization"];
+
     return (
-        <main className="h-screen relative z-50 bg-[#010101] border border-t-white/10">
-            <div className="flex flex-col pt-20 pl-10">
-                <h1 className="text-white text-[10rem]">Revolutionalizing</h1>
-                {/* <SplitText /> */}
-                <h1 className="text-white text-[10rem] -mt-20 font-semibold italic">Product</h1>
-                <h1 className="text-white text-[10rem] -mt-20">Visualization</h1>
+        <main className="lg:min-h-screen relative z-50 bg-[#010101] border-t border-white/10 overflow-hidden">
+            <div className="flex flex-col justify-center h-full px-6 md:px-12 lg:px-20 py-24">
+
+                {texts.map((text, i) => (
+                    <motion.h1
+                        key={text}
+                        custom={i}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-100px" }}
+                        variants={textVariant}
+                        transition={{
+                            delay: i * 0.2,
+                        }}
+                        className={`
+              text-white font-light leading-[0.9]
+              
+              text-4xl sm:text-5xl md:text-7xl lg:text-[9rem] xl:text-[11rem]
+              
+              ${i === 1 ? "italic font-semibold" : ""}
+              ${i !== 0 ? "mt-4 sm:mt-4 md:mt-6 lg:mt-8" : ""}
+            `}
+                    >
+                        {text}
+                    </motion.h1>
+                ))}
+
             </div>
         </main>
     );

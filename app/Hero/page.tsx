@@ -129,7 +129,7 @@ export default function AirPodsSequence() {
             color: "white",
           }}
         >
-          <Navbar />
+          {/* <Navbar /> */}
           <div className="flex flex-col justify-center items-center h-screen gap-6">
             {/* <p
               style={{
