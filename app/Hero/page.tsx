@@ -124,67 +124,16 @@ export default function AirPodsSequence() {
           style={{
             position: "fixed",
             inset: 0,
-            zIndex: 10,
+            zIndex: 0,
             pointerEvents: "auto",
             color: "white",
           }}
         >
-          {/* <Navbar /> */}
-          <div className="flex flex-col justify-center items-center h-screen gap-6">
-            {/* <p
-              style={{
-                fontSize: "0.7rem",
-                color: "#9ca3af",
-                textAlign: "left",
-                lineHeight: 1.7,
-                letterSpacing: "0.05em",
-              }}
-            >
-              A 3D DESIGNER PASSIONATE ABOUT CRAFTING BOLD AND MEMORABLE
-              PROJECTS 👋
-            </p> */}
-
-            {/* <p className="text-xl text-white/40">You've found</p> */}
-            <h1
-              style={{
-                fontSize: "clamp(2.5rem, 10vw, 10rem)",
-                fontWeight: 800,
-                lineHeight: 1,
-                color: "#d1d5db",
-                margin: 0,
-                textAlign: "center",
-                userSelect: "none",
-              }}
-            >
+          <div className="flex flex-col justify-center items-center h-screen">
+            <h1 className="lg:text-[8rem] text-[4rem] font-bold text-[#d1d5db] font-800 text-center select-none">
               Ekho Studios
             </h1>
-
-            {/* <button
-              style={{
-                padding: "0.75rem 1.5rem",
-                borderRadius: "9999px",
-                background: "linear-gradient(to right, #a855f7, #f97316)",
-                border: "none",
-                color: "white",
-                fontSize: "0.75rem",
-                fontWeight: 600,
-                letterSpacing: "0.05em",
-                cursor: "pointer",
-                boxShadow: "0 10px 25px rgba(168,85,247,0.35)",
-                transition: "transform 0.2s",
-                pointerEvents: "auto",
-              }}
-              onMouseEnter={(e) =>
-              ((e.currentTarget as HTMLElement).style.transform =
-                "translateY(-50%) scale(1.06)")
-              }
-              onMouseLeave={(e) =>
-              ((e.currentTarget as HTMLElement).style.transform =
-                "translateY(-50%) scale(1)")
-              }
-            >
-              CONTACT ME
-            </button> */}
+            <p className="text-lg text-white/40 text-center font-light">We help brands around the world tell stories through cinematic product videos.</p>
           </div>
 
           <div

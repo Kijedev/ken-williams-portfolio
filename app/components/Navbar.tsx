@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 const NAV_LINKS = [
     { label: "Company", href: "/Company" },
-    { label: "What We Do", href: "/services" },
+    { label: "What we offer", href: "/Ourservices" },
     { label: "Projects", href: "/projects" },
     { label: "Courses", href: "/courses" },
 ];
@@ -37,7 +37,7 @@ export default function Navbar() {
                         : "py-6 bg-transparent"}
         `}
             >
-                <div className="max-w-[90rem] mx-auto px-6 md:px-10 flex items-center justify-between">
+                <div className="max-w-360 mx-auto px-6 md:px-10 flex items-center justify-between">
 
                     {/* Logo */}
                     <Link href="/" className="group flex items-center gap-2.5 shrink-0">
@@ -115,21 +115,32 @@ export default function Navbar() {
                         <button
                             aria-label={isOpen ? "Close menu" : "Open menu"}
                             onClick={() => setIsOpen((v) => !v)}
-                            className="md:hidden flex flex-col justify-center items-end gap-1.5 w-8 h-8 relative"
-                            style={{ zIndex: 10000 }} // always above the overlay
+                            className="md:hidden relative flex flex-col items-center justify-center w-8 h-8"
+                            style={{ zIndex: 10000 }}
                         >
-                            <span className={`
-                block h-px bg-white transition-all duration-300 origin-right
-                ${isOpen ? "w-6 -rotate-45 translate-y-[3px]" : "w-6"}
-              `} />
-                            <span className={`
-                block h-px bg-white transition-all duration-300
-                ${isOpen ? "w-0 opacity-0" : "w-4"}
-              `} />
-                            <span className={`
-                block h-px bg-white transition-all duration-300 origin-right
-                ${isOpen ? "w-6 rotate-45 -translate-y-[3px]" : "w-6"}
-              `} />
+                            {/* Top bar → becomes top-right arm of X */}
+                            <span
+                                className={`
+      absolute h-px bg-white transition-all duration-300 ease-in-out origin-center
+      ${isOpen ? "w-5 rotate-45 translate-y-0" : "w-5 -translate-y-[5px]"}
+    `}
+                            />
+
+                            {/* Middle bar → fades out */}
+                            <span
+                                className={`
+      absolute h-px bg-white transition-all duration-300 ease-in-out origin-center
+      ${isOpen ? "w-0 opacity-0" : "w-3 opacity-100"}
+    `}
+                            />
+
+                            {/* Bottom bar → becomes bottom-right arm of X */}
+                            <span
+                                className={`
+      absolute h-px bg-white transition-all duration-300 ease-in-out origin-center
+      ${isOpen ? "w-5 -rotate-45 translate-y-0" : "w-5 translate-y-[5px]"}
+    `}
+                            />
                         </button>
                     </div>
                 </div>
@@ -180,7 +191,7 @@ export default function Navbar() {
                         style={{ transitionDelay: isOpen ? "380ms" : "0ms" }}
                     >
                         <Link
-                            href="/contact"
+                            href="/Contact"
                             onClick={() => setIsOpen(false)}
                             className="
                 inline-flex items-center gap-3

@@ -8,8 +8,6 @@ import Plan from "../components/Plan";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// ─── types ────────────────────────────────────────────────────────────────────
-
 type FormState = "idle" | "sending" | "sent" | "error";
 
 interface FormData {
@@ -20,7 +18,6 @@ interface FormData {
     message: string;
 }
 
-// ─── constants ────────────────────────────────────────────────────────────────
 
 const BUDGET_OPTIONS = [
     "Under $1,000",
@@ -34,8 +31,6 @@ const CONTACT_DETAILS = [
     { label: "Phone", value: "+234 816 755 5952", href: "tel:+2348167555952" },
     { label: "Location", value: "Lagos, Nigeria", href: null },
 ];
-
-// ─── field component ──────────────────────────────────────────────────────────
 
 function Field({
     label,
@@ -57,8 +52,6 @@ function Field({
     );
 }
 
-// ─── page ─────────────────────────────────────────────────────────────────────
-
 export default function page() {
     const [form, setForm] = useState<FormData>({ name: "", email: "", company: "", budget: "", message: "" });
     const [status, setStatus] = useState<FormState>("idle");
@@ -73,7 +66,7 @@ export default function page() {
     const dividerRef = useRef<HTMLDivElement>(null);
     const orbitRef = useRef<HTMLDivElement>(null);
 
-    // ── entrance animations ───────────────────────────────────────
+    // ── entrance animations ───
     useEffect(() => {
         const ctx = gsap.context(() => {
             const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
@@ -93,7 +86,7 @@ export default function page() {
         return () => ctx.revert();
     }, []);
 
-    // ── form handling ─────────────────────────────────────────────
+    // ── form handling 
     const update = (k: keyof FormData, v: string) =>
         setForm((p) => ({ ...p, [k]: v }));
 
@@ -173,7 +166,7 @@ export default function page() {
                             {/* Heading */}
                             <h1
                                 ref={headingRef}
-                                className="text-[clamp(2.8rem,7vw,5.5rem)] font-extralight leading-[1.0] tracking-tight text-white"
+                                className="text-[clamp(2.8rem,7vw,5.5rem)] font-extralight leading-none tracking-tight text-white"
                             >
                                 Let's make something<br />
                                 <em className="not-italic text-white/35">unforgettable.</em>
@@ -228,7 +221,7 @@ export default function page() {
                         <div ref={formRef}>
                             {status === "sent" ? (
                                 // Success state
-                                <div className="flex flex-col items-start justify-center h-full gap-6 py-16">
+                                <div className="flex flex-col items-start justify-center h-full gap-6 py-16 ">
                                     <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center">
                                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                                             <path d="M3 9l4.5 4.5L15 5" stroke="white" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
@@ -345,7 +338,6 @@ export default function page() {
                                             )}
                                         </button>
                                     </div>
-
                                 </form>
                             )}
                         </div>
@@ -353,9 +345,7 @@ export default function page() {
                     </div>
                 </div>
 
-                {/* ── bottom decorative line ────────────────────────────── */}
-                <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/8 to-transparent" />
-                <Plan />
+                <div className="absolute bottom-0 inset-x-0 h-px bg-lineaar-to-r from-transparent via-white/8 to-transparent" />
                 <FAQs />
             </main>
         </>

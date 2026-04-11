@@ -27,7 +27,7 @@ const FAQS = [
   },
   {
     q: "Can you travel for on-location shoots?",
-    a: "Yes — I'm based in Los Angeles but regularly shoot across North America and Europe. Travel costs are factored into project quotes. For international projects, I can also work with trusted local production partners I've vetted personally.",
+    a: "Yes — I'm based in Lagos Nigeria but regularly shoot across Africa. Travel costs are factored into project quotes. For international projects, I can also work with trusted local production partners I've vetted personally.",
   },
   {
     q: "How do we get started?",
@@ -139,7 +139,7 @@ function FAQItem({
       {/* Expand line accent */}
       <div
         ref={lineRef}
-        className="h-px bg-gradient-to-r from-white/0 via-white/20 to-white/0 origin-left"
+        className="h-px bg-linear-to-r from-white/0 via-white/20 to-white/0 origin-left"
         style={{ transform: "scaleX(0)" }}
         aria-hidden="true"
       />
@@ -250,7 +250,7 @@ export default function FAQs() {
         </div>
 
         {/* ── Divider ───────────────────────────────────────── */}
-        <div className="h-px w-full bg-gradient-to-r from-white/0 via-white/15 to-white/0 mb-2" />
+        <div className="h-px w-full bg-linear-to-r from-white/0 via-white/15 to-white/0 mb-2" />
 
         {/* ── FAQ rows ──────────────────────────────────────── */}
         <div ref={itemsRef}>

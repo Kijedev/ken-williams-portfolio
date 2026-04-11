@@ -4,6 +4,7 @@ import HeroPage from "./Hero/page"
 import Revolutionalize from "./components/Revolutionalize";
 import FAQs from "./components/FAQs";
 import { Metadata } from "next";
+import BentoGallery from "./components/ui/Bentogallery";
 
 export const metadata: Metadata = {
   title: "Ken Williams",
@@ -15,6 +16,7 @@ export default function Home() {
     <div>
       <HeroPage />
       <Revolutionalize />
+      <BentoGallery />
       <FAQs />
     </div>
   );
