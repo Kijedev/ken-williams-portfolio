@@ -15,7 +15,7 @@ export default function ClientShell({
 
   return (
     <SmoothScroll>
-      {/* {!loaded && <Preloader onComplete={() => setLoaded(true)} />} */}
+      {!loaded && <Preloader onComplete={() => setLoaded(true)} />}
       <Navbar />
       {children}
       <Footer />

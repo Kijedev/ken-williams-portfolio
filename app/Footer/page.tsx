@@ -69,7 +69,7 @@ export default function Footer() {
             >
               Ekho<br />Studios
             </h2>
-            <p className="mt-2 text-sm lg:text-xl text-white/30 max-w-xs leading-tight">
+            <p className="mt-2 text-sm lg:text-lg text-white/30 max-w-sm leading-tight">
               Crafting visual narratives that make products impossible to ignore.
             </p>
           </div>
@@ -111,20 +111,17 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* ── Bottom bar ──────────────────────────────────────── */}
+        <p className="text-[11px] lg:text-[14px] leading-relaxed text-white/30 font-light capitalize mt-10">Ekho Studios ("Ekho") is a creative production studio offering professional product videography services to brands, businesses, and individual clients across Nigeria and beyond. All video productions are executed by our in-house creative team and delivered in high-definition formats optimised for digital platforms including Instagram, TikTok, YouTube, and e-commerce storefronts. Each project scope, timeline, and deliverable specification is agreed upon in writing prior to production commencement. Any previews, mood boards, or reference materials shared during pre-production are illustrative in nature and may not reflect the exact outcome of the final production, which is subject to creative direction, available equipment, location conditions, and client-approved briefs. Pricing displayed on our rate card reflects standard package rates and may vary based on project complexity, travel requirements, usage rights, and the number of revisions requested beyond the agreed allowance. By engaging Ekho Studios for a project, clients confirm acceptance of our production terms, payment schedule, and intellectual property agreement, copies of which are provided at the time of booking. Ekho Studios retains the right to feature completed work in its portfolio and on its social media channels unless a confidentiality clause is explicitly agreed upon in the project contract</p>
         <div className="mt-12 md:mt-16 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <p className="text-[11px] lg:text-[16px] text-white/90 capitalize">
             &copy; {new Date().getFullYear()} Ekho Studios. All rights reserved.
           </p>
-          <p className="text-[11px] lg:text-[16px] text-white/90 capitalize">
+          {/* <p className="text-[11px] lg:text-[16px] text-white/90 capitalize">
             📍Based in Lagos, Nigeria
-          </p>
+          </p> */}
         </div>
       </div>
-
-      {/* ── Geometric shapes at the bottom ───────────────────── */}
       <FooterShapes />
-
     </footer>
   );
 }

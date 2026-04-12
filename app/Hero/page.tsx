@@ -130,7 +130,7 @@ export default function AirPodsSequence() {
           }}
         >
           <div className="flex flex-col justify-center items-center h-screen">
-            <h1 className="lg:text-[8rem] text-[4rem] font-bold text-[#d1d5db] font-800 text-center select-none">
+            <h1 className="lg:text-[8rem] text-[3rem] font-bold text-[#d1d5db] font-800 text-center select-none">
               Ekho Studios
             </h1>
             <p className="text-lg text-white/40 text-center font-light">We help brands around the world tell stories through cinematic product videos.</p>
