@@ -35,8 +35,6 @@ const FAQS = [
   },
 ];
 
-// ─── single item ──────────────────────────────────────────────────────────────
-
 function FAQItem({
   item,
   index,
