@@ -56,7 +56,6 @@ function FAQItem({
     if (!body) return;
 
     if (!didMount.current) {
-      // Set initial closed state without animation
       gsap.set(body, { height: 0, opacity: 0 });
       didMount.current = true;
       return;
