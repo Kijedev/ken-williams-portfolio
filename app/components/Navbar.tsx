@@ -7,7 +7,7 @@ const NAV_LINKS = [
     { label: "Company", href: "/Company" },
     { label: "What we offer", href: "/Ourservices" },
     { label: "Projects", href: "/projects" },
-    { label: "Courses", href: "/courses" },
+    // { label: "Courses", href: "/courses" },
 ];
 
 export default function Navbar() {

@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
+import FAQs from "../components/FAQs";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -401,7 +402,7 @@ export default function ServicesPage() {
                                         </div>
                                         <div className="flex flex-col gap-1.5">
                                             <span className="text-[20px] font-light text-white tracking-wide">{p.label}</span>
-                                            <span className="text-[14px] tracking-[0.15em] text-white/25 capitalize font-light leading-relaxed">{p.detail}</span>
+                                            <span className="text-[14px] text-white/25 capitalize font-light leading-relaxed">{p.detail}</span>
                                         </div>
                                     </div>
                                 ))}
@@ -419,9 +420,6 @@ export default function ServicesPage() {
                                 Ready to make your<br />
                                 <em className="not-italic text-white/30">product unforgettable?</em>
                             </h2>
-                            {/* <p className="text-sm text-white/30 font-light leading-relaxed">
-                                Pick a package or reach out — we'll find the right format for your product and timeline.
-                            </p> */}
                         </div>
 
                         <div className="flex flex-col gap-4 items-start md:items-end shrink-0">
@@ -433,15 +431,12 @@ export default function ServicesPage() {
                                     <path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                             </Link>
-                            {/* <Link href="/rate-card"
-                                className="text-[10px] tracking-[0.22em] uppercase text-white/18 hover:text-white/40 transition-colors duration-300 border-b border-white/[0.08] hover:border-white/20 pb-0.5">
-                                View full rate card →
-                            </Link> */}
                         </div>
                     </div>
                 </section>
 
                 <div className="h-px bg-linear-to-r from-transparent via-white/[0.07] to-transparent" />
+                <FAQs />
             </div>
         </>
     );

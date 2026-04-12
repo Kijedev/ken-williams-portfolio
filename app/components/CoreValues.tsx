@@ -121,12 +121,12 @@ export default function HorizontalGallery() {
 
     return (
         <div className="overflow-x-hidden bg-black">
-            <section ref={sectionRef} className="relative mt-32 px-5">
-                <div className="flex lg:flex-row flex-col items-center gap-2 mb-20">
-                    <h1 className="text-white text-6xl md:text-[6rem] lg:text-left text-left">
+            <section ref={sectionRef} className="relative mt-32 lg:px-20 px-5">
+                <div className="flex lg:flex-row flex-col gap-2 mb-10">
+                    <h1 className="text-white text-[3rem] lg:text-[6rem] text-left">
                         Core Values
                     </h1>
-                    <p className="text-white/50 text-sm lg:text-xl lg:mt-20 lg:text-left text-left">
+                    <p className="text-white/50 text-sm lg:text-xl lg:mt-20 text-left">
                         Principles that guide our work.
                     </p>
                 </div>

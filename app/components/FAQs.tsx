@@ -6,8 +6,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// ─── data ─────────────────────────────────────────────────────────────────────
-
 const FAQS = [
   {
     q: "What types of products do you specialize in filming?",
@@ -216,23 +214,6 @@ export default function FAQs() {
       ref={sectionRef}
       className="relative w-full bg-[#010101] z-50 overflow-hidden py-24 md:py-36"
     >
-      {/* ── Subtle noise texture overlay ─────────────────────── */}
-      {/* <div
-        className="pointer-events-none absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
-          backgroundSize: "200px 200px",
-        }}
-        aria-hidden="true"
-      /> */}
-
-      {/* ── Atmospheric gradient ──────────────────────────────── */}
-      {/* <div
-        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full opacity-[0.06]"
-        style={{ background: "radial-gradient(ellipse, #fff 0%, transparent 70%)" }}
-        aria-hidden="true"
-      /> */}
-
       <div className="relative max-w-7xl mx-auto px-6 md:px-10">
 
         {/* ── Heading block ─────────────────────────────────── */}
@@ -263,7 +244,6 @@ export default function FAQs() {
           ))}
         </div>
 
-        {/* ── Bottom CTA ────────────────────────────────────── */}
         <div
           ref={ctaRef}
           className="mt-16 md:mt-20 flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-10 border-t border-white/8"
@@ -272,12 +252,12 @@ export default function FAQs() {
             Still have questions? I'm happy to walk through anything before you commit.
           </p>
           <a
-            href="/contact"
+            href="/Contact"
             className="
               shrink-0 inline-flex items-center gap-3
               px-7 py-3.5 rounded-full
               border border-white/15 hover:border-white/45
-              text-[11px] tracking-[0.2em] uppercase font-light
+              text-[16px] capitalize font-light
               text-white/50 hover:text-white
               transition-all duration-300 group
             "
