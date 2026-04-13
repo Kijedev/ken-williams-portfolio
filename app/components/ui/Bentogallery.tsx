@@ -26,13 +26,13 @@ const CONTENT_PARAS = [
 ];
 
 export default function BentoGallery() {
-  const wrapRef    = useRef<HTMLDivElement>(null);
+  const wrapRef = useRef<HTMLDivElement>(null);
   const galleryRef = useRef<HTMLDivElement>(null);
   const flipCtxRef = useRef<gsap.Context | null>(null);
 
   const createTween = () => {
     const gallery = galleryRef.current;
-    const wrap    = wrapRef.current;
+    const wrap = wrapRef.current;
     if (!gallery || !wrap) return;
 
     const items = gallery.querySelectorAll<HTMLDivElement>(".bento-item");
@@ -113,7 +113,6 @@ export default function BentoGallery() {
         .bento-item:nth-child(8) { grid-area: 4 / 2 / 5 / 3; }
       `}</style>
 
-      {/* ── Gallery wrap (gets pinned by ScrollTrigger) ─────────── */}
       <div
         ref={wrapRef}
         className="relative w-full bg-black h-screen flex items-center justify-center overflow-hidden"
@@ -132,12 +131,10 @@ export default function BentoGallery() {
         </div>
       </div>
 
-      {/* ── Content section below the gallery ──────────────────── */}
-      <section
+      {/* <section
         className="relative bg-black text-white px-8 sm:px-16 md:px-24 lg:px-32 py-20 md:py-28"
         style={{ fontFamily: "'Barlow', sans-serif" }}
       >
-        {/* Eyebrow */}
         <div className="flex items-center gap-3 mb-10">
           <span className="w-8 h-px bg-white/20" />
           <span className="text-[10px] tracking-[0.35em] uppercase text-white/25 font-light">
@@ -145,7 +142,6 @@ export default function BentoGallery() {
           </span>
         </div>
 
-        {/* Pull quote */}
         <p
           className="mb-12 max-w-2xl leading-[1.1] tracking-tight text-white/80"
           style={{
@@ -160,10 +156,8 @@ export default function BentoGallery() {
           </em>
         </p>
 
-        {/* Divider */}
         <div className="h-px mb-10 max-w-2xl bg-linear-to-r from-white/10 via-white/5 to-transparent" />
 
-        {/* Body paragraphs */}
         <div className="max-w-2xl relative z-100 flex flex-col gap-6">
           {CONTENT_PARAS.map((p, i) => (
             <p
@@ -174,7 +168,7 @@ export default function BentoGallery() {
             </p>
           ))}
         </div>
-      </section>
+      </section> */}
     </>
   );
 }

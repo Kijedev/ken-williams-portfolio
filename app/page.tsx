@@ -6,6 +6,7 @@ import FAQs from "./components/FAQs";
 import { Metadata } from "next";
 import BentoGallery from "./components/ui/Bentogallery";
 import VideoShowcase from "./components/VideoShowcase";
+import ScrollTextReveal from "./components/ui/ScrollTextReveal";
 
 export const metadata: Metadata = {
   title: "Ken Williams",
@@ -18,7 +19,8 @@ export default function Home() {
       <HeroPage />
       <Revolutionalize />
       <BentoGallery />
-      <VideoShowcase />
+      <ScrollTextReveal />
+      {/* <VideoShowcase /> */}
       <FAQs />
     </div>
   );
