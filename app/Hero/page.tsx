@@ -221,22 +221,18 @@ function imageSequence(config: ImageSequenceConfig): gsap.core.Tween {
 const HERO_SCROLL_HEIGHT = "300vh";
 
 export default function HeroSequence() {
-  const canvasRef    = useRef<HTMLCanvasElement>(null);
-  const tweenRef     = useRef<gsap.core.Tween | null>(null);
-  const spacerRef    = useRef<HTMLDivElement>(null);
-  const headingRef   = useRef<HTMLHeadingElement>(null);
-  const subRef       = useRef<HTMLParagraphElement>(null);
-  const eyebrowRef   = useRef<HTMLDivElement>(null);
-  const ctaRef       = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const tweenRef = useRef<gsap.core.Tween | null>(null);
+  const spacerRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const subRef = useRef<HTMLParagraphElement>(null);
+  const eyebrowRef = useRef<HTMLDivElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
   const scrollCueRef = useRef<HTMLDivElement>(null);
-  const leftMetaRef  = useRef<HTMLDivElement>(null);
+  const leftMetaRef = useRef<HTMLDivElement>(null);
   const rightMetaRef = useRef<HTMLDivElement>(null);
-  const ring1Ref     = useRef<HTMLDivElement>(null);
-  const ring2Ref     = useRef<HTMLDivElement>(null);
-
-  // ─── KEY FIX: single wrapper ref for the entire UI overlay ───────────────
-  // Animating the wrapper as one unit with scrub:true means GSAP ties
-  // opacity/y directly to scroll position — scroll back up = fade back in. ✅
+  const ring1Ref = useRef<HTMLDivElement>(null);
+  const ring2Ref = useRef<HTMLDivElement>(null);
   const uiWrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -263,8 +259,6 @@ export default function HeroSequence() {
     });
 
     const ctx = gsap.context(() => {
-
-      // ── Entrance animation (plays once on load) ─────────────
       const splitHeading = headingRef.current
         ? new SplitText(headingRef.current, { type: "chars,words" })
         : null;
@@ -279,35 +273,29 @@ export default function HeroSequence() {
       }
 
       entranceTl
-        .from(eyebrowRef.current,   { y: 16, opacity: 0, duration: 0.7 }, 0.2)
-        .from(subRef.current,       { y: 20, opacity: 0, duration: 0.8 }, 0.9)
-        .from(ctaRef.current,       { y: 16, opacity: 0, duration: 0.65 }, 1.05)
-        .from(leftMetaRef.current,  { x: -20, opacity: 0, duration: 0.7 }, 1.1)
-        .from(rightMetaRef.current, { x: 20,  opacity: 0, duration: 0.7 }, 1.1)
+        .from(eyebrowRef.current, { y: 16, opacity: 0, duration: 0.7 }, 0.2)
+        .from(subRef.current, { y: 20, opacity: 0, duration: 0.8 }, 0.9)
+        .from(ctaRef.current, { y: 16, opacity: 0, duration: 0.65 }, 1.05)
+        .from(leftMetaRef.current, { x: -20, opacity: 0, duration: 0.7 }, 1.1)
+        .from(rightMetaRef.current, { x: 20, opacity: 0, duration: 0.7 }, 1.1)
         .from(scrollCueRef.current, { opacity: 0, duration: 0.8 }, 1.3);
 
-      // ── Scroll fade — bidirectional because scrub:true ───────
-      // Animating the WRAPPER (not individual elements) with scrub:true
-      // means: scroll down → fades out, scroll back up → fades back in.
-      // The old code animated each element separately without scrub,
-      // which is why the text never came back. ✅
       gsap.fromTo(
         uiWrapperRef.current,
         { opacity: 1, y: 0 },
         {
           opacity: 0,
           y: -28,
-          ease: "none", // must be "none" for scrub to work linearly
+          ease: "none",
           scrollTrigger: {
             trigger: spacer,
             start: "top+=4% top",
             end: "top+=18% top",
-            scrub: true, // ← this is the key: ties progress to scroll position
+            scrub: true,
           },
         }
       );
 
-      // ── Echo ring pulse ──────────────────────────────────────
       const pulse = gsap.timeline({ repeat: -1, repeatDelay: 1.2 });
       pulse
         .fromTo(ring1Ref.current,
@@ -331,22 +319,7 @@ export default function HeroSequence() {
 
   return (
     <>
-      {/* <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Barlow:wght@300;400;500&display=swap');
-        html, body { margin: 0; padding: 0; background: #000; overflow-x: hidden; }
-        @keyframes heroPulse {
-          0%, 100% { opacity: 0.5; transform: scale(1); }
-          50%       { opacity: 1;   transform: scale(1.4); }
-        }
-        @keyframes scrollPulse {
-          0%, 100% { opacity: 0.4; transform: scaleY(1); }
-          50%       { opacity: 1;   transform: scaleY(1.15); }
-        }
-      `}</style> */}
-
       <div ref={spacerRef} style={{ height: HERO_SCROLL_HEIGHT, position: "relative" }} className="bg-black">
-
-        {/* Canvas */}
         <canvas
           ref={canvasRef}
           width={1158}
@@ -360,12 +333,16 @@ export default function HeroSequence() {
         />
 
         {/* Vignette top/bottom */}
-        <div style={{ position: "fixed", inset: 0, zIndex: 1, pointerEvents: "none",
-          background: "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.6) 100%)" }}
+        <div style={{
+          position: "fixed", inset: 0, zIndex: 1, pointerEvents: "none",
+          background: "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.6) 100%)"
+        }}
           aria-hidden="true" />
         {/* Vignette left/right */}
-        <div style={{ position: "fixed", inset: 0, zIndex: 1, pointerEvents: "none",
-          background: "linear-gradient(to right, rgba(0,0,0,0.35) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.35) 100%)" }}
+        <div style={{
+          position: "fixed", inset: 0, zIndex: 1, pointerEvents: "none",
+          background: "linear-gradient(to right, rgba(0,0,0,0.35) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.35) 100%)"
+        }}
           aria-hidden="true" />
 
         {/* Grain */}
@@ -390,49 +367,19 @@ export default function HeroSequence() {
             </div>
           ))}
 
-        {/* ══════════════════════════════════════════════════════
-            UI WRAPPER — this single div is what GSAP animates.
-            Because scrub:true ties its opacity+y to scroll pos,
-            scrolling back up brings everything back. ✅
-        ══════════════════════════════════════════════════════ */}
         <div
           ref={uiWrapperRef}
           style={{
             position: "fixed", inset: 0, zIndex: 10,
-            color: "white", fontFamily: "'Barlow', sans-serif",
+            color: "white",
             display: "flex", flexDirection: "column",
             alignItems: "center", justifyContent: "center",
           }}
         >
-          {/* Left meta */}
-          <div ref={leftMetaRef} style={{
-            position: "absolute",
-            left: "clamp(1.5rem, 3vw, 3rem)", bottom: "clamp(2rem, 4vh, 3.5rem)",
-            display: "flex", flexDirection: "column", gap: "6px",
-            pointerEvents: "none",
-          }}>
-            <span style={{ fontSize: "9px", letterSpacing: "0.32em", textTransform: "uppercase", color: "rgba(255,255,255,0.2)" }}>Based in</span>
-            <span style={{ fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", fontWeight: 300 }}>Lagos, Nigeria</span>
-          </div>
-
-          {/* Right meta */}
-          <div ref={rightMetaRef} style={{
-            position: "absolute",
-            right: "clamp(1.5rem, 3vw, 3rem)", bottom: "clamp(2rem, 4vh, 3.5rem)",
-            display: "flex", alignItems: "center", gap: "8px",
-            pointerEvents: "none",
-          }}>
-            <span style={{ display: "inline-block", width: "5px", height: "5px", borderRadius: "50%", background: "rgba(255,255,255,0.5)", animation: "heroPulse 2s ease-in-out infinite" }} />
-            <span style={{ fontSize: "9px", letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(255,255,255,0.22)" }}>Available for projects</span>
-          </div>
-
-          {/* Centre content */}
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", maxWidth: "900px", padding: "0 24px" }}>
-
-            {/* Eyebrow */}
             <div ref={eyebrowRef} style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "clamp(1.2rem, 2.5vh, 2rem)", pointerEvents: "none" }}>
               <span style={{ width: "28px", height: "1px", background: "rgba(255,255,255,0.2)" }} />
-              <span style={{ fontSize: "9px", letterSpacing: "0.4em", textTransform: "uppercase", color: "rgba(255,255,255,0.25)", fontWeight: 300 }}>Product Videography Studio</span>
+              <span style={{ fontSize: "16px", textTransform: "capitalize", color: "rgba(255,255,255,0.25)", fontWeight: 300 }}>Product Videography Studio</span>
               <span style={{ width: "28px", height: "1px", background: "rgba(255,255,255,0.2)" }} />
             </div>
 
@@ -440,17 +387,15 @@ export default function HeroSequence() {
             <h1
               ref={headingRef}
               style={{
-                fontFamily: "'Cormorant Garamond', serif",
                 fontSize: "clamp(3rem, 10vw, 8.5rem)",
-                fontWeight: 300, lineHeight: "0.92",
+                fontWeight: 600, lineHeight: "0.92",
                 letterSpacing: "-0.02em",
                 color: "rgba(255,255,255,0.92)",
                 margin: "0 0 clamp(1rem, 2.5vh, 1.8rem)",
                 perspective: "800px", pointerEvents: "none",
               }}
             >
-              Ekho
-              <em style={{ fontStyle: "italic", color: "rgba(255,255,255,0.28)" }}> Studios</em>
+              Ekho Studios
             </h1>
 
             {/* Sub */}
@@ -469,11 +414,11 @@ export default function HeroSequence() {
 
             {/* CTAs */}
             <div ref={ctaRef} style={{ display: "flex", alignItems: "center", gap: "20px", pointerEvents: "auto" }}>
-              <Link href="/contact" style={{
+              <Link href="/Contact" style={{
                 display: "inline-flex", alignItems: "center", gap: "10px",
                 padding: "12px 28px", borderRadius: "9999px",
                 border: "1px solid rgba(255,255,255,0.18)",
-                fontSize: "10px", letterSpacing: "0.22em", textTransform: "uppercase",
+                fontSize: "16px", textTransform: "capitalize",
                 fontWeight: 400, color: "rgba(255,255,255,0.55)", textDecoration: "none",
                 transition: "all 0.3s ease",
               }}
@@ -486,17 +431,6 @@ export default function HeroSequence() {
                 </svg>
               </Link>
 
-              <Link href="/services" style={{
-                fontSize: "10px", letterSpacing: "0.22em", textTransform: "uppercase",
-                color: "rgba(255,255,255,0.2)", textDecoration: "none",
-                borderBottom: "1px solid rgba(255,255,255,0.08)", paddingBottom: "2px",
-                transition: "all 0.3s ease",
-              }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.5)"; (e.currentTarget as HTMLElement).style.borderBottomColor = "rgba(255,255,255,0.25)"; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.2)"; (e.currentTarget as HTMLElement).style.borderBottomColor = "rgba(255,255,255,0.08)"; }}
-              >
-                Our work
-              </Link>
             </div>
           </div>
 

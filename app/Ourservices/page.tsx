@@ -207,7 +207,7 @@ export default function ServicesPage() {
 
                         <h1 ref={headingRef}
                             className="font-cormorant text-[clamp(3.2rem,9vw,7rem)] font-light leading-[0.95] tracking-tight text-white mb-8 max-w-4xl">
-                            Product films that
+                            Product videos that
                             make people stop
                             <em className="not-italic text-white/30"> and buy.</em>
                         </h1>

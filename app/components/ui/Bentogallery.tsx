@@ -8,9 +8,9 @@ import { Flip } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger, Flip);
 
 const IMAGES = [
-  "https://assets.codepen.io/16327/portrait-pattern-1.jpg",
+  "/Bastardo.png",
   "https://assets.codepen.io/16327/portrait-image-12.jpg",
-  "https://assets.codepen.io/16327/portrait-image-8.jpg",
+  "/Durex.png",
   "https://assets.codepen.io/16327/portrait-pattern-2.jpg",
   "https://assets.codepen.io/16327/portrait-image-4.jpg",
   "https://assets.codepen.io/16327/portrait-image-3.jpg",

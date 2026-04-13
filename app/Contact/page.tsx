@@ -3,8 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import FAQs from "../components/FAQs";
-import Plan from "../components/Plan";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,7 +18,7 @@ interface FormData {
 
 const CONTACT_DETAILS = [
     { label: "Email", value: "contact@ekhostudios.com", href: "contact@ekhostudios.com" },
-    { label: "Phone", value: "+234 816 755 5952", href: "tel:+2348167555952" },
+    { label: "Phone", value: "+234 915 775 6380", href: "tel:+2349157756380" },
     { label: "Location", value: "Lagos, Nigeria", href: null },
 ];
 
@@ -35,7 +33,7 @@ function Field({
 }) {
     return (
         <div className="group flex flex-col gap-2">
-            <label className="text-[10px] lg:text-lg capitalize text-white/80 font-light">
+            <label className="text-[14px] lg:text-lg capitalize text-white/80 font-light">
                 {label}
                 {required && <span className="ml-1 text-white/80">*</span>}
             </label>
@@ -48,7 +46,6 @@ export default function page() {
     const [form, setForm] = useState<FormData>({ name: "", email: "", company: "", budget: "", message: "" });
     const [status, setStatus] = useState<FormState>("idle");
 
-    // refs for GSAP
     const pageRef = useRef<HTMLElement>(null);
     const eyebrowRef = useRef<HTMLDivElement>(null);
     const headingRef = useRef<HTMLHeadingElement>(null);
@@ -58,7 +55,6 @@ export default function page() {
     const dividerRef = useRef<HTMLDivElement>(null);
     const orbitRef = useRef<HTMLDivElement>(null);
 
-    // ── entrance animations ───
     useEffect(() => {
         const ctx = gsap.context(() => {
             const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
@@ -91,7 +87,6 @@ export default function page() {
         setStatus("sent");
     };
 
-    // ── shared input class ────────────────────────────────────────
     const inputCls = `
     w-full bg-transparent border-b border-white/20
     focus:border-white/40 hover:border-white/20
@@ -293,7 +288,6 @@ export default function page() {
                 </div>
 
                 <div className="absolute bottom-0 inset-x-0 h-px bg-lineaar-to-r from-transparent via-white/8 to-transparent" />
-                {/* <FAQs /> */}
             </main>
         </>
     );
