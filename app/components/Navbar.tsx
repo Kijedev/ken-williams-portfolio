@@ -71,14 +71,14 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link href="/" className="group flex items-center gap-2.5 shrink-0">
-            <span className="
+            {/* <span className="
               relative flex items-center justify-center
               w-8 h-8 rounded-full border border-white/20
               group-hover:border-white/60 transition-colors duration-300
             ">
               <span className="w-1.5 h-1.5 rounded-full bg-white group-hover:scale-125 transition-transform duration-300" />
-            </span>
-            <span className="text-white text-sm lg:text-lg font-light group-hover:tracking-[0.28em] transition-all duration-500">
+            </span> */}
+            <span className="text-white text-sm lg:text-lg font-light group-hover:tracking-widest transition-all duration-500">
               Ekho Studios
             </span>
           </Link>
@@ -93,7 +93,7 @@ export default function Navbar() {
                     href={href}
                     className={`
                       group relative text-lg font-light transition-colors duration-300
-                      ${active ? "text-white" : "text-white/80 hover:text-white"}
+                      ${active ? "text-white" : "text-white/40 hover:text-white"}
                     `}
                   >
                     {label}

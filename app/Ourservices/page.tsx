@@ -5,6 +5,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import FAQs from "../components/FAQs";
+import Ready from "../components/Ready";
+import ScrollTextReveal from "../components/ui/ScrollTextReveal";
+import ExpertiseSection from "../components/ExpertiseSection";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -188,33 +191,37 @@ export default function ServicesPage() {
     return (
         <>
             <div ref={pageRef} className="relative min-h-screen w-full bg-black text-white overflow-hidden">
-                {/* <div className="pointer-events-none fixed inset-0 z-1 opacity-[0.025]"
+                <div className="pointer-events-none fixed inset-0 z-1 opacity-[0.025]"
                     style={{
                         backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
                         backgroundSize: "180px 180px",
-                    }} aria-hidden="true" /> */}
+                    }} aria-hidden="true" />
 
-                {/* <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] opacity-[0.05] z-1"
-                    style={{ background: "radial-gradient(ellipse, #fff 0%, transparent 65%)" }} aria-hidden="true" /> */}
+                <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] opacity-[0.05] z-1"
+                    style={{ background: "radial-gradient(ellipse, #fff 0%, transparent 65%)" }} aria-hidden="true" />
 
                 <div ref={orbitRef}
                     className="pointer-events-none absolute -top-64 -right-64 w-[700px] h-[700px] rounded-full border border-white/3 z-1"
                     aria-hidden="true" />
 
                 {/* Hero */}
-                <section className="relative z-10 flex flex-col items-center justify-center w-full min-h-screen px-6 sm:px-10 md:px-16 lg:px-24">
-                    <div className="max-w-7xl w-full pt-24 md:pt-32">
-
-                        <h1 ref={headingRef}
-                            className="font-cormorant text-[clamp(3.2rem,9vw,7rem)] font-light leading-[0.95] tracking-tight text-white mb-8 max-w-4xl">
-                            Product videos that
-                            make people stop
-                            <em className="not-italic text-white/30"> and buy.</em>
-                        </h1>
-
-                        <p ref={subRef} className="text-sm md:text-base text-white/35 font-light leading-relaxed max-w-4xl mb-16">
-                            Three formats. One standard of quality. Every film is shot, edited, and delivered to make your product the most compelling thing on any feed.
-                        </p>
+                <section className="relative z-10 flex flex-col items-center justify-center w-full min-h-screen px-6 lg:px-20">
+                    <div className="w-full pt-24 lg:pt-20">
+                        <div className="flex flex-col">
+                            <h1
+                                className="lg:ml-14 uppercase text-[clamp(3.2rem,9vw,10rem)] font-extrabold leading-[0.95] tracking-tighter text-[#FEE9CE] mb-8">
+                                Let us <br />
+                            </h1>
+                            <h1
+                                className="lg:-mt-12 -mt-8 uppercase text-[clamp(4rem,9vw,10rem)] font-extrabold leading-[0.95] tracking-tighter text-[#FEE9CE] mb-8">
+                                help you <br />
+                            </h1>
+                        </div>
+                        <div>
+                            <h1 className="lg:-mt-12 -mt-8 uppercase text-[clamp(5rem,9vw,10rem)] font-extrabold leading-[0.95] tracking-tighter text-[#EF5143] mb-8">achieve</h1>
+                            <h1 className="lg:-mt-12 -mt-8 uppercase text-[clamp(5rem,9vw,10rem)] font-extrabold leading-[0.95] tracking-tighter text-[#EF5143] mb-8">your Brand</h1>
+                            <h1 className="lg:-mt-12 -mt-8 uppercase text-[clamp(5rem,9vw,10rem)] font-extrabold leading-[0.95] tracking-tighter text-[#EF5143] mb-8">Goals</h1>
+                        </div>
                     </div>
 
                     {/* Scroll cue */}
@@ -224,10 +231,18 @@ export default function ServicesPage() {
                     </div>
                 </section>
 
+                <section className="h-screen w-full flex items-center justify-center text-white">
+                    <Ready />
+                </section>
+
+                <div className="relative z-20 mt-[100vh]">
+                    <ExpertiseSection />
+                </div>
+
                 {/* Scroll list */}
                 <section
                     ref={pinSectionRef}
-                    className="relative z-10 w-full min-h-screen flex items-center justify-center border-t border-b border-dashed border-white/8"
+                    className="bg-black relative z-10 w-full min-h-screen flex items-center justify-center border-t border-b border-dashed border-white/8"
                 >
                     <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-8 relative">
 
@@ -245,14 +260,14 @@ export default function ServicesPage() {
                                         className="cursor-default select-none transition-colors duration-300"
                                         style={{ color: "rgba(255,255,255,0.18)" }}>
                                         <span className="block text-[9px] tracking-[0.28em] uppercase font-light mb-1.5"
-                                            style={{ fontFamily: "Barlow, sans-serif", color: "rgba(255,255,255,0.2)" }}>
+                                            style={{ color: "rgba(255,255,255,0.2)" }}>
                                             {s.category}
                                         </span>
                                         <span className="font-cormorant block text-[clamp(1.6rem,3.8vw,2.8rem)] font-light leading-tight tracking-tight">
                                             {s.title}
                                         </span>
                                         <span className="block text-[10px] tracking-[0.15em] mt-1 font-light"
-                                            style={{ fontFamily: "Barlow, sans-serif", color: "rgba(255,255,255,0.15)" }}>
+                                            style={{ color: "rgba(255,255,255,0.15)" }}>
                                             {s.duration}
                                         </span>
                                     </li>
@@ -435,7 +450,11 @@ export default function ServicesPage() {
                     </div>
                 </section>
 
+
                 <div className="h-px bg-linear-to-r from-transparent via-white/[0.07] to-transparent" />
+                {/* <div className="relative z-10">
+                    <Ready />
+                </div> */}
                 <FAQs />
             </div>
         </>

@@ -12,8 +12,8 @@ gsap.registerPlugin(ScrollTrigger);
 const STORY_PARAGRAPHS = [
     `I tested positive for COVID on the 31st of December, 2020. The result came in very late at night and I couldn't travel home. I spent the entire January looking for food vendors to deliver food to me — but the available food delivery providers didn't deliver during public holidays. I eventually found one after so many hours and ended up paying 4× the regular amount.`,
     `During my 14-day isolation, I realised no one was really looking into the logistics problem with the care and attention I would have wished for. I started asking questions; most answers ended with "dispatch riders are not reliable." I made a lot of research and discovered delivery companies in countries like India made millions of deliveries daily. No one comes close locally — and it didn't make sense that at such a small scale, we Africans couldn't figure it out.`,
-    `We initially approached the problem from a technical standpoint, then realised the problem was more operations than tech — and we needed to deconstruct operations before trying again. We went back to first principles. We pulled funds from our pockets, got three bikes and riders, and gave two of them to Korede Spaghetti and one to NiFries. We held weekly meetings with our riders and that gave us so much insight.`,
-    `With a better understanding of what we believed the problem was, we knew our solution had to be efficient and easy to use. This was hard to pull as we struggled — but every obstacle sharpened our resolve and deepened our conviction that what we were building mattered.`,
+    // `We initially approached the problem from a technical standpoint, then realised the problem was more operations than tech — and we needed to deconstruct operations before trying again. We went back to first principles. We pulled funds from our pockets, got three bikes and riders, and gave two of them to Korede Spaghetti and one to NiFries. We held weekly meetings with our riders and that gave us so much insight.`,
+    // `With a better understanding of what we believed the problem was, we knew our solution had to be efficient and easy to use. This was hard to pull as we struggled — but every obstacle sharpened our resolve and deepened our conviction that what we were building mattered.`,
 ];
 
 export default function Company() {
@@ -166,7 +166,7 @@ export default function Company() {
 
                                 <div className="overflow-hidden">
                                     <Image
-                                        src="/ken.jpeg"
+                                        src="/kenprofile.jpeg"
                                         alt="Ken Williams — Founder, Ekho Studios"
                                         width={400}
                                         height={500}

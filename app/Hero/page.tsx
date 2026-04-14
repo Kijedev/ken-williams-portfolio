@@ -218,7 +218,7 @@ function imageSequence(config: ImageSequenceConfig): gsap.core.Tween {
   });
 }
 
-const HERO_SCROLL_HEIGHT = "300vh";
+const HERO_SCROLL_HEIGHT = "200vh";
 
 export default function HeroSequence() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -359,13 +359,13 @@ export default function HeroSequence() {
         </div>
 
         {/* Corner brackets */}
-        {["top-6 left-6", "top-6 right-6 scale-x-[-1]", "bottom-6 left-6 scale-y-[-1]", "bottom-6 right-6 scale-[-1]"]
+        {/* {["top-6 left-6", "top-6 right-6 scale-x-[-1]", "bottom-6 left-6 scale-y-[-1]", "bottom-6 right-6 scale-[-1]"]
           .map((pos, i) => (
             <div key={i} className={`absolute ${pos} w-5 h-5`} style={{ zIndex: 5, pointerEvents: "none" }} aria-hidden="true">
               <div className="absolute top-0 left-0 w-full h-px bg-white/15" />
               <div className="absolute top-0 left-0 w-px h-full bg-white/15" />
             </div>
-          ))}
+          ))} */}
 
         <div
           ref={uiWrapperRef}
@@ -377,11 +377,11 @@ export default function HeroSequence() {
           }}
         >
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", maxWidth: "900px", padding: "0 24px" }}>
-            <div ref={eyebrowRef} style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "clamp(1.2rem, 2.5vh, 2rem)", pointerEvents: "none" }}>
+            {/* <div ref={eyebrowRef} style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "clamp(1.2rem, 2.5vh, 2rem)", pointerEvents: "none" }}>
               <span style={{ width: "28px", height: "1px", background: "rgba(255,255,255,0.2)" }} />
               <span style={{ fontSize: "16px", textTransform: "capitalize", color: "rgba(255,255,255,0.25)", fontWeight: 300 }}>Product Videography Studio</span>
               <span style={{ width: "28px", height: "1px", background: "rgba(255,255,255,0.2)" }} />
-            </div>
+            </div> */}
 
             {/* Heading */}
             <h1
@@ -404,7 +404,7 @@ export default function HeroSequence() {
               style={{
                 fontSize: "clamp(0.78rem, 1.6vw, 1rem)", fontWeight: 300,
                 color: "rgba(255,255,255,0.32)", letterSpacing: "0.06em",
-                lineHeight: "1.65", maxWidth: "420px",
+                lineHeight: "1.65", maxWidth: "500px",
                 margin: "0 0 clamp(1.5rem, 3vh, 2.5rem)",
                 pointerEvents: "none",
               }}

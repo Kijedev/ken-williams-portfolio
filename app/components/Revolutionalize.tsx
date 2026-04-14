@@ -45,7 +45,7 @@ export default function Revolutionalize() {
                             delay: i * 0.2,
                         }}
                         className={`
-              text-white font-light text-4xl sm:text-5xl md:text-7xl lg:text-[9rem] xl:text-[11rem] leading-[0.9]
+              text-white/70 font-light text-4xl sm:text-5xl md:text-7xl lg:text-[8rem] xl:text-[10rem] leading-[0.9]
               
               ${i === 1 ? "italic" : ""}
               ${i !== 0 ? "mt-4 sm:mt-4 md:mt-6 lg:mt-8 text-white/70" : ""}

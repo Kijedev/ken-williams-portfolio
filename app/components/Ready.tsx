@@ -42,20 +42,20 @@ export default function ScrollTextReveal() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen flex items-center justify-center bg-black"
+      className="relative h-screen w-full flex items-center justify-center bg-black"
     >
       <h1
         ref={textRef}
-        className="text-center font-bold uppercase"
+        className="text-center font-bold capitalize"
         style={{
-          fontSize: "clamp(4rem, 12vw, 9rem)",
-          lineHeight: 0.85,
+          fontSize: "clamp(4rem, 12vw, 6rem)",
+          lineHeight: 1,
           letterSpacing: "-0.02em",
           backgroundImage: `
             linear-gradient(
               to bottom,
-              #ff4d3d 0%,
-              #ff4d3d 50%,
+              #FEE9CE 0%,
+              #FEE9CE 50%,
               #3a3a3a 50%,
               #3a3a3a 100%
             )
@@ -66,9 +66,9 @@ export default function ScrollTextReveal() {
           color: "transparent",
         }}
       >
-        Over 7 <br /> Years
-        Helping <br /> Brands
-        Tell <br /> Their Stories
+        We can help <br /> your
+        brand <br /> in
+        different <br /> ways
       </h1>
     </section>
   );

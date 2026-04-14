@@ -20,7 +20,6 @@ export default function Home() {
       <Revolutionalize />
       <BentoGallery />
       <ScrollTextReveal />
-      {/* <VideoShowcase /> */}
       <FAQs />
     </div>
   );
