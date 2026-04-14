@@ -358,15 +358,6 @@ export default function HeroSequence() {
           <div ref={ring2Ref} style={{ position: "absolute", width: "240px", height: "240px", marginLeft: "-120px", marginTop: "-120px", borderRadius: "50%", border: "1px solid rgba(255,255,255,0.08)" }} />
         </div>
 
-        {/* Corner brackets */}
-        {/* {["top-6 left-6", "top-6 right-6 scale-x-[-1]", "bottom-6 left-6 scale-y-[-1]", "bottom-6 right-6 scale-[-1]"]
-          .map((pos, i) => (
-            <div key={i} className={`absolute ${pos} w-5 h-5`} style={{ zIndex: 5, pointerEvents: "none" }} aria-hidden="true">
-              <div className="absolute top-0 left-0 w-full h-px bg-white/15" />
-              <div className="absolute top-0 left-0 w-px h-full bg-white/15" />
-            </div>
-          ))} */}
-
         <div
           ref={uiWrapperRef}
           style={{
@@ -377,12 +368,6 @@ export default function HeroSequence() {
           }}
         >
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", maxWidth: "900px", padding: "0 24px" }}>
-            {/* <div ref={eyebrowRef} style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "clamp(1.2rem, 2.5vh, 2rem)", pointerEvents: "none" }}>
-              <span style={{ width: "28px", height: "1px", background: "rgba(255,255,255,0.2)" }} />
-              <span style={{ fontSize: "16px", textTransform: "capitalize", color: "rgba(255,255,255,0.25)", fontWeight: 300 }}>Product Videography Studio</span>
-              <span style={{ width: "28px", height: "1px", background: "rgba(255,255,255,0.2)" }} />
-            </div> */}
-
             {/* Heading */}
             <h1
               ref={headingRef}
@@ -390,7 +375,7 @@ export default function HeroSequence() {
                 fontSize: "clamp(3rem, 10vw, 8.5rem)",
                 fontWeight: 600, lineHeight: "0.92",
                 letterSpacing: "-0.02em",
-                color: "rgba(255,255,255,0.92)",
+                color: "#FEE9CE",
                 margin: "0 0 clamp(1rem, 2.5vh, 1.8rem)",
                 perspective: "800px", pointerEvents: "none",
               }}

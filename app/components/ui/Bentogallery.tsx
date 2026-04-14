@@ -9,13 +9,13 @@ gsap.registerPlugin(ScrollTrigger, Flip);
 
 const IMAGES = [
   "/Bastardo.png",
-  "https://assets.codepen.io/16327/portrait-image-12.jpg",
+  "13.jpg",
   "/Durex.png",
-  "https://assets.codepen.io/16327/portrait-pattern-2.jpg",
-  "https://assets.codepen.io/16327/portrait-image-4.jpg",
-  "https://assets.codepen.io/16327/portrait-image-3.jpg",
-  "https://assets.codepen.io/16327/portrait-pattern-3.jpg",
-  "https://assets.codepen.io/16327/portrait-image-1.jpg",
+  "/Chiexotic.png",
+  "/Antforce.png",
+  "/Jump.png",
+  "/viva.png",
+  "/Wine.png",
 ];
 
 const CONTENT_PARAS = [

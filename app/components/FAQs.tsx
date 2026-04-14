@@ -103,9 +103,9 @@ function FAQItem({
           </span>
           <span
             className={`
-              text-base md:text-3xl font-light leading-snug tracking-wide cursor-pointer
+              text-base md:text-2xl font-light leading-snug tracking-wide cursor-pointer
               transition-colors duration-300
-              ${isOpen ? "text-white" : "text-white/55 group-hover:text-white/80"}
+              ${isOpen ? "text-white" : "text-[#FEE9CE] group-hover:text-white/80"}
             `}
           >
             {item.q}
@@ -221,7 +221,7 @@ export default function FAQs() {
           <p className="text-[10px] lg:text-sm tracking-[0.35em] text-white/40 uppercase mb-4">
             Questions
           </p>
-          <h2 className="text-[clamp(2.2rem,6vw,4.5rem)] font-extralight leading-[1.05] tracking-tight text-white">
+          <h2 className="text-[clamp(2.2rem,6vw,4.5rem)] font-extralight leading-[1.05] tracking-tight text-[#FEE9CE]">
             Everything you<br />
             <em className="not-italic text-white/40">need to know</em>
           </h2>

@@ -6,6 +6,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CoreValues from "../components/CoreValues";
 import FAQs from "../components/FAQs";
+import Whoweare from "../components/Whoweare";
+import Mission from "../components/Mission";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,33 +69,16 @@ export default function Company() {
 
     return (
         <>
-            {/* <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Barlow:wght@300;400;500&display=swap');
-        .font-cormorant { font-family: 'Cormorant Garamond', serif; }
-        .font-barlow    { font-family: 'Barlow', sans-serif; }
-      `}</style> */}
-
             <main
                 ref={pageRef}
                 className="font-barlow relative w-full min-h-screen bg-black text-white overflow-hidden"
             >
-
-                {/* ── Grain ────────────────────────────────────────────── */}
-                {/* <div
-          className="pointer-events-none fixed inset-0 z-[1] opacity-[0.025]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
-            backgroundSize: "180px 180px",
-          }}
-          aria-hidden="true"
-        /> */}
-
                 {/* ── Glow ─────────────────────────────────────────────── */}
-                {/* <div
-          className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] opacity-[0.05] z-[1]"
-          style={{ background: "radial-gradient(ellipse, #fff 0%, transparent 65%)" }}
-          aria-hidden="true"
-        /> */}
+                <div
+                    className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] opacity-[0.05] z-1"
+                    style={{ background: "radial-gradient(ellipse, #fff 0%, transparent 65%)" }}
+                    aria-hidden="true"
+                />
 
                 {/* ── Orbit ring ───────────────────────────────────────── */}
                 <div
@@ -102,18 +87,20 @@ export default function Company() {
                     aria-hidden="true"
                 />
 
-                {/* ════════════════════════════════════════════════════════
-            HERO — "Who We Are"
-        ════════════════════════════════════════════════════════ */}
-                <section className="relative z-10 flex flex-col items-center justify-center text-center min-h-[55vh] px-6 pt-36 pb-12">
+                <div>
+                    <Whoweare />
+                </div>
 
-                    {/* <div ref={eyebrowRef} className="flex items-center justify-center gap-3 mb-6">
-            <span className="w-6 h-px bg-white/20" />
-            <span className="text-[10px] tracking-[0.4em] uppercase text-white/25 font-light">
-              About Us
-            </span>
-            <span className="w-6 h-px bg-white/20" />
-          </div> */}
+                {/* <section className="relative z-10 flex flex-col items-center justify-center text-center min-h-[55vh] px-6 pt-36 pb-12">
+                    <div ref={eyebrowRef} className="flex items-center justify-center gap-3 mb-6">
+                        <span className="w-6 h-px bg-white/20" />
+                        <span className="text-[10px] tracking-[0.4em] uppercase text-white/25 font-light">
+                            About Us
+                        </span>
+                        <span className="w-6 h-px bg-white/20" />
+                    </div>
+                    <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] opacity-[0.05] z-1"
+                        style={{ background: "radial-gradient(ellipse, #fff 0%, transparent 65%)" }} aria-hidden="true" />
 
                     <h1
                         ref={headingRef}
@@ -122,19 +109,13 @@ export default function Company() {
                         Who we{" "}
                         <em className="not-italic text-white/25">are</em>
                     </h1>
-
-                    {/* Divider */}
                     <div
                         ref={dividerRef}
                         className="mt-10 w-24 h-px bg-linear-to-r from-transparent via-white/25 to-transparent"
                     />
-                </section>
+                </section> */}
 
-                {/* ════════════════════════════════════════════════════════
-            FOUNDER SECTION
-        ════════════════════════════════════════════════════════ */}
                 <section className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 pb-24 md:pb-10">
-
                     {/* Section label */}
                     <div className="flex items-center gap-3 mb-14">
                         <span className="w-6 h-px bg-white/20" />
@@ -186,17 +167,6 @@ export default function Company() {
                                 <p className="text-[14px] capitalize text-white/40 font-light">
                                     Ekho Studios
                                 </p>
-
-                                {/* Decorative dot pulse */}
-                                {/* <div className="flex items-center justify-center lg:justify-start gap-2 mt-3">
-                                    <span className="relative flex h-[5px] w-[5px]">
-                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white/30 opacity-75" />
-                                        <span className="relative inline-flex rounded-full h-[5px] w-[5px] bg-white/50" />
-                                    </span>
-                                    <span className="text-[9px] tracking-[0.22em] uppercase text-white/40 font-light">
-                                        Lagos, Nigeria
-                                    </span>
-                                </div> */}
                             </div>
                         </div>
 
@@ -204,7 +174,7 @@ export default function Company() {
                         <div className="flex flex-col gap-0">
 
                             {/* Pull quote */}
-                            <blockquote className="font-cormorant text-[clamp(1.4rem,3.2vw,2.2rem)] font-light leading-[1.2] tracking-tight text-white/60 mb-10 italic border-l border-white/10 pl-6">
+                            <blockquote className="text-[clamp(1.4rem,3.2vw,2.2rem)] font-light leading-[1.2] tracking-tight text-[#FEE9CE] mb-10 italic border-l border-white/10 pl-6">
                                 "No one was really looking into the problem with the care and attention it deserved."
                             </blockquote>
 
@@ -223,17 +193,11 @@ export default function Company() {
                                     </p>
                                 ))}
                             </div>
-
-                            {/* Year stamp */}
-                            {/* <div className="flex items-center gap-4 mt-12">
-                <div className="h-px flex-1 bg- -to-r from-white/8 to-transparent" />
-                <span className="font-cormorant text-base italic text-white/15 tracking-widest">
-                  Founded 2021
-                </span>
-              </div> */}
                         </div>
                     </div>
                 </section>
+
+                <Mission />
 
                 <CoreValues />
                 <FAQs />

@@ -5,9 +5,10 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import FAQs from "../components/FAQs";
-import Ready from "../components/Ready";
-import ScrollTextReveal from "../components/ui/ScrollTextReveal";
+// import Ready from "../components/Ready";
+// import ScrollTextReveal from "../components/ui/ScrollTextReveal";
 import ExpertiseSection from "../components/ExpertiseSection";
+import Help from "../components/Help";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -232,7 +233,7 @@ export default function ServicesPage() {
                 </section>
 
                 <section className="h-screen w-full flex items-center justify-center text-white">
-                    <Ready />
+                    <Help />
                 </section>
 
                 <div className="relative z-20 mt-[100vh]">
@@ -240,145 +241,152 @@ export default function ServicesPage() {
                 </div>
 
                 {/* Scroll list */}
-                <section
-                    ref={pinSectionRef}
-                    className="bg-black relative z-10 w-full min-h-screen flex items-center justify-center border-t border-b border-dashed border-white/8"
-                >
-                    <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-8 relative">
+                <section className="bg-black">
+                    <div className=" lg:pt-32 pt-20 lg:px-20 px-5">
+                        <h1 className="text-[clamp(5rem,9vw,10rem)] font-extrabold leading-[0.8] tracking-tighter mb-8 bg-linear-to-b from-[#EF5143] via-[#EF5143] to-black bg-clip-text text-transparent">
+                            OUR <br /> PRICING
+                        </h1>
+                    </div>
 
-                        {/* Left: fill bar + titles */}
-                        <div className="relative shrink-0 pr-8 md:pr-16 flex items-center">
-                            <div ref={fillRef}
-                                className="absolute left-0 top-0 w-[2px] h-full origin-top"
-                                style={{ background: "linear-gradient(to bottom, #e8c49a, #a8c4e8, #c4e8a8)" }}
-                                aria-hidden="true" />
+                    <section
+                        ref={pinSectionRef}
+                        className="relative z-10 w-full min-h-screen flex items-center justify-center lg:-mt-32"
+                    >
+                        <div className="w-full mx-auto px-6 sm:px-10 md:px-16 lg:px-24 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-8 relative">
+                            {/* Left: fill bar + titles */}
+                            <div className="relative shrink-0 pr-8 md:pr-16 flex items-center">
+                                <div ref={fillRef}
+                                    className="absolute left-0 top-0 w-[2px] h-full origin-top"
+                                    style={{ background: "linear-gradient(to bottom, #e8c49a, #a8c4e8, #c4e8a8)" }}
+                                    aria-hidden="true" />
 
-                            <ul ref={listRef} className="list-none m-0 p-0 pl-6 flex flex-col gap-8 md:gap-10">
-                                {SERVICES.map((s, i) => (
-                                    <li key={s.title}
-                                        ref={(el) => { listItemsRef.current[i] = el; }}
-                                        className="cursor-default select-none transition-colors duration-300"
-                                        style={{ color: "rgba(255,255,255,0.18)" }}>
-                                        <span className="block text-[9px] tracking-[0.28em] uppercase font-light mb-1.5"
-                                            style={{ color: "rgba(255,255,255,0.2)" }}>
-                                            {s.category}
-                                        </span>
-                                        <span className="font-cormorant block text-[clamp(1.6rem,3.8vw,2.8rem)] font-light leading-tight tracking-tight">
-                                            {s.title}
-                                        </span>
-                                        <span className="block text-[10px] tracking-[0.15em] mt-1 font-light"
-                                            style={{ color: "rgba(255,255,255,0.15)" }}>
-                                            {s.duration}
-                                        </span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        {/* Right */}
-                        <div className="flex-1 relative min-h-[420px] md:min-h-[480px]">
-                            {SERVICES.map((s, i) => (
-                                <div key={s.title}
-                                    ref={(el) => { slidesRef.current[i] = el; }}
-                                    className="absolute inset-0 flex flex-col justify-center"
-                                    style={{ opacity: 0, visibility: "hidden" }}>
-
-                                    <div className="relative border border-white/[0.07] p-7 md:p-10 bg-[#010101] rounded-2xl overflow-hidden max-w-lg ml-auto w-full">
-                                        {/* Accent glow */}
-                                        <div className="pointer-events-none absolute -top-20 -right-20 w-72 h-72 rounded-full opacity-[0.07]"
-                                            style={{ background: `radial-gradient(ellipse, ${s.accent} 0%, transparent 65%)` }}
-                                            aria-hidden="true" />
-
-                                        {/* Corner bracket */}
-                                        <div className="absolute top-4 right-4 w-4 h-4" aria-hidden="true">
-                                            <div className="absolute top-0 right-0 w-full h-px" style={{ background: s.accent, opacity: 0.4 }} />
-                                            <div className="absolute top-0 right-0 w-px h-full" style={{ background: s.accent, opacity: 0.4 }} />
-                                        </div>
-
-                                        {/* Tag badge */}
-                                        {s.tag && (
-                                            <div className="inline-flex items-center gap-2 mb-5">
-                                                <span className="w-1.5 h-1.5 rounded-full" style={{ background: s.accent }} />
-                                                <span className="text-[9px] tracking-[0.28em] uppercase font-light"
-                                                    style={{ fontFamily: "Barlow, sans-serif", color: s.accent, opacity: 0.7 }}>
-                                                    {s.tag}
-                                                </span>
-                                            </div>
-                                        )}
-
-                                        {/* Price */}
-                                        <div className="flex items-baseline gap-3 mb-1">
-                                            <span className="font-cormorant text-[clamp(2rem,5vw,3.2rem)] font-light leading-none"
-                                                style={{ color: s.accent }}>
-                                                {s.price}
+                                <ul ref={listRef} className="list-none m-0 p-0 pl-6 flex flex-col gap-8 md:gap-10">
+                                    {SERVICES.map((s, i) => (
+                                        <li key={s.title}
+                                            ref={(el) => { listItemsRef.current[i] = el; }}
+                                            className="cursor-default select-none transition-colors duration-300"
+                                            style={{ color: "rgba(255,255,255,0.18)" }}>
+                                            <span className="block text-[9px] tracking-[0.28em] uppercase font-light mb-1.5"
+                                                style={{ color: "rgba(255,255,255,0.2)" }}>
+                                                {s.category}
                                             </span>
-                                            <span className="text-[9px] tracking-[0.2em] uppercase text-white/20 font-light"
-                                                style={{ fontFamily: "Barlow, sans-serif" }}>
+                                            <span className="font-cormorant block text-[clamp(1.6rem,3.8vw,2.8rem)] font-light leading-tight tracking-tight">
+                                                {s.title}
+                                            </span>
+                                            <span className="block text-[10px] tracking-[0.15em] mt-1 font-light"
+                                                style={{ color: "rgba(255,255,255,0.15)" }}>
                                                 {s.duration}
                                             </span>
-                                        </div>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
 
-                                        {/* Divider */}
-                                        <div className="h-px mb-5 mt-4 opacity-15"
-                                            style={{ background: `linear-gradient(90deg, ${s.accent}, transparent)` }} />
+                            {/* Right */}
+                            <div className="flex-1 relative min-h-[420px] md:min-h-[480px]">
+                                {SERVICES.map((s, i) => (
+                                    <div key={s.title}
+                                        ref={(el) => { slidesRef.current[i] = el; }}
+                                        className="absolute inset-0 flex flex-col justify-center"
+                                        style={{ opacity: 0, visibility: "hidden" }}>
 
-                                        {/* Description */}
-                                        <p className="text-sm text-white/45 font-light leading-relaxed mb-7 tracking-wide">
-                                            {s.description}
-                                        </p>
+                                        <div className="relative border border-white/[0.07] p-7 md:p-10 bg-[#010101] rounded-2xl overflow-hidden max-w-lg ml-auto w-full">
+                                            {/* Accent glow */}
+                                            <div className="pointer-events-none absolute -top-20 -right-20 w-72 h-72 rounded-full opacity-[0.07]"
+                                                style={{ background: `radial-gradient(ellipse, ${s.accent} 0%, transparent 65%)` }}
+                                                aria-hidden="true" />
 
-                                        {/* Deliverables */}
-                                        <div className="flex flex-col gap-2.5 mb-7">
-                                            <span className="text-[9px] tracking-[0.28em] uppercase text-white/20 mb-1"
-                                                style={{ fontFamily: "Barlow, sans-serif" }}>
-                                                What's included
-                                            </span>
-                                            {s.deliverables.map((d) => (
-                                                <div key={d} className="flex items-center gap-3">
-                                                    <span className="w-3 h-px shrink-0" style={{ background: s.accent, opacity: 0.4 }} />
-                                                    <span className="text-xs text-white/40 font-light tracking-wide">{d}</span>
+                                            {/* Corner bracket */}
+                                            <div className="absolute top-4 right-4 w-4 h-4" aria-hidden="true">
+                                                <div className="absolute top-0 right-0 w-full h-px" style={{ background: s.accent, opacity: 0.4 }} />
+                                                <div className="absolute top-0 right-0 w-px h-full" style={{ background: s.accent, opacity: 0.4 }} />
+                                            </div>
+
+                                            {/* Tag badge */}
+                                            {s.tag && (
+                                                <div className="inline-flex items-center gap-2 mb-5">
+                                                    <span className="w-1.5 h-1.5 rounded-full" style={{ background: s.accent }} />
+                                                    <span className="text-[9px] tracking-[0.28em] uppercase font-light"
+                                                        style={{ fontFamily: "Barlow, sans-serif", color: s.accent, opacity: 0.7 }}>
+                                                        {s.tag}
+                                                    </span>
                                                 </div>
-                                            ))}
-                                        </div>
+                                            )}
 
-                                        {/* CTA */}
-                                        <Link href="/contact"
-                                            className="group inline-flex items-center gap-2.5 px-6 py-2.5 border text-[10px] tracking-[0.2em] uppercase font-light transition-all duration-300"
-                                            style={{
-                                                borderColor: `${s.accent}30`,
-                                                color: `${s.accent}90`,
-                                                fontFamily: "Barlow, sans-serif",
-                                            }}
-                                            onMouseEnter={(e) => {
-                                                (e.currentTarget as HTMLElement).style.borderColor = `${s.accent}70`;
-                                                (e.currentTarget as HTMLElement).style.color = s.accent;
-                                            }}
-                                            onMouseLeave={(e) => {
-                                                (e.currentTarget as HTMLElement).style.borderColor = `${s.accent}30`;
-                                                (e.currentTarget as HTMLElement).style.color = `${s.accent}90`;
-                                            }}
-                                        >
-                                            Book this package
-                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                                                <path d="M1 5h8M6 2l3 3-3 3" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" />
-                                            </svg>
-                                        </Link>
+                                            {/* Price */}
+                                            <div className="flex items-baseline gap-3 mb-1">
+                                                <span className="font-cormorant text-[clamp(2rem,5vw,3.2rem)] font-light leading-none"
+                                                    style={{ color: s.accent }}>
+                                                    {s.price}
+                                                </span>
+                                                <span className="text-[9px] tracking-[0.2em] uppercase text-white/20 font-light"
+                                                    style={{ fontFamily: "Barlow, sans-serif" }}>
+                                                    {s.duration}
+                                                </span>
+                                            </div>
+
+                                            {/* Divider */}
+                                            <div className="h-px mb-5 mt-4 opacity-15"
+                                                style={{ background: `linear-gradient(90deg, ${s.accent}, transparent)` }} />
+
+                                            {/* Description */}
+                                            <p className="text-sm text-white/45 font-light leading-relaxed mb-7 tracking-wide">
+                                                {s.description}
+                                            </p>
+
+                                            {/* Deliverables */}
+                                            <div className="flex flex-col gap-2.5 mb-7">
+                                                <span className="text-[9px] tracking-[0.28em] uppercase text-white/20 mb-1"
+                                                    style={{ fontFamily: "Barlow, sans-serif" }}>
+                                                    What's included
+                                                </span>
+                                                {s.deliverables.map((d) => (
+                                                    <div key={d} className="flex items-center gap-3">
+                                                        <span className="w-3 h-px shrink-0" style={{ background: s.accent, opacity: 0.4 }} />
+                                                        <span className="text-xs text-white/40 font-light tracking-wide">{d}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
+
+                                            {/* CTA */}
+                                            <Link href="/contact"
+                                                className="group inline-flex items-center gap-2.5 px-6 py-2.5 border text-[10px] tracking-[0.2em] uppercase font-light transition-all duration-300"
+                                                style={{
+                                                    borderColor: `${s.accent}30`,
+                                                    color: `${s.accent}90`,
+                                                    fontFamily: "Barlow, sans-serif",
+                                                }}
+                                                onMouseEnter={(e) => {
+                                                    (e.currentTarget as HTMLElement).style.borderColor = `${s.accent}70`;
+                                                    (e.currentTarget as HTMLElement).style.color = s.accent;
+                                                }}
+                                                onMouseLeave={(e) => {
+                                                    (e.currentTarget as HTMLElement).style.borderColor = `${s.accent}30`;
+                                                    (e.currentTarget as HTMLElement).style.color = `${s.accent}90`;
+                                                }}
+                                            >
+                                                Book this package
+                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                                                    <path d="M1 5h8M6 2l3 3-3 3" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" />
+                                                </svg>
+                                            </Link>
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
-                    </div>
+                    </section>
                 </section>
 
                 {/* Package */}
-                <section className="relative z-10 border-t border-white/6">
-                    <div className="max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-16 md:py-20">
+                <section className="relative z-10 border-t border-white/6 bg-black">
+                    <div className=" px-6 sm:px-10 md:px-16 lg:px-24 py-16 md:py-20">
                         <div className="flex flex-col md:flex-row md:items-start gap-10 md:gap-20">
 
                             <div className="shrink-0">
                                 <div className="flex items-center gap-3 mb-2">
                                     <span className="w-5 h-px bg-white/20" />
-                                    <span className="text-[14px] tracking-[0.15em] uppercase text-white/20 font-light">
+                                    <span className="text-[20px] capitalize text-[#FEE9CE] font-light">
                                         Every package includes
                                     </span>
                                 </div>
@@ -388,7 +396,7 @@ export default function ServicesPage() {
                                 {SHARED_DELIVERABLES.map((d) => (
                                     <div key={d} className="flex items-center gap-3 py-3 border-b border-white/5">
                                         <div className="w-1.5 h-1.5 rounded-full bg-white/20 shrink-0" />
-                                        <span className="text-lg text-white/40 font-light tracking-wide">{d}</span>
+                                        <span className="text-sm text-white/40 font-light tracking-wide">{d}</span>
                                     </div>
                                 ))}
                             </div>
@@ -401,7 +409,7 @@ export default function ServicesPage() {
                     <div className="max-w-8xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-20 md:py-28">
                         <div ref={processTitleRef} className="flex items-center gap-3 mb-14">
                             <span className="w-6 h-px bg-white/20" />
-                            <span className="text-[14px] tracking-[0.15em] uppercase text-white/25 font-light">The Process</span>
+                            <span className="text-[20px] capitalize text-[#FEE9CE] font-light">The Process</span>
                         </div>
 
                         <div ref={processRef} className="relative">
@@ -409,14 +417,14 @@ export default function ServicesPage() {
                                 className="hidden md:block absolute top-[18px] left-[20px] right-[20px] h-px bg-white/6"
                                 aria-hidden="true" />
 
-                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 md:gap-4">
+                            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-8 md:gap-4">
                                 {PROCESS.map((p) => (
                                     <div key={p.step} data-step className="relative flex flex-col gap-10">
                                         <div className="w-9 h-9 rounded-full border border-white/12 flex items-center justify-center bg-[#080808] shrink-0 relative z-10">
                                             <span className="text-[12px] tracking-[0.15em] text-white/30 font-light tabular-nums">{p.step}</span>
                                         </div>
                                         <div className="flex flex-col gap-1.5">
-                                            <span className="text-[20px] font-light text-white tracking-wide">{p.label}</span>
+                                            <span className="text-[20px] font-light text-[#FEE9CE] tracking-wide">{p.label}</span>
                                             <span className="text-[14px] text-white/25 capitalize font-light leading-relaxed">{p.detail}</span>
                                         </div>
                                     </div>
@@ -431,7 +439,7 @@ export default function ServicesPage() {
                     <div ref={ctaRef}
                         className="max-w-8xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-20 md:py-28 flex flex-col md:flex-row md:items-end justify-between gap-10">
                         <div className="flex flex-col gap-4 max-w-2xl">
-                            <h2 className="font-cormorant text-[clamp(2rem,5vw,4rem)] font-light leading-none tracking-tight text-white">
+                            <h2 className="font-cormorant text-[clamp(2rem,5vw,4rem)] font-light leading-none tracking-tight text-[#FEE9CE]">
                                 Ready to make your<br />
                                 <em className="not-italic text-white/30">product unforgettable?</em>
                             </h2>

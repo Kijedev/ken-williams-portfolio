@@ -46,7 +46,7 @@ export default function ScrollTextReveal() {
     >
       <h1
         ref={textRef}
-        className="text-center font-bold uppercase"
+        className="text-center font-bold capitalize"
         style={{
           fontSize: "clamp(4rem, 12vw, 9rem)",
           lineHeight: 0.85,
@@ -54,8 +54,8 @@ export default function ScrollTextReveal() {
           backgroundImage: `
             linear-gradient(
               to bottom,
-              #ff4d3d 0%,
-              #ff4d3d 50%,
+              #E8A25C 0%,
+              #E8A25C 50%,
               #3a3a3a 50%,
               #3a3a3a 100%
             )

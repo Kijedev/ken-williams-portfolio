@@ -121,24 +121,26 @@ export default function HorizontalGallery() {
 
     return (
         <div className="overflow-x-hidden bg-black">
-            <section ref={sectionRef} className="relative mt-32 lg:px-20 px-5">
-                <div className="flex lg:flex-row flex-col gap-2 mb-10">
-                    <h1 className="text-white text-[3rem] lg:text-[6rem] text-left">
-                        Core Values
-                    </h1>
-                    <p className="text-white/50 text-sm lg:text-xl lg:mt-20 text-left">
+            <section ref={sectionRef} className="relative lg:px-0 px-5">
+                <div className="flex flex-col gap-2 mb-10">
+                    <div className="lg:px-20 px-5">
+                        <h1 className="text-[clamp(5rem,9vw,10rem)] font-extrabold leading-[0.8] tracking-tighter mb-8 bg-linear-to-b from-[#FEE9CE] via-[#FEE9CE] to-black bg-clip-text text-transparent">
+                            CORE <br /> VALUES
+                        </h1>
+                    </div>
+                    <p className="lg:px-20 px-5 text-white/50 text-sm lg:text-xl lg:-mt-12">
                         Principles that guide our work.
                     </p>
                 </div>
 
-                <div className="flex pr-56">
+                <div className="flex lg:px-20 px-5">
                     <div ref={stripRef} className="flex flex-nowrap">
                         {cards.map((card, i) => (
                             <div
                                 key={i}
                                 className="w-[85vw] sm:w-[65vw] md:w-[45vw] lg:w-[30vw] xl:w-[25vw] p-4 shrink-0"
                             >
-                                <div className="relative w-full h-[420px] rounded-3xl bg-[#c9c6de] overflow-hidden flex flex-col items-center pt-10 hover:scale-[1.03] transition">
+                                <div className="relative w-full h-[420px] rounded-3xl bg-[#ffffff]/50 overflow-hidden flex flex-col items-center pt-10 hover:scale-[1.03] transition">
 
                                     <h2 className="text-black text-2xl md:text-3xl font-semibold text-center px-4">
                                         {card.title}
