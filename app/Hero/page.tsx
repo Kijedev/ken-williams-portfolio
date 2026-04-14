@@ -325,9 +325,21 @@ export default function HeroSequence() {
           width={1158}
           height={770}
           style={{
-            position: "fixed", left: "50%", top: "50%",
+            position: "fixed",
+            left: "50%",
+            top: "50%",
             transform: "translate(-50%, -50%)",
-            maxWidth: "80vw", maxHeight: "80vh",
+
+            // ✅ Bigger on mobile, controlled on desktop
+            width: "110vw",       // mobile = fills more than screen
+            height: "auto",
+
+            maxWidth: "none",     // remove restriction
+            maxHeight: "none",
+
+            // ✅ keep aspect ratio clean
+            objectFit: "cover",
+
             zIndex: 0,
           }}
         />

@@ -18,7 +18,7 @@ export default function Revolutionalize() {
     const slideRight = useTransform(scrollYProgress, [0, 1], ["50%", "-50%"]);
 
     return (
-        <section ref={ref} className="flex flex-col h-screen items-center justify-center overflow-hidden">
+        <section ref={ref} className="bg-black flex flex-col h-screen items-center justify-center overflow-hidden">
             {/* <div
                 className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] opacity-[0.05] z-1"
                 style={{ background: "radial-gradient(ellipse, #fff 0%, transparent 65%)" }}
