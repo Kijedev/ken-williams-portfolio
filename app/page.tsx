@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div>
+    <div className="overflow-x-hidden bg-black">
       <HeroPage />
       <Revolutionalize />
       <BentoGallery />

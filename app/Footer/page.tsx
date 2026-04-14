@@ -46,7 +46,6 @@ function FooterShapes() {
 export default function Footer() {
   return (
     <footer className="relative w-full bg-black z-50 overflow-hidden">
-
       {/* ── Thin top rule ─────────────────────────────────────── */}
       <div className="relative z-10 mx-6 sm:mx-10 md:mx-20 lg:mx-32">
         <div className="h-px bg-linear-to-r from-transparent via-white/20 to-transparent" />
@@ -60,9 +59,6 @@ export default function Footer() {
 
           {/* Name block */}
           <div className="flex flex-col gap-3">
-            {/* <span className="text-[10px] tracking-[0.3em] text-white/30 uppercase">
-              Product Videographer
-            </span> */}
             <h2
               className="text-[clamp(3rem,10vw,6rem)] font-black leading-[0.9] tracking-tight text-white"
               style={{ textShadow: "0 0 80px rgba(255,255,255,0.07)" }}
@@ -75,8 +71,8 @@ export default function Footer() {
           </div>
 
           {/* Right column: nav + socials */}
-          <div className="flex flex-col items-start gap-6">
-            <nav className="flex flex-col items-start gap-1">
+          <div className="flex flex-col items-start lg:items-end gap-6">
+            <nav className="flex flex-col items-start lg:items-end gap-1">
               {NAV_LINKS.map((link) => (
                 <a
                   key={link}
@@ -91,20 +87,20 @@ export default function Footer() {
               ))}
             </nav>
 
-            <div className="flex gap-2">
+            <div className="flex">
               {SOCIALS.map(({ Icon, label, href }) => (
                 <a
                   key={label}
                   href={href}
                   aria-label={label}
                   className="
-                    flex items-center justify-center w-10 h-10
-                    border border-white/10 rounded-full
+                    flex items-center justify-center w-20 h-20
+                    border border-white/10
                     text-white/40 hover:text-white hover:border-white/40
                     transition-all duration-300
                   "
                 >
-                  <Icon size={14} />
+                  <Icon size={20} />
                 </a>
               ))}
             </div>
@@ -112,13 +108,11 @@ export default function Footer() {
         </div>
 
         <p className="text-[11px] lg:text-[14px] leading-relaxed text-white/30 font-light capitalize mt-10">Ekho Studios ("Ekho") is a creative production studio offering professional product videography services to brands, businesses, and individual clients across Nigeria and beyond. All video productions are executed by our in-house creative team and delivered in high-definition formats optimised for digital platforms including Instagram, TikTok, YouTube, and e-commerce storefronts. Each project scope, timeline, and deliverable specification is agreed upon in writing prior to production commencement. Any previews, mood boards, or reference materials shared during pre-production are illustrative in nature and may not reflect the exact outcome of the final production, which is subject to creative direction, available equipment, location conditions, and client-approved briefs. Pricing displayed on our rate card reflects standard package rates and may vary based on project complexity, travel requirements, usage rights, and the number of revisions requested beyond the agreed allowance. By engaging Ekho Studios for a project, clients confirm acceptance of our production terms, payment schedule, and intellectual property agreement, copies of which are provided at the time of booking. Ekho Studios retains the right to feature completed work in its portfolio and on its social media channels unless a confidentiality clause is explicitly agreed upon in the project contract</p>
+        
         <div className="mt-12 md:mt-16 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <p className="text-[11px] lg:text-[16px] text-white/90 capitalize">
+          <p className="text-[11px] lg:text-[16px] font-light text-white/90 capitalize">
             &copy; {new Date().getFullYear()} Ekho Studios. All rights reserved.
           </p>
-          {/* <p className="text-[11px] lg:text-[16px] text-white/90 capitalize">
-            📍Based in Lagos, Nigeria
-          </p> */}
         </div>
       </div>
       <FooterShapes />
