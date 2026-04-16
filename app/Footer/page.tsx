@@ -45,7 +45,7 @@ function FooterShapes() {
 
 export default function Footer() {
   return (
-    <footer className="relative w-full bg-black z-50 overflow-hidden">
+    <footer className="relative w-full bg-black overflow-hidden">
       {/* ── Thin top rule ─────────────────────────────────────── */}
       <div className="relative z-10 mx-6 sm:mx-10 md:mx-20 lg:mx-32">
         <div className="h-px bg-linear-to-r from-transparent via-white/20 to-transparent" />

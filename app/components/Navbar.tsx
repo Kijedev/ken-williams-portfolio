@@ -5,9 +5,9 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
-  { label: "Company",       href: "/Company"     },
-  { label: "What we offer", href: "/Ourservices" },
-  { label: "Projects",      href: "/Projects"    },
+  { label: "Company",       href: "/company"     },
+  { label: "What we offer", href: "/ourservices" },
+  { label: "Projects",      href: "/projects"    },
 ];
 
 // Reusable zigzag SVG so we don't repeat markup
@@ -137,7 +137,7 @@ export default function Navbar() {
           {/* Desktop CTA + mobile burger */}
           <div className="flex items-center gap-4">
             <Link
-              href="/Contact"
+              href="/contact"
               className="
                 hidden md:inline-flex items-center gap-2
                 px-5 py-2 rounded-full
@@ -212,7 +212,7 @@ export default function Navbar() {
             style={{ transitionDelay: isOpen ? "380ms" : "0ms" }}
           >
             <Link
-              href="/Contact"
+              href="/contact"
               onClick={() => setIsOpen(false)}
               className="
                 inline-flex items-center gap-3 px-7 py-3.5 rounded-full

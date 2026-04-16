@@ -138,7 +138,7 @@ function Lightbox({ project, onClose }: { project: Project; onClose: () => void 
     <div
       ref={overlayRef}
       onClick={handleOverlayClick}
-      className="fixed inset-0 z-[99990] flex items-center justify-center p-4 md:p-10"
+      className="fixed inset-0 z-99990 flex items-center justify-center p-4 md:p-10"
       style={{ background: "rgba(0,0,0,0.92)", backdropFilter: "blur(12px)" }}
     >
       <div ref={boxRef} className="relative w-full max-w-5xl">
@@ -354,7 +354,7 @@ function ProjectCard({ project, index, onPlay }: {
 
 // ─── page ─────────────────────────────────────────────────────────────────────
 
-export default function ProjectsPage() {
+export default function page() {
   const [activeFilter, setActiveFilter] = useState("All");
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const pageRef     = useRef<HTMLDivElement>(null);
@@ -397,19 +397,19 @@ export default function ProjectsPage() {
       <div ref={pageRef} className="relative min-h-screen w-full bg-black text-white overflow-hidden">
 
         {/* Grain */}
-        <div className="pointer-events-none fixed inset-0 z-[1] opacity-[0.025]"
+        <div className="pointer-events-none fixed inset-0 z-1 opacity-[0.025]"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
             backgroundSize: "180px 180px",
           }} aria-hidden="true" />
 
         {/* Glow */}
-        <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] opacity-[0.05] z-[1]"
+        <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] opacity-[0.05] z-1"
           style={{ background: "radial-gradient(ellipse, #fff 0%, transparent 65%)" }} aria-hidden="true" />
 
         {/* Orbit */}
         <div ref={orbitRef}
-          className="pointer-events-none absolute -top-56 -right-56 w-[600px] h-[600px] rounded-full border border-white/[0.025] z-[1]"
+          className="pointer-events-none absolute -top-56 -right-56 w-[600px] h-[600px] rounded-full border border-white/2.5 z-1"
           aria-hidden="true" />
 
         {/* ══════════════════════════════════════════════════════
@@ -519,7 +519,7 @@ export default function ProjectsPage() {
         {/* ══════════════════════════════════════════════════════
             CTA
         ══════════════════════════════════════════════════════ */}
-        <div className="relative z-10 border-t border-white/[0.06]">
+        <div className="relative z-10 border-t border-white/6">
           <div className="max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-16 md:py-24 flex flex-col md:flex-row md:items-center justify-between gap-8">
             <p
               className="font-light leading-tight tracking-tight text-white max-w-lg"
@@ -541,7 +541,7 @@ export default function ProjectsPage() {
           </div>
         </div>
 
-        <div className="h-px bg-gradient-to-r from-transparent via-white/[0.07] to-transparent" />
+        <div className="h-px bg-linear-to-r from-transparent via-white/7 to-transparent" />
       </div>
     </>
   );
