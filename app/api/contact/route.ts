@@ -60,15 +60,15 @@ export async function POST(req: Request) {
                 <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
                   
                   <tr>
-                    <td style="padding:2px 0;color:#888;font-size:13px;">Name</td>
-                    <td style="padding:2px 0;color:#fff;text-align:right;font-size:14px;">
+                    <td style="padding:12px 0;color:#888;font-size:13px;">Name:</td>
+                    <td style="padding:12px 0;color:#fff;font-size:14px;">
                       ${name}
                     </td>
                   </tr>
 
                   <tr>
-                    <td style="padding:12px 0;color:#888;font-size:13px;">Email</td>
-                    <td style="padding:12px 0;text-align:right;font-size:14px;">
+                    <td style="padding:12px 0;color:#888;font-size:13px;">Email:</td>
+                    <td style="padding:12px 0;font-size:14px;">
                       <a href="mailto:${email}" style="color:#EF5143;text-decoration:none;">
                         ${email}
                       </a>
@@ -76,8 +76,8 @@ export async function POST(req: Request) {
                   </tr>
 
                   <tr>
-                    <td style="padding:12px 0;color:#888;font-size:13px;">Company</td>
-                    <td style="padding:12px 0;color:#fff;text-align:right;font-size:14px;">
+                    <td style="padding:12px 0;color:#888;font-size:13px;">Company:</td>
+                    <td style="padding:12px 0;color:#fff;font-size:14px;">
                       ${company || "—"}
                     </td>
                   </tr>
@@ -87,7 +87,7 @@ export async function POST(req: Request) {
                 <!-- Message -->
                 <div>
                   <p style="margin:0 0 10px;color:#888;font-size:13px;">
-                    Message
+                    Message:
                   </p>
                   <p style="margin:0;color:#ddd;font-size:14px;line-height:1.6;">
                     ${message}
