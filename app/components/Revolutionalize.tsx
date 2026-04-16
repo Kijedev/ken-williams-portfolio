@@ -30,7 +30,7 @@ export default function Revolutionalize() {
                 {/* WHATS */}
                 <motion.h1
                     style={{ x: slideLeft }}
-                    className="text-[3rem] lg:text-[10rem] capitalize opacity-10 font-extrabold text-center flex justify-center lg:justify-center text-white lg:h-44 h-10"
+                    className="text-[3rem] lg:text-[10rem] opacity-10 capitalize font-extrabold text-center flex justify-center lg:justify-center text-[#FEE9CE] lg:h-44 h-10"
                 >
                     Revolutionalizing
                 </motion.h1>
@@ -46,7 +46,7 @@ export default function Revolutionalize() {
                 {/* TALKING */}
                 <motion.h1
                     style={{ x: slideLeft }}
-                    className="text-[3rem] lg:text-[10rem] capitalize opacity-10 font-extrabold text-center flex justify-center lg:justify-center text-white"
+                    className="text-[3rem] lg:text-[10rem] opacity-10 capitalize font-extrabold text-center flex justify-center lg:justify-center text-[#FEE9CE]"
                 >
                     Visualization
                 </motion.h1>

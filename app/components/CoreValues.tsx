@@ -142,7 +142,7 @@ export default function HorizontalGallery() {
                             >
                                 <div className="relative w-full h-[420px] rounded-3xl bg-[#ffffff]/50 overflow-hidden flex flex-col items-center pt-10 hover:scale-[1.03] transition">
 
-                                    <h2 className="text-black text-2xl md:text-3xl font-semibold text-center px-4">
+                                    <h2 className="text-black text-2xl md:text-3xl text-center px-4">
                                         {card.title}
                                     </h2>
 
