@@ -214,7 +214,7 @@ export default function FAQs() {
       ref={sectionRef}
       className="relative w-full bg-[#010101] z-50 overflow-hidden py-24 md:py-36"
     >
-      <div className="relative max-w-7xl mx-auto px-6 md:px-10">
+      <div className="relative max-w-7xl mx-auto px-6 md:px-0">
 
         {/* ── Heading block ─────────────────────────────────── */}
         <div ref={headingRef} className="mb-16 md:mb-20">

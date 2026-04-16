@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import Preloader from "../components/Preloader";
-import Navbar from "../components/Navbar";
+import Preloader from "../Preloader";
+import Navbar from "../Navbar";
 import Footer from "../Footer/page";
-import SmoothScroll from "../components/SmoothScroll";
+import SmoothScroll from "../SmoothScroll";
 
-export default function ClientShell({
+export default function Page({
   children,
 }: {
   children: React.ReactNode;

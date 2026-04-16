@@ -88,7 +88,7 @@ const PROCESS = [
 ];
 
 
-export default function ServicesPage() {
+export default function Page() {
     const pageRef = useRef<HTMLDivElement>(null);
     const eyebrowRef = useRef<HTMLDivElement>(null);
     const headingRef = useRef<HTMLHeadingElement>(null);

@@ -18,7 +18,7 @@ const STORY_PARAGRAPHS = [
     // `With a better understanding of what we believed the problem was, we knew our solution had to be efficient and easy to use. This was hard to pull as we struggled — but every obstacle sharpened our resolve and deepened our conviction that what we were building mattered.`,
 ];
 
-export default function Company() {
+export default function Page() {
     const pageRef = useRef<HTMLElement>(null);
     const eyebrowRef = useRef<HTMLDivElement>(null);
     const headingRef = useRef<HTMLHeadingElement>(null);

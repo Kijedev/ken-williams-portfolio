@@ -43,7 +43,7 @@ function FooterShapes() {
   );
 }
 
-export default function Footer() {
+export default function Page() {
   return (
     <footer className="relative w-full bg-black overflow-hidden">
       {/* ── Thin top rule ─────────────────────────────────────── */}

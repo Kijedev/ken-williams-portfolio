@@ -1,8 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import Footer from "../Footer/page";
 
 interface FormData {
   name: string;
@@ -37,7 +36,7 @@ function Field({
   );
 }
 
-export default function page() {
+export default function Page() {
   const [form, setForm] = useState<FormData>({
     name: "",
     email: "",
@@ -46,23 +45,6 @@ export default function page() {
   });
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState("");
-  const [scrollY, setScrollY] = useState(0);
-
-  const wrapperRef = useRef<HTMLDivElement>(null);
-
-  // Track scroll position
-  useEffect(() => {
-    const handleScroll = () => {
-      if (wrapperRef.current) {
-        const rect = wrapperRef.current.getBoundingClientRect();
-        const scrollProgress = Math.max(0, Math.min(1, -rect.top / rect.height));
-        setScrollY(scrollProgress);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -106,7 +88,6 @@ export default function page() {
     py-3 outline-none transition-colors duration-300
   `;
 
-  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -127,35 +108,20 @@ export default function page() {
     },
   };
 
-  const dividerVariants = {
-    hidden: { scaleX: 0, opacity: 0 },
-    visible: {
-      scaleX: 1,
-      opacity: 1,
-      transition: { duration: 0.9, ease: "easeOut" },
-    },
-  };
-
   return (
-    <>
-      <style>{`
-        @keyframes orbit-spin { to { transform: rotate(360deg); } }
-      `}</style>
+    <div style={{ background: "#000", }}>
 
+      {/* ── Hero panel — sticky, sits behind the form as it scrolls over ── */}
       <div
-        ref={wrapperRef}
-        style={{ height: "100vh", position: "relative", background: "#000" }}
+        style={{
+          position: "sticky",
+          top: 0,
+          zIndex: 0,
+          height: "100vh",
+        }}
       >
-        {/* ── Hero panel ───────────────────────────────────────── */}
-        <motion.div
-          className="absolute inset-x-0 top-0 w-full overflow-hidden flex flex-col justify-center"
-          style={{
-            height: "100vh",
-            zIndex: 0,
-            scale: 1 - scrollY * 0.06,
-            opacity: Math.max(0.25, 1 - scrollY * 0.75),
-          }}
-        >
+        <motion.div className="w-full h-full flex flex-col justify-center">
+
           {/* Glow */}
           <div
             className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] opacity-[0.05]"
@@ -166,7 +132,6 @@ export default function page() {
           {/* Orbit rings */}
           <motion.div
             className="pointer-events-none absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full border border-white/5"
-            style={{ animation: "orbit-spin 18s linear infinite" }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, delay: 0.8 }}
@@ -179,14 +144,14 @@ export default function page() {
 
           <div className="z-10 w-full px-6 sm:px-10 md:px-16 lg:px-24 pt-32 pb-24">
             <motion.div
-              className="flex flex-col gap-10"
+              className="flex flex-col gap-10 overflow-hidden"
               variants={containerVariants}
               initial="hidden"
               animate="visible"
             >
               <motion.h1
                 className="text-[clamp(2.8rem,7vw,8rem)] uppercase font-extrabold leading-[0.95] tracking-tighter text-[#FEE9CE]"
-                // variants={itemVariants}
+              // variants={itemVariants}
               >
                 Let's create <br /> something
                 <br />
@@ -195,7 +160,7 @@ export default function page() {
 
               <motion.p
                 className="max-w-2xl text-sm lg:text-lg text-white/35 font-light leading-relaxed"
-                // variants={itemVariants}
+              // variants={itemVariants}
               >
                 Whether you have a full brief or just a product and a vision, reach out
                 and we'll figure out the rest together.
@@ -203,7 +168,7 @@ export default function page() {
 
               <motion.div
                 className="h-px bg-linear-to-r from-white/15 via-white/8 to-transparent"
-                // variants={dividerVariants}
+              // variants={itemVariants}
               />
 
               <motion.div
@@ -211,7 +176,7 @@ export default function page() {
                 variants={containerVariants}
               >
                 {CONTACT_DETAILS.map(({ label, value, href }) => (
-                  <motion.div key={label} className="flex flex-col gap-1" 
+                  <motion.div key={label} className="flex flex-col gap-1"
                   // variants={itemVariants}
                   >
                     <span className="text-lg capitalize text-[#FEE9CE]">{label}</span>
@@ -230,168 +195,162 @@ export default function page() {
               </motion.div>
             </motion.div>
           </div>
+
         </motion.div>
+      </div>
 
-        {/* ── Form panel ───────────────────────────────────────── */}
-        <motion.div
-          className="w-full flex flex-col justify-center overflow-y-auto"
-          style={{
-            height: "100vh",
-            zIndex: 10,
-            background: "black",
-            borderTopLeftRadius: "20px",
-            borderTopRightRadius: "20px",
-            boxShadow:
-              "0 -24px 80px rgba(0,0,0,0.9), 0 -1px 0 rgba(255,255,255,0.06)",
-            willChange: "transform",
-            y: `${Math.max(0, (1 - scrollY) * 100)}%`,
-          }}
-        >
-          {/* Handle */}
-          <div
-            className="absolute top-4 left-1/2 -translate-x-1/2 w-10 h-1 rounded-full bg-white/10"
-            aria-hidden="true"
-          />
+      {/* ── Form panel — normal flow, scrolls up over the sticky hero ── */}
+      <div
+        style={{
+          position: "relative",
+          zIndex: 10,
+          background: "black",
+          borderTopLeftRadius: "24px",
+          borderTopRightRadius: "24px",
+          boxShadow: "0 -24px 80px rgba(0,0,0,0.9), 0 -1px 0 rgba(255,255,255,0.06)",
+          overflow: "hidden",
+          // Slight overlap so the card peeks above the fold before scrolling
+          // marginTop: "-10vh",
+        }}
+      >
+        <div className="relative w-full mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-16 md:py-10 pb-40">
+          <div className="mb-20">
+            <h2 className="text-[clamp(1.8rem,4vw,4rem)] font-extralight text-[#FEE9CE] leading-[0.8] tracking-tight">
+              Tell us about <br />
+              <em className="not-italic text-white/30"> your project.</em>
+            </h2>
+          </div>
 
-          <div className="relative w-full mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-16 md:py-10 pb-40">
-            <div className="mb-20">
-              <h2 className="text-[clamp(1.8rem,4vw,4rem)] font-extralight text-[#FEE9CE] leading-[0.8] tracking-tight">
-                Tell us about <br />
-                <em className="not-italic text-white/30"> your project.</em>
-              </h2>
-            </div>
-
-            {status === "sent" ? (
-              <motion.div
-                className="flex flex-col items-start gap-6"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
+          {status === "sent" ? (
+            <motion.div
+              className="flex flex-col items-start gap-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <path
+                    d="M3 9l4.5 4.5L15 5"
+                    stroke="white"
+                    strokeWidth="1.3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-extralight text-white tracking-tight">
+                Message received.
+              </h3>
+              <p className="text-sm text-white/35 font-light leading-relaxed max-w-xs">
+                Thanks for reaching out. I'll get back to you shortly.
+              </p>
+              <button
+                onClick={() => {
+                  setStatus("");
+                  setForm({ name: "", email: "", company: "", message: "" });
+                }}
+                className="mt-2 text-sm text-white/30 hover:text-white transition-colors duration-300 border-b border-white/10 hover:border-white/40 pb-0.5"
               >
-                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center">
-                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                    <path
-                      d="M3 9l4.5 4.5L15 5"
-                      stroke="white"
-                      strokeWidth="1.3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-extralight text-white tracking-tight">
-                  Message received.
-                </h3>
-                <p className="text-sm text-white/35 font-light leading-relaxed max-w-xs">
-                  Thanks for reaching out. I'll get back to you shortly.
-                </p>
-                <button
-                  onClick={() => {
-                    setStatus("");
-                    setForm({ name: "", email: "", company: "", message: "" });
-                  }}
-                  className="mt-2 text-sm text-white/30 hover:text-white transition-colors duration-300 border-b border-white/10 hover:border-white/40 pb-0.5"
-                >
-                  Send another
-                </button>
-              </motion.div>
-            ) : (
-              <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-8">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                  <Field label="Name" required>
-                    <input
-                      type="text"
-                      required
-                      placeholder="John Doe"
-                      name="name"
-                      value={form.name}
-                      onChange={handleChange}
-                      className={inputCls}
-                    />
-                  </Field>
-                  <Field label="Email" required>
-                    <input
-                      type="email"
-                      required
-                      placeholder="johndoe@gmail.com"
-                      name="email"
-                      value={form.email}
-                      onChange={handleChange}
-                      className={inputCls}
-                    />
-                  </Field>
-                </div>
-
-                <Field label="Company / Brand (Optional)">
+                Send another
+              </button>
+            </motion.div>
+          ) : (
+            <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <Field label="Name" required>
                   <input
                     type="text"
-                    placeholder="Meta"
-                    name="company"
-                    value={form.company}
+                    required
+                    placeholder="John Doe"
+                    name="name"
+                    value={form.name}
                     onChange={handleChange}
                     className={inputCls}
                   />
                 </Field>
-
-                <Field label="Project brief" required>
-                  <textarea
+                <Field label="Email" required>
+                  <input
+                    type="email"
                     required
-                    rows={2}
-                    placeholder="Tell me about your product, the feel you're going for, and your timeline…"
-                    name="message"
-                    value={form.message}
+                    placeholder="johndoe@gmail.com"
+                    name="email"
+                    value={form.email}
                     onChange={handleChange}
-                    className={`${inputCls} resize-none`}
+                    className={inputCls}
                   />
                 </Field>
+              </div>
 
-                <div className="flex items-center justify-between gap-6 pt-2">
-                  <button
-                    type="submit"
-                    disabled={status === "sending"}
-                    className="group inline-flex items-center gap-3 px-8 py-3.5 rounded-full border border-white/20 hover:border-white/50 text-sm font-light text-white/60 hover:text-white transition-all duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {status === "sending" ? (
-                      <>
-                        <span className="inline-flex gap-1">
-                          {[0, 1, 2].map((i) => (
-                            <span
-                              key={i}
-                              className="w-1 h-1 rounded-full bg-white/50 animate-bounce"
-                              style={{ animationDelay: `${i * 0.15}s` }}
-                            />
-                          ))}
-                        </span>
-                        Sending
-                      </>
-                    ) : (
-                      <>
-                        Send message
-                        <svg
-                          width="12"
-                          height="12"
-                          viewBox="0 0 12 12"
-                          fill="none"
-                          className="opacity-40 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-300"
-                        >
-                          <path
-                            d="M1 6h10M7 2l4 4-4 4"
-                            stroke="currentColor"
-                            strokeWidth="1.2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
+              <Field label="Company / Brand (Optional)">
+                <input
+                  type="text"
+                  placeholder="Meta"
+                  name="company"
+                  value={form.company}
+                  onChange={handleChange}
+                  className={inputCls}
+                />
+              </Field>
+
+              <Field label="Project brief" required>
+                <textarea
+                  required
+                  rows={2}
+                  placeholder="Tell me about your product, the feel you're going for, and your timeline…"
+                  name="message"
+                  value={form.message}
+                  onChange={handleChange}
+                  className={`${inputCls} resize-none`}
+                />
+              </Field>
+
+              <div className="flex items-center justify-between gap-6 pt-2">
+                <button
+                  type="submit"
+                  disabled={status === "sending"}
+                  className="group inline-flex items-center gap-3 px-8 py-3.5 rounded-full border border-white/20 hover:border-white/50 text-sm font-light text-white/60 hover:text-white transition-all duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {status === "sending" ? (
+                    <>
+                      <span className="inline-flex gap-1">
+                        {[0, 1, 2].map((i) => (
+                          <span
+                            key={i}
+                            className="w-1 h-1 rounded-full bg-white/50 animate-bounce"
+                            style={{ animationDelay: `${i * 0.15}s` }}
                           />
-                        </svg>
-                      </>
-                    )}
-                  </button>
-                </div>
-              </form>
-            )}
-          </div>
-        </motion.div>
+                        ))}
+                      </span>
+                      Sending
+                    </>
+                  ) : (
+                    <>
+                      Send message
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 12 12"
+                        fill="none"
+                        className="opacity-40 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-300"
+                      >
+                        <path
+                          d="M1 6h10M7 2l4 4-4 4"
+                          stroke="currentColor"
+                          strokeWidth="1.2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </>
+                  )}
+                </button>
+              </div>
+            </form>
+          )}
+        </div>
       </div>
-      {/* <Footer /> */}
-    </>
+
+    </div>
   );
 }

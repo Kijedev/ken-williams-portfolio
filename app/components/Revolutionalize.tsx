@@ -18,7 +18,7 @@ export default function Revolutionalize() {
     const slideRight = useTransform(scrollYProgress, [0, 1], ["50%", "-50%"]);
 
     return (
-        <section ref={ref} className="bg-black flex flex-col h-screen items-center justify-center overflow-hidden">
+        <section ref={ref} className="bg-black flex flex-col h-screen relative z-50 items-center justify-center overflow-hidden">
             {/* <div
                 className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] opacity-[0.05] z-1"
                 style={{ background: "radial-gradient(ellipse, #fff 0%, transparent 65%)" }}
@@ -50,10 +50,10 @@ export default function Revolutionalize() {
                 >
                     Visualization
                 </motion.h1>
-                <div className="flex flex-col items-center gap-3">
+                {/* <div className="flex flex-col items-center gap-3">
                     <span className="text-[9px] tracking-[0.3em] uppercase text-white/20">Scroll</span>
                     <div className="w-px h-10 bg-linear-to-b from-white/20 to-transparent" />
-                </div>
+                </div> */}
 
             </div>
 

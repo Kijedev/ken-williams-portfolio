@@ -218,9 +218,9 @@ function imageSequence(config: ImageSequenceConfig): gsap.core.Tween {
   });
 }
 
-const HERO_SCROLL_HEIGHT = "200vh";
+const HERO_SCROLL_HEIGHT = "100vh";
 
-export default function HeroSequence() {
+export default function Page() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const tweenRef = useRef<gsap.core.Tween | null>(null);
   const spacerRef = useRef<HTMLDivElement>(null);
