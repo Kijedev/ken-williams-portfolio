@@ -16,9 +16,9 @@ interface FormData {
 }
 
 const CONTACT_DETAILS = [
-  { label: "Email",    value: "contact@ekhostudios.com", href: "mailto:contact@ekhostudios.com" },
-  { label: "Phone",    value: "+234 915 775 6380",        href: "tel:+2349157756380" },
-  { label: "Location", value: "Lagos, Nigeria",           href: null },
+  { label: "Email", value: "contact@ekhostudios.com", href: "mailto:contact@ekhostudios.com" },
+  { label: "Phone", value: "+234 915 775 6380", href: "tel:+2349157756380" },
+  { label: "Location", value: "Lagos, Nigeria", href: null },
 ];
 
 function Field({ label, required, children }: { label: string; required?: boolean; children: React.ReactNode }) {
@@ -33,21 +33,26 @@ function Field({ label, required, children }: { label: string; required?: boolea
 }
 
 export default function ContactPage() {
-  const [form, setForm]     = useState<FormData>({ name: "", email: "", company: "", message: "" });
-  const [status, setStatus] = useState<FormState>("idle");
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    company: "",
+    message: "",
+  });
+  // const [status, setStatus] = useState<FormState>("idle");
 
-  const wrapperRef   = useRef<HTMLDivElement>(null);
-  const heroRef      = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
   const formPanelRef = useRef<HTMLDivElement>(null);
-  const headingRef   = useRef<HTMLHeadingElement>(null);
-  const subRef       = useRef<HTMLParagraphElement>(null);
-  const dividerRef   = useRef<HTMLDivElement>(null);
-  const detailsRef   = useRef<HTMLDivElement>(null);
-  const orbitRef     = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const subRef = useRef<HTMLParagraphElement>(null);
+  const dividerRef = useRef<HTMLDivElement>(null);
+  const detailsRef = useRef<HTMLDivElement>(null);
+  const orbitRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const wrapper   = wrapperRef.current;
-    const hero      = heroRef.current;
+    const wrapper = wrapperRef.current;
+    const hero = heroRef.current;
     const formPanel = formPanelRef.current;
     if (!wrapper || !hero || !formPanel) return;
 
@@ -55,25 +60,11 @@ export default function ContactPage() {
 
       // ── Entrance animations ──────────────────────────────────
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-      tl.from(headingRef.current,  { y: 50, opacity: 0, duration: 1.0 }, 0.15)
-        .from(subRef.current,      { y: 24, opacity: 0, duration: 0.8 }, 0.4)
-        .from(dividerRef.current,  { scaleX: 0, opacity: 0, duration: 0.9, transformOrigin: "left" }, 0.5)
+      tl.from(headingRef.current, { y: 50, opacity: 0, duration: 1.0 }, 0.15)
+        .from(subRef.current, { y: 24, opacity: 0, duration: 0.8 }, 0.4)
+        .from(dividerRef.current, { scaleX: 0, opacity: 0, duration: 0.9, transformOrigin: "left" }, 0.5)
         .from(detailsRef.current!.children, { y: 28, opacity: 0, stagger: 0.1, duration: 0.7 }, 0.6);
       gsap.to(orbitRef.current, { opacity: 1, duration: 1.2, delay: 0.8 });
-
-      // ── The slide-over effect ────────────────────────────────
-      //
-      // Strategy:
-      //   1. The wrapper is 200vh tall — it gives us scroll distance.
-      //   2. ScrollTrigger pins the wrapper (not the hero directly).
-      //      This means the wrapper stays fixed for 200vh of scroll travel.
-      //   3. The form panel starts at translateY(100vh) — below the viewport.
-      //   4. GSAP scrubs it to translateY(0) as the user scrolls,
-      //      making it slide up OVER the hero which is sitting behind it.
-      //   5. The hero fades + scales back simultaneously.
-      //
-      // The key: formPanel has position:absolute inside the pinned wrapper,
-      // so it moves relative to the viewport, creating the "slides on top" illusion.
 
       // Form starts below viewport
       gsap.set(formPanel, { yPercent: 100 });
@@ -82,7 +73,7 @@ export default function ContactPage() {
         scrollTrigger: {
           trigger: wrapper,
           start: "top top",
-          end: "+=100%",       // 1 viewport of scroll travel
+          end: "+=100%",
           pin: true,
           scrub: 1,
           anticipatePin: 1,
@@ -109,15 +100,54 @@ export default function ContactPage() {
     return () => ctx.revert();
   }, []);
 
-  const update = (k: keyof FormData, v: string) =>
-    setForm((p) => ({ ...p, [k]: v }));
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("");
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-    await new Promise((r) => setTimeout(r, 1800));
-    setStatus("sent");
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setStatus("sent");
+        setForm({ name: "", email: "", company: "", message: "" });
+      } else {
+        setStatus(data.error || "Something went wrong.");
+      }
+    } catch (error: any) {
+      console.error("EMAIL ERROR:", error);
+      setStatus(error.message || "Something went wrong.");
+    }
+
+    setLoading(false);
   };
+
+  const update = (k: keyof FormData, v: string) =>
+    setForm((p) => ({ ...p, [k]: v }));
+
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setStatus("sending");
+  //   await new Promise((r) => setTimeout(r, 1800));
+  //   setStatus("sent");
+  // };
 
   const inputCls = `
     w-full bg-transparent border-b border-white/20
@@ -132,21 +162,10 @@ export default function ContactPage() {
       <style>{`
         @keyframes orbit-spin { to { transform: rotate(360deg); } }
       `}</style>
-
-      {/*
-        ── Wrapper: 200vh tall, gets pinned by GSAP ──────────────
-        Both hero + form panel live INSIDE this wrapper as stacked layers.
-        Pinning the wrapper keeps everything in place while scroll progresses.
-      */}
       <div
         ref={wrapperRef}
         style={{ height: "100vh", position: "relative", background: "#000" }}
       >
-
-        {/*
-          ── Hero layer: absolute, fills wrapper, sits behind form ──
-          z-index 0 — the form (z-index 10) slides over this
-        */}
         <div
           ref={heroRef}
           className="absolute inset-x-0 top-0 w-full overflow-hidden flex flex-col justify-center"
@@ -158,9 +177,9 @@ export default function ContactPage() {
 
           {/* Orbit rings */}
           <div ref={orbitRef}
-            className="pointer-events-none absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full border border-white/10 opacity-0"
+            className="pointer-events-none absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full border border-white/5 opacity-0"
             style={{ animation: "orbit-spin 18s linear infinite" }} aria-hidden="true" />
-          <div className="pointer-events-none absolute -top-20 -right-20 w-[320px] h-[320px] rounded-full border border-white/10" aria-hidden="true" />
+          <div className="pointer-events-none absolute -top-20 -right-20 w-[320px] h-[320px] rounded-full border border-white/7" aria-hidden="true" />
 
           <div className="relative z-10 w-full px-6 sm:px-10 md:px-16 lg:px-24 pt-32 pb-24">
             <div className="flex flex-col gap-10">
@@ -169,7 +188,7 @@ export default function ContactPage() {
                 ref={headingRef}
                 className="text-[clamp(2.8rem,7vw,8rem)] uppercase font-extrabold leading-[0.95] tracking-tighter text-[#FEE9CE]"
               >
-                Let's make <br /> something<br />
+                Let's create <br /> something<br />
                 <em className="not-italic text-[#EF5143] capitalize">unforgettable.</em>
               </h1>
 
@@ -177,7 +196,7 @@ export default function ContactPage() {
                 Whether you have a full brief or just a product and a vision, reach out and we'll figure out the rest together.
               </p>
 
-              <div ref={dividerRef} className="h-px bg-gradient-to-r from-white/15 via-white/8 to-transparent" />
+              <div ref={dividerRef} className="h-px bg-linear-to-r from-white/15 via-white/8 to-transparent" />
 
               <div ref={detailsRef} className="flex flex-col lg:flex-row gap-10 w-full">
                 {CONTACT_DETAILS.map(({ label, value, href }) => (
@@ -195,11 +214,6 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/*
-          ── Form panel: absolute, starts BELOW viewport (yPercent:100) ──
-          z-index 10 — slides up over the hero
-          borderRadius on top gives the "card lifting" feel
-        */}
         <div
           ref={formPanelRef}
           className="absolute inset-x-0 top-0 w-full flex flex-col justify-center overflow-y-hidden"
@@ -216,19 +230,16 @@ export default function ContactPage() {
           {/* Thin top handle line */}
           <div className="absolute top-4 left-1/2 -translate-x-1/2 w-10 h-1 rounded-full bg-white/10" aria-hidden="true" />
 
-          <div className="relative w-full mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-16 md:py-20">
+          <div className="relative w-full mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-16 md:py-10">
 
             {/* Panel heading */}
-            <div className="mb-10">
-              <p className="text-[10px] tracking-[0.35em] uppercase text-white/20 mb-3">
-                Get in touch
-              </p>
+            <div className="mb-20">
               <h2
-                className="text-[clamp(1.8rem,4vw,3.5rem)] font-extralight text-white/80 leading-tight tracking-tight"
-                style={{ fontFamily: "'Cormorant Garamond',serif" }}
+                className="text-[clamp(1.8rem,4vw,4rem)] font-extralight text-[#FEE9CE] leading-[0.8] tracking-tight"
+
               >
                 Tell us about <br />
-                <em className="not-italic text-white/30">your project.</em>
+                <em className="not-italic text-white/30"> your project.</em>
               </h2>
             </div>
 
@@ -256,29 +267,27 @@ export default function ContactPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                   <Field label="Name" required>
                     <input type="text" required placeholder="John Doe"
-                      value={form.name} onChange={(e) => update("name", e.target.value)} className={inputCls} />
+                      name="name" value={form.name} onChange={handleChange} className={inputCls} />
                   </Field>
                   <Field label="Email" required>
                     <input type="email" required placeholder="johndoe@gmail.com"
-                      value={form.email} onChange={(e) => update("email", e.target.value)} className={inputCls} />
+                      name="email" value={form.email} onChange={handleChange} className={inputCls} />
                   </Field>
                 </div>
 
                 <Field label="Company / Brand (Optional)">
                   <input type="text" placeholder="Meta"
-                    value={form.company} onChange={(e) => update("company", e.target.value)} className={inputCls} />
+                    name="company" value={form.company} onChange={handleChange} className={inputCls} />
                 </Field>
 
                 <Field label="Project brief" required>
-                  <textarea required rows={4}
+                  <textarea required rows={2}
                     placeholder="Tell me about your product, the feel you're going for, and your timeline…"
-                    value={form.message} onChange={(e) => update("message", e.target.value)}
+                    name="message" value={form.message} onChange={handleChange}
                     className={`${inputCls} resize-none`} />
                 </Field>
 
                 <div className="flex items-center justify-between gap-6 pt-2">
-                  <p className="text-xs text-white/25 font-light">* Required fields</p>
-
                   <button
                     type="submit"
                     disabled={status === "sending"}

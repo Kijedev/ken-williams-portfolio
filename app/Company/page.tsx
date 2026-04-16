@@ -81,11 +81,10 @@ export default function Company() {
                 />
 
                 {/* ── Orbit ring ───────────────────────────────────────── */}
-                <div
-                    ref={orbitRef}
-                    className="pointer-events-none absolute -top-56 -right-56 w-[600px] h-[600px] rounded-full border border-white/10 z-1"
-                    aria-hidden="true"
-                />
+                <div ref={orbitRef}
+                    className="pointer-events-none absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full border border-white/5 opacity-0"
+                    style={{ animation: "orbit-spin 18s linear infinite" }} aria-hidden="true" />
+                <div className="pointer-events-none absolute -top-20 -right-20 w-[320px] h-[320px] rounded-full border border-white/7" aria-hidden="true" />
 
                 <div>
                     <Whoweare />

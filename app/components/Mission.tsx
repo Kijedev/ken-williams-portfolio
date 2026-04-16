@@ -71,7 +71,7 @@ export default function Mission() {
                     color: "transparent",
                 }}
             >
-                "Every product <br /> has a story. <br /> We shoot it."
+                "Every product <br /> has a story. <br /> We help tell it."
             </h1>
         </section>
     );

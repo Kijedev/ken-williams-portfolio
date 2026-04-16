@@ -19,12 +19,12 @@ export default function Whoweare() {
 
     return (
         <section ref={ref} className="flex flex-col h-screen items-center justify-center overflow-hidden">
-            <div className="flex flex-col lg:gap-0 gap-5 lg:pt-10 pt-5 px-4 lg:px-0 py-12 lg:py-0">
+            <div className="flex flex-col lg:gap-0 gap-5 lg:pt-20 pt-5 px-4 lg:px-0 py-12 lg:py-0">
 
                 {/* WHATS */}
                 <motion.h1
                     style={{ x: slideLeft }}
-                    className="text-[8rem] lg:text-[14rem] opacity-10 font-extrabold text-center flex justify-center lg:justify-center text-[#E8A25C] lg:h-44 h-20"
+                    className="text-[8rem] lg:text-[13rem] opacity-10 font-extrabold text-center flex justify-center lg:justify-center text-[#FEE9CE] lg:h-44 h-20"
                 >
                     WHO
                 </motion.h1>
@@ -32,7 +32,7 @@ export default function Whoweare() {
                 {/* EVERYONE */}
                 <motion.h1
                     style={{ x: slideRight }}
-                    className="text-[8rem] lg:text-[14rem] font-extrabold text-center flex justify-center lg:justify-center text-[#EF5143] lg:h-44 h-20"
+                    className="text-[8rem] lg:text-[13rem] font-extrabold text-center flex justify-center lg:justify-center text-[#E8A25C] lg:h-44 h-20"
                 >
                     WE
                 </motion.h1>
@@ -40,7 +40,7 @@ export default function Whoweare() {
                 {/* TALKING */}
                 <motion.h1
                     style={{ x: slideLeft }}
-                    className="text-[8rem] lg:text-[14rem] opacity-10 font-extrabold text-center flex justify-center lg:justify-center text-[#E8A25C]"
+                    className="text-[8rem] lg:text-[13rem] opacity-10 font-extrabold text-center flex justify-center lg:justify-center text-[#FEE9CE]"
                 >
                     ARE
                 </motion.h1>
