@@ -109,24 +109,27 @@ export default function Page() {
   };
 
   return (
-    <div style={{ background: "#000", }}>
-
+    // <div style={{ background: "#000", }} className="lg:overflow-visible lg:w-full">
+<div
+  style={{ background: "#000" }}
+  className="w-full lg:overflow-visible overflow-x-hidden"
+>
       {/* ── Hero panel — sticky, sits behind the form as it scrolls over ── */}
       <div
         style={{
           position: "sticky",
           top: 0,
           zIndex: 0,
-          height: "100vh",
+          // height: "100vh",
         }}
+        className="lg:h-screen h-[90vh]"
       >
         <motion.div className="w-full h-full flex flex-col justify-center">
 
           {/* Glow */}
           <div
-            className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] opacity-[0.05]"
+            className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[120vw] max-w-[800px] h-[500px] opacity-[0.05]"
             style={{ background: "radial-gradient(ellipse,#fff 0%,transparent 65%)" }}
-            aria-hidden="true"
           />
 
           {/* Orbit rings */}
@@ -138,8 +141,7 @@ export default function Page() {
             aria-hidden="true"
           />
           <div
-            className="pointer-events-none absolute -top-20 -right-20 w-[320px] h-[320px] rounded-full border border-white/7"
-            aria-hidden="true"
+            className="pointer-events-none absolute -top-20 -right-20 w-[50vw] max-w-[320px] h-[50vw] max-h-[320px] rounded-full border border-white/7"
           />
 
           <div className="z-10 w-full px-6 sm:px-10 md:px-16 lg:px-24 pt-32 pb-24">
@@ -209,13 +211,12 @@ export default function Page() {
           borderTopRightRadius: "24px",
           boxShadow: "0 -24px 80px rgba(0,0,0,0.9), 0 -1px 0 rgba(255,255,255,0.06)",
           overflow: "hidden",
-          // Slight overlap so the card peeks above the fold before scrolling
-          // marginTop: "-10vh",
         }}
+        className="lg:mt-0 -mt-20"
       >
         <div className="relative w-full mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-16 md:py-10 pb-40">
           <div className="mb-20">
-            <h2 className="text-[clamp(1.8rem,4vw,4rem)] font-extralight text-[#FEE9CE] leading-[0.8] tracking-tight">
+            <h2 className="text-[clamp(3rem,4vw,4rem)] font-extralight text-[#FEE9CE] leading-[0.8] tracking-tight">
               Tell us about <br />
               <em className="not-italic text-white/30"> your project.</em>
             </h2>
