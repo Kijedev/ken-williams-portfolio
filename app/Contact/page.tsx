@@ -109,18 +109,15 @@ export default function Page() {
   };
 
   return (
-    // <div style={{ background: "#000", }} className="lg:overflow-visible lg:w-full">
-<div
-  style={{ background: "#000" }}
-  className="w-full lg:overflow-visible overflow-x-hidden"
->
-      {/* ── Hero panel — sticky, sits behind the form as it scrolls over ── */}
+    <div
+      style={{ background: "#000" }}
+      className="w-full xl:overflow-visible lg:overflow-visible md:overflow-visible overflow-hidden"
+    >
       <div
         style={{
           position: "sticky",
           top: 0,
           zIndex: 0,
-          // height: "100vh",
         }}
         className="lg:h-screen h-[90vh]"
       >
@@ -134,14 +131,14 @@ export default function Page() {
 
           {/* Orbit rings */}
           <motion.div
-            className="pointer-events-none absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full border border-white/5"
+            className="pointer-events-none absolute -top-40 right-0 w-[500px] h-[500px] rounded-full border border-white/5"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, delay: 0.8 }}
             aria-hidden="true"
           />
           <div
-            className="pointer-events-none absolute -top-20 -right-20 w-[50vw] max-w-[320px] h-[50vw] max-h-[320px] rounded-full border border-white/7"
+            className="pointer-events-none absolute -top-20 right-0 w-[50vw] max-w-[320px] h-[50vw] max-h-[320px] rounded-full border border-white/7"
           />
 
           <div className="z-10 w-full px-6 sm:px-10 md:px-16 lg:px-24 pt-32 pb-24">
@@ -174,7 +171,7 @@ export default function Page() {
               />
 
               <motion.div
-                className="flex flex-col lg:flex-row gap-10 w-full"
+                className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-10 w-full"
                 variants={containerVariants}
               >
                 {CONTACT_DETAILS.map(({ label, value, href }) => (
@@ -214,7 +211,7 @@ export default function Page() {
         }}
         className="lg:mt-0 -mt-20"
       >
-        <div className="relative w-full mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-16 md:py-10 pb-40">
+        <div className="relative w-full px-6 sm:px-10 md:px-16 lg:px-24 py-16 md:py-10 pb-40">
           <div className="mb-20">
             <h2 className="text-[clamp(3rem,4vw,4rem)] font-extralight text-[#FEE9CE] leading-[0.8] tracking-tight">
               Tell us about <br />
