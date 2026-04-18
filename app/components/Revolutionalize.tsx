@@ -18,7 +18,7 @@ export default function Revolutionalize() {
     const slideRight = useTransform(scrollYProgress, [0, 1], ["50%", "-50%"]);
 
     return (
-        <section ref={ref} className="bg-black flex flex-col h-screen relative z-50 items-center justify-center overflow-hidden">
+        <section ref={ref} className="bg-black flex flex-col lg:h-screen relative z-50 items-center justify-center overflow-hidden">
             {/* <div
                 className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] opacity-[0.05] z-1"
                 style={{ background: "radial-gradient(ellipse, #fff 0%, transparent 65%)" }}
@@ -30,7 +30,7 @@ export default function Revolutionalize() {
                 {/* WHATS */}
                 <motion.h1
                     style={{ x: slideLeft }}
-                    className="text-[3rem] lg:text-[10rem] opacity-10 capitalize font-extrabold text-center flex justify-center lg:justify-center text-[#FEE9CE] lg:h-44 h-10"
+                    className="text-[3rem] lg:text-[10rem] opacity-15 capitalize font-extrabold text-center flex justify-center lg:justify-center text-[#FEE9CE] lg:h-44 h-10"
                 >
                     Revolutionalizing
                 </motion.h1>
@@ -46,7 +46,7 @@ export default function Revolutionalize() {
                 {/* TALKING */}
                 <motion.h1
                     style={{ x: slideLeft }}
-                    className="text-[3rem] lg:text-[10rem] opacity-10 capitalize font-extrabold text-center flex justify-center lg:justify-center text-[#FEE9CE]"
+                    className="text-[3rem] lg:text-[10rem] opacity-15 capitalize font-extrabold text-center flex justify-center lg:justify-center text-[#FEE9CE]"
                 >
                     Visualization
                 </motion.h1>
