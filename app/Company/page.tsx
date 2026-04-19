@@ -8,6 +8,7 @@ import CoreValues from "../components/CoreValues";
 import FAQs from "../components/FAQs";
 import Whoweare from "../components/Whoweare";
 import Mission from "../components/Mission";
+import BrandsMarquee from "../components/ui/Brands";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -195,7 +196,7 @@ export default function Page() {
                         </div>
                     </div>
                 </section>
-
+                <BrandsMarquee />
                 <Mission />
 
                 <CoreValues />

@@ -244,7 +244,7 @@ export default function Page() {
                 <section className="bg-black">
                     <div className=" lg:pt-32 pt-20 lg:px-20 px-5">
                         <h1 className="text-[clamp(5rem,9vw,10rem)] font-extrabold leading-[0.8] tracking-tighter mb-8 bg-linear-to-b from-[#EF5143] via-[#EF5143] to-black bg-clip-text text-transparent">
-                            OUR <br /> PRICING
+                            OUR PRICING
                         </h1>
                     </div>
 

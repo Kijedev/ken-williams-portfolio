@@ -4,6 +4,7 @@ import FAQs from "@/app/components/FAQs";
 import { Metadata } from "next";
 import BentoGallery from "@/app/components/ui/Bentogallery";
 import ScrollTextReveal from "@/app/components/ui/ScrollTextReveal";
+import Brands from "@/app/components/ui/Brands"
 
 // export const metadata: Metadata = {
 //   title: "Ken Williams",
@@ -15,6 +16,7 @@ export default function Page() {
     <div className="overflow-x-hidden bg-black">
       <HeroPage />
       <Revolutionalize />
+      <Brands />
       <BentoGallery />
       <ScrollTextReveal />
       <FAQs />

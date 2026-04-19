@@ -105,7 +105,7 @@ function FAQItem({
             className={`
               text-base md:text-2xl font-light leading-snug tracking-wide cursor-pointer
               transition-colors duration-300
-              ${isOpen ? "text-white" : "text-[#FEE9CE] group-hover:text-white/80"}
+              ${isOpen ? "text-white" : "text-white/50 group-hover:text-white/80"}
             `}
           >
             {item.q}

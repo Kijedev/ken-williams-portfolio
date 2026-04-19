@@ -125,10 +125,10 @@ export default function HorizontalGallery() {
                 <div className="flex flex-col gap-2 mb-10">
                     <div className="lg:px-20 px-5">
                         <h1 className="text-[clamp(5rem,9vw,10rem)] font-extrabold leading-[0.8] tracking-tighter mb-8 bg-linear-to-b from-[#FEE9CE] via-[#FEE9CE] to-black bg-clip-text text-transparent">
-                            CORE <br /> VALUES
+                            CORE VALUES
                         </h1>
                     </div>
-                    <p className="lg:px-20 px-5 text-white/50 text-sm lg:text-xl lg:-mt-12">
+                    <p className="lg:px-20 px-5 text-white/50 text-sm lg:text-xl lg:-mt-5">
                         Principles that guide our work.
                     </p>
                 </div>
@@ -140,7 +140,7 @@ export default function HorizontalGallery() {
                                 key={i}
                                 className="w-[85vw] sm:w-[65vw] md:w-[45vw] lg:w-[30vw] xl:w-[25vw] p-4 shrink-0"
                             >
-                                <div className="relative w-full h-[420px] rounded-3xl bg-[#ffffff]/50 overflow-hidden flex flex-col items-center pt-10 hover:scale-[1.03] transition">
+                                <div className="relative w-full h-[420px] rounded-3xl bg-[#ffffff] overflow-hidden flex flex-col items-center pt-10 hover:scale-[1.03] transition">
 
                                     <h2 className="text-black text-2xl md:text-3xl text-center px-4">
                                         {card.title}
@@ -153,13 +153,6 @@ export default function HorizontalGallery() {
                     </div>
                 </div>
             </section>
-
-            {/* Bottom */}
-            {/* <section className="h-screen flex items-center justify-center">
-                <h3 className="text-white text-2xl md:text-4xl">
-                    That's it!
-                </h3>
-            </section> */}
         </div>
     );
 }

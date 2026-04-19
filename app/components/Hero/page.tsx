@@ -627,13 +627,13 @@ export default function Page() {
         {/* Vignette top/bottom */}
         <div style={{
           position: "fixed", inset: 0, zIndex: 1, pointerEvents: "none",
-          background: "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 30%, transparent 55%, rgba(0,0,0,0.85) 100%)"
+          background: "linear-gradient(to bottom, rgba(0,0,0,0) 0%, transparent 30%, transparent 55%, rgba(0,0,0,0) 100%)"
         }} aria-hidden="true" />
 
         {/* Vignette left/right */}
         <div style={{
           position: "fixed", inset: 0, zIndex: 1, pointerEvents: "none",
-          background: "linear-gradient(to right, rgba(0,0,0,0.4) 0%, transparent 25%, transparent 75%, rgba(0,0,0,0.4) 100%)"
+          background: "linear-gradient(to right, rgba(0,0,0,0) 0%, transparent 25%, transparent 75%, rgba(0,0,0,0) 100%)"
         }} aria-hidden="true" />
 
         {/* Grain */}
@@ -810,7 +810,7 @@ export default function Page() {
 
             <div ref={ctaRef} style={{ display: "flex", alignItems: "center", gap: "20px" }}>
               <Link
-                href="/contact"
+                href="/Contact"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",

@@ -146,7 +146,7 @@ export default function Navbar() {
                 transition-all duration-300
               "
             >
-              Contact Us
+              Let's get started
             </Link>
 
             {/* Burger */}

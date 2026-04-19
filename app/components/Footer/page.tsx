@@ -2,7 +2,12 @@
 import { FaLinkedinIn, FaFacebookF, FaTiktok } from "react-icons/fa";
 import { IoLogoInstagram } from "react-icons/io5";
 
-const NAV_LINKS = ["Company", "What We Do", "Projects", "Courses"];
+const NAV_LINKS = [
+  { label: "Company", href: "/Company" },
+  { label: "What We Do", href: "/Servicess" },
+  { label: "Projects", href: "/Projects" },
+  // { label: "Courses", href: "/Courses" },
+];
 const SOCIALS = [
   { Icon: IoLogoInstagram, label: "Instagram", href: "https://www.instagram.com/darawilliam.s" },
   { Icon: FaLinkedinIn, label: "LinkedIn", href: "https://www.linkedin.com/in/ken-williams-2828111b5/" },
@@ -63,7 +68,7 @@ export default function Page() {
               className="text-[clamp(3rem,10vw,6rem)] font-black leading-[0.9] tracking-tight text-white"
               style={{ textShadow: "0 0 80px rgba(255,255,255,0.07)" }}
             >
-              Ekho<br />Studios
+              Ekho Studios
             </h2>
             <p className="mt-2 text-sm lg:text-lg text-white/30 max-w-sm leading-tight">
               Crafting visual narratives that make products impossible to ignore.
@@ -75,13 +80,13 @@ export default function Page() {
             <nav className="flex flex-col items-start lg:items-end gap-1">
               {NAV_LINKS.map((link) => (
                 <a
-                  key={link}
-                  href="#"
-                  target="_blank"
+                  key={link.href}
+                  href={link.href}
+                  // target="_blank"
                   rel="noopener noreferrer"
                   className="group relative text-xl md:text-2xl font-light text-white/40 hover:text-white transition-colors duration-300"
                 >
-                  {link}
+                  {link.label}
                   <span className="absolute -bottom-0.5 left-0 md:left-auto md:right-0 h-px w-0 group-hover:w-full bg-white transition-all duration-300 ease-out" />
                 </a>
               ))}
@@ -107,9 +112,9 @@ export default function Page() {
           </div>
         </div>
 
-        <p className="text-[11px] lg:text-[14px] leading-relaxed text-white/30 font-light capitalize mt-10">Ekho Studios ("Ekho") is a creative production studio offering professional product videography services to brands, businesses, and individual clients across Nigeria and beyond. All video productions are executed by our in-house creative team and delivered in high-definition formats optimised for digital platforms including Instagram, TikTok, YouTube, and e-commerce storefronts. Each project scope, timeline, and deliverable specification is agreed upon in writing prior to production commencement. Any previews, mood boards, or reference materials shared during pre-production are illustrative in nature and may not reflect the exact outcome of the final production, which is subject to creative direction, available equipment, location conditions, and client-approved briefs. Pricing displayed on our rate card reflects standard package rates and may vary based on project complexity, travel requirements, usage rights, and the number of revisions requested beyond the agreed allowance. By engaging Ekho Studios for a project, clients confirm acceptance of our production terms, payment schedule, and intellectual property agreement, copies of which are provided at the time of booking. Ekho Studios retains the right to feature completed work in its portfolio and on its social media channels unless a confidentiality clause is explicitly agreed upon in the project contract</p>
+        <p className="text-[11px] lg:text-[16px] leading-relaxed text-white/30 font-light capitalize mt-10">Ekho Studios ("Ekho") is a creative production studio offering professional product videography services to brands, businesses, and individual clients across Nigeria and beyond. All video productions are executed by our in-house creative team and delivered in high-definition formats optimised for digital platforms including Instagram, TikTok, YouTube, and e-commerce storefronts. Each project scope, timeline, and deliverable specification is agreed upon in writing prior to production commencement. Any previews, mood boards, or reference materials shared during pre-production are illustrative in nature and may not reflect the exact outcome of the final production, which is subject to creative direction, available equipment, location conditions, and client-approved briefs. Pricing displayed on our rate card reflects standard package rates and may vary based on project complexity, travel requirements, usage rights, and the number of revisions requested beyond the agreed allowance. By engaging Ekho Studios for a project, clients confirm acceptance of our production terms, payment schedule, and intellectual property agreement, copies of which are provided at the time of booking. Ekho Studios retains the right to feature completed work in its portfolio and on its social media channels unless a confidentiality clause is explicitly agreed upon in the project contract</p>
         
-        <div className="mt-12 md:mt-16 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div className="mt-12 md:mt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <p className="text-[11px] lg:text-[16px] font-light text-white/90 capitalize">
             &copy; {new Date().getFullYear()} Ekho Studios. All rights reserved.
           </p>

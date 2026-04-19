@@ -3,300 +3,269 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// ─── Brand data ───────────────────────────────────────────────────────────────
-// Replace src with your actual brand logo paths from /public
-// e.g. src: "/brands/nike.png"
-// name is used for alt text only
-
 const BRANDS = [
-    { src: "/cedaa.png", name: "cedaa" },
-    { src: "/havoil.png", name: "hav oil" },
-    { src: "/jiffyjollof.png", name: "jiffy jollof" },
-    { src: "/Unclestans.jpeg", name: "Unclestans" },
-    { src: "/skintivity.jpg", name: "skintivity" },
-    //   { src: "/brands/brand-06.png", name: "Brand 06" },
-    //   { src: "/brands/brand-07.png", name: "Brand 07" },
-    //   { src: "/brands/brand-08.png", name: "Brand 08" },
-    //   { src: "/brands/brand-09.png", name: "Brand 09" },
+  { name: "Cedaa Yoghurt"   },
+  { name: "Hav Oil"         },
+  { name: "Jiffy Jollof"    },
+  { name: "Unclestans"      },
+  { name: "Skintivity"      },
+  { name: "Digitile Hub"    },
+  { name: "Rita and Nathan" },
+  { name: "KK Hair"         },
+  { name: "Elonna Foods"    },
+  { name: "Koshe Quick Mart"},
+  { name: "12 Basket"       },
+  { name: "MTK Fish"        },
+  { name: "Nutrio"          },
 ];
 
+const DUPES = 4;
+const TRACK_ITEMS = Array.from({ length: DUPES }, () => BRANDS).flat();
+
 export default function BrandsMarquee() {
-    const wrapperRef = useRef<HTMLElement>(null);
-    const trackRef = useRef<HTMLDivElement>(null);
-    const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const sectionRef   = useRef<HTMLElement>(null);
+  const track1Ref    = useRef<HTMLDivElement>(null);
+  const track2Ref    = useRef<HTMLDivElement>(null);
+  const eyebrowRef   = useRef<HTMLDivElement>(null);
+  const lineLeftRef  = useRef<HTMLSpanElement>(null);
+  const lineRightRef = useRef<HTMLSpanElement>(null);
 
-    useEffect(() => {
-        const wrapper = wrapperRef.current;
-        const track = trackRef.current;
-        const items = itemsRef.current.filter(Boolean) as HTMLDivElement[];
+  useEffect(() => {
+    const section  = sectionRef.current;
+    const track1   = track1Ref.current;
+    const track2   = track2Ref.current;
+    const eyebrow  = eyebrowRef.current;
 
-        if (!wrapper || !track || !items.length) return;
+    if (!section || !track1 || !track2 || !eyebrow) return;
 
-        const ctx = gsap.context(() => {
+    // ── Ticker-based marquee ────────────────────────────────────────
+    // Must live OUTSIDE gsap.context — context.revert() doesn't call
+    // cleanup functions returned from inside it, so the ticker would
+    // keep running. We manage it manually here instead.
 
-            // ── Horizontal scroll tween ──────────────────────────────
-            // The track slides from right (starts off-screen via padding-left: 100vw)
-            // to fully scrolled left. This tween drives all child animations.
-            const scrollTween = gsap.to(track, {
-                xPercent: -100,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: wrapper,
-                    pin: true,
-                    end: "+=5000px",
-                    scrub: true,
-                },
-            });
+    let x1 = 0;
+    let x2 = 0;
+    let halfWidth1 = 0;
+    let halfWidth2 = 0;
+    const speed1 = 0.45;
+    const speed2 = 0.3;
 
-            // ── Per-image entrance via containerAnimation ────────────
-            // Each image flies in from a random y offset and rotation
-            // as it enters the left edge of the viewport during horizontal scroll.
-            items.forEach((item) => {
-                gsap.from(item, {
-                    yPercent: () => gsap.utils.random(-140, 140),
-                    rotation: () => gsap.utils.random(-18, 18),
-                    opacity: 0,
-                    scale: 0.75,
-                    ease: "back.out(1.4)",
-                    scrollTrigger: {
-                        trigger: item,
-                        containerAnimation: scrollTween, // ← drives this off the horizontal tween
-                        start: "left 100%",
-                        end: "left 40%",
-                        scrub: 1,
-                    },
-                });
-            });
+    const tick = () => {
+      x1 -= speed1;
+      x2 += speed2;
+      if (Math.abs(x1) >= halfWidth1) x1 = 0;
+      if (x2 >= 0) x2 = -halfWidth2;
+      gsap.set(track1, { x: x1 });
+      gsap.set(track2, { x: x2 });
+    };
 
-        }, wrapper);
+    // Use requestAnimationFrame to wait one paint cycle so scrollWidth
+    // is accurate after the browser has laid out the track contents.
+    const rafId = requestAnimationFrame(() => {
+      halfWidth1 = track1.scrollWidth / 2;
+      halfWidth2 = track2.scrollWidth / 2;
+      // Start track2 offset so rows feel visually staggered
+      x2 = -halfWidth2 / 2;
+      gsap.ticker.add(tick);
+    });
 
-        return () => ctx.revert();
-    }, []);
+    // ── Entrance animations ─────────────────────────────────────────
+    const ctx = gsap.context(() => {
+      gsap.from(eyebrow, {
+        y: 24,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 88%",
+          toggleActions: "play none none none",
+        },
+      });
 
-    return (
-        <>
-            {/* <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500&display=swap');
-      `}</style> */}
+      gsap.from(lineLeftRef.current, {
+        scaleX: 0,
+        transformOrigin: "right",
+        duration: 1.1,
+        ease: "expo.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 88%",
+          toggleActions: "play none none none",
+        },
+      });
 
-            <section
-                ref={wrapperRef}
-                className="relative overflow-hidden h-[50vh] flex flex-col justify-center bg-black border-t border-white/[0.06]"
-                aria-label="Brands we've worked with"
+      gsap.from(lineRightRef.current, {
+        scaleX: 0,
+        transformOrigin: "left",
+        duration: 1.1,
+        ease: "expo.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 88%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      gsap.from([track1, track2], {
+        opacity: 0,
+        duration: 1.4,
+        ease: "power2.out",
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: section,
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+      });
+    }, section);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      gsap.ticker.remove(tick);
+      ctx.revert();
+    };
+  }, []);
+
+  const dividerStyle: React.CSSProperties = {
+    flexShrink: 0,
+    width: "1px",
+    height: "clamp(12px, 2vh, 20px)",
+    background: "rgba(255,255,255,0.08)",
+    alignSelf: "center",
+  };
+
+  const renderTrack = (
+    ref: React.RefObject<HTMLDivElement | null>,
+    items: typeof TRACK_ITEMS,
+  ) => (
+    <div
+      ref={ref}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        whiteSpace: "nowrap",
+        willChange: "transform",
+      }}
+    >
+      {items.map((brand, i) => (
+        <div
+          key={i}
+          style={{ display: "inline-flex", alignItems: "center", flexShrink: 0 }}
+        >
+          <div
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              padding: "0 clamp(1.2rem, 3.5vw, 3rem)",
+              height: "clamp(44px, 7vh, 72px)",
+            }}
+          >
+            <span
+              style={{
+                fontSize: "clamp(0.85rem, 2vw, 1.5rem)",
+                fontWeight: 300,
+                letterSpacing: "0.04em",
+                color: "rgba(255,255,255,0.4)",
+                userSelect: "none",
+                transition: "color 0.3s ease",
+                cursor: "default",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLSpanElement).style.color = "rgba(255,255,255,0.85)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLSpanElement).style.color = "rgba(255,255,255,0.4)";
+              }}
             >
-                <div
-                    className="pointer-events-none absolute inset-0 z-[1] opacity-[0.025]"
-                    style={{
-                        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
-                        backgroundSize: "180px 180px",
-                    }}
-                    aria-hidden="true"
-                />
+              {brand.name}
+            </span>
+          </div>
+          {i < items.length - 1 && (
+            <span style={dividerStyle} aria-hidden="true" />
+          )}
+        </div>
+      ))}
+    </div>
+  );
 
-                {/* ── Left & right edge fades so images appear/disappear softly */}
-                <div className="pointer-events-none absolute inset-y-0 left-0 w-32 z-10"
-                    style={{ background: "linear-gradient(to right, #000 0%, transparent 100%)" }}
-                    aria-hidden="true" />
-                <div className="pointer-events-none absolute inset-y-0 right-0 w-32 z-10"
-                    style={{ background: "linear-gradient(to left, #000 0%, transparent 100%)" }}
-                    aria-hidden="true" />
+  return (
+    <section
+      ref={sectionRef}
+      style={{
+        position: "relative",
+        background: "#000",
+        borderTop: "1px solid rgba(255,255,255,0.06)",
+        paddingTop: "clamp(2.5rem, 5vh, 4rem)",
+        paddingBottom: "clamp(2.5rem, 5vh, 4rem)",
+        overflow: "hidden",
+      }}
+      aria-label="Companies we've worked with"
+      className="lg:h-[80vh] h-[50vh] flex flex-col justify-center items-center"
+    >
+      {/* Edge fades */}
+      <div aria-hidden="true" style={{
+        position: "absolute", top: 0, left: 0, bottom: 0,
+        width: "clamp(60px, 10vw, 160px)",
+        background: "linear-gradient(to right, #000 0%, transparent 100%)",
+        zIndex: 10, pointerEvents: "none",
+      }} />
+      <div aria-hidden="true" style={{
+        position: "absolute", top: 0, right: 0, bottom: 0,
+        width: "clamp(60px, 10vw, 160px)",
+        background: "linear-gradient(to left, #000 0%, transparent 100%)",
+        zIndex: 10, pointerEvents: "none",
+      }} />
 
-                {/* ── Eyebrow label — fixed in place above the track ─── */}
-                {/* <div className="absolute top-12 left-1/2 -translate-x-1/2 z-10 flex items-center gap-3">
-                    <span className="w-5 h-px bg-white/20" />
-                    <span
-                        className="text-[9px] tracking-[0.38em] uppercase text-white/20"
-                        style={{ fontFamily: "Barlow, sans-serif" }}
-                    >
-                        Brands we've worked with
-                    </span>
-                    <span className="w-5 h-px bg-white/20" />
-                </div> */}
+      {/* Eyebrow */}
+      <div
+        ref={eyebrowRef}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "clamp(0.6rem, 1.5vw, 1.2rem)",
+          marginBottom: "clamp(1.5rem, 3.5vh, 2.5rem)",
+          position: "relative",
+          zIndex: 5,
+        }}
+      >
+        <span ref={lineLeftRef} aria-hidden="true" style={{
+          display: "block",
+          width: "clamp(20px, 4vw, 52px)",
+          height: "1px",
+          background: "rgba(255,255,255,0.15)",
+        }} />
+        <span style={{
+          fontSize: "clamp(0.5rem, 0.9vw, 0.65rem)",
+          letterSpacing: "0.4em",
+          textTransform: "uppercase",
+          color: "rgba(255,255,255,0.2)",
+          fontWeight: 400,
+          whiteSpace: "nowrap",
+        }}>
+          Companies we've worked with
+        </span>
+        <span ref={lineRightRef} aria-hidden="true" style={{
+          display: "block",
+          width: "clamp(20px, 4vw, 52px)",
+          height: "1px",
+          background: "rgba(255,255,255,0.15)",
+        }} />
+      </div>
 
-                <div
-                    ref={trackRef}
-                    className="flex items-center gap-[2vw] w-max"
-                    style={{ paddingLeft: "100vw", paddingRight: "10vw" }}
-                >
-                    {BRANDS.map((brand, i) => (
-                        <div
-                            key={i}
-                            ref={(el) => { itemsRef.current[i] = el; }}
-                            className="relative shrink-0 flex items-center justify-center"
-                            style={{ width: "clamp(100px, 14vw, 200px)", height: "clamp(60px, 8vw, 110px)" }}
-                        >
-                            {/* Brand logo */}
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            {/* <div className="relative w-full h-full"> */}
-                            <Image
-                                src={brand.src}
-                                alt={brand.name}
-                                fill
-                                className="object-contain"
-                                sizes="(max-width: 768px) 100px, 200px"
-                            />
-                            {/* </div> */}
+      {/* Track 1 — left */}
+      <div style={{ overflow: "hidden", marginBottom: "clamp(0.4rem, 1vh, 0.8rem)" }}>
+        {renderTrack(track1Ref, TRACK_ITEMS)}
+      </div>
 
-                            {/* Fallback placeholder shown while image loads or if src is missing */}
-                            <div
-                                className="absolute inset-0 flex items-center justify-center border border-white/[0.06] rounded-sm"
-                                style={{ zIndex: -1 }}
-                                aria-hidden="true"
-                            >
-                                <span
-                                    className="text-[9px] tracking-[0.22em] uppercase text-white/10"
-                                    style={{ fontFamily: "Barlow, sans-serif" }}
-                                >
-                                    {brand.name}
-                                </span>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-            </section>
-        </>
-    );
+      {/* Track 2 — right */}
+      <div style={{ overflow: "hidden" }}>
+        {renderTrack(track2Ref, [...TRACK_ITEMS].reverse())}
+      </div>
+    </section>
+  );
 }
-
-
-
-// "use client";
-
-// import { useEffect, useRef } from "react";
-// import gsap from "gsap";
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-// gsap.registerPlugin(ScrollTrigger);
-
-// type Brand = {
-//   src: string;
-//   name: string;
-// };
-
-// const BRANDS: Brand[] = [
-//   { src: "/cedaa.png", name: "Cedaa" },
-//   { src: "/havoil.png", name: "Hav Oil" },
-//   { src: "/jiffyjollof.png", name: "Jiffy Jollof" },
-//   { src: "/Unclestans.jpeg", name: "Unclestans" },
-//   { src: "/skintivity.jpg", name: "Skintivity" },
-// ];
-
-// export default function BrandsMarquee() {
-//   const wrapperRef = useRef<HTMLElement | null>(null);
-//   const trackRef = useRef<HTMLDivElement | null>(null);
-//   const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
-
-//   useEffect(() => {
-//     const wrapper = wrapperRef.current;
-//     const track = trackRef.current;
-//     const items = itemsRef.current.filter(Boolean) as HTMLDivElement[];
-
-//     if (!wrapper || !track || !items.length) return;
-
-//     const ctx = gsap.context(() => {
-//       // Horizontal scroll animation
-//       const scrollTween = gsap.to(track, {
-//         x: () => -(track.scrollWidth - window.innerWidth),
-//         ease: "none",
-//         scrollTrigger: {
-//           trigger: wrapper,
-//           pin: true,
-//           scrub: true,
-//           end: () => `+=${track.scrollWidth}`, // ✅ dynamic height fix
-//         },
-//       });
-
-//       // Individual item animation
-//       items.forEach((item) => {
-//         gsap.from(item, {
-//           yPercent: () => gsap.utils.random(-100, 100),
-//           rotation: () => gsap.utils.random(-10, 10),
-//           opacity: 0,
-//           scale: 0.8,
-//           ease: "power3.out",
-//           scrollTrigger: {
-//             trigger: item,
-//             containerAnimation: scrollTween,
-//             start: "left 100%",
-//             end: "left 60%",
-//             scrub: true,
-//           },
-//         });
-//       });
-//     }, wrapper);
-
-//     return () => ctx.revert();
-//   }, []);
-
-//   return (
-//     <section
-//       ref={wrapperRef}
-//       className="relative overflow-hidden min-h-[60vh] py-20 flex flex-col justify-center bg-black border-t border-white/[0.06]"
-//     >
-//       {/* Grain overlay */}
-//       <div
-//         className="pointer-events-none absolute inset-0 opacity-[0.03]"
-//         style={{
-//           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
-//           backgroundSize: "180px 180px",
-//         }}
-//       />
-
-//       {/* Edge fades */}
-//       <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-black to-transparent z-10" />
-//       <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-black to-transparent z-10" />
-
-//       {/* Title */}
-//       <div className="absolute top-10 left-1/2 -translate-x-1/2 z-10 flex items-center gap-3">
-//         <span className="w-5 h-px bg-white/20" />
-//         <span className="text-[10px] tracking-[0.3em] uppercase text-white/30">
-//           Brands we've worked with
-//         </span>
-//         <span className="w-5 h-px bg-white/20" />
-//       </div>
-
-//       {/* Track */}
-//       <div
-//         ref={trackRef}
-//         className="flex items-center gap-6 md:gap-10 w-max"
-//         style={{ paddingLeft: "100vw", paddingRight: "10vw" }}
-//       >
-//         {BRANDS.map((brand, i) => (
-//           <div
-//             key={i}
-//             ref={(el) => {
-//               itemsRef.current[i] = el;
-//             }}
-//             className="shrink-0 flex items-center justify-center"
-//             style={{
-//               width: "clamp(100px, 12vw, 180px)",
-//               height: "clamp(60px, 7vw, 100px)",
-//             }}
-//           >
-//             <img
-//               src={brand.src}
-//               alt={brand.name}
-//               className="w-full h-full object-contain"
-//               style={{
-//                 filter: "brightness(0) invert(1)",
-//                 opacity: 0.4,
-//                 transition: "opacity 0.3s ease",
-//               }}
-//               onMouseEnter={(e) =>
-//                 (e.currentTarget.style.opacity = "0.9")
-//               }
-//               onMouseLeave={(e) =>
-//                 (e.currentTarget.style.opacity = "0.4")
-//               }
-//             />
-//           </div>
-//         ))}
-//       </div>
-//     </section>
-//   );
-// }
