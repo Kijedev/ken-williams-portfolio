@@ -6,7 +6,6 @@ const NAV_LINKS = [
   { label: "Company", href: "/Company" },
   { label: "What We Do", href: "/Servicess" },
   { label: "Projects", href: "/Projects" },
-  // { label: "Courses", href: "/Courses" },
 ];
 const SOCIALS = [
   { Icon: IoLogoInstagram, label: "Instagram", href: "https://www.instagram.com/darawilliam.s" },
@@ -51,12 +50,12 @@ function FooterShapes() {
 export default function Page() {
   return (
     <footer className="relative w-full bg-black overflow-hidden">
-      {/* ── Thin top rule ─────────────────────────────────────── */}
+      {/* ── Thin top rule ── */}
       <div className="relative z-10 mx-6 sm:mx-10 md:mx-20 lg:mx-32">
         <div className="h-px bg-linear-to-r from-transparent via-white/20 to-transparent" />
       </div>
 
-      {/* ── Main content ──────────────────────────────────────── */}
+      {/* ── Main content ── */}
       <div className="relative z-10 px-6 sm:px-10 md:px-20 lg:px-20 pt-16 pb-4 md:pt-24 md:pb-6">
 
         {/* Top row: name + nav */}
@@ -82,7 +81,6 @@ export default function Page() {
                 <a
                   key={link.href}
                   href={link.href}
-                  // target="_blank"
                   rel="noopener noreferrer"
                   className="group relative text-xl md:text-2xl font-light text-white/40 hover:text-white transition-colors duration-300"
                 >

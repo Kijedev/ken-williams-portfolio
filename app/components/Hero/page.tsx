@@ -643,13 +643,7 @@ export default function Page() {
           backgroundSize: "180px 180px",
         }} aria-hidden="true" />
 
-        {/* Echo rings */}
-        {/* <div style={{ position: "fixed", top: "50%", left: "50%", zIndex: 2, pointerEvents: "none" }} aria-hidden="true">
-          <div ref={ring1Ref} style={{ position: "absolute", width: "240px", height: "240px", marginLeft: "-120px", marginTop: "-120px", borderRadius: "50%", border: "1px solid rgba(255,255,255,0.15)" }} />
-          <div ref={ring2Ref} style={{ position: "absolute", width: "240px", height: "240px", marginLeft: "-120px", marginTop: "-120px", borderRadius: "50%", border: "1px solid rgba(255,255,255,0.08)" }} />
-        </div> */}
-
-        {/* ── Main UI overlay ── */}
+        {/* ── Main UI ── */}
         <div
           ref={uiWrapperRef}
           style={{
@@ -734,41 +728,6 @@ export default function Page() {
                 Product
               </span>
 
-              {/* Ribbon badge */}
-              {/* <div style={{
-                position: "relative",
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                background: "#EF5143",
-                padding: "clamp(6px, 1vh, 10px) clamp(16px, 2vw, 26px)",
-                borderRadius: "5px",
-                fontSize: "clamp(0.5rem, 0.95vw, 0.75rem)",
-                fontWeight: 700,
-                letterSpacing: "0.2em",
-                textTransform: "uppercase",
-                color: "#fff",
-                animation: "ribbonWave 3.5s ease-in-out infinite",
-                whiteSpace: "nowrap",
-                marginBottom: "clamp(0.5rem, 1.5vw, 1.4rem)",
-              }}>
-                <span style={{
-                  position: "absolute", left: "-9px", top: "50%", transform: "translateY(-50%)",
-                  width: 0, height: 0,
-                  borderTop: "15px solid transparent",
-                  borderBottom: "15px solid transparent",
-                  borderRight: "10px solid #EF5143",
-                }} />
-                <span style={{
-                  position: "absolute", right: "-9px", top: "50%", transform: "translateY(-50%)",
-                  width: 0, height: 0,
-                  borderTop: "15px solid transparent",
-                  borderBottom: "15px solid transparent",
-                  borderLeft: "10px solid #EF5143",
-                }} />
-                For Brands
-              </div> */}
-
               <span style={{
                 fontSize: "clamp(3.5rem, 10.5vw, 8rem)",
                 fontWeight: 800,
@@ -782,12 +741,9 @@ export default function Page() {
 
           </div>
 
-          {/* ── Sub + CTA row ── */}
           <div style={{
             display: "flex",
             flexDirection: "column",
-            // alignItems: "flex-end",
-            // justifyContent: "space-between",
             marginTop: "clamp(1.2rem, 2.5vh, 2.2rem)",
             flexWrap: "wrap",
             gap: "1.5rem",
@@ -800,7 +756,6 @@ export default function Page() {
                 color: "rgba(255,255,255,0.3)",
                 letterSpacing: "0.04em",
                 lineHeight: "1.75",
-                // maxWidth: "360px",
                 margin: 0,
               }}
             >
@@ -843,25 +798,6 @@ export default function Page() {
                   <path d="M1 5h8M6 2l3 3-3 3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </Link>
-
-              {/* <Link
-                href="/projects"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "6px",
-                  fontSize: "clamp(0.78rem, 1.1vw, 0.92rem)",
-                  fontWeight: 400,
-                  color: "rgba(255,255,255,0.3)",
-                  textDecoration: "none",
-                  transition: "color 0.3s ease",
-                  whiteSpace: "nowrap",
-                }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.7)"; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.3)"; }}
-              >
-                View work
-              </Link> */}
             </div>
           </div>
 
@@ -869,14 +805,15 @@ export default function Page() {
           <div ref={scrollCueRef} style={{
             position: "absolute",
             bottom: "clamp(2rem, 4vh, 3.5rem)",
-            left: "50%",
             transform: "translateX(-50%)",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             gap: "8px",
             pointerEvents: "none",
-          }}>
+          }}
+          className="lg:left-1/2 left-60"
+          >
             <span style={{ fontSize: "8px", letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(255,255,255,0.18)" }}>Scroll</span>
             <div style={{
               width: "1px",

@@ -5,12 +5,11 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
-  { label: "Company",       href: "/Company"     },
+  { label: "Company", href: "/Company" },
   { label: "What we offer", href: "/Servicess" },
-  { label: "Projects",      href: "/Projects"    },
+  { label: "Projects", href: "/Projects" },
 ];
 
-// Reusable zigzag SVG so we don't repeat markup
 function Zigzag({ visible }: { visible: boolean }) {
   return (
     <span className="absolute left-0 -bottom-2 w-full overflow-hidden pointer-events-none">
@@ -27,7 +26,6 @@ function Zigzag({ visible }: { visible: boolean }) {
           d="M0 5 L5 0 L10 5 L15 0 L20 5 L25 0 L30 5 L35 0 L40 5 L45 0 L50 5 L55 0 L60 5 L65 0 L70 5 L75 0 L80 5 L85 0 L90 5 L95 0 L100 5"
           fill="none"
           strokeWidth="1.5"
-          // Active = full white, hover = white/60 (controlled by group-hover on parent)
           className="stroke-white/60"
         />
       </svg>
@@ -36,7 +34,7 @@ function Zigzag({ visible }: { visible: boolean }) {
 }
 
 export default function Navbar() {
-  const [isOpen,   setIsOpen]   = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
@@ -71,13 +69,6 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link href="/" className="group flex items-center gap-2.5 shrink-0">
-            {/* <span className="
-              relative flex items-center justify-center
-              w-8 h-8 rounded-full border border-white/20
-              group-hover:border-white/60 transition-colors duration-300
-            ">
-              <span className="w-1.5 h-1.5 rounded-full bg-white group-hover:scale-125 transition-transform duration-300" />
-            </span> */}
             <span className="text-white text-sm lg:text-lg font-light group-hover:tracking-widest transition-all duration-500">
               Ekho Studios
             </span>
@@ -97,15 +88,6 @@ export default function Navbar() {
                     `}
                   >
                     {label}
-                    {/*
-                      Show zigzag when:
-                      - active  → always visible (scale-x-100, opacity-100)
-                      - !active → only on group-hover (handled inside Zigzag via group-hover classes)
-
-                      We pass visible=true for active links.
-                      For inactive links, visible=false so the base state is hidden,
-                      but the group-hover CSS on the svg overrides that.
-                    */}
                     <span className="absolute left-0 -bottom-2 w-full overflow-hidden pointer-events-none">
                       <svg
                         viewBox="0 0 100 10"
@@ -164,7 +146,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* ── Mobile fullscreen overlay ─────────────────────────── */}
+      {/* ── Mobile fullscreen overlay ── */}
       <div
         style={{ zIndex: 9998 }}
         className={`
@@ -197,7 +179,6 @@ export default function Navbar() {
                   ${active ? "text-white" : "text-white/60 group-hover:text-white"}
                 `}>
                   {label}
-                  {/* Active dot indicator on mobile */}
                   {active && (
                     <span className="inline-block ml-3 w-1.5 h-1.5 rounded-full bg-white/50 align-middle" />
                   )}
@@ -221,18 +202,18 @@ export default function Navbar() {
                 transition-all duration-300
               "
             >
-              Contact Us
+              Send a message
             </Link>
           </div>
         </div>
 
-        {/* Bottom strip */}
+        {/* Bottom */}
         <div
           className={`px-8 pb-10 flex items-center justify-between transition-opacity duration-500 ${isOpen ? "opacity-100" : "opacity-0"}`}
           style={{ transitionDelay: isOpen ? "440ms" : "0ms" }}
         >
-          <span className="text-[10px] tracking-widest text-white/20 uppercase">Ekho Studios</span>
-          <span className="text-[10px] tracking-widest text-white/20 uppercase">© {new Date().getFullYear()}</span>
+          <span className="text-[14px] text-white/20 uppercase">Ekho Studios</span>
+          <span className="text-[14px] text-white/20 uppercase">© {new Date().getFullYear()}</span>
         </div>
       </div>
     </section>

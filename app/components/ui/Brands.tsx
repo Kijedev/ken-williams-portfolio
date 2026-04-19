@@ -10,7 +10,7 @@ const BRANDS = [
   { name: "Cedaa Yoghurt"   },
   { name: "Hav Oil"         },
   { name: "Jiffy Jollof"    },
-  { name: "Unclestans"      },
+  { name: "Uncle Stans"      },
   { name: "Skintivity"      },
   { name: "Digitile Hub"    },
   { name: "Rita and Nathan" },
@@ -40,12 +40,6 @@ export default function BrandsMarquee() {
     const eyebrow  = eyebrowRef.current;
 
     if (!section || !track1 || !track2 || !eyebrow) return;
-
-    // ── Ticker-based marquee ────────────────────────────────────────
-    // Must live OUTSIDE gsap.context — context.revert() doesn't call
-    // cleanup functions returned from inside it, so the ticker would
-    // keep running. We manage it manually here instead.
-
     let x1 = 0;
     let x2 = 0;
     let halfWidth1 = 0;
@@ -72,7 +66,7 @@ export default function BrandsMarquee() {
       gsap.ticker.add(tick);
     });
 
-    // ── Entrance animations ─────────────────────────────────────────
+    // ── Entrance animations 
     const ctx = gsap.context(() => {
       gsap.from(eyebrow, {
         y: 24,
@@ -166,7 +160,7 @@ export default function BrandsMarquee() {
           >
             <span
               style={{
-                fontSize: "clamp(0.85rem, 2vw, 1.5rem)",
+                fontSize: "clamp(1.5rem, 2vw, 4rem)",
                 fontWeight: 300,
                 letterSpacing: "0.04em",
                 color: "rgba(255,255,255,0.4)",
@@ -175,7 +169,7 @@ export default function BrandsMarquee() {
                 cursor: "default",
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLSpanElement).style.color = "rgba(255,255,255,0.85)";
+                (e.currentTarget as HTMLSpanElement).style.color = "rgba(255,255,255,0)";
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLSpanElement).style.color = "rgba(255,255,255,0.4)";
@@ -197,7 +191,7 @@ export default function BrandsMarquee() {
       ref={sectionRef}
       style={{
         position: "relative",
-        background: "#000",
+         backgroundColor: "black",
         borderTop: "1px solid rgba(255,255,255,0.06)",
         paddingTop: "clamp(2.5rem, 5vh, 4rem)",
         paddingBottom: "clamp(2.5rem, 5vh, 4rem)",
@@ -240,14 +234,14 @@ export default function BrandsMarquee() {
           background: "rgba(255,255,255,0.15)",
         }} />
         <span style={{
-          fontSize: "clamp(0.5rem, 0.9vw, 0.65rem)",
-          letterSpacing: "0.4em",
-          textTransform: "uppercase",
+          fontSize: "clamp(0.9rem, 0.9vw, 1rem)",
+          letterSpacing: "0.2em",
+          textTransform: "capitalize",
           color: "rgba(255,255,255,0.2)",
           fontWeight: 400,
           whiteSpace: "nowrap",
         }}>
-          Companies we've worked with
+          Brands we've worked with
         </span>
         <span ref={lineRightRef} aria-hidden="true" style={{
           display: "block",
@@ -258,7 +252,7 @@ export default function BrandsMarquee() {
       </div>
 
       {/* Track 1 — left */}
-      <div style={{ overflow: "hidden", marginBottom: "clamp(0.4rem, 1vh, 0.8rem)" }}>
+      <div style={{ overflow: "hidden", marginBottom: "clamp(0.4rem, 1vh, 2rem)" }}>
         {renderTrack(track1Ref, TRACK_ITEMS)}
       </div>
 

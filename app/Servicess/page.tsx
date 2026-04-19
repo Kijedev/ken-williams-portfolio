@@ -5,8 +5,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import FAQs from "../components/FAQs";
-// import Ready from "../components/Ready";
-// import ScrollTextReveal from "../components/ui/ScrollTextReveal";
 import ExpertiseSection from "../components/ExpertiseSection";
 import Help from "../components/Help";
 
@@ -458,11 +456,8 @@ export default function Page() {
                     </div>
                 </section>
 
-
                 <div className="h-px bg-linear-to-r from-transparent via-white/[0.07] to-transparent" />
-                {/* <div className="relative z-10">
-                    <Ready />
-                </div> */}
+
                 <FAQs />
             </div>
         </>
