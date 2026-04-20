@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Button from "./Button";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -251,29 +253,14 @@ export default function FAQs() {
           <p className="text-sm lg:text-4xl text-white/50 max-w-2xl mx-auto font-light leading-relaxed">
             Still have questions? I'm happy to walk through anything before you commit.
           </p>
-          <a
-            href="/Contact"
-            className="
-              shrink-0 inline-flex items-center gap-3
-              px-7 py-3.5 rounded-full
-              border border-white/15 hover:border-white/45
-              text-[16px] capitalize font-light
-              text-white/50 hover:text-white
-              transition-all duration-300 group
-            "
-          >
-            Get in touch
-            {/* animated arrow */}
-            <svg
-              width="12"
-              height="12"
-              viewBox="0 0 12 12"
-              fill="none"
-              className="opacity-40 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-300"
-            >
-              <path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </a>
+          <Button
+            text="Get in Touch"
+            textsecond="Get in Touch"
+            // fromColor="from-white"
+            // toColor="to-white"
+            textColor="text-[#fff]"
+            border="border border-white"
+          />
         </div>
 
       </div>

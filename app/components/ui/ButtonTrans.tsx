@@ -1,20 +1,20 @@
-export default function Button({
+export default function ButtonTrans({
     text = "Button",
     textsecond = "Button",
-    fromColor = "from-indigo-500",
-    toColor = "to-indigo-600",
+    fromColor = "from-transparent",
+    toColor = "to-transparent",
     textColor = "text-white",
     border = "border border-white",
 }) {
     return (
         <a
-            href="/Contact"
+            href="/Our-works"
             className={`
         cursor-pointer
         bg-transparent
         px-6 py-3 rounded-full
         border border-white/20
-        font-medium group z-50
+        font-medium group z-50 w-fit
         ${textColor}
       `}
         >

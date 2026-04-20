@@ -135,9 +135,10 @@ export default function Navbar() {
             <div className="hidden md:flex items-center gap-4 lg:gap-10">
               <Button
                 text="Let's get started"
-                fromColor="from-white"
-                toColor="to-white"
-                textColor="text-[#f73b20]"
+                textsecond="Contact us"
+                // fromColor="from-white"
+                // toColor="to-white"
+                textColor="text-[#fff]"
                 border="border border-white"
               />
             </div>

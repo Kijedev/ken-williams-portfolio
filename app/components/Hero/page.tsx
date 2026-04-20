@@ -455,6 +455,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 import Link from "next/link";
+import ButtonTrans from "../ui/ButtonTrans";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -763,8 +764,8 @@ export default function Page() {
               through cinematic product videos.
             </p>
 
-            <div ref={ctaRef} style={{ display: "flex", alignItems: "center", gap: "20px" }}>
-              <Link
+            {/* <div ref={ctaRef} style={{ display: "flex", alignItems: "center", gap: "20px" }}> */}
+              {/* <Link
                 href="/Contact"
                 style={{
                   display: "inline-flex",
@@ -797,8 +798,18 @@ export default function Page() {
                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
                   <path d="M1 5h8M6 2l3 3-3 3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-              </Link>
-            </div>
+              </Link> */}
+              {/* <div className="md:flex items-center gap-4 lg:gap-10"> */}
+                <ButtonTrans
+                  text="View our works"
+                  textsecond="View our works"
+                  // fromColor="from-white"
+                  // toColor="to-white"
+                  textColor="text-[#fff]"
+                  border="border border-white"
+                />
+              {/* </div> */}
+            {/* </div> */}
           </div>
 
           {/* Scroll cue */}
@@ -812,7 +823,7 @@ export default function Page() {
             gap: "8px",
             pointerEvents: "none",
           }}
-          className="lg:left-1/2 left-60"
+            className="lg:left-1/2 left-60"
           >
             <span style={{ fontSize: "8px", letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(255,255,255,0.18)" }}>Scroll</span>
             <div style={{
