@@ -5,8 +5,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import FAQs from "../components/FAQs";
-import ExpertiseSection from "../components/ExpertiseSection";
-import Help from "../components/Help";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -34,7 +32,7 @@ const SERVICES = [
             "One orientation (vertical or horizontal)",
             "Social media optimised",
         ],
-        accent: "#e8c49a",
+        accent: "#FEE9CE",
         tag: "Most Comprehensive",
     },
     {
@@ -75,14 +73,6 @@ const SERVICES = [
         accent: "#c4e8a8",
         tag: "Best Entry Point",
     },
-];
-
-const PROCESS = [
-    { step: "01", label: "Discovery", detail: "Brief, references, objectives" },
-    { step: "02", label: "Concept", detail: "Moodboard, treatment, storyboard" },
-    { step: "03", label: "Production", detail: "Shoot day — controlled, efficient" },
-    { step: "04", label: "Post", detail: "Edit, grade, sound, motion" },
-    { step: "05", label: "Delivery", detail: "All formats, all platforms" },
 ];
 
 
@@ -205,47 +195,21 @@ export default function Page() {
 
                 {/* Hero */}
                 <section className="relative z-10 flex flex-col items-center justify-center w-full min-h-screen px-6 lg:px-20">
-                    <div className="w-full pt-24 lg:pt-20">
-                        <div className="flex flex-col">
-                            <h1
-                                className="lg:ml-14 uppercase text-[clamp(3.2rem,9vw,10rem)] font-extrabold leading-[0.95] tracking-tighter text-[#FEE9CE] mb-8">
-                                Let us <br />
-                            </h1>
-                            <h1
-                                className="lg:-mt-12 -mt-8 uppercase text-[clamp(4rem,9vw,10rem)] font-extrabold leading-[0.95] tracking-tighter text-[#FEE9CE] mb-8">
-                                help you <br />
-                            </h1>
-                        </div>
-                        <div>
-                            <h1 className="lg:-mt-12 -mt-8 uppercase text-[clamp(5rem,9vw,10rem)] font-extrabold leading-[0.95] tracking-tighter text-[#EF5143] mb-8">achieve</h1>
-                            <h1 className="lg:-mt-12 -mt-8 uppercase text-[clamp(5rem,9vw,10rem)] font-extrabold leading-[0.95] tracking-tighter text-[#EF5143] mb-8">your Brand</h1>
-                            <h1 className="lg:-mt-12 -mt-8 uppercase text-[clamp(5rem,9vw,10rem)] font-extrabold leading-[0.95] tracking-tighter text-[#EF5143] mb-8">Goals</h1>
-                        </div>
+                    <div className=" lg:pt-32 pt-20 lg:px-20 px-5">
+                        <h1 className="text-[clamp(5rem,9vw,10rem)] lg:text-left text-center font-extrabold leading-none tracking-tighter mb-8 bg-linear-to-b from-[#FEE9CE] via-[#FEE9CE] to-black bg-clip-text text-transparent">
+                            OUR <span className="bg-linear-to-b from-[#EF5143] via-[#EF5143] to-black bg-clip-text text-transparent">PRICING</span>
+                        </h1>
                     </div>
 
-                    {/* Scroll cue */}
+                    {/* Scroll */}
                     <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 lg:mt-10">
                         <span className="text-[9px] tracking-[0.3em] uppercase text-white/20">Scroll</span>
                         <div className="w-px h-10 bg-linear-to-b from-white/20 to-transparent" />
                     </div>
                 </section>
 
-                <section className="h-screen w-full flex items-center justify-center text-white">
-                    <Help />
-                </section>
-
-                <div className="relative z-20 mt-[100vh]">
-                    <ExpertiseSection />
-                </div>
-
                 {/* Scroll list */}
                 <section className="bg-black">
-                    <div className=" lg:pt-32 pt-20 lg:px-20 px-5">
-                        <h1 className="text-[clamp(5rem,9vw,10rem)] font-extrabold leading-[0.8] tracking-tighter mb-8 bg-linear-to-b from-[#EF5143] via-[#EF5143] to-black bg-clip-text text-transparent">
-                            OUR PRICING
-                        </h1>
-                    </div>
-
                     <section
                         ref={pinSectionRef}
                         className="relative z-10 w-full min-h-screen flex items-center justify-center lg:-mt-32"
@@ -255,7 +219,7 @@ export default function Page() {
                             <div className="relative shrink-0 pr-8 md:pr-16 flex items-center">
                                 <div ref={fillRef}
                                     className="absolute left-0 top-0 w-[2px] h-full origin-top"
-                                    style={{ background: "linear-gradient(to bottom, #e8c49a, #a8c4e8, #c4e8a8)" }}
+                                    style={{ background: "linear-gradient(to bottom, #FEE9CE, #a8c4e8, #c4e8a8)" }}
                                     aria-hidden="true" />
 
                                 <ul ref={listRef} className="list-none m-0 p-0 pl-6 flex flex-col gap-8 md:gap-10">
@@ -268,7 +232,7 @@ export default function Page() {
                                                 style={{ color: "rgba(255,255,255,0.2)" }}>
                                                 {s.category}
                                             </span>
-                                            <span className="font-cormorant block text-[clamp(1.6rem,3.8vw,2.8rem)] font-light leading-tight tracking-tight">
+                                            <span className="block text-[clamp(1.6rem,3.8vw,2.8rem)] font-light leading-tight tracking-tight">
                                                 {s.title}
                                             </span>
                                             <span className="block text-[10px] tracking-[0.15em] mt-1 font-light"
@@ -402,36 +366,6 @@ export default function Page() {
                     </div>
                 </section>
 
-                {/* Process */}
-                <section className="relative z-10 border-t border-black bg-black">
-                    <div className="max-w-8xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-20 md:py-28">
-                        <div ref={processTitleRef} className="flex items-center gap-3 mb-14">
-                            <span className="w-6 h-px bg-white/20" />
-                            <span className="text-[20px] capitalize text-[#FEE9CE] font-light">The Process</span>
-                        </div>
-
-                        <div ref={processRef} className="relative">
-                            <div data-process-line
-                                className="hidden md:block absolute top-[18px] left-[20px] right-[20px] h-px bg-white/6"
-                                aria-hidden="true" />
-
-                            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-8 md:gap-4">
-                                {PROCESS.map((p) => (
-                                    <div key={p.step} data-step className="relative flex flex-col gap-10">
-                                        <div className="w-9 h-9 rounded-full border border-white/12 flex items-center justify-center bg-[#080808] shrink-0 relative z-10">
-                                            <span className="text-[12px] tracking-[0.15em] text-white/30 font-light tabular-nums">{p.step}</span>
-                                        </div>
-                                        <div className="flex flex-col gap-1.5">
-                                            <span className="text-[20px] font-light text-[#FEE9CE] tracking-wide">{p.label}</span>
-                                            <span className="text-[14px] text-white/25 capitalize font-light leading-relaxed">{p.detail}</span>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
                 {/* CTA */}
                 <section className="relative z-10 border-t border-black bg-black">
                     <div ref={ctaRef}
@@ -455,8 +389,6 @@ export default function Page() {
                         </div>
                     </div>
                 </section>
-
-                {/* <div className="h-px bg-linear-to-r from-transparent via-white/[0.07] to-transparent" /> */}
 
                 <FAQs />
             </div>

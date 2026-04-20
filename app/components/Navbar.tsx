@@ -3,11 +3,13 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import Button from "./Button";
 
 const NAV_LINKS = [
-  { label: "Company", href: "/Company" },
-  { label: "What we offer", href: "/Servicess" },
-  { label: "Projects", href: "/Projects" },
+  { label: "Our Story", href: "/Our-story" },
+  { label: "What we offer", href: "/What-we-offer" },
+  { label: "Our Works", href: "/Our-works" },
+  { label: "Pricing", href: "/Pricing" }
 ];
 
 function Zigzag({ visible }: { visible: boolean }) {
@@ -118,7 +120,7 @@ export default function Navbar() {
 
           {/* Desktop CTA + mobile burger */}
           <div className="flex items-center gap-4">
-            <Link
+            {/* <Link
               href="/Contact"
               className="
                 hidden md:inline-flex items-center gap-2
@@ -129,7 +131,16 @@ export default function Navbar() {
               "
             >
               Let's get started
-            </Link>
+            </Link> */}
+            <div className="hidden md:flex items-center gap-4 lg:gap-10">
+              <Button
+                text="Let's get started"
+                fromColor="from-white"
+                toColor="to-white"
+                textColor="text-[#f73b20]"
+                border="border border-white"
+              />
+            </div>
 
             {/* Burger */}
             <button
@@ -198,11 +209,11 @@ export default function Navbar() {
               className="
                 inline-flex items-center gap-3 px-7 py-3.5 rounded-full
                 border border-white/20 hover:border-white/50
-                text-[11px] tracking-[0.2em] uppercase font-light text-white/60 hover:text-white
+                text-[16px] capitalize font-light text-white/60 hover:text-white
                 transition-all duration-300
               "
             >
-              Send a message
+              Let's get started
             </Link>
           </div>
         </div>
@@ -212,8 +223,8 @@ export default function Navbar() {
           className={`px-8 pb-10 flex items-center justify-between transition-opacity duration-500 ${isOpen ? "opacity-100" : "opacity-0"}`}
           style={{ transitionDelay: isOpen ? "440ms" : "0ms" }}
         >
-          <span className="text-[14px] text-white/20 uppercase">Ekho Studios</span>
-          <span className="text-[14px] text-white/20 uppercase">© {new Date().getFullYear()}</span>
+          <span className="text-[14px] text-white/20">Ekho Studios</span>
+          <span className="text-[14px] text-white/20">© {new Date().getFullYear()}</span>
         </div>
       </div>
     </section>

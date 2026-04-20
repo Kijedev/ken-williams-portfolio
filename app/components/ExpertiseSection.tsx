@@ -7,7 +7,7 @@ export default function ExpertiseSection() {
 
                 {/* Top label */}
                 <p className="text-[10px] tracking-[0.25em] uppercase mb-10">
-                    Backed by decades of experience
+                    Backed by years of experience
                 </p>
 
                 {/* Grid */}

@@ -10,7 +10,7 @@ const BRANDS = [
   { name: "Cedaa Yoghurt"   },
   { name: "Hav Oil"         },
   { name: "Jiffy Jollof"    },
-  { name: "Uncle Stans"      },
+  { name: "Uncle Stan's"      },
   { name: "Skintivity"      },
   { name: "Digitile Hub"    },
   { name: "Rita and Nathan" },
@@ -128,7 +128,7 @@ export default function BrandsMarquee() {
     flexShrink: 0,
     width: "1px",
     height: "clamp(12px, 2vh, 20px)",
-    background: "rgba(255,255,255,0.08)",
+    background: "rgba(255,255,255,0.15)",
     alignSelf: "center",
   };
 
@@ -163,16 +163,16 @@ export default function BrandsMarquee() {
                 fontSize: "clamp(1.5rem, 2vw, 4rem)",
                 fontWeight: 300,
                 letterSpacing: "0.04em",
-                color: "rgba(255,255,255,0.4)",
+                color: "white",
                 userSelect: "none",
                 transition: "color 0.3s ease",
-                cursor: "default",
+                cursor: "pointer",
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLSpanElement).style.color = "rgba(255,255,255,0)";
+                (e.currentTarget as HTMLSpanElement).style.color = "rgba(255,255,255,0.4)";
               }}
               onMouseLeave={(e) => {
-                (e.currentTarget as HTMLSpanElement).style.color = "rgba(255,255,255,0.4)";
+                (e.currentTarget as HTMLSpanElement).style.color = "rgba(255,255,255,1)";
               }}
             >
               {brand.name}

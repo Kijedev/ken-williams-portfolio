@@ -11,8 +11,8 @@ interface FormData {
 }
 
 const CONTACT_DETAILS = [
-  { label: "Email", value: "contact@ekhostudios.com", href: "mailto:contact@ekhostudios.com" },
-  { label: "Phone", value: "+234 915 775 6380", href: "tel:+2349157756380" },
+  { label: "Email", value: "[kendarawilliams1@gmail.com]", href: "mailto:[kendarawilliams1@gmail.com]" },
+  { label: "Phone", value: "+234 708 2313 155", href: "tel:+2347082313155" },
   { label: "Location", value: "Lagos, Nigeria", href: null },
 ];
 

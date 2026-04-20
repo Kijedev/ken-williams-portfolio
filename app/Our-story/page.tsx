@@ -13,8 +13,11 @@ import BrandsMarquee from "../components/ui/Brands";
 gsap.registerPlugin(ScrollTrigger);
 
 const STORY_PARAGRAPHS = [
-    `I tested positive for COVID on the 31st of December, 2020. The result came in very late at night and I couldn't travel home. I spent the entire January looking for food vendors to deliver food to me — but the available food delivery providers didn't deliver during public holidays. I eventually found one after so many hours and ended up paying 4× the regular amount.`,
-    `During my 14-day isolation, I realised no one was really looking into the logistics problem with the care and attention I would have wished for. I started asking questions; most answers ended with "dispatch riders are not reliable." I made a lot of research and discovered delivery companies in countries like India made millions of deliveries daily. No one comes close locally — and it didn't make sense that at such a small scale, we Africans couldn't figure it out.`,
+    `Hi, I’m Ken, the founder of Ekho Studios, where I create cinematic product videos for brands.`,
+    `Growing up, I was obsessed with cartoons, movies and music. I was always fascinated by how a scene in a movie, a soundtrack or even a cartoon could make you feel something instantly. I’d watch things over and over, paying attention to the little details without even realizing it, the lighting, the colours, the camera angles, the sound and the way everything came together to tell a story.`,
+    `That curiosity is a big part of why I do what I do today.`,
+    `I love taking products that might seem ordinary and giving them personality, emotion and a story of their own. For me, creating product videos is a bit like making a tiny movie, using lighting, movement, sound and atmosphere to make people stop, smile, feel something and remember it.`,
+    `When I’m creating, I’m usually drawing inspiration from the things I love: movies, music, cartoons and all the little creative details that make something feel special.`,
 ];
 
 export default function Page() {
@@ -89,11 +92,11 @@ export default function Page() {
                     <Whoweare />
                 </div>
 
-                <section className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 pb-24 md:pb-10">
+                <section className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 pb-24 md:pt-32 md:pb-10">
                     {/* Section label */}
                     <div className="flex items-center gap-3 mb-14">
                         <span className="w-6 h-px bg-white/20" />
-                        <span className="text-[16px] tracking-[0.35em] uppercase text-white/25 font-light">
+                        <span className="text-[16px] lg:text-2xl tracking-[0.15em] uppercase text-white/80 font-light">
                             Founder's Story
                         </span>
                     </div>
@@ -133,7 +136,7 @@ export default function Page() {
                             {/* Founder identity */}
                             <div ref={founderRef} className="flex flex-col gap-1 text-center lg:text-left">
                                 <h3 className="text-2xl md:text-3xl font-light text-white tracking-tight">
-                                    Ken Williams
+                                    Ken Oluwadara Williams
                                 </h3>
                                 <p className="text-[14px] capitalize text-white/40 font-light">
                                     Founder & Creative Director
@@ -148,20 +151,20 @@ export default function Page() {
                         <div className="flex flex-col gap-0">
 
                             {/* Pull quote */}
-                            <blockquote className="text-[clamp(1.4rem,3.2vw,2.2rem)] font-light leading-[1.2] tracking-tight text-[#FEE9CE] mb-10 italic border-l border-white/10 pl-6">
-                                "No one was really looking into the problem with the care and attention it deserved."
+                            <blockquote className="text-[clamp(1.4rem,3.2vw,1.8rem)] font-light leading-[1.2] tracking-tight text-[#FEE9CE] mb-10 italic border-l border-white/10 pl-6">
+                                "Most products are seen as objects. We see them differently. Behind every product is a feeling, a story and an experience waiting to be brought to life."
                             </blockquote>
 
                             {/* Thin divider */}
                             <div className="h-px mb-10 bg-linear-to-r from-white/10 via-white/5 to-transparent" />
 
                             {/* Story paragraphs */}
-                            <div className="flex flex-col gap-7">
+                            <div className="flex flex-col gap-5">
                                 {STORY_PARAGRAPHS.map((para, i) => (
                                     <p
                                         key={i}
                                         ref={(el) => { paraRefs.current[i] = el; }}
-                                        className="text-sm md:text-[15px] text-white/40 font-light leading-relaxed tracking-wide"
+                                        className="text-sm md:text-[15px] text-white/50 font-light leading-relaxed tracking-wide"
                                     >
                                         {para}
                                     </p>
@@ -172,6 +175,89 @@ export default function Page() {
                 </section>
 
                 <BrandsMarquee />
+
+                <section className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 pb-24 md:pt-32 md:pb-10">
+                    {/* Section label */}
+                    <div className="flex items-center gap-3 mb-14">
+                        <span className="w-6 h-px bg-white/20" />
+                        <span className="text-[16px] lg:text-2xl tracking-[0.15em] uppercase text-white/80 font-light">
+                            Founder's Story
+                        </span>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-12 lg:gap-20 items-start">
+
+                        {/* ── Left: portrait ───── */}
+                        <div className="flex flex-col items-center lg:items-start gap-6 lg:sticky lg:top-28">
+
+                            {/* Image frame */}
+                            <div ref={imageRef} className="relative w-full max-w-[300px] lg:max-w-none">
+
+                                {/* Corner accents */}
+                                {[
+                                    "top-[-1px] left-[-1px]",
+                                    "top-[-1px] right-[-1px] scale-x-[-1]",
+                                    "bottom-[-1px] left-[-1px] scale-y-[-1]",
+                                    "bottom-[-1px] right-[-1px] scale-[-1]",
+                                ].map((pos, i) => (
+                                    <div key={i} className={`absolute ${pos} w-5 h-5 z-10`} aria-hidden="true">
+                                        <div className="absolute top-0 left-0 w-full h-px bg-white/20" />
+                                        <div className="absolute top-0 left-0 w-px h-full bg-white/20" />
+                                    </div>
+                                ))}
+
+                                <div className="overflow-hidden">
+                                    <Image
+                                        src="/kenprofile.jpeg"
+                                        alt="Ken Williams — Founder, Ekho Studios"
+                                        width={400}
+                                        height={500}
+                                        className="object-cover w-full rounded cursor-pointer grayscale hover:grayscale-0 transition-all duration-700"
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Founder identity */}
+                            <div ref={founderRef} className="flex flex-col gap-1 text-center lg:text-left">
+                                <h3 className="text-2xl md:text-3xl font-light text-white tracking-tight">
+                                    Ken Oluwadara Williams
+                                </h3>
+                                <p className="text-[14px] capitalize text-white/40 font-light">
+                                    Founder & Creative Director
+                                </p>
+                                <p className="text-[14px] capitalize text-white/40 font-light">
+                                    Ekho Studios
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* ── Right: story ───── */}
+                        <div className="flex flex-col gap-0">
+
+                            {/* Pull quote */}
+                            <blockquote className="text-[clamp(1.4rem,3.2vw,1.8rem)] font-light leading-[1.2] tracking-tight text-[#FEE9CE] mb-10 italic border-l border-white/10 pl-6">
+                                "Most products are seen as objects. We see them differently. Behind every product is a feeling, a story and an experience waiting to be brought to life."
+                            </blockquote>
+
+                            {/* Thin divider */}
+                            <div className="h-px mb-10 bg-linear-to-r from-white/10 via-white/5 to-transparent" />
+
+                            {/* Story paragraphs */}
+                            <div className="flex flex-col gap-5">
+                                {STORY_PARAGRAPHS.map((para, i) => (
+                                    <p
+                                        key={i}
+                                        ref={(el) => { paraRefs.current[i] = el; }}
+                                        className="text-sm md:text-[15px] text-white/50 font-light leading-relaxed tracking-wide"
+                                    >
+                                        {para}
+                                    </p>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 <Mission />
                 <CoreValues />
                 <FAQs />

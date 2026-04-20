@@ -3,9 +3,10 @@ import { FaLinkedinIn, FaFacebookF, FaTiktok } from "react-icons/fa";
 import { IoLogoInstagram } from "react-icons/io5";
 
 const NAV_LINKS = [
-  { label: "Company", href: "/Company" },
-  { label: "What We Do", href: "/Servicess" },
-  { label: "Projects", href: "/Projects" },
+  { label: "Our Story", href: "/Our-story" },
+  { label: "What we offer", href: "/What-we-offer" },
+  { label: "Our Works", href: "/Our-works" },
+  { label: "Pricing", href: "/Pricing" },
 ];
 const SOCIALS = [
   { Icon: IoLogoInstagram, label: "Instagram", href: "https://www.instagram.com/darawilliam.s" },
@@ -88,29 +89,33 @@ export default function Page() {
                 </a>
               ))}
             </nav>
+          </div>
+        </div>
 
-            <div className="flex">
-              {SOCIALS.map(({ Icon, label, href }) => (
-                <a
-                  key={label}
-                  href={href}
-                  aria-label={label}
-                  className="
+        <div className="flex flex-col justify-center mt-10 gap-4">
+          <p className="text-white/30 text-sm text-center hover:text-white transition-colors duration-300">Follow us on all our socials</p>
+          <div className="flex justify-center mt-2 gap-4">
+            {SOCIALS.map(({ Icon, label, href }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                target="_blank"
+                className="
                     flex items-center justify-center w-20 h-20
-                    border border-white/10
-                    text-white/40 hover:text-white hover:border-white/40
+                    border border-white/5 rounded-full
+                    text-white/50 hover:text-white hover:border-white/40
                     transition-all duration-300
                   "
-                >
-                  <Icon size={20} />
-                </a>
-              ))}
-            </div>
+              >
+                <Icon size={20} />
+              </a>
+            ))}
           </div>
         </div>
 
         <p className="text-[13px] lg:text-justify lg:text-[16px] leading-relaxed text-white/30 font-light capitalize mt-10">Ekho Studios ("Ekho") is a creative production studio offering professional product videography services to brands, businesses, and individual clients across Nigeria and beyond. All video productions are executed by our in-house creative team and delivered in high-definition formats optimised for digital platforms including Instagram, TikTok, YouTube, and e-commerce storefronts. Each project scope, timeline, and deliverable specification is agreed upon in writing prior to production commencement. Any previews, mood boards, or reference materials shared during pre-production are illustrative in nature and may not reflect the exact outcome of the final production, which is subject to creative direction, available equipment, location conditions, and client-approved briefs. Pricing displayed on our rate card reflects standard package rates and may vary based on project complexity, travel requirements, usage rights, and the number of revisions requested beyond the agreed allowance. By engaging Ekho Studios for a project, clients confirm acceptance of our production terms, payment schedule, and intellectual property agreement, copies of which are provided at the time of booking. Ekho Studios retains the right to feature completed work in its portfolio and on its social media channels unless a confidentiality clause is explicitly agreed upon in the project contract</p>
-        
+
         <div className="mt-12 md:mt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <p className="text-[13px] lg:text-[16px] font-light text-white/90 capitalize">
             &copy; {new Date().getFullYear()} Ekho Studios. All rights reserved.

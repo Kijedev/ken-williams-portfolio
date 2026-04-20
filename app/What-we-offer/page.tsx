@@ -1,0 +1,138 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
+import FAQs from "../components/FAQs";
+import ExpertiseSection from "../components/ExpertiseSection";
+import Help from "../components/Help";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const PROCESS = [
+    { step: "01", label: "Discovery", detail: "Brief, references, objectives" },
+    { step: "02", label: "Concept", detail: "Moodboard, treatment, storyboard" },
+    { step: "03", label: "Production", detail: "Shoot day — controlled, efficient" },
+    { step: "04", label: "Post", detail: "Edit, grade, sound, motion" },
+    { step: "05", label: "Delivery", detail: "All formats, all platforms" },
+];
+
+
+export default function Page() {
+    const pageRef = useRef<HTMLDivElement>(null);
+    const processTitleRef = useRef<HTMLDivElement>(null);
+    const processRef = useRef<HTMLDivElement>(null);
+    const ctaRef = useRef<HTMLDivElement>(null);
+    const orbitRef = useRef<HTMLDivElement>(null);
+
+    return (
+        <>
+            <div ref={pageRef} className="relative min-h-screen w-full bg-black text-white overflow-hidden">
+                <div className="pointer-events-none fixed inset-0 z-1 opacity-[0.025]"
+                    style={{
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+                        backgroundSize: "180px 180px",
+                    }} aria-hidden="true" />
+
+                <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] opacity-[0.05] z-1"
+                    style={{ background: "radial-gradient(ellipse, #fff 0%, transparent 65%)" }} aria-hidden="true" />
+
+                <div ref={orbitRef}
+                    className="pointer-events-none absolute -top-64 -right-64 w-[700px] h-[700px] rounded-full border border-white/3 z-1"
+                    aria-hidden="true" />
+
+                {/* Hero */}
+                <section className="relative z-10 flex flex-col items-center justify-center w-full min-h-screen px-6 lg:px-20">
+                    <div className="w-full pt-24 lg:pt-20">
+                        <div className="flex flex-col">
+                            <h1
+                                className="lg:ml-14 uppercase text-[clamp(3.2rem,9vw,10rem)] font-extrabold leading-[0.95] tracking-tighter text-[#FEE9CE] mb-8">
+                                Let us <br />
+                            </h1>
+                            <h1
+                                className="lg:-mt-12 -mt-8 uppercase text-[clamp(4rem,9vw,10rem)] font-extrabold leading-[0.95] tracking-tighter text-[#FEE9CE] mb-8">
+                                help you <br />
+                            </h1>
+                        </div>
+                        <div>
+                            <h1 className="lg:-mt-12 -mt-8 uppercase text-[clamp(5rem,9vw,10rem)] font-extrabold leading-[0.95] tracking-tighter text-[#EF5143] mb-8">achieve</h1>
+                            <h1 className="lg:-mt-12 -mt-8 uppercase text-[clamp(5rem,9vw,10rem)] font-extrabold leading-[0.95] tracking-tighter text-[#EF5143] mb-8">your Brand</h1>
+                            <h1 className="lg:-mt-12 -mt-8 uppercase text-[clamp(5rem,9vw,10rem)] font-extrabold leading-[0.95] tracking-tighter text-[#EF5143] mb-8">Goals</h1>
+                        </div>
+                    </div>
+
+                    {/* Scroll cue */}
+                    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 lg:mt-10">
+                        <span className="text-[9px] tracking-[0.3em] uppercase text-white/20">Scroll</span>
+                        <div className="w-px h-10 bg-linear-to-b from-white/20 to-transparent" />
+                    </div>
+                </section>
+
+                <section className="h-screen w-full flex items-center justify-center text-white">
+                    <Help />
+                </section>
+
+                <div className="relative z-20 mt-[100vh]">
+                    <ExpertiseSection />
+                </div>
+
+                {/* Process */}
+                <section className="relative z-10 border-t border-black bg-black">
+                    <div className="max-w-8xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-20 md:py-28">
+                        <div ref={processTitleRef} className="flex items-center gap-3 mb-14">
+                            <span className="w-6 h-px bg-white/20" />
+                            <span className="text-[20px] capitalize text-[#FEE9CE] font-light">The Process</span>
+                        </div>
+
+                        <div ref={processRef} className="relative">
+                            <div data-process-line
+                                className="hidden md:block absolute top-[18px] left-[20px] right-[20px] h-px bg-white/6"
+                                aria-hidden="true" />
+
+                            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-8 md:gap-4">
+                                {PROCESS.map((p) => (
+                                    <div key={p.step} data-step className="relative flex flex-col gap-10">
+                                        <div className="w-9 h-9 rounded-full border border-white/12 flex items-center justify-center bg-[#080808] shrink-0 relative z-10">
+                                            <span className="text-[12px] tracking-[0.15em] text-white/30 font-light tabular-nums">{p.step}</span>
+                                        </div>
+                                        <div className="flex flex-col gap-1.5">
+                                            <span className="text-[20px] font-light text-[#FEE9CE] tracking-wide">{p.label}</span>
+                                            <span className="text-[14px] text-white/25 capitalize font-light leading-relaxed">{p.detail}</span>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* CTA */}
+                <section className="relative z-10 border-t border-black bg-black">
+                    <div ref={ctaRef}
+                        className="max-w-8xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-20 md:py-28 flex flex-col md:flex-row md:items-end justify-between gap-10">
+                        <div className="flex flex-col gap-4 max-w-2xl">
+                            <h2 className="font-cormorant text-[clamp(2rem,5vw,4rem)] font-light leading-none tracking-tight text-[#FEE9CE]">
+                                Ready to make your<br />
+                                <em className="not-italic text-white/30">product unforgettable?</em>
+                            </h2>
+                        </div>
+
+                        <div className="flex flex-col gap-4 items-start md:items-end shrink-0">
+                            <Link href="/Contact"
+                                className="group inline-flex items-center gap-3 px-8 py-4 rounded-full border border-white/15 hover:border-white/45 text-[16px] capitalize font-light text-white/50 hover:text-white transition-all duration-300">
+                                Start a project
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                    className="opacity-40 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-300">
+                                    <path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </Link>
+                        </div>
+                    </div>
+                </section>
+
+                <FAQs />
+            </div>
+        </>
+    );
+}

@@ -66,9 +66,8 @@ export default function Help() {
           color: "transparent",
         }}
       >
-        "We can help <br /> your
-        brand <br /> in
-        different <br /> ways"
+        "We can <br /> Increase your <br />
+        Brand Visibility."
       </h1>
     </section>
   );
