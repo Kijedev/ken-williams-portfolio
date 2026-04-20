@@ -9,11 +9,11 @@ gsap.registerPlugin(ScrollTrigger);
 const FAQS = [
   {
     q: "What types of products do you specialize in filming?",
-    a: "From luxury skincare and fashion accessories to tech gadgets and artisan food — if it exists in three dimensions, I can make it unforgettable on screen. My process is built around understanding what makes each product unique and translating that into motion.",
+    a: "We specialize in filming a wide range of products including food, skincare, beauty, fashion, tech, lifestyle products and more. At Ekho Studios, we focus on creating cinematic videos that bring out the personality and story behind a product, so whether it’s a bottle, a snack, a shoe or a gadget, we approach each one in a way that makes it feel alive and memorable.",
   },
   {
     q: "How long does a typical project take from brief to delivery?",
-    a: "Most product films are delivered within 10–14 business days after the shoot day. Rush timelines are available. Pre-production (concept, moodboard, shot list) typically takes 3–5 days, and post-production another 5–7 days depending on the complexity of the edit and the number of revision rounds.",
+    a: "The timeline depends on the complexity of the project, but most product videos take between 1–3 weeks from brief to final delivery. Simpler projects can be completed faster, while more detailed concepts, custom sets or multiple videos may take longer. Once we discuss your project, you’ll receive a clear timeline so you know exactly what to expect.",
   },
   {
     q: "Do you handle creative direction, or do I need to bring a concept?",
@@ -44,9 +44,9 @@ function FAQItem({
   isOpen: boolean;
   onToggle: () => void;
 }) {
-  const bodyRef    = useRef<HTMLDivElement>(null);
-  const lineRef    = useRef<HTMLDivElement>(null);
-  const didMount   = useRef(false);
+  const bodyRef = useRef<HTMLDivElement>(null);
+  const lineRef = useRef<HTMLDivElement>(null);
+  const didMount = useRef(false);
 
   // Animate open / close
   useEffect(() => {
@@ -153,10 +153,10 @@ function FAQItem({
 
 export default function FAQs() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const sectionRef  = useRef<HTMLElement>(null);
-  const headingRef  = useRef<HTMLDivElement>(null);
-  const itemsRef    = useRef<HTMLDivElement>(null);
-  const ctaRef      = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const headingRef = useRef<HTMLDivElement>(null);
+  const itemsRef = useRef<HTMLDivElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
 
   // Scroll-triggered entrance
   useEffect(() => {
@@ -212,7 +212,7 @@ export default function FAQs() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-[#010101] z-50 overflow-hidden py-24 md:py-36"
+      className="relative w-full bg-black z-50 overflow-hidden py-24 md:py-36"
     >
       <div className="relative max-w-7xl mx-auto px-6 md:px-0">
 
@@ -248,7 +248,7 @@ export default function FAQs() {
           ref={ctaRef}
           className="mt-16 md:mt-20 flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-10 border-t border-white/8"
         >
-          <p className="text-sm lg:text-lg text-white/50 font-light leading-relaxed">
+          <p className="text-sm lg:text-4xl text-white/50 max-w-2xl mx-auto font-light leading-relaxed">
             Still have questions? I'm happy to walk through anything before you commit.
           </p>
           <a

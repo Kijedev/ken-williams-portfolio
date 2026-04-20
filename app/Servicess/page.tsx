@@ -403,7 +403,7 @@ export default function Page() {
                 </section>
 
                 {/* Process */}
-                <section className="relative z-10 border-t border-white/6 bg-[#010101]">
+                <section className="relative z-10 border-t border-black bg-black">
                     <div className="max-w-8xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-20 md:py-28">
                         <div ref={processTitleRef} className="flex items-center gap-3 mb-14">
                             <span className="w-6 h-px bg-white/20" />
@@ -433,7 +433,7 @@ export default function Page() {
                 </section>
 
                 {/* CTA */}
-                <section className="relative z-10 border-t border-white/6">
+                <section className="relative z-10 border-t border-black bg-black">
                     <div ref={ctaRef}
                         className="max-w-8xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-20 md:py-28 flex flex-col md:flex-row md:items-end justify-between gap-10">
                         <div className="flex flex-col gap-4 max-w-2xl">
@@ -456,7 +456,7 @@ export default function Page() {
                     </div>
                 </section>
 
-                <div className="h-px bg-linear-to-r from-transparent via-white/[0.07] to-transparent" />
+                {/* <div className="h-px bg-linear-to-r from-transparent via-white/[0.07] to-transparent" /> */}
 
                 <FAQs />
             </div>

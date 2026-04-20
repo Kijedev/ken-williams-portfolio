@@ -48,7 +48,7 @@ export default function ScrollTextReveal() {
         ref={textRef}
         className="text-center font-bold"
         style={{
-          fontSize: "clamp(4rem, 12vw, 9rem)",
+          fontSize: "clamp(4rem, 12vw, 8rem)",
           lineHeight: 0.85,
           letterSpacing: "-0.02em",
           backgroundImage: `

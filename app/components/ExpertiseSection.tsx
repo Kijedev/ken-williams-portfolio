@@ -40,7 +40,7 @@ export default function ExpertiseSection() {
                             items={[
                                 "Improved Search Rankings",
                                 "Better Social Media Reach",
-                                "ncreased Time on Page",
+                                "Increased Time on Page",
                                 // "Stakeholder Management",
                                 // "Information Architecture",
                             ]}
@@ -62,7 +62,7 @@ export default function ExpertiseSection() {
                             title="Increase in Sales"
                             items={[
                                 "Boosted Purchase Confidence",
-                                "mmersive Experience",
+                                "Immersive Experience",
                                 "Reduced Returns",
                                 // "Rapid Prototyping",
                                 // "Wordpress",
