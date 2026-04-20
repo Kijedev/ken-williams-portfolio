@@ -17,19 +17,19 @@ const FAQS = [
   },
   {
     q: "Do you handle creative direction, or do I need to bring a concept?",
-    a: "Both work. I can lead the full creative — brief, concept, storyboard, styling, and execution — or slot seamlessly into a brief you've already developed. Many clients come with a vibe reference and trust me to build the world around it.",
+    a: "You do not need to come with a finished concept. After we discuss your brand, product and what you want the video to achieve, we develop a creative treatment, a document that details the concept, visual direction, mood, story and overall plan for the shoot. This helps make sure we fully understand your vision and that everyone is aligned before production begins. Of course, if you already have ideas or references, we’re happy to build on them.",
   },
   {
     q: "What's included in a standard product video package?",
-    a: "A standard package includes a pre-production call, one shoot day, professional lighting and grip, up to two rounds of revisions, and delivery of the final cut optimised for web, social, and broadcast specs. Raw footage licensing is available as an add-on.",
+    a: "A standard product video package typically includes creative direction, a creative treatment, shoot planning, set design, filming, editing, sound design and final delivery of the video. You’ll also receive revisions to make sure the final result feels right for your brand. Additional versions or aspect ratios for different platforms can also be created, but these come at an additional cost.",
   },
   {
     q: "Can you travel for on-location shoots?",
-    a: "Yes — I'm based in Lagos Nigeria but regularly shoot across Africa. Travel costs are factored into project quotes. For international projects, I can also work with trusted local production partners I've vetted personally.",
+    a: "We majorly film in the studio, as that gives us the most control over the look and feel of the video. However, if your concept requires an on-location shoot, we can make provisions for it. On-location shoots are priced separately depending on the location and production requirements.",
   },
   {
     q: "How do we get started?",
-    a: "Fill out the contact form or send a direct email with your product, rough timeline, and any references you love. I'll respond within 24 hours with availability and an outline of how I'd approach the project.",
+    a: "Getting started is simple. Reach out with a bit about your product, brand and what you are looking for. We’ll then have a conversation to understand your vision, goals and any ideas you may already have. From there, we develop a creative treatment and quote for the project. Once everything is approved, we move into planning, production and finally delivery.",
   },
 ];
 
