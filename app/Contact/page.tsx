@@ -11,7 +11,7 @@ interface FormData {
 }
 
 const CONTACT_DETAILS = [
-  { label: "Email", value: "[kendarawilliams1@gmail.com]", href: "mailto:[kendarawilliams1@gmail.com]" },
+  { label: "Email", value: "kendarawilliams1@gmail.com", href: "mailto:[kendarawilliams1@gmail.com]" },
   { label: "Phone", value: "+234 708 2313 155", href: "tel:+2347082313155" },
   { label: "Location", value: "Lagos, Nigeria", href: null },
 ];

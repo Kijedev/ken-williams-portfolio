@@ -20,6 +20,14 @@ const STORY_PARAGRAPHS = [
     `When I’m creating, I’m usually drawing inspiration from the things I love: movies, music, cartoons and all the little creative details that make something feel special.`,
 ];
 
+const EKHO_PARAGRAPHS = [
+    `Most products are seen as objects. We see them differently. Behind every product is a feeling, a story and an experience waiting to be brought to life.`,
+    `Founded by Ken Oluwadara Williams, Ekho Studios creates cinematic product videos that add depth, emotion and meaning to products. We do more than show what a product looks like, we create visuals that make people feel it.`,
+    `Every movement, texture, light and sound is carefully crafted to transform products from simple objects into experiences. The goal is to create videos that capture attention, stir emotion and leave a lasting impression.`,
+    `The name “Ekho” comes from the idea of an echo: something that stays with you long after the moment has passed. That is the kind of work we create. Story-driven product videos that remain in the minds of the people who watch them.`,
+    `At Ekho Studios, we bring products to life and create stories that echo beyond the screen.`,
+];
+
 export default function Page() {
     const pageRef = useRef<HTMLElement>(null);
     const eyebrowRef = useRef<HTMLDivElement>(null);
@@ -180,63 +188,16 @@ export default function Page() {
                     {/* Section label */}
                     <div className="flex items-center gap-3 mb-14">
                         <span className="w-6 h-px bg-white/20" />
-                        <span className="text-[16px] lg:text-2xl tracking-[0.15em] uppercase text-white/80 font-light">
-                            Founder's Story
+                        <span className="text-[16px] lg:text-4xl tracking-widest uppercase text-white font-light">
+                            At Ekho studios
                         </span>
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-12 lg:gap-20 items-start">
-
-                        {/* ── Left: portrait ───── */}
-                        <div className="flex flex-col items-center lg:items-start gap-6 lg:sticky lg:top-28">
-
-                            {/* Image frame */}
-                            <div ref={imageRef} className="relative w-full max-w-[300px] lg:max-w-none">
-
-                                {/* Corner accents */}
-                                {[
-                                    "top-[-1px] left-[-1px]",
-                                    "top-[-1px] right-[-1px] scale-x-[-1]",
-                                    "bottom-[-1px] left-[-1px] scale-y-[-1]",
-                                    "bottom-[-1px] right-[-1px] scale-[-1]",
-                                ].map((pos, i) => (
-                                    <div key={i} className={`absolute ${pos} w-5 h-5 z-10`} aria-hidden="true">
-                                        <div className="absolute top-0 left-0 w-full h-px bg-white/20" />
-                                        <div className="absolute top-0 left-0 w-px h-full bg-white/20" />
-                                    </div>
-                                ))}
-
-                                <div className="overflow-hidden">
-                                    <Image
-                                        src="/kenprofile.jpeg"
-                                        alt="Ken Williams — Founder, Ekho Studios"
-                                        width={400}
-                                        height={500}
-                                        className="object-cover w-full rounded cursor-pointer grayscale hover:grayscale-0 transition-all duration-700"
-                                    />
-                                </div>
-                            </div>
-
-                            {/* Founder identity */}
-                            <div ref={founderRef} className="flex flex-col gap-1 text-center lg:text-left">
-                                <h3 className="text-2xl md:text-3xl font-light text-white tracking-tight">
-                                    Ken Oluwadara Williams
-                                </h3>
-                                <p className="text-[14px] capitalize text-white/40 font-light">
-                                    Founder & Creative Director
-                                </p>
-                                <p className="text-[14px] capitalize text-white/40 font-light">
-                                    Ekho Studios
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* ── Right: story ───── */}
+                    <div className="">
                         <div className="flex flex-col gap-0">
-
                             {/* Pull quote */}
                             <blockquote className="text-[clamp(1.4rem,3.2vw,1.8rem)] font-light leading-[1.2] tracking-tight text-[#FEE9CE] mb-10 italic border-l border-white/10 pl-6">
-                                "Most products are seen as objects. We see them differently. Behind every product is a feeling, a story and an experience waiting to be brought to life."
+                                "At Ekho Studios, we believe products should feel alive."
                             </blockquote>
 
                             {/* Thin divider */}
@@ -244,11 +205,11 @@ export default function Page() {
 
                             {/* Story paragraphs */}
                             <div className="flex flex-col gap-5">
-                                {STORY_PARAGRAPHS.map((para, i) => (
+                                {EKHO_PARAGRAPHS.map((para, i) => (
                                     <p
                                         key={i}
                                         ref={(el) => { paraRefs.current[i] = el; }}
-                                        className="text-sm md:text-[15px] text-white/50 font-light leading-relaxed tracking-wide"
+                                        className="text-sm md:text-xl text-white/30 font-light leading-relaxed"
                                     >
                                         {para}
                                     </p>

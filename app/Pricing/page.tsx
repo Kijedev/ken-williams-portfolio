@@ -246,7 +246,7 @@ export default function Page() {
                             </div>
 
                             {/* Right */}
-                            <div className="flex-1 relative min-h-[420px] md:min-h-[480px]">
+                            <div className="flex-1 relative min-h-[460px] md:min-h-[480px]">
                                 {SERVICES.map((s, i) => (
                                     <div key={s.title}
                                         ref={(el) => { slidesRef.current[i] = el; }}
