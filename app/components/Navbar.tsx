@@ -1,42 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { usePathname } from "next/navigation";
 import Button from "./Button";
+import Image from "next/image";
 
 const NAV_LINKS = [
-  { label: "Our Story", href: "/Our-story" },
+  { label: "Our Story",    href: "/Our-story"     },
   { label: "What we offer", href: "/What-we-offer" },
-  { label: "Our Works", href: "/Our-works" },
-  { label: "Pricing", href: "/Pricing" }
+  { label: "Our Works",    href: "/Our-works"     },
+  { label: "Pricing",      href: "/Pricing"       },
 ];
 
-function Zigzag({ visible }: { visible: boolean }) {
-  return (
-    <span className="absolute left-0 -bottom-2 w-full overflow-hidden pointer-events-none">
-      <svg
-        viewBox="0 0 100 10"
-        preserveAspectRatio="none"
-        className={`
-          w-full h-[6px] origin-left
-          transition-all duration-300 ease-out
-          ${visible ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0"}
-        `}
-      >
-        <path
-          d="M0 5 L5 0 L10 5 L15 0 L20 5 L25 0 L30 5 L35 0 L40 5 L45 0 L50 5 L55 0 L60 5 L65 0 L70 5 L75 0 L80 5 L85 0 L90 5 L95 0 L100 5"
-          fill="none"
-          strokeWidth="1.5"
-          className="stroke-white/60"
-        />
-      </svg>
-    </span>
-  );
-}
-
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen]   = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
@@ -51,9 +29,19 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [isOpen]);
 
-  // Exact match OR sub-path match (e.g. /Company/team still highlights Company)
+  // Scroll to top instantly whenever the route changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+  }, [pathname]);
+
   const isActive = (href: string) =>
     pathname === href || pathname.startsWith(href + "/");
+
+  // Called on every nav link click — scrolls to top before navigation
+  const handleNavClick = useCallback(() => {
+    setIsOpen(false);
+    window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+  }, []);
 
   return (
     <section>
@@ -70,7 +58,12 @@ export default function Navbar() {
         <div className="max-w-360 mx-auto px-6 md:px-10 flex items-center justify-between">
 
           {/* Logo */}
-          <Link href="/" className="group flex items-center gap-2.5 shrink-0">
+          <Link
+            href="/"
+            onClick={handleNavClick}
+            className="group flex items-center gap-2.5 shrink-0 border border-white/10 rounded-full px-4 py-2"
+          >
+            <Image src="/logo.png" alt="Logo" width={20} height={20} />
             <span className="text-white text-sm lg:text-lg font-light group-hover:tracking-widest transition-all duration-500">
               Ekho Studios
             </span>
@@ -84,6 +77,7 @@ export default function Navbar() {
                 <li key={label}>
                   <Link
                     href={href}
+                    onClick={handleNavClick}
                     className={`
                       group relative text-lg font-light transition-colors duration-300
                       ${active ? "text-white" : "text-white/40 hover:text-white"}
@@ -98,9 +92,7 @@ export default function Navbar() {
                           w-full h-[6px] origin-left
                           transition-all duration-300 ease-out
                           ${active
-                            // Active: always fully visible, full white
                             ? "opacity-100 scale-x-100 stroke-white"
-                            // Inactive: hidden by default, appears on hover at 60% white
                             : "opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100 stroke-white/60"
                           }
                         `}
@@ -120,24 +112,10 @@ export default function Navbar() {
 
           {/* Desktop CTA + mobile burger */}
           <div className="flex items-center gap-4">
-            {/* <Link
-              href="/Contact"
-              className="
-                hidden md:inline-flex items-center gap-2
-                px-5 py-2 rounded-full
-                border border-white/20 hover:border-white/60
-                text-[11px] lg:text-lg capitalize font-light text-white/70 hover:text-white
-                transition-all duration-300
-              "
-            >
-              Let's get started
-            </Link> */}
             <div className="hidden md:flex items-center gap-4 lg:gap-10">
               <Button
                 text="Let's get started"
                 textsecond="Contact us"
-                // fromColor="from-white"
-                // toColor="to-white"
                 textColor="text-[#fff]"
                 border="border border-white"
               />
@@ -174,7 +152,7 @@ export default function Navbar() {
               <Link
                 key={label}
                 href={href}
-                onClick={() => setIsOpen(false)}
+                onClick={handleNavClick}
                 className={`
                   group flex items-baseline gap-4
                   py-5 border-b border-white/10
@@ -205,8 +183,8 @@ export default function Navbar() {
             style={{ transitionDelay: isOpen ? "380ms" : "0ms" }}
           >
             <Link
-              href="/Contact"
-              onClick={() => setIsOpen(false)}
+              href="/contact"
+              onClick={handleNavClick}
               className="
                 inline-flex items-center gap-3 px-7 py-3.5 rounded-full
                 border border-white/20 hover:border-white/50

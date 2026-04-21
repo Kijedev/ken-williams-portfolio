@@ -198,7 +198,7 @@ export default function BrandsMarquee() {
         overflow: "hidden",
       }}
       aria-label="Companies we've worked with"
-      className="lg:h-[80vh] h-[50vh] flex flex-col justify-center items-center"
+      className="lg:h-[80vh] h-[50vh] flex flex-col justify-center items-center z-50"
     >
       {/* Edge fades */}
       <div aria-hidden="true" style={{
