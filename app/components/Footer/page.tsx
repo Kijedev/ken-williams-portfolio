@@ -17,31 +17,23 @@ const SOCIALS = [
 
 function FooterShapes() {
   return (
-    <div className="relative w-full h-48 md:h-64 overflow-hidden pointer-events-none select-none" aria-hidden="true">
+    <div className="relative w-full h-48 md:h-48 overflow-hidden pointer-events-none select-none" aria-hidden="true">
       {/* Large circle — left anchor */}
-      <div className="absolute -bottom-16 -left-16 w-64 h-64 md:w-80 md:h-80 rounded-full border border-white/5 bg-white/10" />
+      <div className="absolute -bottom-16 left-0 w-64 h-64 md:w-80 md:h-80 rounded-full border border-white/5 bg-white/10" />
 
       {/* Medium circle — overlapping left */}
-      <div className="absolute -bottom-8 left-24 w-40 h-40 md:w-56 md:h-56 rounded-full border border-white/6 bg-white/10" />
-
-      {/* Rotated square — centre */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-20 h-20 md:w-28 md:h-28 rounded-2xl border border-white/7 bg-white/10 rotate-22" />
+      <div className="absolute -bottom-8 lg:left-80 left-24 w-40 h-40 md:w-56 md:h-56 rounded-full border border-white/6 bg-white/10" />
 
       {/* Blob — centre-right */}
       <div
-        className="absolute -bottom-10 right-1/4 w-52 h-52 md:w-72 md:h-72 bg-white/10 border border-white/4"
+        className="absolute -bottom-10 right-56 w-52 h-52 md:w-72 md:h-72 bg-white/10 border border-white/4"
         style={{ borderRadius: "60% 40% 70% 30% / 40% 60% 30% 70%" }}
       />
 
       {/* Small circle — far right */}
       <div className="absolute -bottom-12 -right-8 w-48 h-48 md:w-64 md:h-64 rounded-full border border-white/5 bg-white/10" />
 
-      {/* Tiny pill — floating accent */}
-      <div className="absolute bottom-12 right-1/3 w-24 h-8 rounded-full border border-white/8 bg-white/10" />
-
-      {/* Bottom fade so shapes dissolve into black */}
       <div className="absolute inset-x-0 bottom-0 h-20 bg-linear-to-t from-black to-transparent" />
-      {/* Top fade so shapes emerge from the section above */}
       <div className="absolute inset-x-0 top-0 h-16 bg-linear-to-b from-black to-transparent" />
     </div>
   );
