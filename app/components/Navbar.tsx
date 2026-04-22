@@ -7,14 +7,14 @@ import Button from "./Button";
 import Image from "next/image";
 
 const NAV_LINKS = [
-  { label: "Our Story",    href: "/Our-story"     },
+  { label: "Our Story", href: "/Our-story" },
   { label: "What we offer", href: "/What-we-offer" },
-  { label: "Our Works",    href: "/Our-works"     },
-  { label: "Pricing",      href: "/Pricing"       },
+  { label: "Our Works", href: "/Our-works" },
+  { label: "Pricing", href: "/Pricing" },
 ];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen]   = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
@@ -51,11 +51,11 @@ export default function Navbar() {
           fixed top-0 left-0 w-full
           transition-all duration-500 ease-in-out
           ${scrolled
-            ? "py-3 bg-black/60 backdrop-blur-md border-b border-white/5"
+            ? "py-3 bg-linear-to-b from-black to-transparent backdrop-blur-xs"
             : "py-6 bg-transparent"}
         `}
       >
-        <div className="max-w-360 mx-auto px-6 md:px-10 flex items-center justify-between">
+        <div className="px-6 md:px-10 flex items-center justify-between">
 
           {/* Logo */}
           <Link
@@ -63,7 +63,7 @@ export default function Navbar() {
             onClick={handleNavClick}
             className="group flex items-center gap-2.5 shrink-0 border border-white/10 rounded-full px-4 py-2"
           >
-            <Image src="/Logo.png" alt="Logo" width={20} height={20} />
+            <Image src="/Logo.png" alt="Logo" width={20} height={20} style={{ height: "auto" }} />
             <span className="text-white text-sm lg:text-lg font-light group-hover:tracking-widest transition-all duration-500">
               Ekho Studios
             </span>
