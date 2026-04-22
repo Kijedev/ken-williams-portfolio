@@ -66,7 +66,7 @@ export default function Present() {
           color: "transparent",
         }}
       >
-        "We Present to You, <br /> the Guys We made  <br /> Superstars on <br /> the Big Screen"
+        "We Present to You, <br /> the Guys We made  <br /> Superstars on the <br /> Big Screen"
       </h1>
       <div style={{
             position: "absolute",

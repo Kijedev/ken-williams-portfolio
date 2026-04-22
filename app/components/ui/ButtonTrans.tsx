@@ -8,7 +8,8 @@ export default function ButtonTrans({
 }) {
     return (
         <a
-            href="/Our-works"
+            href="https://www.instagram.com/darawilliam.s/"
+            target="_blank"
             className={`
         cursor-pointer
         bg-transparent
