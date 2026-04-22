@@ -183,7 +183,7 @@ export default function Navbar() {
             style={{ transitionDelay: isOpen ? "380ms" : "0ms" }}
           >
             <Link
-              href="/contact"
+              href="/Contact"
               onClick={handleNavClick}
               className="
                 inline-flex items-center gap-3 px-7 py-3.5 rounded-full
