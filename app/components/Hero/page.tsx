@@ -833,7 +833,6 @@ export default function Page() {
               animation: "scrollPulse 2s ease-in-out infinite",
             }} />
           </div>
-
         </div>
       </div>
     </>

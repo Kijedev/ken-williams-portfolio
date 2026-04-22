@@ -366,39 +366,7 @@ export default function Page() {
                         </div>
                     </div>
                 </section>
-
-                {/* CTA */}
-                <section className="relative z-10 border-t border-black bg-black">
-                    <div ref={ctaRef}
-                        className="max-w-8xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-20 md:py-28 flex flex-col md:flex-row md:items-end justify-between gap-10">
-                        <div className="flex flex-col gap-4 max-w-2xl">
-                            <h2 className="font-cormorant text-[clamp(2rem,5vw,4rem)] font-light leading-none tracking-tight text-[#FEE9CE]">
-                                Ready to make your<br />
-                                <em className="not-italic text-white/30">product unforgettable?</em>
-                            </h2>
-                        </div>
-
-                        <div className="flex flex-col gap-4 items-start md:items-end shrink-0">
-                            {/* <Link href="/Contact"
-                                className="group inline-flex items-center gap-3 px-8 py-4 rounded-full border border-white/15 hover:border-white/45 text-[16px] capitalize font-light text-white/50 hover:text-white transition-all duration-300">
-                                Start a project
-                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                    className="opacity-40 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-300">
-                                    <path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                            </Link> */}
-                            <Button
-                                text="Start a project"
-                                textsecond="Start a project"
-                                // fromColor="from-white"
-                                // toColor="to-white"
-                                textColor="text-[#fff]"
-                                border="border border-white"
-                            />
-                        </div>
-                    </div>
-                </section>
-
+                
                 <FAQs />
             </div>
         </>
