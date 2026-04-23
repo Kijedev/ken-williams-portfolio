@@ -9,7 +9,7 @@ import { Ctasections } from "../components/Ctasections";
 gsap.registerPlugin(ScrollTrigger);
 
 const VIDEOS = [
-  { src: "/reels/TIFE2949.MP4", name: "Elonna Foods", rotate: -6, yOffset: 30, zIndex: 1 },
+  { src: "/reels/TIFE2949.mp4", name: "Elonna Foods", rotate: -6, yOffset: 30, zIndex: 1 },
   { src: "/reels/IPMI9840.MP4", name: "Hav Palm Oil", rotate:  5, yOffset: 20, zIndex: 2 },
   { src: "/reels/VOOR3333.MP4", name: "Uncle Stan's", rotate: -5, yOffset: 20, zIndex: 3 },
   { src: "/reels/GPSX1245.MP4", name: "Jiffy Jollof", rotate:  5, yOffset: 30, zIndex: 4 },
@@ -104,7 +104,7 @@ function VideoCard({
           filter: hovered ? "saturate(1) brightness(1)" : "saturate(0.8) brightness(0.78)",
           transition: "filter 0.5s ease, transform 0.5s ease",
           transform: hovered ? "scale(1.04)" : "scale(1)",
-          opacity: loaded || !hovered ? 1 : 0,
+          // opacity: loaded || !hovered ? 1 : 0,
         }}
       />
 
@@ -125,11 +125,11 @@ function VideoCard({
       )}
 
       {/* Bottom gradient */}
-      <div style={{
+      {/* <div style={{
         position: "absolute", inset: 0,
         background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 50%)",
         pointerEvents: "none",
-      }} />
+      }} /> */}
 
       {/* Play icon */}
       {!hovered && (
