@@ -46,7 +46,7 @@ export default function Present() {
     >
       <h1
         ref={textRef}
-        className="text-center font-bold capitalize"
+        className="text-center font-bold capitalize lg:max-w-3xl max-w-xl mx-auto"
         style={{
           fontSize: "clamp(3rem, 12vw, 5rem)",
           lineHeight: 1,
@@ -66,7 +66,7 @@ export default function Present() {
           color: "transparent",
         }}
       >
-        "We Present to You, <br /> the Guys We made  <br /> Superstars on the <br /> Big Screen"
+        "We Present to You, the Guys We made Superstars on the Big Screen"
       </h1>
       <div style={{
             position: "absolute",
