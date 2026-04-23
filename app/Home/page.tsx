@@ -1,7 +1,6 @@
 import HeroPage from "@/app/components/Hero/page"
 import Revolutionalize from "@/app/components/Revolutionalize";
 import FAQs from "@/app/components/FAQs";
-import { Metadata } from "next";
 import BentoGallery from "@/app/components/ui/Bentogallery";
 import ScrollTextReveal from "@/app/components/ui/ScrollTextReveal";
 import Brands from "@/app/components/ui/Brands"

@@ -11,6 +11,9 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
       smoothWheel: true,
     });
 
+    // ✅ expose globally AFTER creation
+    (window as any).lenis = lenis;
+
     let rafId: number;
 
     const raf = (time: number) => {
@@ -23,6 +26,7 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
+      delete (window as any).lenis;
     };
   }, []);
 

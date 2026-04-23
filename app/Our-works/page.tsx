@@ -11,10 +11,10 @@ import { Ctasections } from "../components/Ctasections";
 gsap.registerPlugin(ScrollTrigger);
 
 const VIDEOS = [
-  { src: "/reels/TIFE2949.mp4", name: "Elonna Foods", rotate: -6, yOffset: 30, zIndex: 1 },
-  { src: "/reels/IPMI9840.mp4", name: "Hav Palm Oil", rotate:  5, yOffset: 20, zIndex: 2 },
-  { src: "/reels/VOOR3333.mp4", name: "Uncle Stan's", rotate: -5, yOffset: 20, zIndex: 3 },
-  { src: "/reels/GPSX1245.mp4", name: "Jiffy Jollof", rotate:  5, yOffset: 30, zIndex: 4 },
+  { src: "/TIFE2949.mp4", name: "Elonna Foods", rotate: -6, yOffset: 30, zIndex: 1 },
+  { src: "/IPMI9840.mp4", name: "Hav Palm Oil", rotate:  5, yOffset: 20, zIndex: 2 },
+  { src: "/VOOR3333.mp4", name: "Uncle Stan's", rotate: -5, yOffset: 20, zIndex: 3 },
+  { src: "/GPSX1245.mp4", name: "Jiffy Jollof", rotate:  5, yOffset: 30, zIndex: 4 },
 ];
 
 // ─── Video card (shared between desktop + mobile) ─────────────────────────────
@@ -73,7 +73,7 @@ function VideoCard({
       <video
         ref={videoRef}
         src={vid.src}
-        // muted
+        muted
         loop
         playsInline
         preload="metadata"

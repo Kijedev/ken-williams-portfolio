@@ -86,7 +86,6 @@ export default function BentoGallery() {
         .bento-gallery {
           position: relative;
           width: 100%;
-          height: 100%;
           display: grid;
           gap: 1vh;
           grid-template-columns: repeat(3, 32.5vw);

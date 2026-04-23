@@ -1,72 +1,94 @@
 "use client";
 
+import { motion, Variants } from "framer-motion";
+
+const fadeUp: Variants = {
+    hidden: { opacity: 0, y: 50, scale: 0.96 },
+    visible: (i = 0) => ({
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transition: {
+            duration: 0.8,
+            ease: "easeOut",
+            delay: i * 0.12,
+        },
+    }),
+};
+
 export default function ExpertiseSection() {
     return (
         <section className="w-full bg-[#E8A25C] text-black">
             <div className="px-6 md:px-16 py-16 md:py-24">
 
                 {/* Top label */}
-                <p className="text-[10px] tracking-[0.25em] uppercase mb-10">
+                <motion.p
+                    custom={0}
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    className="text-[10px] tracking-[0.25em] uppercase mb-10"
+                >
                     Backed by years of experience
-                </p>
+                </motion.p>
 
                 {/* Grid */}
                 <div className="grid md:grid-cols-2 gap-16">
 
                     {/* LEFT BIG TEXT */}
-                    <div>
+                    <motion.div
+                        custom={1}
+                        variants={fadeUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                    >
                         <h1 className="font-extrabold leading-[0.85] tracking-tight text-[clamp(3rem,8vw,8rem)]">
                             My <br /> Expertise
                         </h1>
-                    </div>
+                    </motion.div>
 
                     {/* RIGHT CONTENT */}
                     <div className="grid sm:grid-cols-2 gap-y-16 gap-x-10">
 
-                        {/* CARD */}
                         <ExpertiseCard
+                            index={2}
                             title="Product Design"
                             items={[
                                 "User Research",
                                 "Design Research",
                                 "Service Research",
-                                // "ResearchOps",
-                                // "Competitive Analysis",
                             ]}
                         />
 
                         <ExpertiseCard
+                            index={3}
                             title="Brand Visibility"
                             items={[
                                 "Improved Search Rankings",
                                 "Better Social Media Reach",
                                 "Increased Time on Page",
-                                // "Stakeholder Management",
-                                // "Information Architecture",
                             ]}
                         />
 
                         <ExpertiseCard
+                            index={4}
                             title="Brand Credibility"
                             items={[
                                 "High Production Quality",
                                 "Consistent Messaging",
                                 "Humanizing the Brand",
-                                // "Art Direction",
-                                // "Interaction Design",
-                                // "DesignOps",
                             ]}
                         />
 
                         <ExpertiseCard
+                            index={5}
                             title="Increase in Sales"
                             items={[
                                 "Boosted Purchase Confidence",
                                 "Immersive Experience",
                                 "Reduced Returns",
-                                // "Rapid Prototyping",
-                                // "Wordpress",
-                                // "Webflow",
                             ]}
                         />
                     </div>
@@ -81,13 +103,21 @@ export default function ExpertiseSection() {
 function ExpertiseCard({
     title,
     items,
+    index,
 }: {
     title: string;
     items: string[];
+    index: number;
 }) {
     return (
-        <div className="relative z-50">
-
+        <motion.div
+            custom={index}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="relative z-50"
+        >
             {/* Top line */}
             <div className="absolute top-0 left-0 right-0 h-px bg-black/40" />
 
@@ -110,6 +140,6 @@ function ExpertiseCard({
                     ))}
                 </ul>
             </div>
-        </div>
+        </motion.div>
     );
 }

@@ -4,6 +4,7 @@ import "./globals.css";
 import SmoothScroll from "./components/SmoothScroll";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer/page"
+import ScrollToTop from "./components/ScrollToTop";
 // import ClientShell from "./components/Clientshell/page";
 
 const geistSans = Geist({
@@ -26,6 +27,7 @@ export default function RootLayout({
       <body>
         <SmoothScroll>
           <Navbar />
+          <ScrollToTop />
           {children}
           <Footer />
         </SmoothScroll>

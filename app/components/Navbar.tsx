@@ -55,16 +55,16 @@ export default function Navbar() {
             : "py-6 bg-transparent"}
         `}
       >
-        <div className="px-6 md:px-10 flex items-center justify-between">
+        <div className="px-3 md:px-20 flex items-center justify-between">
 
           {/* Logo */}
           <Link
             href="/"
             onClick={handleNavClick}
-            className="group flex items-center gap-2.5 shrink-0 border border-white/10 rounded-full px-4 py-2"
+            className="group flex items-center gap-2.5 shrink-0 rounded-full px-4 py-2"
           >
             <Image src="/Logo.png" alt="Logo" width={20} height={20} style={{ height: "auto" }} />
-            <span className="text-white text-sm lg:text-lg font-light group-hover:tracking-widest transition-all duration-500">
+            <span className="text-white text-lg lg:text-xl font-light group-hover:tracking-widest transition-all duration-500">
               Ekho Studios
             </span>
           </Link>
@@ -183,7 +183,7 @@ export default function Navbar() {
             style={{ transitionDelay: isOpen ? "380ms" : "0ms" }}
           >
             <Link
-              href="/C ontact"
+              href="/Contact"
               onClick={handleNavClick}
               className="
                 inline-flex items-center gap-3 px-7 py-3.5 rounded-full
@@ -192,7 +192,7 @@ export default function Navbar() {
                 transition-all duration-300
               "
             >
-              Let's get started
+              Contact us
             </Link>
           </div>
         </div>

@@ -8,6 +8,7 @@ import FAQs from "../components/FAQs";
 import ExpertiseSection from "../components/ExpertiseSection";
 import Help from "../components/Help";
 import Button from "../components/Button";
+import { motion, Variants } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,6 +28,19 @@ export default function Page() {
     const ctaRef = useRef<HTMLDivElement>(null);
     const orbitRef = useRef<HTMLDivElement>(null);
 
+    const fadeUp: Variants = {
+        hidden: { opacity: 0, y: 60 },
+        visible: (i = 0) => ({
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.9,
+                ease: "easeOut",
+                delay: i * 0.12, // 👈 stagger effect
+            },
+        }),
+    };
+
     return (
         <>
             <div ref={pageRef} className="relative min-h-screen w-full bg-black text-white overflow-hidden">
@@ -45,29 +59,85 @@ export default function Page() {
 
                 {/* Hero */}
                 <section className="relative z-10 flex flex-col items-center justify-center w-full min-h-screen px-6 lg:px-20">
+
                     <div className="w-full pt-24 lg:pt-20">
+
                         <div className="flex flex-col">
-                            <h1
-                                className="lg:ml-14 uppercase text-[clamp(3.2rem,9vw,10rem)] font-extrabold leading-[0.95] tracking-tighter text-[#FEE9CE] mb-8">
+
+                            <motion.h1
+                                custom={0}
+                                variants={fadeUp}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                className="lg:ml-14 uppercase text-[clamp(3.2rem,9vw,10rem)] font-extrabold leading-[0.95] tracking-tighter text-[#FEE9CE] mb-8"
+                            >
                                 Let us <br />
-                            </h1>
-                            <h1
-                                className="lg:-mt-12 -mt-8 uppercase text-[clamp(4rem,9vw,10rem)] font-extrabold leading-[0.95] tracking-tighter text-[#FEE9CE] mb-8">
+                            </motion.h1>
+
+                            <motion.h1
+                                custom={1}
+                                variants={fadeUp}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                className="lg:-mt-12 -mt-8 uppercase text-[clamp(4rem,9vw,10rem)] font-extrabold leading-[0.95] tracking-tighter text-[#FEE9CE] mb-8"
+                            >
                                 help you <br />
-                            </h1>
+                            </motion.h1>
+
                         </div>
+
                         <div>
-                            <h1 className="lg:-mt-12 -mt-8 uppercase text-[clamp(5rem,9vw,10rem)] font-extrabold leading-[0.95] tracking-tighter text-[#EF5143] mb-8">achieve</h1>
-                            <h1 className="lg:-mt-12 -mt-8 uppercase text-[clamp(5rem,9vw,10rem)] font-extrabold leading-[0.95] tracking-tighter text-[#EF5143] mb-8">your Brand</h1>
-                            <h1 className="lg:-mt-12 -mt-8 uppercase text-[clamp(5rem,9vw,10rem)] font-extrabold leading-[0.95] tracking-tighter text-[#EF5143] mb-8">Goals</h1>
+                            <motion.h1
+                                custom={2}
+                                variants={fadeUp}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                className="lg:-mt-12 -mt-8 uppercase text-[clamp(5rem,9vw,10rem)] font-extrabold leading-[0.95] tracking-tighter text-[#EF5143] mb-8"
+                            >
+                                achieve
+                            </motion.h1>
+
+                            <motion.h1
+                                custom={3}
+                                variants={fadeUp}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                className="lg:-mt-12 -mt-8 uppercase text-[clamp(5rem,9vw,10rem)] font-extrabold leading-[0.95] tracking-tighter text-[#EF5143] mb-8"
+                            >
+                                your Brand
+                            </motion.h1>
+
+                            <motion.h1
+                                custom={4}
+                                variants={fadeUp}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                className="lg:-mt-12 -mt-8 uppercase text-[clamp(5rem,9vw,10rem)] font-extrabold leading-[0.95] tracking-tighter text-[#EF5143] mb-8"
+                            >
+                                Goals
+                            </motion.h1>
                         </div>
                     </div>
 
                     {/* Scroll cue */}
-                    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 lg:mt-10">
-                        <span className="text-[9px] tracking-[0.3em] uppercase text-white/20">Scroll</span>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.8, duration: 0.8 }}
+                        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 lg:mt-10"
+                    >
+                        <span className="text-[9px] tracking-[0.3em] uppercase text-white/20">
+                            Scroll
+                        </span>
                         <div className="w-px h-10 bg-linear-to-b from-white/20 to-transparent" />
-                    </div>
+                    </motion.div>
+
                 </section>
 
                 <section className="h-screen w-full flex items-center justify-center text-white">
@@ -78,66 +148,100 @@ export default function Page() {
                     <ExpertiseSection />
                 </div>
 
-                {/* Process */}
                 <section className="relative z-10 border-t border-black bg-black">
                     <div className="max-w-8xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-20 md:py-28">
-                        <div ref={processTitleRef} className="flex items-center gap-3 mb-14">
-                            <span className="w-6 h-px bg-white/20" />
-                            <span className="text-[20px] capitalize text-[#FEE9CE] font-light">The Process</span>
-                        </div>
 
-                        <div ref={processRef} className="relative">
-                            <div data-process-line
+                        {/* Title */}
+                        <motion.div
+                            custom={0}
+                            variants={fadeUp}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            className="flex items-center gap-3 mb-14"
+                        >
+                            <span className="w-6 h-px bg-white/20" />
+                            <span className="text-[20px] capitalize text-[#FEE9CE] font-light">
+                                The Process
+                            </span>
+                        </motion.div>
+
+                        <div className="relative">
+                            <div
+                                data-process-line
                                 className="hidden md:block absolute top-[18px] left-[20px] right-[20px] h-px bg-white/6"
-                                aria-hidden="true" />
+                                aria-hidden="true"
+                            />
 
                             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-8 md:gap-4">
-                                {PROCESS.map((p) => (
-                                    <div key={p.step} data-step className="relative flex flex-col gap-10">
+                                {PROCESS.map((p, i) => (
+                                    <motion.div
+                                        key={p.step}
+                                        custom={i + 1}
+                                        variants={fadeUp}
+                                        initial="hidden"
+                                        whileInView="visible"
+                                        viewport={{ once: true }}
+                                        className="relative flex flex-col gap-10"
+                                    >
                                         <div className="w-9 h-9 rounded-full border border-white/12 flex items-center justify-center bg-[#080808] shrink-0 relative z-10">
-                                            <span className="text-[12px] tracking-[0.15em] text-white/30 font-light tabular-nums">{p.step}</span>
+                                            <span className="text-[12px] tracking-[0.15em] text-white/30 font-light tabular-nums">
+                                                {p.step}
+                                            </span>
                                         </div>
+
                                         <div className="flex flex-col gap-1.5">
-                                            <span className="text-[20px] font-light text-[#FEE9CE] tracking-wide">{p.label}</span>
-                                            <span className="text-[14px] text-white/25 capitalize font-light leading-relaxed">{p.detail}</span>
+                                            <span className="text-[20px] font-light text-[#FEE9CE] tracking-wide">
+                                                {p.label}
+                                            </span>
+                                            <span className="text-[14px] text-white/25 capitalize font-light leading-relaxed">
+                                                {p.detail}
+                                            </span>
                                         </div>
-                                    </div>
+                                    </motion.div>
                                 ))}
                             </div>
                         </div>
                     </div>
                 </section>
 
-                {/* CTA */}
                 <section className="relative z-10 border-t border-black bg-black">
-                    <div ref={ctaRef}
-                        className="max-w-8xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-20 md:py-28 flex flex-col md:flex-row md:items-end justify-between gap-10">
-                        <div className="flex flex-col gap-4 max-w-2xl">
+                    <motion.div
+                        custom={0}
+                        variants={fadeUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        className="max-w-8xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-20 md:py-28 flex flex-col md:flex-row md:items-end justify-between gap-10"
+                    >
+
+                        <motion.div
+                            custom={1}
+                            variants={fadeUp}
+                            className="flex flex-col gap-4 max-w-2xl"
+                        >
                             <h2 className="font-cormorant text-[clamp(2rem,5vw,4rem)] font-light leading-none tracking-tight text-[#FEE9CE]">
                                 Ready to make your<br />
-                                <em className="not-italic text-white/30">product unforgettable?</em>
+                                <em className="not-italic text-white/30">
+                                    product unforgettable?
+                                </em>
                             </h2>
-                        </div>
+                        </motion.div>
 
-                        <div className="flex flex-col gap-4 items-start md:items-end shrink-0">
-                            {/* <Link href="/Contact"
-                                className="group inline-flex items-center gap-3 px-8 py-4 rounded-full border border-white/15 hover:border-white/45 text-[16px] capitalize font-light text-white/50 hover:text-white transition-all duration-300">
-                                Start a project
-                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                    className="opacity-40 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-300">
-                                    <path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                            </Link> */}
+                        <motion.div
+                            custom={2}
+                            variants={fadeUp}
+                            className="flex flex-col gap-4 items-start md:items-end shrink-0"
+                        >
                             <Button
                                 text="Start a project"
                                 textsecond="Start a project"
-                                // fromColor="from-white"
-                                // toColor="to-white"
                                 textColor="text-[#fff]"
                                 border="border border-white"
                             />
-                        </div>
-                    </div>
+                        </motion.div>
+
+                    </motion.div>
                 </section>
 
                 <FAQs />

@@ -192,7 +192,7 @@ export default function BrandsMarquee() {
       style={{
         position: "relative",
          backgroundColor: "black",
-        borderTop: "1px solid rgba(255,255,255,0.06)",
+        // borderTop: "1px solid rgba(255,255,255,0.06)",
         paddingTop: "clamp(2.5rem, 5vh, 4rem)",
         paddingBottom: "clamp(2.5rem, 5vh, 4rem)",
         overflow: "hidden",

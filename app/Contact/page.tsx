@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 interface FormData {
   name: string;
@@ -88,23 +88,50 @@ export default function Page() {
     py-3 outline-none transition-colors duration-300
   `;
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
+  // const containerVariants = {
+  //   hidden: { opacity: 0 },
+  //   visible: {
+  //     opacity: 1,
+  //     transition: {
+  //       staggerChildren: 0.1,
+  //       delayChildren: 0.15,
+  //     },
+  //   },
+  // };
+
+  // const itemVariants = {
+  //   hidden: { y: 50, opacity: 0 },
+  //   visible: {
+  //     y: 0,
+  //     opacity: 1,
+  //     transition: { duration: 0.8, ease: "easeOut" },
+  //   },
+  // };
+
+  const containerVariants: Variants = {
+    hidden: {},
     visible: {
-      opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.15,
+        staggerChildren: 0.12,
+        delayChildren: 0.1,
       },
     },
   };
 
-  const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
+  const itemVariants: Variants = {
+    hidden: {
+      opacity: 0,
+      y: 60,
+      filter: "blur(8px)",
+    },
     visible: {
-      y: 0,
       opacity: 1,
-      transition: { duration: 0.8, ease: "easeOut" },
+      y: 0,
+      filter: "blur(0px)",
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
     },
   };
 
@@ -142,43 +169,56 @@ export default function Page() {
           />
 
           <div className="z-10 w-full px-6 sm:px-10 md:px-16 lg:px-24 pt-32 pb-24">
+
             <motion.div
               className="flex flex-col gap-10 overflow-hidden"
               variants={containerVariants}
               initial="hidden"
-              animate="visible"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.25 }}
             >
+
+              {/* TITLE */}
               <motion.h1
                 className="text-[clamp(2.8rem,7vw,8rem)] uppercase font-extrabold leading-[0.95] tracking-tighter text-[#FEE9CE]"
-              // variants={itemVariants}
+                variants={itemVariants}
               >
-                Let's create <br /> something
-                <br />
-                <em className="not-italic text-[#EF5143] capitalize">unforgettable.</em>
+                Let's create <br /> something <br />
+                <em className="not-italic text-[#EF5143] capitalize">
+                  unforgettable.
+                </em>
               </motion.h1>
 
+              {/* PARAGRAPH */}
               <motion.p
                 className="max-w-2xl text-sm lg:text-lg text-white/35 font-light leading-relaxed"
-              // variants={itemVariants}
+                variants={itemVariants}
               >
                 Whether you have a full brief or just a product and a vision, reach out
                 and we'll figure out the rest together.
               </motion.p>
 
+              {/* DIVIDER */}
               <motion.div
                 className="h-px bg-linear-to-r from-white/15 via-white/8 to-transparent"
-              // variants={itemVariants}
+                variants={itemVariants}
               />
 
+              {/* CONTACT GRID */}
               <motion.div
                 className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-10 w-full"
                 variants={containerVariants}
               >
                 {CONTACT_DETAILS.map(({ label, value, href }) => (
-                  <motion.div key={label} className="flex flex-col gap-1"
-                  // variants={itemVariants}
+                  <motion.div
+                    key={label}
+                    className="flex flex-col gap-1"
+                    variants={itemVariants}
                   >
-                    <span className="text-lg capitalize text-[#FEE9CE]">{label}</span>
+                    <span className="text-lg capitalize text-[#FEE9CE]">
+                      {label}
+                    </span>
+
                     {href ? (
                       <a
                         href={href}
@@ -187,11 +227,14 @@ export default function Page() {
                         {value}
                       </a>
                     ) : (
-                      <span className="text-sm font-light text-white/60">{value}</span>
+                      <span className="text-sm font-light text-white/60">
+                        {value}
+                      </span>
                     )}
                   </motion.div>
                 ))}
               </motion.div>
+
             </motion.div>
           </div>
 

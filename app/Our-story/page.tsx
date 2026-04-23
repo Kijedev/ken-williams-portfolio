@@ -9,6 +9,7 @@ import FAQs from "../components/FAQs";
 import Whoweare from "../components/Whoweare";
 import Mission from "../components/Mission";
 import BrandsMarquee from "../components/ui/Brands";
+import { motion, Variants } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -77,6 +78,32 @@ export default function Page() {
         return () => ctx.revert();
     }, []);
 
+    const container: Variants = {
+        hidden: {},
+        show: {
+            transition: {
+                staggerChildren: 0.15,
+            },
+        },
+    };
+
+    const fadeUp: Variants = {
+        hidden: {
+            opacity: 0,
+            y: 40,
+            filter: "blur(6px)",
+        },
+        show: {
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+            transition: {
+                duration: 0.9,
+                ease: "easeOut",
+            },
+        },
+    };
+
     return (
         <>
             <main
@@ -99,6 +126,61 @@ export default function Page() {
                 <div>
                     <Whoweare />
                 </div>
+
+                <motion.section
+                    className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 pb-24 md:pt-32 md:pb-10"
+                    variants={container}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, margin: "-100px" }}
+                >
+                    {/* Section label */}
+                    <motion.div
+                        variants={fadeUp}
+                        className="flex items-center gap-3 mb-14"
+                    >
+                        <span className="w-6 h-px bg-white/20" />
+                        <span className="text-[16px] lg:text-4xl tracking-widest uppercase text-white font-light">
+                            At Ekho studios
+                        </span>
+                    </motion.div>
+
+                    <div>
+                        <div className="flex flex-col gap-0">
+                            {/* Pull quote */}
+                            <motion.blockquote
+                                variants={fadeUp}
+                                className="text-[clamp(1.4rem,3.2vw,1.8rem)] font-light leading-[1.2] tracking-tight text-[#FEE9CE] mb-10 italic border-l border-white/10 pl-6"
+                            >
+                                "At Ekho Studios, we believe products should feel alive."
+                            </motion.blockquote>
+
+                            {/* Divider */}
+                            <motion.div
+                                variants={fadeUp}
+                                className="h-px mb-10 bg-linear-to-r from-white/10 via-white/5 to-transparent"
+                            />
+
+                            {/* Story paragraphs */}
+                            <div className="flex flex-col gap-5">
+                                {EKHO_PARAGRAPHS.map((para, i) => (
+                                    <motion.p
+                                        key={i}
+                                        ref={(el) => {
+                                            paraRefs.current[i] = el;
+                                        }}
+                                        variants={fadeUp}
+                                        className="text-sm md:text-xl text-white/30 font-light leading-relaxed"
+                                    >
+                                        {para}
+                                    </motion.p>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </motion.section>
+
+                <BrandsMarquee />
 
                 <section className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 pb-24 md:pt-32 md:pb-10">
                     {/* Section label */}
@@ -173,43 +255,6 @@ export default function Page() {
                                         key={i}
                                         ref={(el) => { paraRefs.current[i] = el; }}
                                         className="text-sm md:text-[15px] text-white/50 font-light leading-relaxed tracking-wide"
-                                    >
-                                        {para}
-                                    </p>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <BrandsMarquee />
-
-                <section className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 pb-24 md:pt-32 md:pb-10">
-                    {/* Section label */}
-                    <div className="flex items-center gap-3 mb-14">
-                        <span className="w-6 h-px bg-white/20" />
-                        <span className="text-[16px] lg:text-4xl tracking-widest uppercase text-white font-light">
-                            At Ekho studios
-                        </span>
-                    </div>
-
-                    <div className="">
-                        <div className="flex flex-col gap-0">
-                            {/* Pull quote */}
-                            <blockquote className="text-[clamp(1.4rem,3.2vw,1.8rem)] font-light leading-[1.2] tracking-tight text-[#FEE9CE] mb-10 italic border-l border-white/10 pl-6">
-                                "At Ekho Studios, we believe products should feel alive."
-                            </blockquote>
-
-                            {/* Thin divider */}
-                            <div className="h-px mb-10 bg-linear-to-r from-white/10 via-white/5 to-transparent" />
-
-                            {/* Story paragraphs */}
-                            <div className="flex flex-col gap-5">
-                                {EKHO_PARAGRAPHS.map((para, i) => (
-                                    <p
-                                        key={i}
-                                        ref={(el) => { paraRefs.current[i] = el; }}
-                                        className="text-sm md:text-xl text-white/30 font-light leading-relaxed"
                                     >
                                         {para}
                                     </p>

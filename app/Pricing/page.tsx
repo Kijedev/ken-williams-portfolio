@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import FAQs from "../components/FAQs";
-import Button from "../components/Button";
+import { motion, Variants } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -178,6 +178,28 @@ export default function Page() {
         return () => ctx.revert();
     }, []);
 
+    const container: Variants = {
+        hidden: {},
+        show: {
+            transition: {
+                staggerChildren: 0.08,
+            },
+        },
+    };
+
+    const item: Variants = {
+        hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
+        show: {
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+            transition: {
+                duration: 0.6,
+                ease: "easeOut",
+            },
+        },
+    };
+
     return (
         <>
             <div ref={pageRef} className="relative min-h-screen w-full bg-black text-white overflow-hidden">
@@ -196,17 +218,48 @@ export default function Page() {
 
                 {/* Hero */}
                 <section className="relative z-10 flex flex-col items-center justify-center w-full min-h-screen px-6 lg:px-20">
-                    <div className=" lg:pt-32 pt-20 lg:px-20 px-5">
-                        <h1 className="text-[clamp(5rem,9vw,10rem)] lg:text-left text-center font-extrabold leading-none tracking-tighter mb-8 bg-linear-to-b from-[#FEE9CE] via-[#FEE9CE] to-black bg-clip-text text-transparent">
-                            OUR <span className="bg-linear-to-b from-[#EF5143] via-[#EF5143] to-black bg-clip-text text-transparent">PRICING</span>
-                        </h1>
+
+                    <div className="lg:pt-32 pt-20 lg:px-20 px-5">
+
+                        {/* BIG TITLE WRAPPER */}
+                        <motion.h1
+                            initial={{ opacity: 0, y: 80, filter: "blur(10px)" }}
+                            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                            viewport={{ once: false, amount: 0.3 }}
+                            transition={{ duration: 0.9, ease: "easeOut" }}
+                            className="text-[clamp(5rem,9vw,10rem)] lg:text-left text-center font-extrabold leading-none tracking-tighter mb-8 bg-linear-to-b from-[#FEE9CE] via-[#FEE9CE] to-black bg-clip-text text-transparent"
+                        >
+                            OUR{" "}
+                            <motion.span
+                                initial={{ opacity: 0, y: 60 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: false, amount: 0.3 }}
+                                transition={{ delay: 0.15, duration: 0.8 }}
+                                className="bg-linear-to-b from-[#EF5143] via-[#EF5143] to-black bg-clip-text text-transparent"
+                            >
+                                PRICING
+                            </motion.span>
+                        </motion.h1>
                     </div>
 
-                    {/* Scroll */}
-                    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 lg:mt-10">
-                        <span className="text-[9px] tracking-[0.3em] uppercase text-white/20">Scroll</span>
-                        <div className="w-px h-10 bg-linear-to-b from-white/20 to-transparent" />
-                    </div>
+                    {/* Scroll cue */}
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: false }}
+                        transition={{ delay: 0.4 }}
+                        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 lg:mt-10"
+                    >
+                        <span className="text-[9px] tracking-[0.3em] uppercase text-white/20">
+                            Scroll
+                        </span>
+
+                        <motion.div
+                            animate={{ y: [0, 8, 0] }}
+                            transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
+                            className="w-px h-10 bg-linear-to-b from-white/20 to-transparent"
+                        />
+                    </motion.div>
                 </section>
 
                 {/* Scroll list */}
@@ -349,7 +402,7 @@ export default function Page() {
                             <div className="shrink-0">
                                 <div className="flex items-center gap-3 mb-2">
                                     <span className="w-5 h-px bg-white/20" />
-                                    <span className="text-[20px] capitalize text-[#FEE9CE] font-light">
+                                    <span className="lg:text-2xl text-[15px] capitalize text-[#FEE9CE] font-light">
                                         Every package includes
                                     </span>
                                 </div>
@@ -359,14 +412,14 @@ export default function Page() {
                                 {SHARED_DELIVERABLES.map((d) => (
                                     <div key={d} className="flex items-center gap-3 py-3 border-b border-white/5">
                                         <div className="w-1.5 h-1.5 rounded-full bg-white/20 shrink-0" />
-                                        <span className="text-sm text-white/40 font-light tracking-wide">{d}</span>
+                                        <span className="lg:text-lg text-[15px] text-white/40 font-light tracking-wide">{d}</span>
                                     </div>
                                 ))}
                             </div>
                         </div>
                     </div>
                 </section>
-                
+
                 <FAQs />
             </div>
         </>
