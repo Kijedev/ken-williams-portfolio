@@ -20,15 +20,15 @@ export default function ScrollTextReveal() {
       gsap.fromTo(
         text,
         {
-          backgroundPosition: "0% 100%", // ✅ start = gray visible
+          backgroundPosition: "0% 100%",
         },
         {
-          backgroundPosition: "0% 0%", // ✅ scroll down → red comes from top
+          backgroundPosition: "0% 0%",
           ease: "none",
           scrollTrigger: {
             trigger: section,
             start: "top top",
-            end: "+=200%",
+            end: "+=100%",
             scrub: true,
             pin: true,
           },
@@ -48,7 +48,7 @@ export default function ScrollTextReveal() {
         ref={textRef}
         className="text-center font-bold"
         style={{
-          fontSize: "clamp(4rem, 12vw, 8rem)",
+          fontSize: "clamp(3rem, 12vw, 8rem)",
           lineHeight: 0.85,
           letterSpacing: "-0.02em",
           backgroundImage: `

@@ -11,8 +11,8 @@ export default function Page() {
       <HeroPage />
       <Revolutionalize />
       <Brands />
-      <BentoGallery />
       <ScrollTextReveal />
+      <BentoGallery />
       <FAQs />
     </div>
   );

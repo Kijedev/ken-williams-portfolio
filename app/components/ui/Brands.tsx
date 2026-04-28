@@ -3,49 +3,55 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const BRANDS = [
-  { name: "Cedaa Yoghurt"   },
-  { name: "Hav Oil"         },
-  { name: "Jiffy Jollof"    },
-  { name: "Uncle Stan's"      },
-  { name: "Skintivity"      },
-  { name: "Digitile Hub"    },
-  { name: "Rita and Nathan" },
-  { name: "KK Hair"         },
-  { name: "Elonna Foods"    },
-  { name: "Koshe Quick Mart"},
-  { name: "12 Basket"       },
-  { name: "MTK Fish"        },
-  { name: "Nutrio"          },
+  { Image: "/brandlogos/Ekla.png" },
+  { Image: "/brandlogos/Coloured Logo.png" },
+  { Image: "/brandlogos/Elonna_Foods.png" },
+  { Image: "/brandlogos/FullLogo_NoBuffer.png" },
+  { Image: "/brandlogos/FullLogo_Transparent_NoBuffer White.png" },
+  { Image: "/brandlogos/Gourmet Twist Rays Logo.png" },
+  { Image: "/brandlogos/IMG_5402.png" },
+  { Image: "/brandlogos/IMG-20250704-WA0052.jpg" },
+  { Image: "/brandlogos/Koshe Logo White.png" },
+  { Image: "/brandlogos/Maison Veil Logo.jpeg" },
+  { Image: "/brandlogos/Mom's Pride Logo.png" },
+  { Image: "/brandlogos/NXXN.png" },
+  { Image: "/brandlogos/SIMPLY JOLLOF LOGO.png" },
+  { Image: "/brandlogos/Sooo Pro Logo.jpg" },
+  { Image: "/brandlogos/Este Blare.png" },
+  { Image: "/brandlogos/Uncle Stan's.png" },
+  { Image: "/brandlogos/NINI.png" },
+  { Image: "/brandlogos/Agricyclers.jpg" },
 ];
 
 const DUPES = 4;
 const TRACK_ITEMS = Array.from({ length: DUPES }, () => BRANDS).flat();
 
 export default function BrandsMarquee() {
-  const sectionRef   = useRef<HTMLElement>(null);
-  const track1Ref    = useRef<HTMLDivElement>(null);
-  const track2Ref    = useRef<HTMLDivElement>(null);
-  const eyebrowRef   = useRef<HTMLDivElement>(null);
-  const lineLeftRef  = useRef<HTMLSpanElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const track1Ref = useRef<HTMLDivElement>(null);
+  const track2Ref = useRef<HTMLDivElement>(null);
+  const eyebrowRef = useRef<HTMLDivElement>(null);
+  const lineLeftRef = useRef<HTMLSpanElement>(null);
   const lineRightRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    const section  = sectionRef.current;
-    const track1   = track1Ref.current;
-    const track2   = track2Ref.current;
-    const eyebrow  = eyebrowRef.current;
+    const section = sectionRef.current;
+    const track1 = track1Ref.current;
+    const track2 = track2Ref.current;
+    const eyebrow = eyebrowRef.current;
 
     if (!section || !track1 || !track2 || !eyebrow) return;
     let x1 = 0;
     let x2 = 0;
     let halfWidth1 = 0;
     let halfWidth2 = 0;
-    const speed1 = 0.45;
-    const speed2 = 0.3;
+    const speed1 = 0.6;
+    const speed2 = 0.6;
 
     const tick = () => {
       x1 -= speed1;
@@ -56,17 +62,13 @@ export default function BrandsMarquee() {
       gsap.set(track2, { x: x2 });
     };
 
-    // Use requestAnimationFrame to wait one paint cycle so scrollWidth
-    // is accurate after the browser has laid out the track contents.
     const rafId = requestAnimationFrame(() => {
       halfWidth1 = track1.scrollWidth / 2;
       halfWidth2 = track2.scrollWidth / 2;
-      // Start track2 offset so rows feel visually staggered
       x2 = -halfWidth2 / 2;
       gsap.ticker.add(tick);
     });
 
-    // ── Entrance animations 
     const ctx = gsap.context(() => {
       gsap.from(eyebrow, {
         y: 24,
@@ -158,25 +160,7 @@ export default function BrandsMarquee() {
               height: "clamp(44px, 7vh, 72px)",
             }}
           >
-            <span
-              style={{
-                fontSize: "clamp(1.5rem, 2vw, 4rem)",
-                fontWeight: 300,
-                letterSpacing: "0.04em",
-                color: "white",
-                userSelect: "none",
-                transition: "color 0.3s ease",
-                cursor: "pointer",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLSpanElement).style.color = "rgba(255,255,255,0.4)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLSpanElement).style.color = "rgba(255,255,255,1)";
-              }}
-            >
-              {brand.name}
-            </span>
+            <Image src={brand.Image} alt={brand.Image} width={100} height={100} className="object-contain" />
           </div>
           {i < items.length - 1 && (
             <span style={dividerStyle} aria-hidden="true" />
@@ -191,8 +175,7 @@ export default function BrandsMarquee() {
       ref={sectionRef}
       style={{
         position: "relative",
-         backgroundColor: "black",
-        // borderTop: "1px solid rgba(255,255,255,0.06)",
+        backgroundColor: "black",
         paddingTop: "clamp(2.5rem, 5vh, 4rem)",
         paddingBottom: "clamp(2.5rem, 5vh, 4rem)",
         overflow: "hidden",
@@ -257,7 +240,7 @@ export default function BrandsMarquee() {
       </div>
 
       {/* Track 2 — right */}
-      <div style={{ overflow: "hidden" }}>
+      <div style={{ overflow: "hidden" }} className="lg:mt-10">
         {renderTrack(track2Ref, [...TRACK_ITEMS].reverse())}
       </div>
     </section>

@@ -36,7 +36,7 @@ export default function Page() {
             transition: {
                 duration: 0.9,
                 ease: "easeOut",
-                delay: i * 0.12, // 👈 stagger effect
+                delay: i * 0.12,
             },
         }),
     };

@@ -20,15 +20,15 @@ export default function Present() {
       gsap.fromTo(
         text,
         {
-          backgroundPosition: "0% 100%", // ✅ start = gray visible
+          backgroundPosition: "0% 100%",
         },
         {
-          backgroundPosition: "0% 0%", // ✅ scroll down → red comes from top
+          backgroundPosition: "0% 0%",
           ease: "none",
           scrollTrigger: {
             trigger: section,
             start: "top top",
-            end: "+=200%",
+            end: "+=100%",
             scrub: true,
             pin: true,
           },

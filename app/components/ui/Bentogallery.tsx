@@ -8,21 +8,14 @@ import { Flip } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger, Flip);
 
 const IMAGES = [
-  "/Bastardo.png",
-  "13.jpg",
-  "/Durex.png",
-  "/Chiexotic.png",
-  "/Antforce.png",
-  "/Jump.png",
-  "/viva.png",
-  "/Wine.png",
-];
-
-const CONTENT_PARAS = [
-  "Every frame is a deliberate choice. Before the camera rolls we've already built the world your product will inhabit — the light, the texture, the pace of the edit. That intentionality is what separates product films people skip from films people share.",
-  "We work with brands at every stage: emerging labels launching their first hero film, established names refreshing their visual identity, and e-commerce operators who need volume without sacrificing quality. The output changes. The standard never does.",
-  "Post-production is where the magic becomes invisible. Colour grading that feels like a mood rather than a filter. Sound design that makes the viewer lean in. Motion that serves the product, not the editor's ego. Every deliverable is optimised for the platforms where your audience actually lives.",
-  "The result is content that converts — not because it follows a formula, but because it was made with a clear point of view and an obsessive attention to detail.",
+  "/jiffy-jollof.png",
+  "hair.png",
+  "/comfortsoles.png",
+  "/banana-bread.png",
+  "/cake.png",
+  "/aloe-vera.png",
+  "/agegebread.png",
+  "/jiffy-jollof.png",
 ];
 
 export default function BentoGallery() {
@@ -78,10 +71,7 @@ export default function BentoGallery() {
 
   return (
     <>
-      {/* ── Scoped styles ── */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Barlow:wght@300;400&display=swap');
-
         /* Bento grid — default (compact) state */
         .bento-gallery {
           position: relative;
@@ -92,6 +82,7 @@ export default function BentoGallery() {
           grid-template-rows: repeat(4, 23vh);
           justify-content: center;
           align-content: center;
+          background-color: black;
         }
 
         /* Expanded (final) state — fills viewport */
@@ -114,12 +105,11 @@ export default function BentoGallery() {
 
       <div
         ref={wrapRef}
-        className="relative w-full bg-black h-screen flex items-center justify-center overflow-hidden"
+        className="relative w-full h-screen bg-black flex items-center justify-center overflow-hidden"
       >
         <div ref={galleryRef} id="bento-gallery" className="bento-gallery">
           {IMAGES.map((src, i) => (
             <div key={i} className="bento-item overflow-hidden">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={src}
                 alt={`Gallery image ${i + 1}`}
@@ -128,46 +118,13 @@ export default function BentoGallery() {
             </div>
           ))}
         </div>
+
+        {/* Top Gradient Overlay */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-20 bg-linear-to-b from-black via-black/70 to-transparent" />
+
+        {/* Bottom Gradient Overlay */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-20 bg-linear-to-t from-black via-black/70 to-transparent" />
       </div>
-
-      {/* <section
-        className="relative bg-black text-white px-8 sm:px-16 md:px-24 lg:px-32 py-20 md:py-28"
-        style={{ fontFamily: "'Barlow', sans-serif" }}
-      >
-        <div className="flex items-center gap-3 mb-10">
-          <span className="w-8 h-px bg-white/20" />
-          <span className="text-[10px] tracking-[0.35em] uppercase text-white/25 font-light">
-            Our Work
-          </span>
-        </div>
-
-        <p
-          className="mb-12 max-w-2xl leading-[1.1] tracking-tight text-white/80"
-          style={{
-            fontFamily: "'Cormorant Garamond', serif",
-            fontSize: "clamp(1.6rem, 3.5vw, 2.8rem)",
-            fontWeight: 300,
-          }}
-        >
-          Frames built to{" "}
-          <em style={{ fontStyle: "italic", color: "rgba(255,255,255,0.35)" }}>
-            stop the scroll.
-          </em>
-        </p>
-
-        <div className="h-px mb-10 max-w-2xl bg-linear-to-r from-white/10 via-white/5 to-transparent" />
-
-        <div className="max-w-2xl relative z-100 flex flex-col gap-6">
-          {CONTENT_PARAS.map((p, i) => (
-            <p
-              key={i}
-              className="text-sm md:text-base text-white/38 font-light leading-relaxed tracking-wide"
-            >
-              {p}
-            </p>
-          ))}
-        </div>
-      </section> */}
     </>
   );
 }
