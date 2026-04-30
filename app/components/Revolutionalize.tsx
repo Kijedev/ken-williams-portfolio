@@ -24,11 +24,11 @@ export default function Revolutionalize() {
                 aria-hidden="true"
             /> */}
             <div className="flex flex-col lg:gap-0 gap-5 lg:pt-10 pt-5 px-4 lg:px-0 py-12 lg:py-0">
-2
+                2
                 {/* WHATS */}
                 <motion.h1
                     style={{ x: slideLeft }}
-                    className="text-[3rem] lg:text-[10rem] capitalize font-extrabold text-center flex justify-center lg:justify-center text-[#FFF]/20 lg:h-44 h-10"
+                    className="text-[3rem] lg:text-[10rem] capitalize text-center flex justify-center lg:justify-center text-[#FEE9CE]/60 lg:h-44 h-10"
                 >
                     Revolutionalizing
                 </motion.h1>
@@ -44,7 +44,7 @@ export default function Revolutionalize() {
                 {/* TALKING */}
                 <motion.h1
                     style={{ x: slideLeft }}
-                    className="text-[3rem] lg:text-[10rem] capitalize font-extrabold text-center flex justify-center lg:justify-center text-[#FFF]/20"
+                    className="text-[3rem] lg:text-[10rem] capitalize text-center flex justify-center lg:justify-center text-[#FEE9CE]/60"
                 >
                     Visualization
                 </motion.h1>

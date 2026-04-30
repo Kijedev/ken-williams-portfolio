@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Present from "../components/ui/Present";
 import { Ctasections } from "../components/Ctasections";
+import VideoCategoryTabs from "../components/VideoTab";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -319,9 +320,10 @@ export default function ProjectsPage() {
             <em style={{ color: "rgba(255,255,255,0.17)", fontStyle: "italic" }}>speaks.</em>
           </h2>
         </div>
+        <VideoCategoryTabs />
 
-        {/* Desktop showcase */}
-        <div className="showcase-desktop">
+       {/* Desktop showcase */}
+        {/* <div className="showcase-desktop">
           <div
             ref={desktopPinnerRef}
             style={{ position: "relative", height: "100vh", overflow: "hidden", background: "black" }}
@@ -362,7 +364,6 @@ export default function ProjectsPage() {
               ))}
             </div>
 
-            {/* Scroll hint */}
             <div style={{
               position: "absolute", bottom: "2rem", left: "50%",
               transform: "translateX(-50%)",
@@ -379,10 +380,10 @@ export default function ProjectsPage() {
               <div style={{ width: 1, height: 28, background: "linear-gradient(to bottom, rgba(255,255,255,0.14), transparent)" }} />
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Mobile showcase */}
-        <div
+        {/* <div
           className="showcase-mobile"
           style={{
             flexDirection: "column", alignItems: "center",
@@ -396,7 +397,7 @@ export default function ProjectsPage() {
               cardRef={(el) => { mobileCardRefs.current[i] = el; }}
             />
           ))}
-        </div>
+        </div> */}
 
         <Ctasections />
 

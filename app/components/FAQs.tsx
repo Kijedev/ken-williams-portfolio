@@ -98,7 +98,7 @@ function FAQItem({
         {/* Index + question */}
         <div className="flex items-start gap-5 md:gap-8">
           <span
-            className="shrink-0 lg:text-2xl text-[10px] text-white/20 tabular-nums pt-1"
+            className="shrink-0 lg:text-lg text-[10px] text-white/20 tabular-nums pt-1"
             aria-hidden="true"
           >
             {String(index + 1).padStart(2, "0")}

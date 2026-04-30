@@ -50,8 +50,8 @@ export default function BrandsMarquee() {
     let x2 = 0;
     let halfWidth1 = 0;
     let halfWidth2 = 0;
-    const speed1 = 0.6;
-    const speed2 = 0.6;
+    const speed1 = 0.5;
+    const speed2 = 0.5;
 
     const tick = () => {
       x1 -= speed1;
@@ -160,7 +160,7 @@ export default function BrandsMarquee() {
               height: "clamp(44px, 7vh, 72px)",
             }}
           >
-            <Image src={brand.Image} alt={brand.Image} width={100} height={100} className="object-contain" />
+            <Image src={brand.Image} alt={brand.Image} width={80} height={80} className="object-cover" />
           </div>
           {i < items.length - 1 && (
             <span style={dividerStyle} aria-hidden="true" />
@@ -240,7 +240,7 @@ export default function BrandsMarquee() {
       </div>
 
       {/* Track 2 — right */}
-      <div style={{ overflow: "hidden" }} className="lg:mt-10">
+      <div style={{ overflow: "hidden" }} className="mt-10">
         {renderTrack(track2Ref, [...TRACK_ITEMS].reverse())}
       </div>
     </section>
