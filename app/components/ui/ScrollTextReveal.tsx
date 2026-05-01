@@ -28,7 +28,7 @@ export default function ScrollTextReveal() {
           scrollTrigger: {
             trigger: section,
             start: "top top",
-            end: "+=100%",
+            end: "+=50%",
             scrub: true,
             pin: true,
           },

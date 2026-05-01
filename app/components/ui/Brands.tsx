@@ -11,7 +11,7 @@ const BRANDS = [
   { Image: "/brandlogos/Ekla.png" },
   { Image: "/brandlogos/Coloured Logo.png" },
   { Image: "/brandlogos/Elonna_Foods.png" },
-  { Image: "/brandlogos/FullLogo_NoBuffer.png" },
+  // { Image: "/brandlogos/FullLogo_NoBuffer.png" },
   { Image: "/brandlogos/FullLogo_Transparent_NoBuffer White.png" },
   { Image: "/brandlogos/Gourmet Twist Rays Logo.png" },
   { Image: "/brandlogos/IMG_5402.png" },
@@ -217,10 +217,9 @@ export default function BrandsMarquee() {
           background: "rgba(255,255,255,0.15)",
         }} />
         <span style={{
-          fontSize: "clamp(0.9rem, 0.9vw, 1rem)",
-          letterSpacing: "0.2em",
+          fontSize: "clamp(0.9rem, 2vw, 3rem)",
           textTransform: "capitalize",
-          color: "rgba(255,255,255,0.2)",
+          color: "#FEE9CE",
           fontWeight: 400,
           whiteSpace: "nowrap",
         }}>
@@ -235,7 +234,7 @@ export default function BrandsMarquee() {
       </div>
 
       {/* Track 1 — left */}
-      <div style={{ overflow: "hidden", marginBottom: "clamp(0.4rem, 1vh, 2rem)" }}>
+      <div style={{ overflow: "hidden", marginBottom: "clamp(0.4rem, 1vh, 2rem)" }} className="mt-20">
         {renderTrack(track1Ref, TRACK_ITEMS)}
       </div>
 

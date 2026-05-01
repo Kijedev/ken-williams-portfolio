@@ -28,7 +28,7 @@ export default function Present() {
           scrollTrigger: {
             trigger: section,
             start: "top top",
-            end: "+=100%",
+            end: "+=50%",
             scrub: true,
             pin: true,
           },
@@ -78,7 +78,7 @@ export default function Present() {
             gap: "8px",
             pointerEvents: "none",
           }}
-            className="lg:left-1/2 left-60"
+            className="lg:left-1/2 left-55"
           >
             <span style={{ fontSize: "8px", letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(255,255,255,0.18)" }}>Scroll</span>
             <div style={{

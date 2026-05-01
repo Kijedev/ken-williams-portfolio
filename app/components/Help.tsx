@@ -28,7 +28,7 @@ export default function Help() {
           scrollTrigger: {
             trigger: section,
             start: "top top",
-            end: "+=100%",
+            end: "+=50%",
             scrub: true,
             pin: true,
           },
@@ -42,13 +42,13 @@ export default function Help() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen w-full flex items-center justify-center bg-black"
+      className="relative lg:h-screen h-[50vh] w-full flex items-center justify-center bg-[#060606]"
     >
       <h1
         ref={textRef}
         className="text-center font-bold capitalize"
         style={{
-          fontSize: "clamp(4rem, 12vw, 6rem)",
+          fontSize: "clamp(3rem, 12vw, 6rem)",
           lineHeight: 1,
           letterSpacing: "-0.02em",
           backgroundImage: `

@@ -68,7 +68,7 @@ export default function Page() {
 
           {/* Right column: nav + socials */}
           <div className="flex flex-col items-start lg:items-end gap-6">
-            <nav className="flex flex-col items-start lg:items-end gap-1">
+            <nav className="flex flex-col items-start lg:items-start gap-1">
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.href}
@@ -77,7 +77,7 @@ export default function Page() {
                   className="group relative text-xl md:text-2xl font-light text-white/40 hover:text-white transition-colors duration-300"
                 >
                   {link.label}
-                  <span className="absolute -bottom-0.5 left-0 md:left-auto md:right-0 h-px w-0 group-hover:w-full bg-white transition-all duration-300 ease-out" />
+                  <span className="absolute -bottom-0.5 left-0 md:left-auto md:right-0 h-px w-0 group-hover:w-full bg-linear-to-r from-white/40 to-transparent transition-all duration-300 ease-out" />
                 </a>
               ))}
             </nav>

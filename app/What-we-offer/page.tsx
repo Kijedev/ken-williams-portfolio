@@ -58,9 +58,9 @@ export default function Page() {
                     aria-hidden="true" />
 
                 {/* Hero */}
-                <section className="relative z-10 flex flex-col items-center justify-center w-full min-h-screen px-6 lg:px-20">
+                <section className="relative z-10 flex flex-col items-center justify-center w-full lg:min-h-screen px-6 lg:px-20">
 
-                    <div className="w-full pt-24 lg:pt-20">
+                    <div className="w-full pt-48 lg:pt-20">
 
                         <div className="flex flex-col">
 
@@ -130,21 +130,20 @@ export default function Page() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.8, duration: 0.8 }}
-                        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 lg:mt-10"
+                        className="absolute lg:bottom-0 -bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
                     >
                         <span className="text-[9px] tracking-[0.3em] uppercase text-white/20">
                             Scroll
                         </span>
                         <div className="w-px h-10 bg-linear-to-b from-white/20 to-transparent" />
                     </motion.div>
-
                 </section>
 
                 <section className="h-screen w-full flex items-center justify-center text-white">
                     <Help />
                 </section>
 
-                <div className="relative z-20 mt-[100vh]">
+                <div className="relative z-20 lg:mt-[50vh] mt-[20vh]">
                     <ExpertiseSection />
                 </div>
 
