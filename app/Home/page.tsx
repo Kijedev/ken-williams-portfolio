@@ -5,6 +5,8 @@ import BentoGallery from "@/app/components/ui/Bentogallery";
 import ScrollTextReveal from "@/app/components/ui/ScrollTextReveal";
 import Brands from "@/app/components/ui/Brands"
 import VideoHero from "@/app/components/VideoHero/page"
+import ScrollBg from "@/app/components/ScollBg"
+import TestimonialsCarousel from "../components/Testimonials";
 
 export default function Page() {
   return (
@@ -12,9 +14,11 @@ export default function Page() {
       {/* <HeroPage /> */}
       <VideoHero />
       <Brands />
-      <Revolutionalize />
+      {/* <Revolutionalize /> */}
+      <ScrollBg />
       <ScrollTextReveal />
       <BentoGallery />
+      <TestimonialsCarousel />
       <FAQs />
     </div>
   );

@@ -214,15 +214,12 @@ export default function FAQs() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-black z-50 overflow-hidden py-24 md:py-36"
+      className="relative w-full bg-black z-50 overflow-hidden py-24 md:py-20"
     >
       <div className="relative max-w-7xl mx-auto px-6 md:px-0">
 
         {/* ── Heading block ─────────────────────────────────── */}
         <div ref={headingRef} className="mb-16 md:mb-20">
-          <p className="text-[10px] lg:text-sm tracking-[0.35em] text-white/40 uppercase mb-4">
-            Questions
-          </p>
           <h2 className="text-[clamp(2.2rem,6vw,4.5rem)] font-extralight leading-[1.05] tracking-tight text-[#FEE9CE]">
             Everything you<br />
             <em className="not-italic text-white/40">need to know</em>
