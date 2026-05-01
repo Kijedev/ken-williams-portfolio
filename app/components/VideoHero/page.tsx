@@ -15,7 +15,7 @@ export default function VideoHero() {
                 preload="metadata"
             >
                 <source
-                    src="/reels/Simply Jollof Video 2 Landscape Text.mp4"
+                    src="/reels/HeroVideo.mp4"
                     type="video/mp4"
                 />
                 Your browser does not support the video tag.
@@ -33,7 +33,7 @@ export default function VideoHero() {
                     <div className="overflow-hidden">
                         <div className="flex flex-wrap items-end gap-3 sm:gap-5 mb-1 sm:mb-2">
                             <h1 className="text-[clamp(3.5rem,10vw,10rem)] font-light tracking-tight leading-[0.9] text-[#FEE9CE]">
-                                Experience
+                                Products
                             </h1>
 
                             {/* <div className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-[#EF5143] px-4 py-2 text-xs sm:text-sm text-white backdrop-blur-md mb-3 sm:mb-5 animate-pulse">
@@ -55,7 +55,7 @@ export default function VideoHero() {
 
                         <div className="flex flex-wrap items-end gap-3 sm:gap-5">
                             <h2 className="text-[clamp(3rem,9vw,6rem)] font-extrabold tracking-tight leading-[0.9]">
-                                Product Videography
+                                Brought to Life.
                             </h2>
                         </div>
                     </div>

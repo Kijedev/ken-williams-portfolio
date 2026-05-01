@@ -457,27 +457,12 @@ export default function ProjectsPage() {
 
       <section ref={sectionRef} className="relative py-24 lg:py-36">
         <motion.div style={{ y }} className="absolute inset-0 pointer-events-none">
-          <div className="absolute left-1/2 top-20 -translate-x-1/2 text-[20vw] font-black tracking-tighter text-white/[0.03]">
+          <div className="absolute left-1/2 top-20 -translate-x-1/2 text-[20vw] font-black tracking-tighter text-white/3">
             REELS
           </div>
         </motion.div>
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10">
-          {/* <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="mb-16 text-center"
-          >
-            <h2 className="mx-auto max-w-4xl text-5xl font-semibold leading-tight md:text-7xl">
-              Cinematic Stories Crafted Frame by Frame
-            </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-white/60">
-              A curated collection of product films, brand stories, and commercial reels designed to captivate, convert, and leave a lasting impression.
-            </p>
-          </motion.div> */}
-
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4">
             {VIDEOS.map((video, index) => (
               <VideoCard key={video.src} video={video} index={index} />

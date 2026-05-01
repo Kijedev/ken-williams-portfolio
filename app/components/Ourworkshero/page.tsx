@@ -5,7 +5,6 @@ import Link from "next/link";
 export default function Ourworkshero() {
     return (
         <section className="relative z-50 h-screen w-full overflow-hidden bg-black">
-            {/* Background Video */}
             <video
                 className="absolute inset-0 h-full w-full object-cover"
                 autoPlay
@@ -15,7 +14,7 @@ export default function Ourworkshero() {
                 preload="metadata"
             >
                 <source
-                    src="/reels/Simply Jollof Video 1 Landscape.mp4"
+                    src="/reels/WorksBgVideo.mp4"
                     type="video/mp4"
                 />
                 Your browser does not support the video tag.
