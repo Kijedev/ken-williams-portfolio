@@ -124,7 +124,7 @@ export default function HorizontalGallery() {
             <section ref={sectionRef} className="relative lg:px-0 px-5">
                 <div className="flex flex-col gap-2 mb-10">
                     <div className="lg:px-20 px-5">
-                        <h1 className="text-[clamp(3.5rem,9vw,8rem)] font-extrabold leading-[0.8] tracking-tighter mb-8 bg-linear-to-b from-[#FEE9CE] via-[#FEE9CE] to-black bg-clip-text text-transparent">
+                        <h1 className="text-[clamp(3rem,6vw,8rem)] text-[#FEE9CE] font-extrabold leading-[0.8] tracking-tighter mb-8">
                             CORE VALUES
                         </h1>
                     </div>

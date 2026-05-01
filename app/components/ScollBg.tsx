@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function ScollBg() {
     return (
-        <section id="uniquely-yours" className="relative bg-[#020202]">
+        <section id="uniquely-yours" className="relative bg-black">
             <div className="fixed z-0 top-0 h-screen w-full flex flex-col gap-10 items-center justify-center pointer-events-none">
                 <h1 className="text-white/5 text-[3rem] lg:text-[7rem] font-bold text-center leading-none lg:max-w-3xl">
                     What Makes Us Different
@@ -39,7 +39,7 @@ export default function ScollBg() {
                         title: "Built to Elevate Your Brand",
                         description:
                             "Premium visuals that strengthen brand identity, increase trust, and position your products as the obvious choice in a competitive market.",
-                        image: "/hair.png",
+                        image: "/cake.png",
                     },
                 ].map((card, index) => (
                     <div

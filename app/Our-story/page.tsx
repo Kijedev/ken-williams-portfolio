@@ -127,6 +127,10 @@ export default function Page() {
                     <Whoweare />
                 </div>
 
+                <div className="mt-10 pb-20">
+                    <BrandsMarquee />
+                </div>
+
                 <motion.section
                     className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 pb-24 md:pt-32 md:pb-10"
                     variants={container}
@@ -179,8 +183,6 @@ export default function Page() {
                         </div>
                     </div>
                 </motion.section>
-
-                <BrandsMarquee />
 
                 <section className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 pb-24 md:pt-32 md:pb-10">
                     {/* Section label */}
