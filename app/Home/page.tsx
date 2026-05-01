@@ -17,7 +17,7 @@ export default function Page() {
       {/* <Revolutionalize /> */}
       <ScrollBg />
       <ScrollTextReveal />
-      {/* <BentoGallery /> */}
+      <BentoGallery />
       <TestimonialsCarousel />
       <FAQs />
     </div>

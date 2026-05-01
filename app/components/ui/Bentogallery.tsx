@@ -46,11 +46,13 @@ export default function BentoGallery() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: gallery,
-          start: "center center",
-          end: "+=100%",
-          scrub: true,
+          start: "top top",
+          end: "+=120%",
+          scrub: 1,
           pin: wrap,
-        },
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        }
       });
 
       tl.add(flip);
@@ -60,13 +62,32 @@ export default function BentoGallery() {
   };
 
   useEffect(() => {
+    ScrollTrigger.normalizeScroll(true);
+
+    ScrollTrigger.config({
+      ignoreMobileResize: true,
+    });
+
     createTween();
-    window.addEventListener("resize", createTween);
-    return () => {
-      window.removeEventListener("resize", createTween);
-      flipCtxRef.current?.revert();
+
+    const handleResize = () => {
+      createTween();
+      ScrollTrigger.refresh(true);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
+    window.addEventListener("resize", handleResize);
+
+    // Refresh after images/layout settle
+    const refreshTimeout = setTimeout(() => {
+      ScrollTrigger.refresh(true);
+    }, 300);
+
+    return () => {
+      clearTimeout(refreshTimeout);
+      window.removeEventListener("resize", handleResize);
+      flipCtxRef.current?.revert();
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
   }, []);
 
   return (
