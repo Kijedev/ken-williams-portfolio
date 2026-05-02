@@ -424,7 +424,7 @@ function VideoCard({
         .catch(() => setIsPlaying(false));
     } else {
       videoEl.pause();
-      videoEl.muted = true; // Always return to muted when out of view
+      videoEl.muted = true;
       setShowControls(false);
       setIsPlaying(false);
     }
@@ -459,7 +459,7 @@ function VideoCard({
           controls={showControls}
           preload="none"
           onClick={handleVideoClick}
-          className="h-full w-full cursor-pointer object-cover transition duration-700 group-hover:scale-105"
+          className="h-full w-100 cursor-pointer object-cover transition duration-700 group-hover:scale-105"
         />
 
         <div className="absolute inset-0 bg-linear-to-b from-black/80 via-black/30 to-transparent pointer-events-none" />
@@ -519,7 +519,7 @@ export default function ProjectsPage() {
           </h1>
         </motion.div>
 
-        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="relative z-10 mx-auto max-w-8xl px-6 lg:px-10">
           <div className="mb-14 flex flex-col items-center gap-8">
             <h1 className="lg:text-7xl text-4xl text-center mt-10 lg:mt-16 font-light text-[#FEE9CE]">Our Products Categories</h1>
             <div className="flex flex-wrap justify-center gap-3 ">
