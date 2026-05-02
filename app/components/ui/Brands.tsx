@@ -9,16 +9,16 @@ const BRANDS = [
   { image: "/brandlogos/Elonna_Foods.png" },
   { image: "/brandlogos/FullLogo_Transparent_NoBuffer White.png" },
   { image: "/brandlogos/Gourmet Twist Rays Logo.png" },
-  { image: "/brandlogos/IMG_5402.png" },
-  { image: "/brandlogos/IMG-20250704-WA0052.jpg" },
+  { image: "/brandlogos/pocketprice.png" },
+  { image: "/brandlogos/IMG-20250704-WA0052.png" },
   { image: "/brandlogos/Koshe Logo White.png" },
-  { image: "/brandlogos/Maison Veil Logo.jpeg" },
+  { image: "/brandlogos/maisonveil.png" },
   { image: "/brandlogos/Mom's Pride Logo.png" },
   { image: "/brandlogos/NXXN.png" },
   { image: "/brandlogos/SIMPLY JOLLOF LOGO.png" },
   { image: "/brandlogos/Sooo Pro Logo.jpg" },
   { image: "/brandlogos/Este Blare.png" },
-  { image: "/brandlogos/Uncle Stan's.png" },
+  { image: "/brandlogos/Uncle_Stan.png" },
   { image: "/brandlogos/NINI.png" },
   { image: "/brandlogos/Agricyclers.jpg" },
 ];
@@ -58,7 +58,7 @@ function MarqueeRow({
                 className="object-contain"
               />
             </div>
-            <div className="ml-6 h-6 w-px bg-white/15 md:ml-10" />
+            <div className="ml-6 h-6 w-px bg-black md:ml-10" />
           </div>
         ))}
       </motion.div>

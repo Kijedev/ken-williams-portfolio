@@ -74,7 +74,7 @@ export function Ctasections() {
         background: "#000",
       }}
     >
-      <div style={{
+      {/* <div style={{
         position: "absolute",
         top: "40%", left: "50%",
         transform: "translate(-50%,-50%)",
@@ -82,7 +82,7 @@ export function Ctasections() {
         borderRadius: "50%",
         background: "radial-gradient(ellipse, rgba(254,233,206,0.04) 0%, transparent 75%)",
         pointerEvents: "none",
-      }} aria-hidden="true" />
+      }} aria-hidden="true" /> */}
 
       <div style={{
         padding: "clamp(5rem,12vh,9rem) clamp(1.5rem,6vw,6rem)",

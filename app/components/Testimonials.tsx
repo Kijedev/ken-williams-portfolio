@@ -67,31 +67,31 @@ export default function TestimonialsSection() {
     return (
         <section className="w-full relative min-h-screen bg-[#020202] py-16 px-4 md:px-8">
             <div className="max-w-6xl mx-auto">
-                <div className="text-center mb-12 flex items-center justify-center gap-4">
-                    <span aria-hidden="true" style={{
-                        display: "block",
-                        width: "clamp(20px, 4vw, 52px)",
-                        height: "1px",
-                        background: "rgba(255,255,255,0.15)",
-                    }} />
-                    <span style={{
-                        fontSize: "clamp(2rem, 2vw, 3rem)",
-                        textTransform: "capitalize",
-                        color: "#EF5143",
-                        fontWeight: 400,
-                        whiteSpace: "nowrap",
-                    }}>
-                        What our clients say
-                    </span>
-                    <span aria-hidden="true" style={{
-                        display: "block",
-                        width: "clamp(20px, 4vw, 52px)",
-                        height: "1px",
-                        background: "rgba(255,255,255,0.15)",
-                    }} />
+                <div className="relative lg:mt-10 flex items-center justify-center">
+                    {/* Background Text */}
+                    <motion.div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                        <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[16vw] lg:text-[10vw] font-black tracking-tighter text-white/3 whitespace-nowrap select-none">
+                            Testimonials
+                        </h1>
+                    </motion.div>
+
+                    {/* Foreground Heading */}
+                    <div className="relative z-10 flex items-center justify-center gap-4">
+                        <span
+                            style={{
+                                fontSize: "clamp(2rem, 2vw, 3rem)",
+                                textTransform: "capitalize",
+                                color: "#FEE9CE",
+                                fontWeight: "light",
+                                whiteSpace: "nowrap",
+                            }}
+                        >
+                            What our clients say
+                        </span>
+                    </div>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <div className="grid lg:grid-cols-2 gap-12 lg:mt-32 mt-16 items-center">
                     <div>
                         <AnimatePresence mode="wait">
                             <motion.div
