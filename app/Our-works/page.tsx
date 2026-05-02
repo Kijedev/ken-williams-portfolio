@@ -370,19 +370,19 @@ const VIDEOS = [
   { src: "/reels/12 Basket Rice Product Video.mp4", name: "12 Basket Rice", category: "Food" },
   { src: "/reels/Go Vita Chocolate Drink Video 3.mp4", name: "Go Vita", category: "Food" },
   { src: "/reels/Gourmet Twist Banana Bread 2.MP4", name: "Gourmet Twist", category: "Food" },
-  { src: "/reels/Uncle Stan's Product Video 1.mp4", name: "Uncle Stan's", category: "Food" },
+  // { src: "/reels/Uncle Stan's Product Video 1.mp4", name: "Uncle Stan's", category: "Food" },
   { src: "/reels/Rita and Nathan Product Video.mp4", name: "Rita & Nathan", category: "Fashion" },
   { src: "/reels/Maison Veil Body Oil Video.mp4", name: "Maison Veil", category: "Scent" },
-  { src: "/reels/Birch Scent Product Video with Text Voice over.mp4", name: "Birch Scent", category: "Scent" },
+  // { src: "/reels/Birch Scent Product Video with Text Voice over.mp4", name: "Birch Scent", category: "Scent" },
   { src: "/reels/Aymiie Lip Oil Video with VO.mp4", name: "Aymiie", category: "Cosmetics" },
   { src: "/reels/Estebare Video 2 VO.mp4", name: "Estebare", category: "Cosmetics" },
   { src: "/reels/Sooo Pro Lip Liner Product Video VO.mp4", name: "Sooo Pro", category: "Cosmetics" },
   { src: "/reels/Iphone Case 1 Product Video new.MP4", name: "Iphone Case", category: "Tech" },
-  { src: "/reels/Pocket Price Power Bank Video 1.MP4", name: "Pocket Price", category: "Tech" },
-  { src: "/reels/Ogi Product Video.MP4", name: "Ogi", category: "Brand" },
+  // { src: "/reels/Pocket Price Power Bank Video 1.MP4", name: "Pocket Price", category: "Tech" },
+  // { src: "/reels/Ogi Product Video.MP4", name: "Ogi", category: "Brand" },
 ];
 
-const TABS = ["All", "Tech", "Food", "Cosmetics", "Scent", "Fashion", "Brand"];
+const TABS = ["All", "Tech", "Food", "Cosmetics", "Scent", "Fashion",];
 
 function VideoCard({
   video,
