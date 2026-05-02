@@ -42,7 +42,7 @@ export default function Help() {
   return (
     <section
       ref={sectionRef}
-      className="relative lg:h-screen h-[50vh] w-full flex items-center justify-center bg-[#060606]"
+      className="relative lg:h-screen h-[50vh] w-full flex items-center justify-center bg-[#000000]"
     >
       <h1
         ref={textRef}

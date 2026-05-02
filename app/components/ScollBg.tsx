@@ -9,7 +9,7 @@ export default function ScollBg() {
     return (
         <section id="uniquely-yours" className="relative bg-black">
             <div className="fixed z-0 top-0 h-screen w-full flex flex-col gap-10 items-center justify-center pointer-events-none">
-                <h1 className="text-white/5 text-[3rem] lg:text-[7rem] font-bold text-center uppercase leading-none lg:max-w-4xl">
+                <h1 className="text-white/5 text-[3rem] lg:text-[7rem] font-bold text-center uppercase leading-20 lg:max-w-4xl">
                     What Makes Us Different
                 </h1>
             </div>

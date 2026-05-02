@@ -138,23 +138,40 @@ export default function Page() {
                     whileInView="show"
                     viewport={{ once: true, margin: "-100px" }}
                 >
-                    {/* Section label */}
                     <motion.div
-                        variants={fadeUp}
-                        className="flex items-center gap-3 mb-14"
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.9, ease: "easeOut" }}
+                        className="relative mb-12 flex items-center justify-center"
                     >
-                        <span className="w-6 h-px bg-white/20" />
-                        <span className="text-[16px] lg:text-4xl tracking-widest uppercase text-white font-light">
-                            At Ekho studios
-                        </span>
+                        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                            <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[8vw] text-[14vw] font-black tracking-tighter text-white/3 select-none">
+                                Ekho Studios
+                            </h1>
+                        </div>
+
+                        <div className="relative z-10 flex items-center justify-center gap-4">
+                            <span
+                                style={{
+                                    fontSize: "clamp(2rem, 2vw, 3rem)",
+                                    textTransform: "capitalize",
+                                    color: "#FEE9CE",
+                                    fontWeight: 300,
+                                    whiteSpace: "nowrap",
+                                }}
+                            >
+                                About us
+                            </span>
+                        </div>
                     </motion.div>
 
                     <div>
-                        <div className="flex flex-col gap-0">
+                        <div className="flex flex-col gap-0 lg:mt-16 mt-10 ">
                             {/* Pull quote */}
                             <motion.blockquote
                                 variants={fadeUp}
-                                className="text-[clamp(1.4rem,3.2vw,1.8rem)] font-light leading-[1.2] tracking-tight text-[#FEE9CE] mb-10 italic border-l border-white/10 pl-6"
+                                className="text-[clamp(1.4rem,3.2vw,1.8rem)] text-center font-light leading-[1.2] tracking-tight text-[#FEE9CE] mb-10 italic"
                             >
                                 "At Ekho Studios, we believe products should feel alive."
                             </motion.blockquote>
@@ -186,14 +203,41 @@ export default function Page() {
 
                 <section className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 pb-24 md:pt-32 md:pb-10">
                     {/* Section label */}
-                    <div className="flex items-center gap-3 mb-14">
+                    {/* <div className="flex items-center gap-3 mb-14">
                         <span className="w-6 h-px bg-white/20" />
                         <span className="text-[16px] lg:text-2xl tracking-[0.15em] uppercase text-white/80 font-light">
                             Founder's Story
                         </span>
-                    </div>
+                    </div> */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.9, ease: "easeOut" }}
+                        className="relative mb-12 flex items-center justify-center"
+                    >
+                        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                            <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[8vw] text-[14vw] font-black tracking-tighter text-white/3 select-none">
+                                Founder's Story
+                            </h1>
+                        </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-12 lg:gap-20 items-start">
+                        <div className="relative z-10 flex items-center justify-center gap-4">
+                            <span
+                                style={{
+                                    fontSize: "clamp(2rem, 2vw, 3rem)",
+                                    textTransform: "capitalize",
+                                    color: "#FEE9CE",
+                                    fontWeight: 300,
+                                    whiteSpace: "nowrap",
+                                }}
+                            >
+                                Founder's Story
+                            </span>
+                        </div>
+                    </motion.div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-12 lg:gap-20 lg:mt-20 mt-10 items-start">
 
                         {/* ── Left: portrait ───── */}
                         <div className="flex flex-col items-center lg:items-start gap-6 lg:sticky lg:top-28">

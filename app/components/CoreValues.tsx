@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -121,8 +122,8 @@ export default function HorizontalGallery() {
 
     return (
         <div className="overflow-x-hidden bg-black">
-            <section ref={sectionRef} className="relative lg:px-0 px-5">
-                <div className="flex flex-col gap-2 mb-10">
+            <section ref={sectionRef} className="relative lg:px-0 px-5 lg:pt-20 pt-10">
+                {/* <div className="flex flex-col gap-2 mb-10">
                     <div className="lg:px-20 px-5">
                         <h1 className="text-[clamp(3rem,6vw,8rem)] text-[#FEE9CE] font-extrabold leading-[0.8] tracking-tighter mb-8">
                             CORE VALUES
@@ -131,9 +132,36 @@ export default function HorizontalGallery() {
                     <p className="lg:px-20 px-5 text-white/50 text-sm lg:text-xl lg:-mt-5 -mt-6">
                         Principles that guide our work.
                     </p>
-                </div>
+                </div> */}
 
-                <div className="flex lg:px-16">
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.9, ease: "easeOut" }}
+                    className="relative mb-12 flex items-center justify-center"
+                >
+                    <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                        <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[12vw] text-[20vw] font-black tracking-tighter text-white/3 select-none">
+                            Core Values
+                        </h1>
+                    </div>
+
+                    <div className="relative z-10 flex items-center justify-center gap-4">
+                        <span
+                            style={{
+                                fontSize: "clamp(1.5rem, 2vw, 3rem)",
+                                textTransform: "capitalize",
+                                color: "#FEE9CE",
+                                fontWeight: 300,
+                                whiteSpace: "nowrap",
+                            }}>
+                            Principles that guide our work.
+                        </span>
+                    </div>
+                </motion.div>
+
+                <div className="flex lg:px-16 lg:mt-20 mt-10">
                     <div ref={stripRef} className="flex flex-nowrap">
                         {cards.map((card, i) => (
                             <div

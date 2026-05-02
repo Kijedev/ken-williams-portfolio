@@ -150,22 +150,35 @@ export default function Page() {
                 <section className="relative z-10 border-t border-black bg-black">
                     <div className="max-w-8xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-20 md:py-28">
 
-                        {/* Title */}
                         <motion.div
-                            custom={0}
-                            variants={fadeUp}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            className="flex items-center gap-3 mb-14"
+                            initial={{ opacity: 0, y: 40 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.3 }}
+                            transition={{ duration: 0.9, ease: "easeOut" }}
+                            className="relative mb-12 flex items-center justify-center"
                         >
-                            <span className="w-6 h-px bg-white/20" />
-                            <span className="text-[20px] capitalize text-[#FEE9CE] font-light">
-                                The Process
-                            </span>
+                            <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                                <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[8vw] text-[14vw] font-black tracking-tighter text-white/3 select-none">
+                                    The Process
+                                </h1>
+                            </div>
+
+                            <div className="relative z-10 flex items-center justify-center gap-4">
+                                <span
+                                    style={{
+                                        fontSize: "clamp(2rem, 2vw, 3rem)",
+                                        textTransform: "capitalize",
+                                        color: "#FEE9CE",
+                                        fontWeight: 300,
+                                        whiteSpace: "nowrap",
+                                    }}
+                                >
+                                    The Process
+                                </span>
+                            </div>
                         </motion.div>
 
-                        <div className="relative">
+                        <div className="relative lg:mt-32 mt-10">
                             <div
                                 data-process-line
                                 className="hidden md:block absolute top-[18px] left-[20px] right-[20px] h-px bg-white/6"

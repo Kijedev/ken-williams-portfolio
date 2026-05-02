@@ -43,9 +43,9 @@ export default function Page() {
   return (
     <footer className="relative w-full bg-black overflow-hidden">
       {/* ── Thin top rule ── */}
-      <div className="relative z-10 mx-6 sm:mx-10 md:mx-20 lg:mx-32">
+      {/* <div className="relative z-10 mx-6 sm:mx-10 md:mx-20 lg:mx-32">
         <div className="h-px bg-linear-to-r from-transparent via-white/20 to-transparent" />
-      </div>
+      </div> */}
 
       {/* ── Main content ── */}
       <div className="relative z-10 px-6 sm:px-10 md:px-20 lg:px-20 pt-16 pb-4 md:pt-24 md:pb-6">

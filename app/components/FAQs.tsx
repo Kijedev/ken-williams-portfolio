@@ -1,12 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Plus } from "lucide-react";
 import Button from "./Button";
-
-
-gsap.registerPlugin(ScrollTrigger);
 
 const FAQS = [
   {
@@ -19,7 +16,7 @@ const FAQS = [
   },
   {
     q: "Do you handle creative direction, or do I need to bring a concept?",
-    a: "You do not need to come with a finished concept. After we discuss your brand, product and what you want the video to achieve, we develop a creative treatment, a document that details the concept, visual direction, mood, story and overall plan for the shoot. This helps make sure we fully understand your vision and that everyone is aligned before production begins. Of course, if you already have ideas or references, we’re happy to build on them.",
+    a: "You do not need to come with a finished concept. After we discuss your brand, product and what you want the video to achieve, we develop a creative treatment—a document that details the concept, visual direction, mood, story and overall plan for the shoot. This helps make sure we fully understand your vision and that everyone is aligned before production begins. Of course, if you already have ideas or references, we’re happy to build on them.",
   },
   {
     q: "What's included in a standard product video package?",
@@ -46,220 +43,173 @@ function FAQItem({
   isOpen: boolean;
   onToggle: () => void;
 }) {
-  const bodyRef = useRef<HTMLDivElement>(null);
-  const lineRef = useRef<HTMLDivElement>(null);
-  const didMount = useRef(false);
-
-  // Animate open / close
-  useEffect(() => {
-    const body = bodyRef.current;
-    if (!body) return;
-
-    if (!didMount.current) {
-      gsap.set(body, { height: 0, opacity: 0 });
-      didMount.current = true;
-      return;
-    }
-
-    if (isOpen) {
-      gsap.to(body, {
-        height: "auto",
-        opacity: 1,
-        duration: 0.55,
-        ease: "power3.out",
-      });
-    } else {
-      gsap.to(body, {
-        height: 0,
-        opacity: 0,
-        duration: 0.4,
-        ease: "power3.in",
-      });
-    }
-  }, [isOpen]);
-
-  // Animate the horizontal rule on open
-  useEffect(() => {
-    if (!lineRef.current) return;
-    gsap.to(lineRef.current, {
-      scaleX: isOpen ? 1 : 0,
-      duration: 0.5,
-      ease: "power2.out",
-    });
-  }, [isOpen]);
-
   return (
-    <div className="group border-b border-white/8 last:border-b-0">
+    <motion.div
+      layout
+      className="group border-b border-white/8 last:border-b-0"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.7, delay: index * 0.08 }}
+    >
       <button
         onClick={onToggle}
-        className="w-full flex items-start justify-between gap-6 py-7 md:py-8 text-left"
+        className="flex w-full items-start cursor-pointer justify-between gap-6 py-7 text-left md:py-8"
         aria-expanded={isOpen}
       >
-        {/* Index + question */}
         <div className="flex items-start gap-5 md:gap-8">
-          <span
-            className="shrink-0 lg:text-lg text-[10px] text-white/20 tabular-nums pt-1"
-            aria-hidden="true"
-          >
+          <span className="shrink-0 pt-1 text-[10px] tabular-nums text-white/20 lg:text-lg">
             {String(index + 1).padStart(2, "0")}
           </span>
+
           <span
-            className={`
-              text-base md:text-2xl font-light leading-snug tracking-wide cursor-pointer
-              transition-colors duration-300
-              ${isOpen ? "text-white" : "text-white/50 group-hover:text-white/80"}
-            `}
+            className={`text-base md:text-2xl font-light leading-snug tracking-wide transition-colors duration-300 ${isOpen
+                ? "text-white"
+                : "text-white/50 group-hover:text-white/80"
+              }`}
           >
             {item.q}
           </span>
         </div>
 
-        {/* Plus / minus icon */}
-        <span
-          className={`
-            shrink-0 relative flex items-center justify-center
-            w-7 h-7 mt-0.5 rounded-full border
-            transition-all duration-400
-            ${isOpen
-              ? "border-white/40 rotate-45"
-              : "border-white/15 group-hover:border-white/35"}
-          `}
-          aria-hidden="true"
+        <motion.span
+          animate={{ rotate: isOpen ? 45 : 0 }}
+          transition={{ duration: 0.35, ease: "easeInOut" }}
+          className={`relative mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border ${isOpen
+              ? "border-white/40"
+              : "border-white/15 group-hover:border-white/35"
+            }`}
         >
-          {/* horizontal bar */}
-          <span className="absolute w-[11px] h-px bg-white/70" />
-          {/* vertical bar — fades out when open because of rotate-45 */}
-          <span className="absolute w-px h-[11px] bg-white/70" />
-        </span>
+          <Plus className="h-4 w-4 text-white/70" />
+        </motion.span>
       </button>
 
-      {/* Expand line accent */}
-      <div
-        ref={lineRef}
-        className="h-px bg-linear-to-r from-white/0 via-white/20 to-white/0 origin-left"
-        style={{ transform: "scaleX(0)" }}
-        aria-hidden="true"
+      <motion.div
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: isOpen ? 1 : 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="h-px origin-left bg-linear-to-r from-white/0 via-white/20 to-white/0"
       />
 
-      {/* Answer body */}
-      <div ref={bodyRef} className="overflow-hidden" style={{ height: 0, opacity: 0 }}>
-        <p className="pl-13 md:pl-19 pt-8 pb-8 text-sm md:text-base text-white/40 font-light leading-relaxed tracking-wide">
-          {item.a}
-        </p>
-      </div>
-    </div>
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            key="content"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{
+              height: { duration: 0.45, ease: "easeInOut" },
+              opacity: { duration: 0.3 },
+            }}
+            className="overflow-hidden"
+          >
+            <p className="pb-8 pt-8 pl-13 text-sm font-light leading-relaxed tracking-wide text-white/40 md:pl-19 md:text-base">
+              {item.a}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 }
 
-// ─── section ──────────────────────────────────────────────────────────────────
-
 export default function FAQs() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const sectionRef = useRef<HTMLElement>(null);
-  const headingRef = useRef<HTMLDivElement>(null);
-  const itemsRef = useRef<HTMLDivElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
 
-  // Scroll-triggered entrance
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Eyebrow + heading slide up
-      gsap.from(headingRef.current!.children, {
-        y: 48,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.12,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: headingRef.current,
-          start: "top 85%",
-        },
-      });
-
-      // FAQ rows fade + slide
-      const rows = itemsRef.current?.querySelectorAll("[data-faq-row]");
-      if (rows) {
-        gsap.from(rows, {
-          y: 32,
-          opacity: 0,
-          duration: 0.8,
-          stagger: 0.08,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: itemsRef.current,
-            start: "top 80%",
-          },
-        });
-      }
-
-      // CTA fade
-      gsap.from(ctaRef.current!, {
-        y: 24,
-        opacity: 0,
-        duration: 0.9,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ctaRef.current,
-          start: "top 90%",
-        },
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  const toggle = (i: number) =>
+  const toggle = (i: number) => {
     setOpenIndex((prev) => (prev === i ? null : i));
+  };
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative w-full bg-black z-50 overflow-hidden py-24 md:py-20"
-    >
-      <div className="relative max-w-7xl mx-auto px-6 md:px-0">
+    <section className="relative z-50 w-full overflow-hidden bg-black py-24 md:py-20">
+      <div className="relative mx-auto max-w-7xl px-6 md:px-0">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
+          className="relative mb-12 flex items-center justify-center lg:mt-10"
+        >
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+            <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[12vw] text-[20vw] font-black tracking-tighter text-white/3 select-none">
+              Questions
+            </h1>
+          </div>
 
-        {/* ── Heading block ─────────────────────────────────── */}
-        <div ref={headingRef} className="mb-16 md:mb-20">
-          <h2 className="text-[clamp(2.2rem,6vw,4.5rem)] font-extralight leading-[1.05] tracking-tight text-[#FEE9CE]">
-            Everything you<br />
-            <em className="not-italic text-white/40">need to know</em>
-          </h2>
-        </div>
+          <div className="relative z-10 flex items-center justify-center gap-4">
+            <span
+              style={{
+                fontSize: "clamp(2rem, 2vw, 3rem)",
+                textTransform: "capitalize",
+                color: "#FEE9CE",
+                fontWeight: 300,
+                whiteSpace: "nowrap",
+              }}
+            >
+              Frequently Asked
+            </span>
+          </div>
+        </motion.div>
 
-        {/* ── Divider ───────────────────────────────────────── */}
-        <div className="h-px w-full bg-linear-to-r from-white/0 via-white/15 to-white/0 mb-2" />
+        {/* <motion.div
+          initial={{ opacity: 0, scaleX: 0 }}
+          whileInView={{ opacity: 1, scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="mb-2 h-px w-full origin-center bg-linear-to-r from-white/0 via-white/15 lg:mt-32 mt-10 to-white/0"
+        /> */}
 
-        {/* ── FAQ rows ──────────────────────────────────────── */}
-        <div ref={itemsRef}>
+        <div className="lg:mt-32 mt-10">
           {FAQS.map((item, i) => (
-            <div key={i} data-faq-row>
-              <FAQItem
-                item={item}
-                index={i}
-                isOpen={openIndex === i}
-                onToggle={() => toggle(i)}
-              />
-            </div>
+            <FAQItem
+              key={i}
+              item={item}
+              index={i}
+              isOpen={openIndex === i}
+              onToggle={() => toggle(i)}
+            />
           ))}
         </div>
 
-        <div
-          ref={ctaRef}
-          className="mt-16 md:mt-20 flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-10 border-t border-white/8"
-        >
-          <p className="text-sm lg:text-4xl text-white/50 max-w-2xl mx-auto font-light leading-relaxed">
-            Still have questions? I'm happy to walk through anything before you commit.
-          </p>
-          <Button
-            text="Get in Touch"
-            textsecond="Get in Touch"
-            // fromColor="from-white"
-            // toColor="to-white"
-            textColor="text-[#fff]"
-            border="border border-white"
-          />
-        </div>
+        <section className="relative z-10 border-t border-black bg-black">
+          <motion.div
+            custom={0}
+            // variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="px-6 py-20 md:py-28 flex flex-col md:flex-row md:items-end justify-between gap-10"
+          >
 
+            <motion.div
+              custom={1}
+              // variants={fadeUp}
+              className="flex flex-col gap-4 max-w-2xl"
+            >
+              <h2 className="font-cormorant text-[clamp(2rem,5vw,4rem)] font-light leading-none tracking-tight text-[#FEE9CE]">
+                Ready to make your<br />
+                <em className="not-italic text-white/30">
+                  product unforgettable?
+                </em>
+              </h2>
+            </motion.div>
+
+            <motion.div
+              custom={2}
+              // variants={fadeUp}
+              className="flex flex-col gap-4 items-start md:items-end shrink-0"
+            >
+              <Button
+                text="Start a project"
+                textsecond="Start a project"
+                textColor="text-[#fff]"
+                border="border border-white"
+              />
+            </motion.div>
+
+          </motion.div>
+        </section>
       </div>
     </section>
   );

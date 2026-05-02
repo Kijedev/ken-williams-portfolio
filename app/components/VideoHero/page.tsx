@@ -35,22 +35,6 @@ export default function VideoHero() {
                             <h1 className="text-[clamp(3.5rem,10vw,10rem)] font-light tracking-tight leading-[0.9] text-[#FEE9CE]">
                                 Products
                             </h1>
-
-                            {/* <div className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-[#EF5143] px-4 py-2 text-xs sm:text-sm text-white backdrop-blur-md mb-3 sm:mb-5 animate-pulse">
-                                <svg
-                                    width="12"
-                                    height="12"
-                                    viewBox="0 0 12 12"
-                                    fill="none"
-                                    className="shrink-0"
-                                >
-                                    <path
-                                        d="M6 1L7.06 4.47H10.73L7.83 6.53L8.9 10L6 7.94L3.1 10L4.17 6.53L1.27 4.47H4.94L6 1Z"
-                                        fill="white"
-                                    />
-                                </svg>
-                                <span>a new Dimension of</span>
-                            </div> */}
                         </div>
 
                         <div className="flex flex-wrap items-end gap-3 sm:gap-5">
