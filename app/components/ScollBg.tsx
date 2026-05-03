@@ -9,13 +9,13 @@ export default function ScollBg() {
     return (
         <section id="uniquely-yours" className="relative bg-black">
             <div className="fixed z-0 top-0 h-screen w-full flex flex-col gap-10 items-center justify-center pointer-events-none">
-                <h1 className="text-white/5 text-[3rem] lg:text-[7rem] font-bold text-center uppercase leading-20 lg:max-w-4xl">
+                <h1 className="text-white/5 text-[3rem] lg:text-[7rem] font-bold text-center uppercase leading-10 lg:leading-20 lg:max-w-4xl">
                     What Makes Us Different
                 </h1>
             </div>
 
             {/* SCROLLING CARDS (NORMAL FLOW) */}
-            <div className="relative max-w-6xl mx-auto -mt-[10vh] py-48 flex flex-col gap-32">
+            <div className="relative max-w-6xl mx-auto -mt-[10vh] py-20 lg:py-48 flex flex-col gap-10 lg:gap-28">
                 {[
                     {
                         title: "Cinematic Product Storytelling",
@@ -44,7 +44,7 @@ export default function ScollBg() {
                 ].map((card, index) => (
                     <div
                         key={index}
-                        className={`backdrop-blur-xl bg-black/10 w-96 border border-white/5 rounded-xl p-5 flex flex-col gap-6 items-center
+                        className={`backdrop-blur-xl bg-black/10 w-96 border border-white/3 rounded-xl p-5 flex flex-col gap-6 items-center
         ${index % 2 === 0 ? "self-end" : "self-start"}`}
                     >
                         <div className="w-[98%]">
@@ -59,7 +59,7 @@ export default function ScollBg() {
                             <h2 className="text-xl font-semibold text-[#EF5143]">
                                 {card.title}
                             </h2>
-                            <p className="text-[#FEE9CE]/70 text-md">{card.description}</p>
+                            <p className="text-[#FEE9CE]/70 text-sm">{card.description}</p>
                         </div>
                     </div>
                 ))}

@@ -140,7 +140,7 @@ export default function FAQs() {
           <div className="relative z-10 flex items-center justify-center gap-4">
             <span
               style={{
-                fontSize: "clamp(2rem, 2vw, 3rem)",
+                fontSize: "clamp(1.5rem, 2vw, 3rem)",
                 textTransform: "capitalize",
                 color: "#FEE9CE",
                 fontWeight: 300,

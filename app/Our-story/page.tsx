@@ -154,7 +154,7 @@ export default function Page() {
                         <div className="relative z-10 flex items-center justify-center gap-4">
                             <span
                                 style={{
-                                    fontSize: "clamp(2rem, 2vw, 3rem)",
+                                    fontSize: "clamp(1.5rem, 2vw, 3rem)",
                                     textTransform: "capitalize",
                                     color: "#FEE9CE",
                                     fontWeight: 300,
@@ -171,7 +171,7 @@ export default function Page() {
                             {/* Pull quote */}
                             <motion.blockquote
                                 variants={fadeUp}
-                                className="text-[clamp(1.4rem,3.2vw,1.8rem)] text-center font-light leading-[1.2] tracking-tight text-[#FEE9CE] mb-10 italic"
+                                className="text-[clamp(1.2rem,3.2vw,1.8rem)] text-center font-light leading-[1.2] tracking-tight text-[#FEE9CE] mb-10 italic"
                             >
                                 "At Ekho Studios, we believe products should feel alive."
                             </motion.blockquote>
@@ -203,12 +203,6 @@ export default function Page() {
 
                 <section className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 pb-24 md:pt-32 md:pb-10">
                     {/* Section label */}
-                    {/* <div className="flex items-center gap-3 mb-14">
-                        <span className="w-6 h-px bg-white/20" />
-                        <span className="text-[16px] lg:text-2xl tracking-[0.15em] uppercase text-white/80 font-light">
-                            Founder's Story
-                        </span>
-                    </div> */}
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -217,7 +211,7 @@ export default function Page() {
                         className="relative mb-12 flex items-center justify-center"
                     >
                         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                            <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[8vw] text-[14vw] font-black tracking-tighter text-white/3 select-none">
+                            <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[8vw] text-[13vw] font-black tracking-tighter text-white/3 select-none">
                                 Founder's Story
                             </h1>
                         </div>
@@ -225,7 +219,7 @@ export default function Page() {
                         <div className="relative z-10 flex items-center justify-center gap-4">
                             <span
                                 style={{
-                                    fontSize: "clamp(2rem, 2vw, 3rem)",
+                                    fontSize: "clamp(1.5rem, 2vw, 3rem)",
                                     textTransform: "capitalize",
                                     color: "#FEE9CE",
                                     fontWeight: 300,
@@ -312,7 +306,9 @@ export default function Page() {
 
                 <Mission />
                 <CoreValues />
-                <FAQs />
+                <div className="mt-20">
+                    <FAQs />
+                </div>
             </main>
         </>
     );

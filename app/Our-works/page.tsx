@@ -475,15 +475,15 @@ function VideoCard({
 
         <div className="absolute top-0 left-0 right-0 p-4 pointer-events-none">
           <div className="flex items-center justify-between">
-            <span className="rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs text-white backdrop-blur-md">
+            {/* <span className="rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs text-white backdrop-blur-md">
               {video.category}
-            </span>
-            <span className="text-sm text-white/50">
+            </span> */}
+            <h3 className="text-xl font-light text-white">{video.name}</h3>
+            <span className="text-sm text-white/30">
               {String(index + 1).padStart(2, "0")}
             </span>
           </div>
 
-          <h3 className="text-lg font-light text-white">{video.name}</h3>
         </div>
       </div>
     </motion.div>
@@ -519,7 +519,7 @@ export default function ProjectsPage() {
           </h1>
         </motion.div>
 
-        <div className="relative z-10 mx-auto max-w-8xl px-6 lg:px-10">
+        <div className="relative z-10 mx-auto max-w-400 px-6 lg:px-10">
           <div className="mb-14 flex flex-col items-center gap-8">
             <h1 className="lg:text-7xl text-4xl text-center mt-10 lg:mt-16 font-light text-[#FEE9CE]">Our Products Categories</h1>
             <div className="flex flex-wrap justify-center gap-3 ">

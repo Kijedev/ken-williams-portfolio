@@ -65,7 +65,7 @@ export default function TestimonialsSection() {
     const active = items[0];
 
     return (
-        <section className="w-full relative min-h-screen bg-[#020202] py-16 px-4 md:px-8">
+        <section className="w-full relative h-screen bg-[#020202] flex items-center justify-center px-4 md:px-8">
             <div className="max-w-6xl mx-auto">
                 <div className="relative lg:mt-10 flex items-center justify-center">
                     {/* Background Text */}
@@ -79,7 +79,7 @@ export default function TestimonialsSection() {
                     <div className="relative z-10 flex items-center justify-center gap-4">
                         <span
                             style={{
-                                fontSize: "clamp(2rem, 2vw, 3rem)",
+                                fontSize: "clamp(1.5rem, 2vw, 3rem)",
                                 textTransform: "capitalize",
                                 color: "#FEE9CE",
                                 fontWeight: "light",
@@ -128,7 +128,7 @@ export default function TestimonialsSection() {
                         </div>
                     </div>
 
-                    <div className="overflow-hidden">
+                    <div className="overflow-hidden md:flex hidden">
                         <div className="flex gap-4">
                             {items.map((item, index) => (
                                 <motion.div

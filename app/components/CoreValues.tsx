@@ -122,18 +122,7 @@ export default function HorizontalGallery() {
 
     return (
         <div className="overflow-x-hidden bg-black">
-            <section ref={sectionRef} className="relative lg:px-0 px-5 lg:pt-20 pt-10">
-                {/* <div className="flex flex-col gap-2 mb-10">
-                    <div className="lg:px-20 px-5">
-                        <h1 className="text-[clamp(3rem,6vw,8rem)] text-[#FEE9CE] font-extrabold leading-[0.8] tracking-tighter mb-8">
-                            CORE VALUES
-                        </h1>
-                    </div>
-                    <p className="lg:px-20 px-5 text-white/50 text-sm lg:text-xl lg:-mt-5 -mt-6">
-                        Principles that guide our work.
-                    </p>
-                </div> */}
-
+            <section ref={sectionRef} className="relative lg:px-0 px-5 lg:pb-10 pt-10">
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}

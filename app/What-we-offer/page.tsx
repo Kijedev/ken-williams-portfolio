@@ -147,15 +147,14 @@ export default function Page() {
                     <ExpertiseSection />
                 </div>
 
-                <section className="relative z-10 border-t border-black bg-black">
+                <section className="relative z-10 h-screen bg-black flex items-center justify-center">
                     <div className="max-w-8xl mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-20 md:py-28">
-
                         <motion.div
                             initial={{ opacity: 0, y: 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.3 }}
                             transition={{ duration: 0.9, ease: "easeOut" }}
-                            className="relative mb-12 flex items-center justify-center"
+                            className="relative mb-12 flex items-center justify-center lg:mt-0 mt-20"
                         >
                             <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
                                 <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[8vw] text-[14vw] font-black tracking-tighter text-white/3 select-none">
@@ -217,7 +216,7 @@ export default function Page() {
                     </div>
                 </section>
 
-                <section className="relative z-10 border-t border-black bg-black">
+                {/* <section className="relative z-10 bg-black">
                     <motion.div
                         custom={0}
                         variants={fadeUp}
@@ -252,9 +251,8 @@ export default function Page() {
                                 border="border border-white"
                             />
                         </motion.div>
-
                     </motion.div>
-                </section>
+                </section> */}
 
                 <FAQs />
             </div>

@@ -240,7 +240,7 @@ export default function Page() {
         </motion.div>
       </div>
 
-      {/* ── Form panel — normal flow, scrolls up over the sticky hero ── */}
+      {/* ── Form panel  ── */}
       <div
         style={{
           position: "relative",
@@ -251,7 +251,7 @@ export default function Page() {
           boxShadow: "0 -24px 80px rgba(0,0,0,0.9), 0 -1px 0 rgba(255,255,255,0.06)",
           overflow: "hidden",
         }}
-        className="lg:mt-0 -mt-20"
+        className="h-screen flex flex-col justify-center items-center"
       >
         <div className="relative w-full px-6 sm:px-10 md:px-16 lg:px-24 py-16 md:py-10 pb-40">
           <motion.div
@@ -262,7 +262,7 @@ export default function Page() {
             className="relative mb-12 flex items-center justify-center lg:pt-10 pt-10"
           >
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-              <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[14vw] text-[20vw] font-black tracking-tighter text-white/3 select-none">
+              <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[13vw] text-[20vw] font-black tracking-tighter text-white/3 select-none">
                 Contact
               </h1>
             </div>
@@ -270,7 +270,7 @@ export default function Page() {
             <div className="relative z-10 flex items-center justify-center gap-4">
               <span
                 style={{
-                  fontSize: "clamp(1.5rem, 2vw, 3rem)",
+                  fontSize: "clamp(1.3rem, 2vw, 3rem)",
                   textTransform: "capitalize",
                   color: "#FEE9CE",
                   fontWeight: "light",

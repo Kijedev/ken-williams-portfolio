@@ -28,7 +28,7 @@ export default function ExpertiseSection() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    className="text-[10px] tracking-[0.25em] uppercase mb-10"
+                    className="text-[16px] font-semibold mb-10"
                 >
                     Backed by years of experience
                 </motion.p>
@@ -54,11 +54,11 @@ export default function ExpertiseSection() {
 
                         <ExpertiseCard
                             index={2}
-                            title="Product Design"
+                            title="Product Videography"
                             items={[
-                                "User Research",
-                                "Design Research",
-                                "Service Research",
+                                "Cinematic Product Films",
+                                "Brand Storytelling Videos",
+                                "High-Converting Commercial Content",
                             ]}
                         />
 
@@ -66,9 +66,9 @@ export default function ExpertiseSection() {
                             index={3}
                             title="Brand Visibility"
                             items={[
-                                "Improved Search Rankings",
-                                "Better Social Media Reach",
-                                "Increased Time on Page",
+                                "Stronger Social Media Presence",
+                                "Higher Audience Engagement",
+                                "Expanded Brand Reach",
                             ]}
                         />
 
@@ -76,19 +76,19 @@ export default function ExpertiseSection() {
                             index={4}
                             title="Brand Credibility"
                             items={[
-                                "High Production Quality",
-                                "Consistent Messaging",
-                                "Humanizing the Brand",
+                                "Premium Visual Presentation",
+                                "Consistent Brand Storytelling",
+                                "Deeper Customer Trust",
                             ]}
                         />
 
                         <ExpertiseCard
                             index={5}
-                            title="Increase in Sales"
+                            title="Sales Growth"
                             items={[
-                                "Boosted Purchase Confidence",
-                                "Immersive Experience",
-                                "Reduced Returns",
+                                "Higher Conversion Rates",
+                                "Increased Purchase Confidence",
+                                "Improved Customer Retention",
                             ]}
                         />
                     </div>
@@ -97,8 +97,6 @@ export default function ExpertiseSection() {
         </section>
     );
 }
-
-/* ─── Reusable Card ───────────────────────────── */
 
 function ExpertiseCard({
     title,
@@ -134,7 +132,7 @@ function ExpertiseCard({
                 </h3>
 
                 {/* List */}
-                <ul className="space-y-1 text-[15px] leading-relaxed">
+                <ul className="space-y-1 text-[16px] font-semibold">
                     {items.map((item, i) => (
                         <li key={i}>{item}</li>
                     ))}

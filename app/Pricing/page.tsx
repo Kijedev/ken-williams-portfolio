@@ -395,13 +395,12 @@ export default function Page() {
                 </section>
 
                 {/* Package */}
-                <section className="relative z-10 border-t border-white/6 bg-black">
+                <section className="relative z-10 bg-black">
                     <div className=" px-6 sm:px-10 md:px-16 lg:px-24 py-16 md:py-20">
                         <div className="flex flex-col md:flex-row md:items-start gap-10 md:gap-20">
 
                             <div className="shrink-0">
                                 <div className="flex items-center gap-3 mb-2">
-                                    <span className="w-5 h-px bg-white/20" />
                                     <span className="lg:text-2xl text-[15px] capitalize text-[#FEE9CE] font-light">
                                         Every package includes
                                     </span>

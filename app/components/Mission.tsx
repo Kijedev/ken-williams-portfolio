@@ -53,7 +53,7 @@ export default function Mission() {
                 ref={textRef}
                 className="text-center font-bold capitalize"
                 style={{
-                    fontSize: "clamp(4rem, 12vw, 6rem)",
+                    fontSize: "clamp(3rem, 12vw, 6rem)",
                     lineHeight: 1,
                     letterSpacing: "-0.02em",
                     backgroundImage: `
