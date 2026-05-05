@@ -281,12 +281,12 @@ export default function Page() {
                         <div className="flex flex-col gap-0">
 
                             {/* Pull quote */}
-                            <blockquote className="text-[clamp(1.4rem,3.2vw,1.8rem)] font-light leading-[1.2] tracking-tight text-[#FEE9CE] mb-10 italic border-l border-white/10 pl-6">
-                                "Most products are seen as objects. We see them differently. Behind every product is a feeling, a story and an experience waiting to be brought to life."
+                            <blockquote className="text-[clamp(1.4rem,3.2vw,1.8rem)] font-light leading-[1.2] tracking-tight text-[#FEE9CE] italic mb-8">
+                                "Behind every product is a feeling, a story and an experience waiting to be brought to life."
                             </blockquote>
 
                             {/* Thin divider */}
-                            <div className="h-px mb-10 bg-linear-to-r from-white/10 via-white/5 to-transparent" />
+                            {/* <div className="h-px mb-10 bg-linear-to-r from-white/10 via-white/5 to-transparent" /> */}
 
                             {/* Story paragraphs */}
                             <div className="flex flex-col gap-5">
@@ -294,7 +294,7 @@ export default function Page() {
                                     <p
                                         key={i}
                                         ref={(el) => { paraRefs.current[i] = el; }}
-                                        className="text-sm md:text-[15px] text-white/50 font-light leading-relaxed tracking-wide"
+                                        className="text-sm md:text-xl text-white/30 font-light leading-relaxed"
                                     >
                                         {para}
                                     </p>

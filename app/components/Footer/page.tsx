@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { label: "What we offer", href: "/What-we-offer" },
   { label: "Our Works", href: "/Our-works" },
   { label: "Pricing", href: "/Pricing" },
+  { label: "Contact Us", href: "/Contact" },
 ];
 const SOCIALS = [
   { Icon: IoLogoInstagram, label: "Instagram", href: "https://www.instagram.com/darawilliam.s" },

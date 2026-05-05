@@ -9,7 +9,7 @@ const testimonials = [
     {
         id: 1,
         name: "Gourmet Twist",
-        role: "Founder, Lumière Skincare",
+        role: "Founder, Gourmet Twist",
         image: "/banana-bread.png",
         quote:
             "Working with this team completely transformed how our products are perceived. Every shot feels cinematic, luxurious, and crafted to convert viewers into customers.",
@@ -17,14 +17,14 @@ const testimonials = [
     {
         id: 2,
         name: "Jiffy Jollof",
-        role: "Marketing Director, Nova Tech",
+        role: "Marketing Director, Jiffy Jollof",
         image: "/jiffy-jollof.png",
         quote:
             "Their ability to capture product details and tell a compelling story is unmatched. Our campaign engagement increased dramatically after launch.",
     },
     {
         id: 3,
-        name: "Aloe Vera",
+        name: "Essence Atelier",
         role: "CEO, Essence Atelier",
         image: "/aloe-vera.png",
         quote:
@@ -33,7 +33,7 @@ const testimonials = [
     {
         id: 4,
         name: "Hair",
-        role: "Brand Manager, Pure Sip",
+        role: "Brand Manager, Hair",
         image: "/hair.png",
         quote:
             "Exceptional creativity, attention to detail, and storytelling. The final videos didn't just showcase our product—they made people want it instantly.",

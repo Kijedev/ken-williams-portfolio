@@ -13,8 +13,8 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Ken Williams",
-  description: "Product Videographer",
+  title: "Ekho Studios",
+  description: "We help brands bring their products to life.",
 };
 
 export default function RootLayout({
