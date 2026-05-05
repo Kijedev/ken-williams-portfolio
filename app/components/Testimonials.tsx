@@ -10,33 +10,33 @@ const testimonials = [
         id: 1,
         name: "Gourmet Twist",
         role: "Founder, Gourmet Twist",
-        image: "/banana-bread.png",
+        image: "/brandlogos/Gourmet Twist Rays Logo.png",
         quote:
             "Working with this team completely transformed how our products are perceived. Every shot feels cinematic, luxurious, and crafted to convert viewers into customers.",
     },
     {
         id: 2,
-        name: "Jiffy Jollof",
-        role: "Marketing Director, Jiffy Jollof",
-        image: "/jiffy-jollof.png",
+        name: "Uncle Stan",
+        role: "Marketing Director, Uncle Stan",
+        image: "/brandlogos/Uncle_Stan.png",
         quote:
             "Their ability to capture product details and tell a compelling story is unmatched. Our campaign engagement increased dramatically after launch.",
     },
     {
         id: 3,
-        name: "Essence Atelier",
-        role: "CEO, Essence Atelier",
-        image: "/aloe-vera.png",
+        name: "Maison Veil",
+        role: "CEO, Maison Veil",
+        image: "/brandlogos/maisonveil.png",
         quote:
             "From concept to final delivery, the process was seamless. The visuals elevated our brand and gave our products the premium presence they deserve.",
     },
     {
         id: 4,
-        name: "Hair",
-        role: "Brand Manager, Hair",
-        image: "/hair.png",
+        name: "Koshe Delights",
+        role: "Founder, Koshe Delights",
+        image: "/brandlogos/Koshe Logo White.png",
         quote:
-            "Exceptional creativity, attention to detail, and storytelling. The final videos didn't just showcase our product—they made people want it instantly.",
+            "Exceptional creativity, attention to detail, and storytelling. The final videos didn't just showcase our product, they made people want it instantly.",
     },
 ];
 

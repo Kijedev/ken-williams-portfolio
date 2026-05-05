@@ -165,8 +165,8 @@ export default function Navbar() {
                   0{i + 1}
                 </span>
                 <span className={`
-                  text-4xl font-extralight tracking-tight transition-colors duration-300
-                  ${active ? "text-white" : "text-white/60 group-hover:text-white"}
+                  text-4xl font-extralight transition-colors duration-300
+                  ${active ? "text-white" : "text-white/30 group-hover:text-white"}
                 `}>
                   {label}
                   {active && (

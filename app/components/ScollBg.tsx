@@ -1,69 +1,104 @@
+"use client";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "",
-    description: "",
+  title: "",
+  description: "",
+};
+
+type CardType = {
+  title: string;
+  description: string;
+  src: string;
+  type: "image" | "video";
 };
 
 export default function ScollBg() {
-    return (
-        <section id="uniquely-yours" className="relative bg-black">
-            <div className="fixed z-0 top-0 h-screen w-full flex flex-col gap-10 items-center justify-center pointer-events-none">
-                <h1 className="text-white/5 text-[3rem] lg:text-[7rem] font-bold text-center uppercase leading-10 lg:leading-20 lg:max-w-4xl">
-                    What Makes Us Different
-                </h1>
+  const CARDS: CardType[] = [
+    {
+      title: "Cinematic Product Storytelling",
+      description:
+        "Transform everyday products into compelling visual stories that capture attention, build desire, and drive customer action.",
+      src: "/reels/Gourmet Twist Banana Bread 2.mp4",
+      type: "video",
+    },
+    {
+      title: "Designed for Social Impact",
+      description:
+        "Scroll-stopping visuals crafted for Instagram, TikTok, and campaigns—built to hook attention instantly.",
+      src: "/reels/Go Vita Chocolate Drink Video 3.mp4",
+      type: "video",
+    },
+    {
+      title: "Showcase Every Detail",
+      description:
+        "Highlight textures, craftsmanship, and product quality with precision-driven visuals.",
+      src: "/reels/Iphone.mp4",
+      type: "video",
+    },
+    {
+      title: "Built to Elevate Your Brand",
+      description:
+        "Premium visuals that increase trust and position your product as the obvious choice.",
+      src: "/reels/Maison Veil Body Oil Video.mp4",
+      type: "video",
+    },
+  ];
+
+  return (
+    <section id="uniquely-yours" className="relative bg-black">
+      {/* Background Heading */}
+      <div className="fixed z-0 top-0 h-screen w-full flex items-center justify-center pointer-events-none">
+        <h1 className="text-white/5 text-[3rem] lg:text-[7rem] font-bold text-center capitalize italic leading-10 lg:leading-22 max-w-3xl">
+          What Makes Us Different
+        </h1>
+      </div>
+
+      {/* Cards */}
+      <div className="relative max-w-6xl mx-auto -mt-[10vh] py-32 lg:py-48 flex flex-col gap-16 lg:gap-28">
+        {CARDS.map((card, index) => (
+          <div
+            key={index}
+            className={`group backdrop-blur-lg border border-white/10 rounded-2xl p-5 flex flex-col gap-6 w-[90%] sm:w-[420px] transition duration-500
+            ${index % 2 === 0 ? "self-end" : "self-start"}`}
+          >
+            {/* MEDIA */}
+            <div className="relative w-full h-[45vh] overflow-hidden rounded-xl">
+              {card.type === "video" ? (
+                <video
+                  src={card.src}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="none"
+                  className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+                />
+              ) : (
+                <img
+                  src={card.src}
+                  alt={card.title}
+                  className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+                />
+              )}
+
+              {/* Cinematic overlay */}
+              <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
             </div>
 
-            {/* SCROLLING CARDS (NORMAL FLOW) */}
-            <div className="relative max-w-6xl mx-auto -mt-[10vh] py-20 lg:py-48 flex flex-col gap-10 lg:gap-28">
-                {[
-                    {
-                        title: "Cinematic Product Storytelling",
-                        description:
-                            "Transform everyday products into compelling visual stories that capture attention, build desire, and drive customer action across every platform.",
-                        image: "/banana-bread.png",
-                    },
-                    {
-                        title: "Designed for Social Impact",
-                        description:
-                            "Create scroll-stopping product videos optimized for Instagram, TikTok, YouTube, and paid campaigns—built to engage audiences instantly.",
-                        image: "/jiffy-jollof.png",
-                    },
-                    {
-                        title: "Showcase Every Detail",
-                        description:
-                            "From texture and craftsmanship to functionality and finish, every frame highlights what makes your product exceptional and worth buying.",
-                        image: "/aloe-vera.png",
-                    },
-                    {
-                        title: "Built to Elevate Your Brand",
-                        description:
-                            "Premium visuals that strengthen brand identity, increase trust, and position your products as the obvious choice in a competitive market.",
-                        image: "/cake.png",
-                    },
-                ].map((card, index) => (
-                    <div
-                        key={index}
-                        className={`backdrop-blur-xl bg-black/10 w-96 border border-white/3 rounded-xl p-5 flex flex-col gap-6 items-center
-        ${index % 2 === 0 ? "self-end" : "self-start"}`}
-                    >
-                        <div className="w-[98%]">
-                            <img
-                                src={card.image}
-                                alt={card.title}
-                                className="w-full h-[50vh] rounded-2xl object-cover"
-                            />
-                        </div>
-
-                        <div className="flex flex-col gap-1">
-                            <h2 className="text-xl font-semibold text-[#EF5143]">
-                                {card.title}
-                            </h2>
-                            <p className="text-[#FEE9CE]/70 text-sm">{card.description}</p>
-                        </div>
-                    </div>
-                ))}
+            {/* TEXT */}
+            <div className="flex flex-col gap-2">
+              <h2 className="text-xl font-semibold text-[#EF5143]">
+                {card.title}
+              </h2>
+              <p className="text-[#FEE9CE]/70 text-sm leading-relaxed">
+                {card.description}
+              </p>
             </div>
-        </section>
-    );
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 }

@@ -32,14 +32,14 @@ export default function VideoHero() {
                     {/* Heading */}
                     <div className="overflow-hidden">
                         <div className="flex flex-wrap items-end gap-3 sm:gap-5 mb-1 sm:mb-2">
-                            <h1 className="text-[clamp(3.5rem,10vw,10rem)] font-light tracking-tight leading-[0.9] text-[#FEE9CE]">
-                                Products
+                            <h1 className="text-[clamp(3.5rem,10vw,8rem)] font-bold tracking-tight leading-[0.9] text-[#FEE9CE]">
+                                We Bring 
                             </h1>
                         </div>
 
                         <div className="flex flex-wrap items-end gap-3 sm:gap-5">
                             <h2 className="text-[clamp(3rem,9vw,6rem)] font-extrabold tracking-tight leading-[0.9]">
-                                Brought to Life.
+                                Products to Life.
                             </h2>
                         </div>
                     </div>
@@ -56,7 +56,7 @@ export default function VideoHero() {
                                 className="inline-flex items-center gap-3 rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white/80 transition-all duration-300 hover:border-white/60 hover:bg-white/10 hover:text-white"
                             >
                                 View Our Works
-                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                                {/* <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
                                     <path
                                         d="M1 5h8M6 2l3 3-3 3"
                                         stroke="currentColor"
@@ -64,7 +64,7 @@ export default function VideoHero() {
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
                                     />
-                                </svg>
+                                </svg> */}
                             </Link>
                         </div>
                     </div>

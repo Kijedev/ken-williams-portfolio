@@ -7,7 +7,7 @@ import Button from "./Button";
 
 const FAQS = [
   {
-    q: "What types of products do you specialize in filming?",
+    q: "What type of products do you specialize in filming?",
     a: "We specialize in filming a wide range of products including food, skincare, beauty, fashion, tech, lifestyle products and more. At Ekho Studios, we focus on creating cinematic videos that bring out the personality and story behind a product, so whether it’s a bottle, a snack, a shoe or a gadget, we approach each one in a way that makes it feel alive and memorable.",
   },
   {
