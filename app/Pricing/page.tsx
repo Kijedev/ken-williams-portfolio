@@ -19,60 +19,60 @@ const SHARED_DELIVERABLES = [
 const SERVICES = [
     {
         index: "01",
-        title: "Long Video",
+        title: "Full Story Commercial",
         category: "Signature",
         duration: "1 minute",
-        price: "₦800,000",
+        price: "₦900,000 - ₦1,200,000",
         description:
-            "A cinematic centrepiece built around your product. Story-driven and meticulously crafted — this is the film that defines your brand's visual identity and commands attention across every platform.",
+            "For brands looking to create a strong, cinematic narrative around their product. Best suited for campaigns, launches, and premium brand positioning. Includes:",
         deliverables: [
-            "1-min master cut",
-            "Colour graded",
-            "Original score / sound design",
-            "4K / HD delivery",
-            "One orientation (vertical or horizontal)",
-            "Social media optimised",
+            "Full creative direction & concept development Story-driven execution",
+            "Advanced lighting & custom set design",
+            "Multiple scenes and transitions",
+            "Cinematic pacing & composition",
+            "Detailed sound design",
+            "2 revisions",
         ],
-        accent: "#FEE9CE",
-        tag: "Most Comprehensive",
+        accent: "#E8A25C",
+        // tag: "",
     },
     {
         index: "02",
-        title: "Short Video",
+        title: "Story Burst",
         category: "Performance",
         duration: "30 seconds",
-        price: "₦500,000",
+        price: "₦600,000 – ₦900,000",
         description:
-            "Built for scroll-stopping performance. A tightly edited, platform-optimised product film engineered to convert — ideal for Reels, TikTok, paid ads, and story placements.",
+            "A balanced mix of storytelling and visual impact—engaging, concise, and effective. Ideal for social media campaigns and brand awareness. Includes:",
         deliverables: [
-            "30-sec master cut",
-            "Colour graded",
-            "HD delivery",
-            "One orientation (vertical or horizontal)",
-            "Social media optimised",
-            "Caption overlays optional",
+            "Creative concept development",
+            "Controlled set design",
+            "Clean, engaging visuals",
+            "Moderate scene variation",
+            "Sound design",
+            "1–2 revisions",
         ],
         accent: "#a8c4e8",
-        tag: "Most Popular",
+        // tag: "",
     },
     {
         index: "03",
-        title: "Mini Video",
+        title: "Quick Impact",
         category: "Awareness",
         duration: "15 seconds",
-        price: "₦250,000",
+        price: "₦300,000 – ₦600,000",
         description:
-            "Maximum impact in minimum time. A punchy, attention-grabbing product clip engineered for the first three seconds that matter most — stories, bumper ads, and viral-format content.",
+            "Short, sharp, and designed to capture attention instantly. Perfect for ads, promos, and quick product highlights. Includes:",
         deliverables: [
-            "15-sec master cut",
-            "Colour graded",
-            "HD delivery",
-            "One orientation (vertical or horizontal)",
-            "Social media optimised",
-            "Reel / Story format ready",
+            "Simple, focused concept",
+            "Clean production setup",
+            "Strong product-focused visuals",
+            "Minimal scene changes",
+            "Basic sound design",
+            "1 revision",
         ],
         accent: "#c4e8a8",
-        tag: "Best Entry Point",
+        // tag: "",
     },
 ];
 
@@ -272,7 +272,7 @@ export default function Page() {
                             {/* Left: fill bar + titles */}
                             <div className="relative shrink-0 pr-8 md:pr-16 flex items-center">
                                 <div ref={fillRef}
-                                    className="absolute left-0 top-0 w-[2px] h-full origin-top"
+                                    className="absolute left-0 top-0 w-[2px] origin-top"
                                     style={{ background: "linear-gradient(to bottom, #FEE9CE, #a8c4e8, #c4e8a8)" }}
                                     aria-hidden="true" />
 
@@ -282,17 +282,17 @@ export default function Page() {
                                             ref={(el) => { listItemsRef.current[i] = el; }}
                                             className="cursor-default select-none transition-colors duration-300"
                                             style={{ color: "rgba(255,255,255,0.18)" }}>
-                                            <span className="block text-[9px] tracking-[0.28em] uppercase font-light mb-1.5"
+                                            {/* <span className="block text-[12px] capitalize font-light mb-1.5"
                                                 style={{ color: "rgba(255,255,255,0.2)" }}>
                                                 {s.category}
-                                            </span>
+                                            </span> */}
                                             <span className="block text-[clamp(1.6rem,3.8vw,2.8rem)] font-light leading-tight tracking-tight">
                                                 {s.title}
                                             </span>
-                                            <span className="block text-[10px] tracking-[0.15em] mt-1 font-light"
+                                            {/* <span className="block text-[12px] mt-1 font-light"
                                                 style={{ color: "rgba(255,255,255,0.15)" }}>
                                                 {s.duration}
-                                            </span>
+                                            </span> */}
                                         </li>
                                     ))}
                                 </ul>
@@ -319,23 +319,23 @@ export default function Page() {
                                             </div>
 
                                             {/* Tag badge */}
-                                            {s.tag && (
+                                            {/* {s.tag && (
                                                 <div className="inline-flex items-center gap-2 mb-5">
                                                     <span className="w-1.5 h-1.5 rounded-full" style={{ background: s.accent }} />
-                                                    <span className="text-[9px] tracking-[0.28em] uppercase font-light"
+                                                    <span className="text-[12px] capitalize font-light"
                                                         style={{ fontFamily: "Barlow, sans-serif", color: s.accent, opacity: 0.7 }}>
                                                         {s.tag}
                                                     </span>
                                                 </div>
-                                            )}
+                                            )} */}
 
                                             {/* Price */}
                                             <div className="flex items-baseline gap-3 mb-1">
-                                                <span className="font-cormorant text-[clamp(2rem,5vw,3.2rem)] font-light leading-none"
+                                                <span className="font-cormorant text-[clamp(1rem,5vw,2rem)] font-light leading-none"
                                                     style={{ color: s.accent }}>
                                                     {s.price}
                                                 </span>
-                                                <span className="text-[9px] tracking-[0.2em] uppercase text-white/20 font-light"
+                                                <span className="text-[12px] capitalize text-white/20 font-light"
                                                     style={{ fontFamily: "Barlow, sans-serif" }}>
                                                     {s.duration}
                                                 </span>
@@ -352,7 +352,7 @@ export default function Page() {
 
                                             {/* Deliverables */}
                                             <div className="flex flex-col gap-2.5 mb-7">
-                                                <span className="text-[9px] tracking-[0.28em] uppercase text-white/20 mb-1"
+                                                <span className="text-[12px] capitalize text-white/20 mb-1"
                                                     style={{ fontFamily: "Barlow, sans-serif" }}>
                                                     What's included
                                                 </span>
@@ -365,7 +365,7 @@ export default function Page() {
                                             </div>
 
                                             {/* CTA */}
-                                            <Link href="/contact"
+                                            {/* <Link href="/contact"
                                                 className="group inline-flex items-center gap-2.5 px-6 py-2.5 border text-[10px] tracking-[0.2em] uppercase font-light transition-all duration-300"
                                                 style={{
                                                     borderColor: `${s.accent}30`,
@@ -385,7 +385,7 @@ export default function Page() {
                                                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
                                                     <path d="M1 5h8M6 2l3 3-3 3" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" />
                                                 </svg>
-                                            </Link>
+                                            </Link> */}
                                         </div>
                                     </div>
                                 ))}
@@ -395,10 +395,43 @@ export default function Page() {
                 </section>
 
                 {/* Package */}
-                <section className="relative z-10 bg-black">
-                    <div className=" px-6 sm:px-10 md:px-16 lg:px-24 py-16 md:py-20">
-                        <div className="flex flex-col md:flex-row md:items-start gap-10 md:gap-20">
+                <section className="relative z-10 bg-black h-screen flex flex-col items-center justify-center">
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.9, ease: "easeOut" }}
+                        className="relative mb-12 flex items-center justify-center lg:pt-48"
+                    >
+                        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                            <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[12vw] text-[20vw] font-black tracking-tighter text-white/3 select-none">
+                                Package
+                            </h1>
+                        </div>
 
+                        <div className="relative z-10 lg:-mt-48 flex items-center justify-center gap-4">
+                            <span
+                                style={{
+                                    fontSize: "clamp(1.5rem, 2vw, 3rem)",
+                                    textTransform: "capitalize",
+                                    color: "#FEE9CE",
+                                    fontWeight: 300,
+                                    whiteSpace: "nowrap",
+                                }}
+                            >
+                                Content Package
+                            </span>
+                        </div>
+                    </motion.div>
+
+                    <div className=" px-6 sm:px-10 md:px-16 lg:px-24 py-6 md:py-0">
+                        <h1 className="text-left text-[12px] lg:text-xl text-white/30 font-light mb-10">These ranges serve as a guide depending on the creative direction and production depth required.
+                            All packages cover the production of one (1) final video, delivered in HD format.
+                            Additional versions, alternate orientations, or format variations are available at an extra cost.
+                            Final pricing is determined by the specific needs of your project—including factors such as concept complexity, use of talent, voice-over requirements, custom set design, and whether the shoot takes place in-studio or on location.
+                            This ensures every project is executed at the highest standard it deserves.</h1>
+
+                        <div className="flex flex-col md:flex-row md:items-start gap-10 md:gap-20">
                             <div className="shrink-0">
                                 <div className="flex items-center gap-3 mb-2">
                                     <span className="lg:text-2xl text-[15px] capitalize text-[#FEE9CE] font-light">
@@ -409,7 +442,7 @@ export default function Page() {
 
                             <div ref={sharedRef} className="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-1">
                                 {SHARED_DELIVERABLES.map((d) => (
-                                    <div key={d} className="flex items-center gap-3 py-3 border-b border-white/5">
+                                    <div key={d} className="flex items-center gap-3 py-3">
                                         <div className="w-1.5 h-1.5 rounded-full bg-white/20 shrink-0" />
                                         <span className="lg:text-lg text-[15px] text-white/40 font-light tracking-wide">{d}</span>
                                     </div>
