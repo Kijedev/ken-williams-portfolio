@@ -37,12 +37,12 @@ function useReveal(refs: React.RefObject<HTMLElement | null>[], options?: { dela
 
 // ─── Project CTA section ───────
 export function Ctasections() {
-  const sectionRef  = useRef<HTMLDivElement>(null);
-  const eyebrowRef  = useRef<HTMLDivElement>(null);
-  const headingRef  = useRef<HTMLHeadingElement>(null);
-  const subRef      = useRef<HTMLParagraphElement>(null);
-  const btnRef      = useRef<HTMLDivElement>(null);
-  const dividerRef  = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const eyebrowRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const subRef = useRef<HTMLParagraphElement>(null);
+  const btnRef = useRef<HTMLDivElement>(null);
+  const dividerRef = useRef<HTMLDivElement>(null);
 
   useReveal([eyebrowRef as any, headingRef as any, subRef as any, btnRef as any]);
 
@@ -74,16 +74,6 @@ export function Ctasections() {
         background: "#000",
       }}
     >
-      {/* <div style={{
-        position: "absolute",
-        top: "40%", left: "50%",
-        transform: "translate(-50%,-50%)",
-        width: "80vw", height: "50vh",
-        borderRadius: "50%",
-        background: "radial-gradient(ellipse, rgba(254,233,206,0.04) 0%, transparent 75%)",
-        pointerEvents: "none",
-      }} aria-hidden="true" /> */}
-
       <div style={{
         padding: "clamp(5rem,12vh,9rem) clamp(1.5rem,6vw,6rem)",
         display: "flex",
@@ -119,27 +109,7 @@ export function Ctasections() {
             transformOrigin: "center",
           }}
         />
-
-        {/* Sub copy */}
-        <p
-          ref={subRef}
-          style={{
-            fontSize: "clamp(0.7rem,1.1vw,0.85rem)",
-            color: "rgba(255,255,255,0.2)",
-            letterSpacing: "0.06em",
-            lineHeight: 1.9,
-            margin: "0 0 clamp(2rem,4vh,3.5rem)",
-            maxWidth: 360,
-          }}
-        >
-          We craft product films that make people<br />
-          stop scrolling and start buying.
-        </p>
-
-        {/* Button */}
-        {/* <div ref={btnRef}> */}
-          <ButtonTrans text="Watch on Instagram" textsecond="@darawilliam.s" />
-        {/* </div> */}
+        <ButtonTrans text="Watch on Instagram" textsecond="@darawilliam.s" />
       </div>
     </div>
   );
