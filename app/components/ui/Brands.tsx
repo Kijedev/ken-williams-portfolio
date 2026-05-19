@@ -15,7 +15,7 @@ const BRANDS = [
   { image: "/brandlogos/maisonveil.png" },
   { image: "/brandlogos/Mom's Pride Logo.png" },
   { image: "/brandlogos/NXXN.png" },
-  { image: "/brandlogos/SIMPLY JOLLOF LOGO.png" },
+  // { image: "/brandlogos/SIMPLY JOLLOF LOGO.png" },
   { image: "/brandlogos/Sooo Pro Logo.jpg" },
   { image: "/brandlogos/Este Blare.png" },
   { image: "/brandlogos/Uncle_Stan.png" },

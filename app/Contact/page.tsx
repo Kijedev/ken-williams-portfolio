@@ -88,26 +88,6 @@ export default function Page() {
     py-3 outline-none transition-colors duration-300
   `;
 
-  // const containerVariants = {
-  //   hidden: { opacity: 0 },
-  //   visible: {
-  //     opacity: 1,
-  //     transition: {
-  //       staggerChildren: 0.1,
-  //       delayChildren: 0.15,
-  //     },
-  //   },
-  // };
-
-  // const itemVariants = {
-  //   hidden: { y: 50, opacity: 0 },
-  //   visible: {
-  //     y: 0,
-  //     opacity: 1,
-  //     transition: { duration: 0.8, ease: "easeOut" },
-  //   },
-  // };
-
   const containerVariants: Variants = {
     hidden: {},
     visible: {
@@ -388,7 +368,7 @@ export default function Page() {
                       </>
                     ) : (
                       <>
-                        Send message
+                        Send Message
                         <svg
                           width="12"
                           height="12"

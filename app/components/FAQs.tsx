@@ -64,8 +64,8 @@ function FAQItem({
 
           <span
             className={`text-base md:text-2xl font-light leading-snug tracking-wide transition-colors duration-300 ${isOpen
-                ? "text-white"
-                : "text-white/50 group-hover:text-white/80"
+              ? "text-white"
+              : "text-white/50 group-hover:text-white/80"
               }`}
           >
             {item.q}
@@ -76,8 +76,8 @@ function FAQItem({
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.35, ease: "easeInOut" }}
           className={`relative mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border ${isOpen
-              ? "border-white/40"
-              : "border-white/15 group-hover:border-white/35"
+            ? "border-white/40"
+            : "border-white/15 group-hover:border-white/35"
             }`}
         >
           <Plus className="h-4 w-4 text-white/70" />
@@ -132,7 +132,7 @@ export default function FAQs() {
           className="relative mb-12 flex items-center justify-center lg:mt-10"
         >
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-            <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[12vw] text-[20vw] font-black tracking-tighter text-white/3 select-none">
+            <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[12vw] text-[20vw] font-black tracking-tighter text-white/6 select-none">
               Questions
             </h1>
           </div>

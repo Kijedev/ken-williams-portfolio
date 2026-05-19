@@ -50,13 +50,13 @@ export default function ScollBg() {
     <section id="uniquely-yours" className="relative bg-black">
       {/* Background Heading */}
       <div className="fixed z-0 top-0 h-screen w-full flex items-center justify-center pointer-events-none">
-        <h1 className="text-white/5 text-[3rem] lg:text-[7rem] font-bold text-center capitalize italic leading-10 lg:leading-22 max-w-3xl">
+        <h1 className="text-white/10 text-[3rem] lg:text-[7rem] font-bold text-center capitalize italic leading-10 lg:leading-22 max-w-3xl">
           What Makes Us Different
         </h1>
       </div>
 
       {/* Cards */}
-      <div className="relative max-w-6xl mx-auto -mt-[10vh] py-32 lg:py-48 flex flex-col gap-16 lg:gap-28">
+      <div className="relative max-w-6xl mx-auto -mt-[10vh] py-32 lg:py-48 flex flex-col gap-32 lg:gap-48">
         {CARDS.map((card, index) => (
           <div
             key={index}

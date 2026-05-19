@@ -131,7 +131,7 @@ export default function HorizontalGallery() {
                     className="relative mb-12 flex items-center justify-center"
                 >
                     <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                        <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[12vw] text-[20vw] font-black tracking-tighter text-white/3 select-none">
+                        <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[12vw] text-[20vw] font-black tracking-tighter text-white/6 select-none">
                             Core Values
                         </h1>
                     </div>

@@ -44,7 +44,7 @@ export default function Footer() {
             <h2 className="text-[clamp(3rem,7vw,5rem)] font-black leading-[0.7] tracking-tight">
               Ekho <br /> Studios
             </h2>
-            <p className="text-white/30 max-w-xs text-sm leading-relaxed">
+            <p className="text-white/40 max-w-xs text-sm leading-relaxed">
               Crafting cinematic product stories that elevate brands, capture attention, and drive real results.
             </p>
           </motion.div>
@@ -119,7 +119,7 @@ export default function Footer() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
-          className="text-white/30 text-xs leading-relaxed"
+          className="text-white/40 text-sm font-light leading-relaxed text-justify"
         >
           Ekho Studios ("Ekho") is a creative production studio offering professional product videography services to brands, businesses, and individual clients across Nigeria and beyond. All video productions are executed by our in-house creative team and delivered in high-definition formats optimised for digital platforms including Instagram, TikTok, YouTube, and e-commerce storefronts. Each project scope, timeline, and deliverable specification is agreed upon in writing prior to production commencement. Any previews, mood boards, or reference materials shared during pre-production are illustrative in nature and may not reflect the exact outcome of the final production, which is subject to creative direction, available equipment, location conditions, and client-approved briefs. Pricing displayed on our rate card reflects standard package rates and may vary based on project complexity, travel requirements, usage rights, and the number of revisions requested beyond the agreed allowance. By engaging Ekho Studios for a project, clients confirm acceptance of our production terms, payment schedule, and intellectual property agreement, copies of which are provided at the time of booking. Ekho Studios retains the right to feature completed work in its portfolio and on its social media channels unless a confidentiality clause is explicitly agreed upon in the project contract
         </motion.p>

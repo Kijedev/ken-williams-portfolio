@@ -91,7 +91,6 @@ export function Ctasections() {
             fontWeight: 300,
             color: "#FEE9CE",
             lineHeight: 0.9,
-            letterSpacing: "-0.03em",
             margin: "0 0 clamp(1.5rem,3vh,2.5rem)",
             maxWidth: "clamp(400px,70vw,900px)",
           }}

@@ -157,7 +157,7 @@ export default function Page() {
                             className="relative mb-12 flex items-center justify-center lg:mt-0 mt-20"
                         >
                             <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                                <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[8vw] text-[14vw] font-black tracking-tighter text-white/3 select-none">
+                                <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[8vw] text-[14vw] font-black tracking-tighter text-white/6 select-none">
                                     The Process
                                 </h1>
                             </div>
@@ -202,10 +202,10 @@ export default function Page() {
                                         </div>
 
                                         <div className="flex flex-col gap-1.5">
-                                            <span className="text-[20px] font-light text-[#FEE9CE] tracking-wide">
+                                            <span className="text-[20px] font-light text-[#FEE9CE]">
                                                 {p.label}
                                             </span>
-                                            <span className="text-[14px] text-white/25 capitalize font-light leading-relaxed">
+                                            <span className="text-[14px] text-white/40 capitalize font-light">
                                                 {p.detail}
                                             </span>
                                         </div>

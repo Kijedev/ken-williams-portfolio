@@ -282,17 +282,9 @@ export default function Page() {
                                             ref={(el) => { listItemsRef.current[i] = el; }}
                                             className="cursor-default select-none transition-colors duration-300"
                                             style={{ color: "rgba(255,255,255,0.18)" }}>
-                                            {/* <span className="block text-[12px] capitalize font-light mb-1.5"
-                                                style={{ color: "rgba(255,255,255,0.2)" }}>
-                                                {s.category}
-                                            </span> */}
                                             <span className="block text-[clamp(1.6rem,3.8vw,2.8rem)] font-light leading-tight tracking-tight">
                                                 {s.title}
                                             </span>
-                                            {/* <span className="block text-[12px] mt-1 font-light"
-                                                style={{ color: "rgba(255,255,255,0.15)" }}>
-                                                {s.duration}
-                                            </span> */}
                                         </li>
                                     ))}
                                 </ul>
@@ -318,25 +310,13 @@ export default function Page() {
                                                 <div className="absolute top-0 right-0 w-px h-full" style={{ background: s.accent, opacity: 0.4 }} />
                                             </div>
 
-                                            {/* Tag badge */}
-                                            {/* {s.tag && (
-                                                <div className="inline-flex items-center gap-2 mb-5">
-                                                    <span className="w-1.5 h-1.5 rounded-full" style={{ background: s.accent }} />
-                                                    <span className="text-[12px] capitalize font-light"
-                                                        style={{ fontFamily: "Barlow, sans-serif", color: s.accent, opacity: 0.7 }}>
-                                                        {s.tag}
-                                                    </span>
-                                                </div>
-                                            )} */}
-
                                             {/* Price */}
                                             <div className="flex items-baseline gap-3 mb-1">
                                                 <span className="font-cormorant text-[clamp(1rem,5vw,2rem)] font-light leading-none"
                                                     style={{ color: s.accent }}>
                                                     {s.price}
                                                 </span>
-                                                <span className="text-[12px] capitalize text-white/20 font-light"
-                                                    style={{ fontFamily: "Barlow, sans-serif" }}>
+                                                <span className="text-[12px] capitalize text-[#FEE9CE] font-light">
                                                     {s.duration}
                                                 </span>
                                             </div>
@@ -346,14 +326,13 @@ export default function Page() {
                                                 style={{ background: `linear-gradient(90deg, ${s.accent}, transparent)` }} />
 
                                             {/* Description */}
-                                            <p className="text-sm text-white/45 font-light leading-relaxed mb-7 tracking-wide">
+                                            <p className="text-sm text-white/45 font-light leading-relaxed mb-7">
                                                 {s.description}
                                             </p>
 
                                             {/* Deliverables */}
                                             <div className="flex flex-col gap-2.5 mb-7">
-                                                <span className="text-[12px] capitalize text-white/20 mb-1"
-                                                    style={{ fontFamily: "Barlow, sans-serif" }}>
+                                                <span className="text-[12px] capitalize text-[#FEE9CE] mb-1">
                                                     What's included
                                                 </span>
                                                 {s.deliverables.map((d) => (
@@ -363,29 +342,6 @@ export default function Page() {
                                                     </div>
                                                 ))}
                                             </div>
-
-                                            {/* CTA */}
-                                            {/* <Link href="/contact"
-                                                className="group inline-flex items-center gap-2.5 px-6 py-2.5 border text-[10px] tracking-[0.2em] uppercase font-light transition-all duration-300"
-                                                style={{
-                                                    borderColor: `${s.accent}30`,
-                                                    color: `${s.accent}90`,
-                                                    fontFamily: "Barlow, sans-serif",
-                                                }}
-                                                onMouseEnter={(e) => {
-                                                    (e.currentTarget as HTMLElement).style.borderColor = `${s.accent}70`;
-                                                    (e.currentTarget as HTMLElement).style.color = s.accent;
-                                                }}
-                                                onMouseLeave={(e) => {
-                                                    (e.currentTarget as HTMLElement).style.borderColor = `${s.accent}30`;
-                                                    (e.currentTarget as HTMLElement).style.color = `${s.accent}90`;
-                                                }}
-                                            >
-                                                Book this package
-                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                                                    <path d="M1 5h8M6 2l3 3-3 3" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" />
-                                                </svg>
-                                            </Link> */}
                                         </div>
                                     </div>
                                 ))}
@@ -404,7 +360,7 @@ export default function Page() {
                         className="relative mb-12 flex items-center justify-center lg:pt-48"
                     >
                         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                            <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[12vw] text-[20vw] font-black tracking-tighter text-white/3 select-none">
+                            <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[12vw] text-[20vw] font-black tracking-tighter text-white/6 select-none">
                                 Package
                             </h1>
                         </div>
@@ -425,7 +381,7 @@ export default function Page() {
                     </motion.div>
 
                     <div className=" px-6 sm:px-10 md:px-16 lg:px-24 py-6 md:py-0">
-                        <h1 className="text-left text-[12px] lg:text-xl text-white/30 font-light mb-10">These ranges serve as a guide depending on the creative direction and production depth required.
+                        <h1 className="text-left text-[12px] lg:text-xl text-white/40 font-light mb-10">These ranges serve as a guide depending on the creative direction and production depth required.
                             All packages cover the production of one (1) final video, delivered in HD format.
                             Additional versions, alternate orientations, or format variations are available at an extra cost.
                             Final pricing is determined by the specific needs of your project—including factors such as concept complexity, use of talent, voice-over requirements, custom set design, and whether the shoot takes place in-studio or on location.
@@ -443,7 +399,7 @@ export default function Page() {
                             <div ref={sharedRef} className="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-1">
                                 {SHARED_DELIVERABLES.map((d) => (
                                     <div key={d} className="flex items-center gap-3 py-3">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-white/20 shrink-0" />
+                                        <div className="w-1.5 h-1.5 rounded-full bg-[#FEE9CE] shrink-0" />
                                         <span className="lg:text-lg text-[15px] text-white/40 font-light tracking-wide">{d}</span>
                                     </div>
                                 ))}

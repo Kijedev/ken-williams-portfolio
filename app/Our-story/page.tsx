@@ -146,7 +146,7 @@ export default function Page() {
                         className="relative mb-12 flex items-center justify-center"
                     >
                         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                            <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[8vw] text-[14vw] font-black tracking-tighter text-white/3 select-none">
+                            <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[8vw] text-[14vw] font-black tracking-tighter text-white/6 select-none">
                                 Ekho Studios
                             </h1>
                         </div>
@@ -191,7 +191,7 @@ export default function Page() {
                                             paraRefs.current[i] = el;
                                         }}
                                         variants={fadeUp}
-                                        className="text-sm md:text-xl text-white/30 font-light leading-relaxed"
+                                        className="text-sm md:text-xl text-white/40 font-light leading-relaxed"
                                     >
                                         {para}
                                     </motion.p>
@@ -211,7 +211,7 @@ export default function Page() {
                         className="relative mb-12 flex items-center justify-center"
                     >
                         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                            <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[8vw] text-[13vw] font-black tracking-tighter text-white/3 select-none">
+                            <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[8vw] text-[13vw] font-black tracking-tighter text-white/6 select-none">
                                 Founder's Story
                             </h1>
                         </div>
@@ -294,7 +294,7 @@ export default function Page() {
                                     <p
                                         key={i}
                                         ref={(el) => { paraRefs.current[i] = el; }}
-                                        className="text-sm md:text-xl text-white/30 font-light leading-relaxed"
+                                        className="text-sm md:text-xl text-white/40 font-light leading-relaxed"
                                     >
                                         {para}
                                     </p>
