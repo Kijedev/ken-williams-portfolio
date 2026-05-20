@@ -350,7 +350,12 @@ export default function Page() {
                 <div className="flex items-center justify-between gap-6 pt-2">
                   <button
                     type="submit"
-                    disabled={status === "sending"}
+                    disabled={
+                      status === "sending" ||
+                      !form.name ||
+                      !form.email ||
+                      !form.message
+                    }
                     className="group inline-flex items-center gap-3 px-8 py-3.5 rounded-full border border-white/20 hover:border-white/50 text-sm font-light text-white/60 hover:text-white transition-all duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {status === "sending" ? (
