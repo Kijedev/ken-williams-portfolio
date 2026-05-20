@@ -152,14 +152,6 @@ export default function FAQs() {
           </div>
         </motion.div>
 
-        {/* <motion.div
-          initial={{ opacity: 0, scaleX: 0 }}
-          whileInView={{ opacity: 1, scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-2 h-px w-full origin-center bg-linear-to-r from-white/0 via-white/15 lg:mt-32 mt-10 to-white/0"
-        /> */}
-
         <div className="lg:mt-32 mt-10">
           {FAQS.map((item, i) => (
             <FAQItem
@@ -179,7 +171,7 @@ export default function FAQs() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="px-6 py-20 md:py-28 flex flex-col md:flex-row md:items-end justify-between gap-10"
+            className="py-20 md:py-28 flex flex-col md:flex-row md:items-end justify-between gap-10"
           >
 
             <motion.div
@@ -187,11 +179,8 @@ export default function FAQs() {
               // variants={fadeUp}
               className="flex flex-col gap-4 max-w-2xl"
             >
-              <h2 className="font-cormorant text-[clamp(2rem,5vw,4rem)] font-light leading-none tracking-tight text-[#FEE9CE]">
-                Ready to make your<br />
-                <em className="not-italic text-white/30">
-                  product unforgettable?
-                </em>
+              <h2 className="font-cormorant text-[clamp(2.5rem,5vw,4rem)] font-light leading-none tracking-tight text-[#FEE9CE]">
+                Ready to make your <span className="not-italic text-white/30"> product unforgettable?</span>
               </h2>
             </motion.div>
 

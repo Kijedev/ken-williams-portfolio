@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const testimonials = [
@@ -46,7 +46,9 @@ export default function TestimonialsSection() {
 
     const nextSlide = () => {
         if (isAnimating) return;
+
         setIsAnimating(true);
+
         setTimeout(() => {
             setItems((prev) => [...prev.slice(1), prev[0]]);
             setIsAnimating(false);
@@ -55,9 +57,15 @@ export default function TestimonialsSection() {
 
     const prevSlide = () => {
         if (isAnimating) return;
+
         setIsAnimating(true);
+
         setTimeout(() => {
-            setItems((prev) => [prev[prev.length - 1], ...prev.slice(0, -1)]);
+            setItems((prev) => [
+                prev[prev.length - 1],
+                ...prev.slice(0, -1),
+            ]);
+
             setIsAnimating(false);
         }, 400);
     };
@@ -65,53 +73,97 @@ export default function TestimonialsSection() {
     const active = items[0];
 
     return (
-        <section className="w-full relative h-screen bg-[#020202] flex items-center justify-center px-4 md:px-8">
-            <div className="max-w-6xl mx-auto">
+        <motion.section
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{
+                duration: 1,
+                ease: [0.22, 1, 0.36, 1],
+            }}
+            className="w-full relative bg-[#000000] flex items-center justify-center px-4 md:px-8 overflow-hidden"
+        >
+            <div className="max-w-6xl mx-auto w-full lg:my-32 my-20">
+                {/* Heading */}
                 <div className="relative lg:mt-10 flex items-center justify-center">
                     {/* Background Text */}
-                    <motion.div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1.2 }}
+                        className="pointer-events-none absolute inset-0 flex items-center justify-center"
+                    >
                         <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[16vw] lg:text-[10vw] font-black tracking-tighter text-white/3 whitespace-nowrap select-none">
                             Testimonials
                         </h1>
                     </motion.div>
 
                     {/* Foreground Heading */}
-                    <div className="relative z-10 flex items-center justify-center gap-4">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{
+                            duration: 0.8,
+                            delay: 0.2,
+                        }}
+                        className="relative z-10 flex items-center justify-center gap-4"
+                    >
                         <span
                             style={{
                                 fontSize: "clamp(1.5rem, 2vw, 3rem)",
                                 textTransform: "capitalize",
                                 color: "#FEE9CE",
-                                fontWeight: "light",
+                                fontWeight: "300",
                                 whiteSpace: "nowrap",
                             }}
                         >
                             What our clients say
                         </span>
-                    </div>
+                    </motion.div>
                 </div>
 
+                {/* Content */}
                 <div className="grid lg:grid-cols-2 gap-12 lg:mt-32 mt-16 items-center">
-                    <div>
+                    {/* Left Content */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{
+                            duration: 0.9,
+                            delay: 0.2,
+                        }}
+                    >
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={active.id}
-                                initial={{ opacity: 0, y: 20 }}
+                                initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -20 }}
-                                transition={{ duration: 0.4 }}
+                                exit={{ opacity: 0, y: -30 }}
+                                transition={{
+                                    duration: 0.6,
+                                    ease: "easeOut",
+                                }}
                             >
                                 <blockquote className="text-2xl md:text-4xl leading-tight font-light text-[#FEE9CE] mb-8">
                                     “{active.quote}”
                                 </blockquote>
 
                                 <div>
-                                    <h3 className="text-2xl text-white">{active.name}</h3>
-                                    <p className="text-white/30">{active.role}</p>
+                                    <h3 className="text-2xl text-white">
+                                        {active.name}
+                                    </h3>
+
+                                    <p className="text-white/30">
+                                        {active.role}
+                                    </p>
                                 </div>
                             </motion.div>
                         </AnimatePresence>
 
+                        {/* Buttons */}
                         <div className="flex gap-4 mt-10">
                             <button
                                 onClick={prevSlide}
@@ -119,6 +171,7 @@ export default function TestimonialsSection() {
                             >
                                 <ChevronLeft className="w-5 h-5" />
                             </button>
+
                             <button
                                 onClick={nextSlide}
                                 className="w-12 h-12 rounded-full bg-black border border-white/10 cursor-pointer text-white flex items-center justify-center hover:bg-white/5 transition"
@@ -126,19 +179,36 @@ export default function TestimonialsSection() {
                                 <ChevronRight className="w-5 h-5" />
                             </button>
                         </div>
-                    </div>
+                    </motion.div>
 
-                    <div className="overflow-hidden md:flex hidden">
+                    {/* Right Images */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{
+                            duration: 1,
+                            delay: 0.3,
+                        }}
+                        className="overflow-hidden md:flex hidden"
+                    >
                         <div className="flex gap-4">
                             {items.map((item, index) => (
                                 <motion.div
                                     key={`${item.id}-${index}`}
                                     layout
-                                    transition={{ duration: 0.5 }}
-                                    className={`relative shrink-0 rounded-3xl overflow-hidden ${index === 0
-                                        ? "w-[350px] md:w-[450px] h-[420px]"
-                                        : "w-[140px] md:w-[200px] h-[420px]"
-                                        }`}
+                                    transition={{
+                                        duration: 0.6,
+                                        ease: [0.22, 1, 0.36, 1],
+                                    }}
+                                    whileHover={{
+                                        scale: 1.02,
+                                    }}
+                                    className={`relative shrink-0 rounded-3xl overflow-hidden ${
+                                        index === 0
+                                            ? "w-[350px] md:w-[450px] h-[420px]"
+                                            : "w-[140px] md:w-[200px] h-[420px]"
+                                    }`}
                                 >
                                     <Image
                                         src={item.image}
@@ -146,12 +216,15 @@ export default function TestimonialsSection() {
                                         fill
                                         className="object-cover"
                                     />
+
+                                    {/* Overlay */}
+                                    <div className="absolute inset-0 bg-black/10" />
                                 </motion.div>
                             ))}
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 }

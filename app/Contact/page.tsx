@@ -1,5 +1,5 @@
 "use client";
-
+import emailjs from "@emailjs/browser";
 import { useRef, useState } from "react";
 import { motion, Variants } from "framer-motion";
 
@@ -11,7 +11,11 @@ interface FormData {
 }
 
 const CONTACT_DETAILS = [
-  { label: "Email", value: "kendarawilliams1@gmail.com", href: "mailto:[kendarawilliams1@gmail.com]" },
+  {
+    label: "Email",
+    value: "ekhostudios26@gmail.com",
+    href: "mailto:[ekhostudios26@gmail.com]",
+  },
   { label: "Phone", value: "+234 708 2313 155", href: "tel:+2347082313155" },
   { label: "Location", value: "Lagos, Nigeria", href: null },
 ];
@@ -47,7 +51,7 @@ export default function Page() {
   const [status, setStatus] = useState("");
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -58,23 +62,23 @@ export default function Page() {
     setLoading(true);
 
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          name: form.name,
+          email: form.email,
+          company: form.company,
+          message: form.message,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
+      );
 
-      const data = await res.json();
-
-      if (res.ok) {
-        setStatus("sent");
-        setForm({ name: "", email: "", company: "", message: "" });
-      } else {
-        setStatus(data.error || "Something went wrong.");
-      }
+      setStatus("sent");
+      setForm({ name: "", email: "", company: "", message: "" });
     } catch (error: any) {
-      console.error("EMAIL ERROR:", error);
-      setStatus(error.message || "Something went wrong.");
+      console.error("EmailJS error:", error);
+      setStatus("Something went wrong. Please try again.");
     }
 
     setLoading(false);
@@ -129,27 +133,25 @@ export default function Page() {
         className="lg:h-screen h-[90vh]"
       >
         <motion.div className="w-full h-full flex flex-col justify-center">
-
           {/* Glow */}
           <div
-            className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[120vw] max-w-[800px] h-[500px] opacity-[0.05]"
-            style={{ background: "radial-gradient(ellipse,#fff 0%,transparent 65%)" }}
+            className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[120vw] max-w-200 h-125 opacity-[0.05]"
+            style={{
+              background: "radial-gradient(ellipse,#fff 0%,transparent 65%)",
+            }}
           />
 
           {/* Orbit rings */}
           <motion.div
-            className="pointer-events-none absolute -top-40 right-0 w-[500px] h-[500px] rounded-full border border-white/5"
+            className="pointer-events-none absolute -top-40 right-0 w-125 h-125 rounded-full border border-white/5"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, delay: 0.8 }}
             aria-hidden="true"
           />
-          <div
-            className="pointer-events-none absolute -top-20 right-0 w-[50vw] max-w-[320px] h-[50vw] max-h-[320px] rounded-full border border-white/7"
-          />
+          <div className="pointer-events-none absolute -top-20 right-0 w-[50vw] max-w-[320px] h-[50vw] max-h-80 rounded-full border border-white/7" />
 
           <div className="z-10 w-full px-6 sm:px-10 md:px-16 lg:px-24 pt-32 pb-24">
-
             <motion.div
               className="flex flex-col gap-10 overflow-hidden"
               variants={containerVariants}
@@ -157,7 +159,6 @@ export default function Page() {
               whileInView="visible"
               viewport={{ once: true, amount: 0.25 }}
             >
-
               {/* TITLE */}
               <motion.h1
                 className="text-[clamp(2.8rem,7vw,8rem)] uppercase font-extrabold leading-[0.95] tracking-tighter text-[#FEE9CE]"
@@ -174,8 +175,8 @@ export default function Page() {
                 className="max-w-2xl text-sm lg:text-lg text-white/35 font-light leading-relaxed"
                 variants={itemVariants}
               >
-                Whether you have a full brief or just a product and a vision, reach out
-                and we'll figure out the rest together.
+                Whether you have a full brief or just a product and a vision,
+                reach out and we'll figure out the rest together.
               </motion.p>
 
               {/* DIVIDER */}
@@ -214,7 +215,6 @@ export default function Page() {
                   </motion.div>
                 ))}
               </motion.div>
-
             </motion.div>
           </div>
         </motion.div>
@@ -226,10 +226,6 @@ export default function Page() {
           position: "relative",
           zIndex: 10,
           background: "black",
-          borderTopLeftRadius: "24px",
-          borderTopRightRadius: "24px",
-          boxShadow: "0 -24px 80px rgba(0,0,0,0.9), 0 -1px 0 rgba(255,255,255,0.06)",
-          overflow: "hidden",
         }}
         className="h-screen flex flex-col justify-center items-center"
       >
@@ -298,7 +294,11 @@ export default function Page() {
                 </button>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-8">
+              <form
+                onSubmit={handleSubmit}
+                noValidate
+                className="flex flex-col gap-8"
+              >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                   <Field label="Name" required>
                     <input
@@ -393,7 +393,6 @@ export default function Page() {
           </div>
         </div>
       </div>
-
     </div>
   );
 }

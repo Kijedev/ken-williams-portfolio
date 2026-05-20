@@ -25,7 +25,7 @@ export default function Footer() {
 
       {/* Gradient Glow Background */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#000000] blur-[180px]" />
+        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-150 h-150 bg-[#000000] blur-[180px]" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
@@ -97,7 +97,7 @@ export default function Footer() {
                     href={href}
                     target="_blank"
                     aria-label={label}
-                    className="group relative flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 hover:border-white/30 transition"
+                    className="group relative flex h-12 w-12 items-center justify-center rounded-full bg-white/5 backdrop-blur-md hover:bg-white/10 hover:border-white/30 transition"
                   >
                     <Icon size={18} />
 
