@@ -66,7 +66,7 @@ export default function ScrollTextReveal() {
           color: "transparent",
         }}
       >
-        "over 7 <br /> years
+        "over 4 <br /> years
         helping <br /> brands
         tell <br /> their stories"
       </h1>

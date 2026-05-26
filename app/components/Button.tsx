@@ -14,7 +14,7 @@ export default function Button({
         bg-transparent
         px-6 py-3 rounded-full
         border border-white/20
-        font-medium group z-50
+        font-light group z-50
         ${textColor}
       `}
         >

@@ -13,9 +13,9 @@ export default function Page() {
     <div className="overflow-x-hidden bg-black">
       {/* <HeroPage /> */}
       <VideoHero />
-      <Brands />
       {/* <Revolutionalize /> */}
       <ScrollBg />
+      <Brands />
       <ScrollTextReveal />
       <BentoGallery />
       <TestimonialsCarousel />

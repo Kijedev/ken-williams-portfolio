@@ -29,7 +29,7 @@ export default function ScollBg() {
       title: "Designed for Social Impact",
       description:
         "Scroll-stopping visuals crafted for Instagram, TikTok, and campaigns—built to hook attention instantly.",
-      src: "/reels/Go Vita Chocolate Drink Video 3.mp4",
+      src: "/reels/Michael Jackson Thriller x Monster.MP4",
       type: "video",
       link: "/Our-works",
     },
@@ -45,7 +45,7 @@ export default function ScollBg() {
       title: "Built to Elevate Your Brand",
       description:
         "Premium visuals that increase trust and position your product as the obvious choice.",
-      src: "/reels/Maison Veil Body Oil Video.mp4",
+      src: "/reels/Ulanzi Overhead Camera Mount Video.MP4",
       type: "video",
       link: "/Our-works",
     },
@@ -54,8 +54,8 @@ export default function ScollBg() {
   return (
     <section id="uniquely-yours" className="relative bg-black">
       <div className="fixed z-0 top-0 h-screen w-full flex items-center justify-center pointer-events-none">
-        <h1 className="text-white/10 text-[3rem] lg:text-[7rem] font-bold text-center capitalize italic leading-10 lg:leading-22 max-w-3xl">
-          What Makes Us Different
+        <h1 className="text-white/10 text-[3rem] lg:text-[7rem] font-bold text-center leading-10 lg:leading-22 max-w-3xl">
+          What makes us different
         </h1>
       </div>
 

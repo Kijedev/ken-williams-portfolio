@@ -68,7 +68,7 @@ function MarqueeRow({
 
 export default function BrandsMarquee() {
   return (
-    <section className="relative flex flex-col justify-center overflow-hidden z-10 bg-linear-to-b from-black via-black to-transparent p-5">
+    <section className="relative flex flex-col justify-center overflow-hidden z-10 bg-linear-to-t from-black via-black to-transparent p-5">
       {/* Edge fades */}
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-linear-to-r from-black to-transparent md:w-32 lg:w-40" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-linear-to-l from-black to-transparent md:w-32 lg:w-40" />

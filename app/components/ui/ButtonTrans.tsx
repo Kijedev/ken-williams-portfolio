@@ -15,7 +15,7 @@ export default function ButtonTrans({
         bg-transparent
         px-6 py-3 rounded-full
         border border-white/20
-        font-medium group z-50 w-fit
+        font-light group z-50 w-fit
         ${textColor}
       `}
         >

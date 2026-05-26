@@ -13,10 +13,10 @@ const NAV_LINKS = [
 ];
 
 const SOCIALS = [
-  { Icon: IoLogoInstagram, label: "Instagram", href: "#" },
-  { Icon: FaLinkedinIn, label: "LinkedIn", href: "#" },
-  { Icon: FaFacebookF, label: "Facebook", href: "#" },
-  { Icon: FaTiktok, label: "TikTok", href: "#" },
+  { Icon: IoLogoInstagram, label: "Instagram", href: "https://www.instagram.com/darawilliam.s/" },
+  { Icon: FaLinkedinIn, label: "LinkedIn", href: "https://www.linkedin.com/in/ken-williams-2828111b5/" },
+  { Icon: FaFacebookF, label: "Facebook", href: "https://www.facebook.com/share/1FVERFwxfo/?mibextid=wwXIfr" },
+  { Icon: FaTiktok, label: "TikTok", href: "https://www.tiktok.com/@dara__studios" },
 ];
 
 export default function Footer() {

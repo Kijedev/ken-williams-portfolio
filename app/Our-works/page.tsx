@@ -7,20 +7,71 @@ import { Ctasections } from "../components/Ctasections";
 import Ourworkshero from "../components/Ourworkshero/page";
 
 const VIDEOS = [
-  { src: "/reels/Elonna Foods Product Video 1.mp4", name: "Elonna Foods", category: "Food" },
-  { src: "/reels/12 Basket Rice Product Video.mp4", name: "12 Basket Rice", category: "Food" },
-  { src: "/reels/Go Vita Chocolate Drink Video 3.mp4", name: "Go Vita", category: "Food" },
-  { src: "/reels/Gourmet Twist Banana Bread 2.mp4", name: "Gourmet Twist", category: "Food" },
-  { src: "/reels/Rita and Nathan Product Video.mp4", name: "Rita & Nathan", category: "Fashion" },
-  { src: "/reels/Maison Veil Body Oil Video.mp4", name: "Maison Veil", category: "Scent" },
-  { src: "/reels/Aymiie Lip Oil Video with VO.mp4", name: "Aymiie", category: "Cosmetics" },
-  { src: "/reels/Estebare Video 2 VO.mp4", name: "Estebare", category: "Cosmetics" },
-  { src: "/reels/Sooo Pro Lip Liner Product Video VO.mp4", name: "Sooo Pro", category: "Cosmetics" },
+  {
+    src: "/reels/Michael Jackson Thriller x Monster.MP4",
+    name: "Monster Drink",
+    category: "Drink",
+  },
+  {
+    src: "/reels/Ulanzi Overhead Camera Mount Video.MP4",
+    name: "Ulanzi Camera Mount",
+    category: "Tech",
+  },
+  {
+    src: "/reels/Elonna Foods Product Video 1.mp4",
+    name: "Elonna Foods",
+    category: "Food",
+  },
+  {
+    src: "/reels/12 Basket Rice Product Video.mp4",
+    name: "12 Basket Rice",
+    category: "Food",
+  },
+  {
+    src: "/reels/Go Vita Chocolate Drink Video 3.mp4",
+    name: "Go Vita",
+    category: "Food",
+  },
+  {
+    src: "/reels/Gourmet Twist Banana Bread 2.mp4",
+    name: "Gourmet Twist",
+    category: "Food",
+  },
+  {
+    src: "/reels/Cabernet Sauvignon Bottle.MP4",
+    name: "Cabernet Sauvignon",
+    category: "Drink",
+  },
+  {
+    src: "/reels/Rita and Nathan Product Video.mp4",
+    name: "Rita & Nathan",
+    category: "Fashion",
+  },
+  {
+    src: "/reels/Maison Veil Body Oil Video.mp4",
+    name: "Maison Veil",
+    category: "Scent",
+  },
+  { src: "/reels/Moscato.MP4", name: "Moscato", category: "Drink" },
+  {
+    src: "/reels/Aymiie Lip Oil Video with VO.mp4",
+    name: "Aymiie",
+    category: "Cosmetics",
+  },
+  {
+    src: "/reels/Estebare Video 2 VO.mp4",
+    name: "Estebare",
+    category: "Cosmetics",
+  },
+  {
+    src: "/reels/Sooo Pro Lip Liner Product Video VO.mp4",
+    name: "Sooo Pro",
+    category: "Cosmetics",
+  },
   { src: "/reels/Iphone.mp4", name: "Iphone Case", category: "Tech" },
-
 ];
 
-const TABS = ["All", "Tech", "Food", "Cosmetics", "Scent", "Fashion",];
+const TABS = ["All", "Tech", "Food", "Drink", "Cosmetics", "Scent", "Fashion"];
 
 function VideoCard({
   video,
@@ -44,7 +95,7 @@ function VideoCard({
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.4 }
+      { threshold: 0.4 },
     );
 
     observer.observe(node);
@@ -86,7 +137,7 @@ function VideoCard({
       whileHover={{ y: -10, scale: 1.02 }}
       className="group relative"
     >
-      <div className="relative overflow-hidden rounded-xl border border-[#FEE9CE] shadow-2xl">
+      <div className="relative overflow-hidden rounded-xl border-2 border-t-[white]/20 border-b-[white]/20 border-l-[white]/0 border-r-[white]/0 shadow-2xl">
         <video
           ref={videoRef}
           src={video.src}
@@ -121,7 +172,6 @@ function VideoCard({
               {String(index + 1).padStart(2, "0")}
             </span>
           </div>
-
         </div>
       </div>
     </motion.div>
@@ -142,7 +192,7 @@ export default function ProjectsPage() {
   const filteredVideos = useMemo(() => {
     if (activeTab === "All") return VIDEOS;
     return VIDEOS.filter(
-      (video) => video.category.toLowerCase() === activeTab.toLowerCase()
+      (video) => video.category.toLowerCase() === activeTab.toLowerCase(),
     );
   }, [activeTab]);
 
@@ -151,7 +201,10 @@ export default function ProjectsPage() {
       <Ourworkshero />
 
       <section ref={sectionRef} className="relative py-24 lg:py-32">
-        <motion.div style={{ y }} className="pointer-events-none absolute inset-0">
+        <motion.div
+          style={{ y }}
+          className="pointer-events-none absolute inset-0"
+        >
           <h1 className="absolute left-1/2 top-0 -translate-x-1/2 lg:text-[18vw] text-[25vw] font-black tracking-tighter text-white/3">
             REELS
           </h1>
@@ -159,16 +212,19 @@ export default function ProjectsPage() {
 
         <div className="relative z-10 mx-auto max-w-400 px-6 lg:px-10">
           <div className="mb-14 flex flex-col items-center gap-8">
-            <h1 className="lg:text-7xl text-4xl text-center mt-10 lg:mt-16 font-light text-[#FEE9CE]">Our Products Categories</h1>
+            <h1 className="lg:text-7xl text-4xl text-center mt-10 lg:mt-16 font-light text-[#FEE9CE]">
+              Our Products Categories
+            </h1>
             <div className="flex flex-wrap justify-center gap-3 ">
               {TABS.map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`rounded-full px-6 py-3 cursor-pointer text-sm transition-all duration-300 ${activeTab === tab
-                    ? "bg-white text-black"
-                    : "border border-white/15 bg-white/5 text-white font-light hover:bg-white/10"
-                    }`}
+                  className={`rounded-full px-6 py-3 cursor-pointer text-sm transition-all duration-300 ${
+                    activeTab === tab
+                      ? "bg-white text-black"
+                      : "border border-white/15 bg-white/5 text-white font-light hover:bg-white/10"
+                  }`}
                 >
                   {tab}
                 </button>
@@ -178,7 +234,7 @@ export default function ProjectsPage() {
 
           <motion.div
             layout
-            className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4 mt-20 lg:mt-32"
+            className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4 mt-20 lg:mt-32 lg:px-10"
           >
             {filteredVideos.map((video, index) => (
               <VideoCard key={video.src} video={video} index={index} />

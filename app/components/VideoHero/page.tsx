@@ -30,21 +30,21 @@ export default function VideoHero() {
           {/* Heading */}
           <div className="overflow-hidden">
             <div className="flex flex-wrap items-end gap-3 sm:gap-5 mb-1 sm:mb-2">
-              <h1 className="text-[clamp(3rem,9vw,6rem)] font-light tracking-tight leading-[0.9]">
-                We Bring
+              <h1 className="text-[clamp(1.5rem,5vw,3rem)] font-light tracking-tight leading-[0.9]">
+                We bring products to life
               </h1>
             </div>
 
             <div className="flex flex-wrap items-end gap-3 sm:gap-5">
-              <h2 className="text-[clamp(4rem,10vw,8rem)] font-bold tracking-tight leading-[0.9] text-[#FEE9CE]">
-                Products to Life.
+              <h2 className="text-[clamp(3.5rem,10vw,6rem)] font-semibold tracking-tight leading-none text-[#FEE9CE]">
+                with Cinematic Storytelling
               </h2>
             </div>
           </div>
 
           {/* Description + CTA */}
-          <div className="mt-8 sm:mt-10 flex flex-col gap-6">
-            <p className="text-sm sm:text-base lg:text-lg font-light leading-relaxed text-white/70">
+          <div className="flex flex-col gap-6 mt-4">
+            <p className="text-sm sm:text-base lg:text-lg font-light text-white/70">
               We help brands around the world tell stories through cinematic
               product videos.
             </p>
