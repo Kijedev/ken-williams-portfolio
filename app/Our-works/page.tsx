@@ -8,12 +8,12 @@ import Ourworkshero from "../components/Ourworkshero/page";
 
 const VIDEOS = [
   {
-    src: "/reels/Michael Jackson Thriller x Monster.MP4",
+    src: "/reels/Michael Jackson Thriller x Monster.mp4",
     name: "Monster Drink",
-    category: "Drink",
+    category: "Drinks",
   },
   {
-    src: "/reels/Ulanzi Overhead Camera Mount Video.MP4",
+    src: "/reels/Ulanzi Overhead Camera Mount Video.mp4",
     name: "Ulanzi Camera Mount",
     category: "Tech",
   },
@@ -38,9 +38,9 @@ const VIDEOS = [
     category: "Food",
   },
   {
-    src: "/reels/Cabernet Sauvignon Bottle.MP4",
+    src: "/reels/Cabernet Sauvignon Bottle.mp4",
     name: "Cabernet Sauvignon",
-    category: "Drink",
+    category: "Drinks",
   },
   {
     src: "/reels/Rita and Nathan Product Video.mp4",
@@ -52,7 +52,7 @@ const VIDEOS = [
     name: "Maison Veil",
     category: "Scent",
   },
-  { src: "/reels/Moscato.MP4", name: "Moscato", category: "Drink" },
+  { src: "/reels/Moscato.mp4", name: "Moscato", category: "Drinks" },
   {
     src: "/reels/Aymiie Lip Oil Video with VO.mp4",
     name: "Aymiie",
@@ -71,7 +71,7 @@ const VIDEOS = [
   { src: "/reels/Iphone.mp4", name: "Iphone Case", category: "Tech" },
 ];
 
-const TABS = ["All", "Tech", "Food", "Drink", "Cosmetics", "Scent", "Fashion"];
+const TABS = ["All", "Tech", "Food", "Drinks", "Cosmetics", "Scent", "Fashion"];
 
 function VideoCard({
   video,

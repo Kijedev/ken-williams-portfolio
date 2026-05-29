@@ -29,7 +29,7 @@ export default function ScollBg() {
       title: "Designed for Social Impact",
       description:
         "Scroll-stopping visuals crafted for Instagram, TikTok, and campaigns—built to hook attention instantly.",
-      src: "/reels/Michael Jackson Thriller x Monster.MP4",
+      src: "/reels/Michael Jackson Thriller x Monster.mp4",
       type: "video",
       link: "/Our-works",
     },
@@ -45,7 +45,7 @@ export default function ScollBg() {
       title: "Built to Elevate Your Brand",
       description:
         "Premium visuals that increase trust and position your product as the obvious choice.",
-      src: "/reels/Ulanzi Overhead Camera Mount Video.MP4",
+      src: "/reels/Ulanzi Overhead Camera Mount Video.mp4",
       type: "video",
       link: "/Our-works",
     },
