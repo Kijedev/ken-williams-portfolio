@@ -114,10 +114,22 @@ export default function TestimonialsSection() {
               {active.name}
             </motion.p>
           </AnimatePresence>
-          <span className="text-[11px] tracking-[0.15em] text-[#FEE9CE]/20">
+          <div className="flex gap-2 items-center">
+            {testimonials.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => navigate(i)}
+                aria-label={`Go to testimonial ${i + 1}`}
+                className={`h-1 rounded-full transition-all duration-400 ${
+                  i === current ? "w-5 bg-white/55" : "w-1 bg-white/15"
+                }`}
+              />
+            ))}
+          </div>
+          {/* <span className="text-[11px] tracking-[0.15em] text-[#FEE9CE]/20">
             {String(current + 1).padStart(2, "0")} /{" "}
             {String(testimonials.length).padStart(2, "0")}
-          </span>
+          </span> */}
         </div>
 
         {/* Controls */}
@@ -154,18 +166,7 @@ export default function TestimonialsSection() {
           </AnimatePresence>
 
           {/* Dots */}
-          <div className="flex gap-2 items-center">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => navigate(i)}
-                aria-label={`Go to testimonial ${i + 1}`}
-                className={`h-1 rounded-full transition-all duration-400 ${
-                  i === current ? "w-5 bg-white/55" : "w-1 bg-white/15"
-                }`}
-              />
-            ))}
-          </div>
+          
         </div>
       </div>
     </section>

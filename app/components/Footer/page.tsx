@@ -192,7 +192,7 @@ export default function Footer() {
                 variants={letterVariants}
                 className="inline-block font-black leading-none tracking-tight text-white"
                 style={{
-                  fontSize: "clamp(1rem, 14vw, 12rem)",
+                  fontSize: "clamp(1rem, 14vw, 11rem)",
                   lineHeight: 0.9,
                 }}
               >
@@ -201,7 +201,6 @@ export default function Footer() {
             ))}
           </motion.div>
         </div>
-        {/* ─── END BRAND WORDMARK ───────────────── */}
 
         {/* ─── LEGAL / DESCRIPTION ───────────────── */}
         <motion.p
@@ -251,7 +250,6 @@ export default function Footer() {
         {/* ─── END BOTTOM BAR ───────────────── */}
 
       </div>
-
     </footer>
   );
 }

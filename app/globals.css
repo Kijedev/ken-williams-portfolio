@@ -2,5 +2,6 @@
 @import '@fontsource-variable/bricolage-grotesque/wght.css';
 
 body {
-  font-family: 'Bricolage Grotesque Variable', sans-serif;
+  /* font-family: 'Bricolage Grotesque Variable', sans-serif; */
+  font-family: Arial, Helvetica, sans-serif;
 }
