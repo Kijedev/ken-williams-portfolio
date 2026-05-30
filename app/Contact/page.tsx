@@ -13,8 +13,8 @@ interface FormData {
 const CONTACT_DETAILS = [
   {
     label: "Email",
-    value: "ekhostudios26@gmail.com",
-    href: "mailto:[ekhostudios26@gmail.com]",
+    value: "ken@ekhostudios.co",
+    href: "mailto:[ken@ekhostudios.co]",
   },
   { label: "Phone", value: "+234 708 2313 155", href: "tel:+2347082313155" },
   { label: "Location", value: "Lagos, Nigeria", href: null },
@@ -142,14 +142,14 @@ export default function Page() {
           />
 
           {/* Orbit rings */}
-          <motion.div
+          {/* <motion.div
             className="pointer-events-none absolute -top-40 right-0 w-125 h-125 rounded-full border border-white/5"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, delay: 0.8 }}
             aria-hidden="true"
           />
-          <div className="pointer-events-none absolute -top-20 right-0 w-[50vw] max-w-[320px] h-[50vw] max-h-80 rounded-full border border-white/7" />
+          <div className="pointer-events-none absolute -top-20 right-0 w-[50vw] max-w-[320px] h-[50vw] max-h-80 rounded-full border border-white/7" /> */}
 
           <div className="z-10 w-full px-6 sm:px-10 md:px-16 lg:px-24 pt-32 pb-24">
             <motion.div

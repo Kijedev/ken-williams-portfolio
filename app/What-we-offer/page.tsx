@@ -50,12 +50,12 @@ export default function Page() {
                         backgroundSize: "180px 180px",
                     }} aria-hidden="true" />
 
-                <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] opacity-[0.05] z-1"
+                {/* <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] opacity-[0.05] z-1"
                     style={{ background: "radial-gradient(ellipse, #fff 0%, transparent 65%)" }} aria-hidden="true" />
 
                 <div ref={orbitRef}
                     className="pointer-events-none absolute -top-64 -right-64 w-[700px] h-[700px] rounded-full border border-white/3 z-1"
-                    aria-hidden="true" />
+                    aria-hidden="true" /> */}
 
                 {/* Hero */}
                 <section className="relative z-10 flex flex-col items-center justify-center w-full lg:min-h-screen px-6 lg:px-20">

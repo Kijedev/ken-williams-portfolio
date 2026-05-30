@@ -36,7 +36,18 @@ const SOCIALS = [
 ];
 
 const BRAND_LETTERS = [
-  "E", "k", "h", "o", "\u00A0", "S", "t", "u", "d", "i", "o", "s",
+  "E",
+  "k",
+  "h",
+  "o",
+  "\u00A0",
+  "S",
+  "t",
+  "u",
+  "d",
+  "i",
+  "o",
+  "s",
 ];
 
 const letterVariants = {
@@ -100,17 +111,32 @@ const socialItem = {
 export default function Footer() {
   return (
     <footer className="relative bg-black text-white overflow-hidden">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-10">
+        <div className="my-10 md:my-14 overflow-hidden">
+          <motion.div
+            className="flex flex-wrap"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.4 }}
+          >
+            {BRAND_LETTERS.map((letter, i) => (
+              <motion.span
+                key={i}
+                custom={i}
+                variants={letterVariants}
+                className="inline-block font-black leading-none tracking-tight text-white"
+                style={{
+                  fontSize: "clamp(1rem, 12vw, 11rem)",
+                  lineHeight: 0.9,
+                }}
+              >
+                {letter}
+              </motion.span>
+            ))}
+          </motion.div>
+        </div>
 
-      {/* Gradient Glow Background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-150 h-150 bg-[#000000] blur-[180px]" />
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
-
-        {/* ─── TOP SECTION ───────────────── */}
         <div className="flex lg:flex-row flex-col gap-10 lg:gap-0 justify-between">
-
           {/* Navigation */}
           <motion.div
             variants={staggerContainer}
@@ -119,10 +145,7 @@ export default function Footer() {
             viewport={{ once: true, amount: 0.3 }}
             className="flex flex-col gap-4"
           >
-            <motion.h4
-              variants={fadeUp}
-              className="text-sm text-white/20"
-            >
+            <motion.h4 variants={fadeUp} className="text-sm text-white/20">
               Quick Links
             </motion.h4>
 
@@ -149,10 +172,7 @@ export default function Footer() {
             viewport={{ once: true, amount: 0.3 }}
             className="flex flex-col gap-4"
           >
-            <motion.h4
-              variants={fadeUp}
-              className="text-sm text-white/20"
-            >
+            <motion.h4 variants={fadeUp} className="text-sm text-white/20">
               Follow us on
             </motion.h4>
 
@@ -173,37 +193,10 @@ export default function Footer() {
               ))}
             </div>
           </motion.div>
-
-        </div>
-        {/* ─── END TOP SECTION ───────────────── */}
-
-        {/* ─── BRAND WORDMARK ───────────────── */}
-        <div className="my-10 md:my-14 overflow-hidden">
-          <motion.div
-            className="flex flex-wrap"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.4 }}
-          >
-            {BRAND_LETTERS.map((letter, i) => (
-              <motion.span
-                key={i}
-                custom={i}
-                variants={letterVariants}
-                className="inline-block font-black leading-none tracking-tight text-white"
-                style={{
-                  fontSize: "clamp(1rem, 14vw, 11rem)",
-                  lineHeight: 0.9,
-                }}
-              >
-                {letter}
-              </motion.span>
-            ))}
-          </motion.div>
         </div>
 
         {/* ─── LEGAL / DESCRIPTION ───────────────── */}
-        <motion.p
+        {/* <motion.p
           variants={fadeIn}
           initial="hidden"
           whileInView="visible"
@@ -233,9 +226,8 @@ export default function Footer() {
           Studios retains the right to feature completed work in its portfolio
           and on its social media channels unless a confidentiality clause is
           explicitly agreed upon in the project contract.
-        </motion.p>
+        </motion.p> */}
 
-        {/* ─── BOTTOM BAR ───────────────── */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -243,12 +235,10 @@ export default function Footer() {
           viewport={{ once: true, amount: 0.5 }}
           className="mt-12 flex flex-col md:flex-row items-center justify-between gap-4"
         >
-          <p className="text-white font-light text-sm">
-            © {new Date().getFullYear()} Ekho Studios
+          <p className="text-white/20 font-light text-sm">
+            © {new Date().getFullYear()} Ekho Studios. All Rights Reserved.
           </p>
         </motion.div>
-        {/* ─── END BOTTOM BAR ───────────────── */}
-
       </div>
     </footer>
   );

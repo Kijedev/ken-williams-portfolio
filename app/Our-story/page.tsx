@@ -141,7 +141,7 @@ export default function Page() {
         />
 
         {/* ── Orbit ring ─── */}
-        <div
+        {/* <div
           ref={orbitRef}
           className="pointer-events-none absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full border border-white/5 opacity-0"
           style={{ animation: "orbit-spin 18s linear infinite" }}
@@ -150,7 +150,7 @@ export default function Page() {
         <div
           className="pointer-events-none absolute -top-20 -right-20 w-[320px] h-[320px] rounded-full border border-white/7"
           aria-hidden="true"
-        />
+        /> */}
 
         <div>
           <Whoweare />
