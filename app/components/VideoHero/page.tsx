@@ -30,13 +30,13 @@ export default function VideoHero() {
           {/* Heading */}
           <div className="">
             <div className="flex flex-wrap items-end gap-3 sm:gap-5 mb-1 sm:mb-2">
-              <h1 className="text-[clamp(1.5rem,5vw,3rem)] font-light tracking-tight leading-[0.9]">
-                We bring products to life with
+              <h1 className="text-xl sm:text-xl lg:text-2xl font-light tracking-tight leading-[0.9] text-white/70">
+                We bring products to life through
               </h1>
             </div>
 
             <div className="flex flex-wrap items-end gap-3 sm:gap-5">
-              <h2 className="text-[clamp(4rem,10vw,6rem)] font-semibold tracking-tight leading-none text-[#FEE9CE]">
+              <h2 className="text-[clamp(4rem,10vw,6rem)] font-bold tracking-tight leading-none text-[#FEE9CE]">
                 Cinematic Storytelling
               </h2>
             </div>
@@ -44,7 +44,7 @@ export default function VideoHero() {
 
           {/* Description + CTA */}
           <div className="flex flex-col gap-6 mt-4">
-            <p className="text-sm sm:text-base lg:text-lg font-light text-white/70">
+            <p className="text-xl sm:text-xl lg:text-2xl font-light text-white/70">
               We help brands around the world tell great stories.
             </p>
 
