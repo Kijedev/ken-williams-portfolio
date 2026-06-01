@@ -32,7 +32,7 @@ export default function Help() {
             scrub: true,
             pin: true,
           },
-        }
+        },
       );
     }, section);
 
@@ -46,9 +46,9 @@ export default function Help() {
     >
       <h1
         ref={textRef}
-        className="text-center font-bold capitalize"
+        className="text-center font-bold capitalize lg:max-w-6xl"
         style={{
-          fontSize: "clamp(3rem, 12vw, 6rem)",
+          fontSize: "clamp(4rem, 20vw, 8rem)",
           lineHeight: 1,
           letterSpacing: "-0.02em",
           backgroundImage: `
@@ -66,8 +66,7 @@ export default function Help() {
           color: "transparent",
         }}
       >
-        "We can <br /> Increase your <br />
-        Brand Visibility."
+        "We can Increase your Brand Visibility."
       </h1>
     </section>
   );

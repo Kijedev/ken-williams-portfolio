@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { CgInstagram } from "react-icons/cg";
 import Button from "../components/Button";
 import ButtonTrans from "./ui/ButtonTrans";
 
@@ -96,7 +95,7 @@ export function Ctasections() {
           }}
         >
           Watch more on
-          <em style={{ fontStyle: "italic", color: "rgba(255,255,255,0.3)" }}> Instagram</em>
+          <em style={{ color: "rgba(255,255,255,0.3)" }}> Instagram</em>
         </h2>
 
         <div

@@ -28,7 +28,7 @@ export default function ExpertiseSection() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    className="text-[16px] font-semibold mb-10"
+                    className="text-[16px] mb-10"
                 >
                     Backed by years of experience
                 </motion.p>
@@ -132,7 +132,7 @@ function ExpertiseCard({
                 </h3>
 
                 {/* List */}
-                <ul className="space-y-1 text-[16px] font-semibold">
+                <ul className="space-y-1 text-[16px]">
                     {items.map((item, i) => (
                         <li key={i}>{item}</li>
                     ))}

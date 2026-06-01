@@ -46,9 +46,9 @@ export default function ScrollTextReveal() {
     >
       <h1
         ref={textRef}
-        className="text-center font-bold"
+        className="text-center font-bold lg:max-w-3xl max-w-sm"
         style={{
-          fontSize: "clamp(3rem, 12vw, 8rem)",
+          fontSize: "clamp(5rem, 20vw, 8rem)",
           lineHeight: 0.85,
           letterSpacing: "-0.02em",
           backgroundImage: `
@@ -66,8 +66,8 @@ export default function ScrollTextReveal() {
           color: "transparent",
         }}
       >
-        "over 4 <br /> years
-        helping <br /> brands
+        "over 4 years
+        helping brands
         tell <br /> their stories"
       </h1>
     </section>

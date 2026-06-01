@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { FaLinkedinIn, FaFacebookF, FaTiktok } from "react-icons/fa";
 import { IoLogoInstagram } from "react-icons/io5";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "Our Story", href: "/Our-story" },
@@ -119,7 +120,7 @@ export default function Footer() {
             whileInView="visible"
             viewport={{ once: false, amount: 0.4 }}
           >
-            {BRAND_LETTERS.map((letter, i) => (
+            {/* {BRAND_LETTERS.map((letter, i) => (
               <motion.span
                 key={i}
                 custom={i}
@@ -132,7 +133,17 @@ export default function Footer() {
               >
                 {letter}
               </motion.span>
-            ))}
+            ))} */}
+            <div className="group flex items-center gap-2.5 shrink-0 rounded-full px-4 py-2">
+              <Image
+                src="/ekho studios horizontal white.png"
+                alt="Logo"
+                width={100}
+                height={100}
+                style={{ height: "auto" }}
+                className="lg:w-[40%] w-[10%]"
+              />
+            </div>
           </motion.div>
         </div>
 

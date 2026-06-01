@@ -63,10 +63,10 @@ export default function Navbar() {
             onClick={handleNavClick}
             className="group flex items-center gap-2.5 shrink-0 rounded-full px-4 py-2"
           >
-            <Image src="/Logo.png" alt="Logo" width={20} height={20} style={{ height: "auto" }} />
-            <span className="text-white text-lg lg:text-xl font-light group-hover:tracking-widest transition-all duration-500">
+            <Image src="/ekho studios horizontal white.png" alt="Logo" width={150} height={150} style={{ height: "auto" }} />
+            {/* <span className="text-white text-lg lg:text-xl font-light group-hover:tracking-widest transition-all duration-500">
               Ekho Studios
-            </span>
+            </span> */}
           </Link>
 
           {/* Desktop links */}
