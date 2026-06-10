@@ -141,10 +141,10 @@ export default function BentoGallery() {
         </div>
 
         {/* Top Gradient Overlay */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-20 bg-linear-to-b from-black via-black/70 to-transparent" />
+        {/* <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-20 bg-linear-to-b from-black via-black/70 to-transparent" /> */}
 
         {/* Bottom Gradient Overlay */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-20 bg-linear-to-t from-black via-black/70 to-transparent" />
+        {/* <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-20 bg-linear-to-t from-black via-black/70 to-transparent" /> */}
       </div>
     </>
   );

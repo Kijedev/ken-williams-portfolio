@@ -2,75 +2,84 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-interface PreloaderProps {
-  onComplete?: () => void;
+gsap.registerPlugin(ScrollTrigger);
+
+interface Props {
+  onComplete: () => void;
 }
 
-const BLADE_COUNT = 6;
-
-export default function Preloader({ onComplete }: PreloaderProps) {
-  const rootRef     = useRef<HTMLDivElement>(null);
-  const bladesRef   = useRef<(HTMLDivElement | null)[]>([]);
-  const labelRef    = useRef<HTMLDivElement>(null);
-  const counterRef  = useRef<HTMLSpanElement>(null);
-  const progressRef = useRef<HTMLDivElement>(null);
-  const frameRef    = useRef<HTMLDivElement>(null);
+export default function Preloader({ onComplete }: Props) {
+  const overlayRef = useRef<HTMLDivElement>(null);
+  const logoRef = useRef<HTMLDivElement>(null);
+  const lineRef = useRef<HTMLDivElement>(null);
+  const counterRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    const root     = rootRef.current;
-    const blades   = bladesRef.current.filter(Boolean) as HTMLDivElement[];
-    const label    = labelRef.current;
-    const counter  = counterRef.current;
-    const progress = progressRef.current;
-    const frame    = frameRef.current;
+    const overlay = overlayRef.current;
+    const logo = logoRef.current;
+    const line = lineRef.current;
+    const counter = counterRef.current;
+    if (!overlay || !logo || !line || !counter) return;
 
-    if (!root || !blades.length || !label || !counter || !progress || !frame) return;
-
+    // Lock scroll while preloader is active
     document.body.style.overflow = "hidden";
 
     const ctx = gsap.context(() => {
+      const tl = gsap.timeline();
 
-      // Blades start off-screen above — slam down on load
-      gsap.set(blades, { yPercent: -100 });
+      // 1. Entrance — logo fades + slides up
+      tl.from(logo, {
+        y: 40,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power3.out",
+      })
 
-      const entranceTl = gsap.timeline({ defaults: { ease: "power4.out" } });
+      // 2. Line grows
+      .from(line, {
+        scaleX: 0,
+        transformOrigin: "left center",
+        duration: 0.8,
+        ease: "power2.inOut",
+      }, "-=0.3")
 
-      entranceTl
-        .to(blades, {
-          yPercent: 0,
-          duration: 0.7,
-          stagger: { each: 0.07, from: "edges" },
-        })
-        .from(frame, { scale: 1.06, opacity: 0, duration: 0.5, ease: "power3.out" }, "-=0.2")
-        .from(label, { y: 24, opacity: 0, duration: 0.6, ease: "power3.out" }, "-=0.3");
-
-      const progressObj = { val: 0 };
-      entranceTl.to(progressObj, {
-        val: 100,
-        duration: 2.2,
+      // 3. Counter counts up 0 → 100
+      .to({}, {
+        duration: 1.4,
         ease: "power1.inOut",
         onUpdate() {
-          const v = Math.round(progressObj.val);
-          if (counter)  counter.textContent = String(v).padStart(2, "0") + "%";
-          if (progress) progress.style.transform = `scaleX(${v / 100})`;
+          const p = Math.round(this.progress() * 100);
+          if (counter) counter.textContent = `${p}`;
         },
-      }, "+=0.1");
+      }, "-=0.8")
 
-      entranceTl
-        .to([label, frame], { opacity: 0, y: -12, duration: 0.35, stagger: 0.06, ease: "power2.in" }, "+=0.25")
-        .to(blades, {
-          yPercent: -100,
-          duration: 0.65,
-          stagger: { each: 0.06, from: "center" },
-          ease: "power4.inOut",
-          onComplete: () => {
-            document.body.style.overflow = "";
-            onComplete?.();
-          },
-        }, "-=0.05");
+      // 4. Hold briefly
+      .to({}, { duration: 0.3 })
 
-    }, root);
+      // 5. Fade out logo/line before the slam
+      .to([logo, line, counter], {
+        opacity: 0,
+        y: -20,
+        duration: 0.45,
+        ease: "power2.in",
+        stagger: 0.06,
+      })
+
+      // 6. The cinematic upward slam with elastic wobble
+      .to(overlay, {
+        yPercent: -100,
+        duration: 1.1,
+        ease: "elastic.out(1, 0.75)",
+        onComplete: () => {
+          document.body.style.overflow = "";
+          // Refresh ScrollTrigger now that the page is visible
+          ScrollTrigger.refresh(true);
+          onComplete();
+        },
+      });
+    });
 
     return () => {
       ctx.revert();
@@ -79,94 +88,41 @@ export default function Preloader({ onComplete }: PreloaderProps) {
   }, [onComplete]);
 
   return (
-    <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Barlow:wght@300;400;500&display=swap');
-      `}</style>
+    <div
+      ref={overlayRef}
+      className="fixed inset-0 z-9999 flex flex-col items-center justify-center bg-black"
+      style={{ willChange: "transform" }}
+    >
+      {/* Logo / brand name */}
+      <div ref={logoRef} className="flex flex-col items-center gap-4">
+        <span
+          style={{
+            fontSize: "clamp(2.5rem, 8vw, 5rem)",
+            fontWeight: 300,
+            letterSpacing: "-0.03em",
+            color: "#FEE9CE",
+            lineHeight: 1,
+          }}
+        >
+          Ekho Studios
+        </span>
 
-      {/*
-        ✅ FIX 1: opacity is 1 here in the JSX, not set by GSAP.
-        This means the preloader is immediately visible on first render,
-        before useEffect fires — no flash of the homepage.
-      */}
-      <div
-        ref={rootRef}
-        className="fixed inset-0 z-[99999] overflow-hidden"
-        style={{ opacity: 1 }}
-        aria-label="Loading Ekho Studios"
-        role="status"
-      >
-        {/* Shutter blades */}
-        <div className="absolute inset-0 flex">
-          {Array.from({ length: BLADE_COUNT }).map((_, i) => (
-            <div
-              key={i}
-              ref={(el) => { bladesRef.current[i] = el; }}
-              className="flex-1 h-full relative"
-              style={{ background: i % 2 === 0 ? "#0a0a0a" : "#080808" }}
-            >
-              {i < BLADE_COUNT - 1 && (
-                <div className="absolute right-0 top-0 bottom-0 w-px bg-white/[0.04]" aria-hidden="true" />
-              )}
-              <div
-                className="absolute left-1/2 top-[15%] bottom-[15%] w-px"
-                style={{ background: "linear-gradient(to bottom, transparent, rgba(255,255,255,0.04), transparent)" }}
-                aria-hidden="true"
-              />
-            </div>
-          ))}
-        </div>
+        {/* Thin line */}
+        <div
+          ref={lineRef}
+          className="w-full h-px bg-white/20"
+          style={{ width: "clamp(160px, 30vw, 320px)" }}
+        />
 
-        {/* Centre overlay */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-          <div ref={frameRef} className="relative flex flex-col items-center justify-center gap-6 px-12 py-10">
-            <span className="absolute top-0 left-0 w-5 h-5 border-t border-l border-white/20" aria-hidden="true" />
-            <span className="absolute top-0 right-0 w-5 h-5 border-t border-r border-white/20" aria-hidden="true" />
-            <span className="absolute bottom-0 left-0 w-5 h-5 border-b border-l border-white/20" aria-hidden="true" />
-            <span className="absolute bottom-0 right-0 w-5 h-5 border-b border-r border-white/20" aria-hidden="true" />
-
-            <div ref={labelRef} className="flex flex-col items-center gap-2">
-              <h1
-                className="text-white leading-none tracking-[0.06em]"
-                style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.8rem, 8vw, 6rem)", fontWeight: 300 }}
-              >
-                Ekho
-              </h1>
-              <span
-                className="text-white/25 tracking-[0.5em] uppercase"
-                style={{ fontFamily: "Barlow, sans-serif", fontSize: "clamp(0.55rem, 1.2vw, 0.75rem)", fontWeight: 400 }}
-              >
-                Studios
-              </span>
-              <div className="w-12 h-px bg-white/15 mt-1" />
-              <div className="flex flex-col items-center gap-3 mt-2 w-32">
-                <span
-                  ref={counterRef}
-                  className="text-white/20 tabular-nums"
-                  style={{ fontFamily: "Barlow, sans-serif", fontSize: "10px", letterSpacing: "0.22em" }}
-                >
-                  00%
-                </span>
-                <div className="w-full h-px bg-white/10 overflow-hidden rounded-full">
-                  <div
-                    ref={progressRef}
-                    className="h-full bg-white/40 origin-left"
-                    style={{ transform: "scaleX(0)" }}
-                    aria-hidden="true"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <p
-            className="absolute bottom-8 text-white/15 tracking-[0.35em] uppercase"
-            style={{ fontFamily: "Barlow, sans-serif", fontSize: "9px" }}
-          >
-            Product Videography
-          </p>
-        </div>
+        {/* Counter */}
+        <span
+          ref={counterRef}
+          className="text-white/30 tabular-nums"
+          style={{ fontSize: "clamp(0.75rem, 1.5vw, 0.9rem)", letterSpacing: "0.15em" }}
+        >
+          0
+        </span>
       </div>
-    </>
+    </div>
   );
 }

@@ -180,7 +180,7 @@ export default function Page() {
                         <div className="relative lg:mt-32 mt-10">
                             <div
                                 data-process-line
-                                className="hidden md:block absolute top-[18px] left-[20px] right-[20px] h-px bg-white/6"
+                                className="hidden md:block absolute top-4.5 left-5 right-5 h-px bg-white/6"
                                 aria-hidden="true"
                             />
 

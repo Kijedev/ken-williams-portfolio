@@ -205,14 +205,14 @@ export default function ProjectsPage() {
           style={{ y }}
           className="pointer-events-none absolute inset-0"
         >
-          <h1 className="absolute left-1/2 top-0 -translate-x-1/2 lg:text-[18vw] text-[25vw] font-black tracking-tighter text-white/3">
+          <h1 className="absolute left-1/2 top-0 -translate-x-1/2 lg:text-[20vw] lg:text-8xl text-[7rem] font-black tracking-tighter text-white/3">
             REELS
           </h1>
         </motion.div>
 
-        <div className="relative z-10 mx-auto max-w-400 px-6 lg:px-10">
+        <div className="relative z-10 mx-auto max-w-400 px-6 lg:px-10 lg:-mt-6 ">
           <div className="mb-14 flex flex-col items-center gap-8">
-            <h1 className="lg:text-7xl text-4xl text-center mt-10 lg:mt-16 font-light text-[#FEE9CE]">
+            <h1 className="lg:text-7xl text-3xl text-center mt-10 lg:mt-16 font-light text-[#FEE9CE]">
               Our Products Categories
             </h1>
             <div className="flex flex-wrap justify-center gap-3 ">

@@ -1,7 +1,22 @@
 "use client";
 
 import Link from "next/link";
+import { motion, Variants, Transition } from "framer-motion";
 import ButtonWorks from "../ButtonWorks";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30, filter: "blur(8px)" },
+  show: (delay: number) => ({
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 1,
+      ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
+      delay,
+    } as Transition,
+  }),
+};
 
 export default function VideoHero() {
   return (
@@ -28,44 +43,70 @@ export default function VideoHero() {
       <div className="relative z-10 flex h-full flex-col justify-end px-6 sm:px-10 lg:px-20 pb-12 sm:pb-16 lg:pb-20 text-white">
         <div className="max-w-7xl w-full">
           {/* Heading */}
-          <div className="">
-            <div className="flex flex-wrap items-end gap-3 sm:gap-5 mb-1 sm:mb-2">
-              <h1 className="text-xl sm:text-xl lg:text-2xl font-light tracking-tight leading-[0.9] text-white/70">
-                We bring products to life through
-              </h1>
-            </div>
+          <div className="overflow-hidden">
+            <motion.h1
+              custom={0.1}
+              variants={fadeUp}
+              initial="hidden"
+              animate="show"
+              className="text-xl sm:text-xl lg:text-2xl font-light tracking-tight leading-[0.9] text-white/70 mb-1 sm:mb-2"
+            >
+              We bring products to life through
+            </motion.h1>
 
-            <div className="flex flex-wrap items-end gap-3 sm:gap-5">
-              <h2 className="text-[clamp(4rem,10vw,6rem)] font-bold tracking-tight leading-none text-[#FEE9CE]">
-                Cinematic Storytelling
-              </h2>
-            </div>
+            <motion.h2
+              custom={0.3}
+              variants={fadeUp}
+              initial="hidden"
+              animate="show"
+              className="text-[clamp(4rem,10vw,6rem)] font-bold tracking-tight leading-none text-[#FEE9CE]"
+            >
+              Cinematic Storytelling
+            </motion.h2>
           </div>
 
           {/* Description + CTA */}
           <div className="flex flex-col gap-6 mt-4">
-            <p className="text-xl sm:text-xl lg:text-2xl font-light text-white/70">
+            <motion.p
+              custom={0.55}
+              variants={fadeUp}
+              initial="hidden"
+              animate="show"
+              className="text-xl sm:text-xl lg:text-2xl font-light text-white/70"
+            >
               We help brands around the world tell great stories.
-            </p>
+            </motion.p>
 
-            <div className="flex items-center gap-4">
+            <motion.div
+              custom={0.75}
+              variants={fadeUp}
+              initial="hidden"
+              animate="show"
+              className="flex items-center gap-4"
+            >
               <ButtonWorks
                 text="View our Works"
                 textsecond="See Projects"
                 textColor="text-[#fff]"
                 border="border border-white"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
 
         {/* Scroll Cue */}
-        <div className="absolute bottom-8 right-0 lg:left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none">
+        <motion.div
+          custom={1.1}
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          className="absolute bottom-8 right-0 lg:left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none"
+        >
           <span className="text-[10px] uppercase tracking-[0.3em] text-white/30">
             Scroll
           </span>
           <div className="h-10 w-px bg-linear-to-b from-white/40 to-transparent animate-pulse" />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

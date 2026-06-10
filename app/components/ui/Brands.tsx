@@ -32,15 +32,13 @@ export default function BrandsMarquee() {
         }
         .marquee-inner {
           animation: marquee 32s linear infinite;
-          will-change: transform;
         }
         .marquee-inner:hover {
           animation-play-state: paused;
         }
       `}</style>
 
-      {/* Track */}
-      <div className="relative" style={{ contain: "layout style" }}>
+      <div className="relative" style={{ contain: "layout style paint" }}>
         {/* Edge fades */}
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-linear-to-r from-black to-transparent md:w-36" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-linear-to-l from-black to-transparent md:w-36" />
@@ -48,15 +46,20 @@ export default function BrandsMarquee() {
         {/* Scrolling strip */}
         <div className="marquee-inner flex w-max items-center">
           {doubled.map((brand, i) => (
-            <div key={i} className="flex shrink-0 items-center gap-8 px-8">
-              <div className="relative h-13 w-25">
+            <div
+              key={i}
+              className="flex shrink-0 items-center gap-8 px-8"
+              // isolate each item as its own stacking context
+              style={{ isolation: "isolate" }}
+            >
+              <div className="relative h-13 w-25" style={{ willChange: "transform" }}>
                 <Image
                   src={brand.image}
                   alt=""
                   fill
                   sizes="100px"
-                  className="object-contain  duration-300 hover:opacity-100"
-                  // style={{ filter: "brightness(0) invert(1)" }}
+                  loading="lazy"
+                  className="object-contain duration-300 hover:opacity-100"
                 />
               </div>
               <div className="h-7 w-px bg-white/10" />

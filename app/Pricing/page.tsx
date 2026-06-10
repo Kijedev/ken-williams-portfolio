@@ -485,15 +485,15 @@ export default function Page() {
             className="relative mb-12 flex items-center justify-center lg:pt-48"
           >
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-              <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[12vw] text-[20vw] font-black tracking-tighter text-white/6 select-none">
+              <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[12rem] text-[6rem] font-black tracking-tighter text-white/6 select-none">
                 Package
               </h1>
             </div>
 
-            <div className="relative z-10 lg:-mt-48 flex items-center justify-center gap-4">
+            <div className="relative z-10 lg:-mt-36 flex items-center justify-center gap-4">
               <span
                 style={{
-                  fontSize: "clamp(1.5rem, 2vw, 3rem)",
+                  fontSize: "clamp(1rem, 5vw, 3rem)",
                   textTransform: "capitalize",
                   color: "#FEE9CE",
                   fontWeight: 300,

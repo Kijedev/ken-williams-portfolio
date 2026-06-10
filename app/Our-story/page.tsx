@@ -133,7 +133,7 @@ export default function Page() {
       >
         {/* ── Glow ─── */}
         <div
-          className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] opacity-[0.05] z-1"
+          className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-225 h-150 opacity-[0.05] z-1"
           style={{
             background: "radial-gradient(ellipse, #fff 0%, transparent 65%)",
           }}
@@ -266,7 +266,7 @@ export default function Page() {
               {/* Image frame */}
               <div
                 ref={imageRef}
-                className="relative w-full max-w-[300px] lg:max-w-none"
+                className="relative w-full max-w-75 lg:max-w-none"
               >
                 {/* Corner accents */}
                 {[

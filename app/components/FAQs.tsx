@@ -132,7 +132,7 @@ export default function FAQs() {
           className="relative mb-12 flex items-center justify-center lg:mt-10"
         >
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-            <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[12vw] text-[20vw] font-black tracking-tighter text-white/6 select-none">
+            <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[12rem] text-[6rem] font-black tracking-tighter text-white/6 select-none">
               Questions
             </h1>
           </div>
@@ -140,7 +140,7 @@ export default function FAQs() {
           <div className="relative z-10 flex items-center justify-center gap-4">
             <span
               style={{
-                fontSize: "clamp(1.5rem, 2vw, 3rem)",
+                fontSize: "clamp(1rem, 2vw, 3rem)",
                 textTransform: "capitalize",
                 color: "#FEE9CE",
                 fontWeight: 300,

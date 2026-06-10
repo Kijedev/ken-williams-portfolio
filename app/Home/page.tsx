@@ -7,6 +7,7 @@ import Brands from "@/app/components/ui/Brands"
 import VideoHero from "@/app/components/VideoHero/page"
 import ScrollBg from "@/app/components/ScollBg"
 import TestimonialsCarousel from "../components/Testimonials";
+import BrandsMarquee from "@/app/components/ui/Brands";
 
 export default function Page() {
   return (
@@ -15,7 +16,7 @@ export default function Page() {
       <VideoHero />
       {/* <Revolutionalize /> */}
       <ScrollBg />
-      <Brands />
+      <BrandsMarquee />
       <ScrollTextReveal />
       <BentoGallery />
       <TestimonialsCarousel />
