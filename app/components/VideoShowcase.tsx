@@ -113,7 +113,7 @@ function Modal({ video, onClose }: { video: (typeof VIDEOS)[0]; onClose: () => v
             display: "flex", alignItems: "center", gap: "8px",
             background: "none", border: "none", cursor: "pointer",
             color: "rgba(255,255,255,0.4)",
-            fontFamily: "Barlow,sans-serif", fontSize: "10px",
+            fontSize: "10px",
             letterSpacing: "0.22em", textTransform: "uppercase",
           }}
           onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "white"; }}
@@ -144,10 +144,10 @@ function Modal({ video, onClose }: { video: (typeof VIDEOS)[0]; onClose: () => v
         {/* Meta */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginTop: "16px", padding: "0 2px" }}>
           <div>
-            <p style={{ fontFamily: "'Cormorant Garamond',serif", color: "rgba(255,255,255,0.85)", fontWeight: 300, fontSize: "1.25rem", lineHeight: 1.2, margin: 0 }}>
+            <p style={{ color: "rgba(255,255,255,0.85)", fontWeight: 300, fontSize: "1.25rem", lineHeight: 1.2, margin: 0 }}>
               {video.title}
             </p>
-            <span style={{ fontFamily: "Barlow,sans-serif", fontSize: "9px", letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(255,255,255,0.28)" }}>
+            <span style={{ fontSize: "9px", letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(255,255,255,0.28)" }}>
               {video.category}
             </span>
           </div>
@@ -155,7 +155,7 @@ function Modal({ video, onClose }: { video: (typeof VIDEOS)[0]; onClose: () => v
             href={`https://www.youtube.com/watch?v=${video.videoId}`}
             target="_blank"
             rel="noopener noreferrer"
-            style={{ fontFamily: "Barlow,sans-serif", fontSize: "9px", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.25)", textDecoration: "none", marginTop: "4px" }}
+            style={{ fontSize: "9px", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.25)", textDecoration: "none", marginTop: "4px" }}
             onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.6)"; }}
             onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.25)"; }}
           >
@@ -279,7 +279,7 @@ function VideoCard({
 
       {/* Index — top left */}
       <div style={{ position: "absolute", top: "14px", left: "16px", zIndex: 4 }}>
-        <span style={{ fontFamily: "Barlow,sans-serif", fontSize: "9px", color: "rgba(255,255,255,0.35)", letterSpacing: "0.2em" }}>
+        <span style={{ fontSize: "9px", color: "rgba(255,255,255,0.35)", letterSpacing: "0.2em" }}>
           0{video.id}
         </span>
       </div>
@@ -287,14 +287,14 @@ function VideoCard({
       {/* Bottom meta */}
       <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "18px", zIndex: 4 }}>
         <p style={{
-          fontFamily: "'Cormorant Garamond',serif", fontWeight: 300,
+          fontWeight: 300,
           color: "rgba(255,255,255,0.9)", fontSize: "1rem",
           lineHeight: 1.25, marginBottom: "4px",
         }}>
           {video.title}
         </p>
         <span style={{
-          fontFamily: "Barlow,sans-serif", fontSize: "8px",
+          fontSize: "8px",
           letterSpacing: "0.22em", textTransform: "uppercase",
           color: "rgba(255,255,255,0.32)",
         }}>
@@ -363,10 +363,6 @@ export default function VideoShowcase() {
 
   return (
     <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Barlow:wght@300;400;500&display=swap');
-      `}</style>
-
       {/* Modal */}
       {activeVideo && (
         <Modal video={activeVideo} onClose={() => setActiveVideo(null)} />
@@ -385,7 +381,7 @@ export default function VideoShowcase() {
 
           {/* Ghost word */}
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center z-[2] select-none" aria-hidden="true">
-            <span style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(8rem,26vw,30rem)", color: "rgba(255,255,255,0.018)", fontWeight: 900, lineHeight: 1, textTransform: "uppercase" }}>
+            <span style={{ fontSize: "clamp(8rem,26vw,30rem)", color: "rgba(255,255,255,0.018)", fontWeight: 900, lineHeight: 1, textTransform: "uppercase" }}>
               Work
             </span>
           </div>
@@ -394,10 +390,10 @@ export default function VideoShowcase() {
           <div ref={headingRef} className="absolute top-[9%] left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20">
             <div className="flex items-center gap-3">
               <span className="w-6 h-px bg-white/20" />
-              <span style={{ fontFamily: "Barlow,sans-serif", fontSize: "9px", letterSpacing: "0.42em", textTransform: "uppercase", color: "rgba(255,255,255,0.22)" }}>Selected Work</span>
+              <span style={{ fontSize: "9px", letterSpacing: "0.42em", textTransform: "uppercase", color: "rgba(255,255,255,0.22)" }}>Selected Work</span>
               <span className="w-6 h-px bg-white/20" />
             </div>
-            <h2 style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(1.8rem,4vw,3rem)", color: "rgba(255,255,255,0.75)", fontWeight: 300, lineHeight: 1, textAlign: "center" }}>
+            <h2 style={{ fontSize: "clamp(1.8rem,4vw,3rem)", color: "rgba(255,255,255,0.75)", fontWeight: 300, lineHeight: 1, textAlign: "center" }}>
               Click to watch
             </h2>
           </div>
@@ -417,13 +413,13 @@ export default function VideoShowcase() {
 
           {/* Bottom */}
           <div className="absolute bottom-[8%] left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 z-20">
-            <p ref={subRef} style={{ fontFamily: "Barlow,sans-serif", fontSize: "9px", letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(255,255,255,0.18)", textAlign: "center" }}>
+            <p ref={subRef} style={{ fontSize: "9px", letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(255,255,255,0.18)", textAlign: "center" }}>
               {VIDEOS.length} films · scroll to reveal · click to play
             </p>
             <div ref={ctaRef}>
               <a href="/projects"
                 className="inline-flex items-center gap-2.5 border border-white/[0.11] hover:border-white/40 transition-all duration-300"
-                style={{ padding: "12px 28px", fontFamily: "Barlow,sans-serif", fontSize: "10px", letterSpacing: "0.24em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)", textDecoration: "none" }}
+                style={{ padding: "12px 28px", fontSize: "10px", letterSpacing: "0.24em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)", textDecoration: "none" }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "white"; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.3)"; }}
               >

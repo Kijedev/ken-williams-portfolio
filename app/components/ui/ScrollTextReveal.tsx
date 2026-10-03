@@ -48,7 +48,7 @@ export default function ScrollTextReveal() {
         ref={textRef}
         className="text-center font-bold lg:max-w-3xl max-w-sm"
         style={{
-          fontSize: "clamp(5rem, 20vw, 8rem)",
+          fontSize: "clamp(5rem, 20vw, 7rem)",
           lineHeight: 0.85,
           letterSpacing: "-0.02em",
           backgroundImage: `
@@ -56,8 +56,8 @@ export default function ScrollTextReveal() {
               to bottom,
               #E8A25C 0%,
               #E8A25C 50%,
-              #3a3a3a 50%,
-              #3a3a3a 100%
+              #0F0F0F 50%,
+              #0F0F0F 100%
             )
           `,
           backgroundSize: "100% 200%",

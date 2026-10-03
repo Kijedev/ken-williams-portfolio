@@ -205,7 +205,7 @@ export default function ProjectsPage() {
           style={{ y }}
           className="pointer-events-none absolute inset-0"
         >
-          <h1 className="absolute left-1/2 top-0 -translate-x-1/2 lg:text-[20vw] lg:text-8xl text-[7rem] font-black tracking-tighter text-white/3">
+          <h1 className="absolute left-1/2 top-0 -translate-x-1/2 lg:text-[20vw] lg:text-8xl text-[7rem] font-black tracking-tighter text-white/6">
             REELS
           </h1>
         </motion.div>

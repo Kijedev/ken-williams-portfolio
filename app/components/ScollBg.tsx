@@ -54,8 +54,8 @@ export default function ScollBg() {
   return (
     <section id="uniquely-yours" className="relative bg-black">
       <div className="fixed z-0 top-0 h-screen w-full flex items-center justify-center pointer-events-none">
-        <h1 className="text-white/10 text-[3rem] lg:text-[7rem] font-bold text-center leading-10 lg:leading-22 max-w-3xl">
-          What makes us different
+        <h1 className="text-white/6 text-[3rem] lg:text-[7rem] font-semibold text-center leading-10 lg:leading-22 max-w-3xl">
+          What we do
         </h1>
       </div>
 
@@ -92,9 +92,7 @@ export default function ScollBg() {
               </div>
 
               <div className="flex flex-col gap-2 mt-6">
-                <h2 className="text-xl font-semibold text-[#EF5143]">
-                  {card.title}
-                </h2>
+                <h2 className="text-xl text-[#EF5143]">{card.title}</h2>
                 <p className="text-[#FEE9CE]/70 text-sm leading-relaxed">
                   {card.description}
                 </p>

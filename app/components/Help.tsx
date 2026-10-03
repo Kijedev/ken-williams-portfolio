@@ -56,8 +56,8 @@ export default function Help() {
               to bottom,
               #FEE9CE 0%,
               #FEE9CE 50%,
-              #3a3a3a 50%,
-              #3a3a3a 100%
+              #0F0F0F 50%,
+              #0F0F0F 100%
             )
           `,
           backgroundSize: "100% 200%",

@@ -6,9 +6,17 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer/page"
 import ScrollToTop from "./components/ScrollToTop";
 
-const myFont = localFont({
-  src: "../public/fonts/ClashDisplay.ttf",
-  variable: "--font-myfont",
+const clashDisplay = localFont({
+  src: [
+    { path: "../public/fonts/ClashDisplay-Extralight.otf", weight: "200", style: "normal" },
+    { path: "../public/fonts/ClashDisplay-Light.otf", weight: "300", style: "normal" },
+    { path: "../public/fonts/ClashDisplay-Regular.otf", weight: "400", style: "normal" },
+    { path: "../public/fonts/ClashDisplay-Medium.otf", weight: "500", style: "normal" },
+    { path: "../public/fonts/ClashDisplay-Semibold.otf", weight: "600", style: "normal" },
+    { path: "../public/fonts/ClashDisplay-Bold.otf", weight: "700", style: "normal" },
+  ],
+  variable: "--font-clash-display",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -22,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={clashDisplay.variable} suppressHydrationWarning>
       <body>
         <SmoothScroll>
           <Navbar />

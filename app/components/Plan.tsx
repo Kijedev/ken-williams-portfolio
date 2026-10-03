@@ -83,17 +83,10 @@ export default function Plan() {
 
   return (
     <>
-      {/* Google fonts */}
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500;600&display=swap');
-        .font-cormorant { font-family: 'Cormorant Garamond', serif; }
-        .font-barlow    { font-family: 'Barlow', sans-serif; }
-      `}</style>
-
       {/* ── full-page wrapper ─────────────────────────────────── */}
       <div
         ref={pageRef}
-        className="font-barlow relative min-h-screen w-full bg-[#0a0a0a] flex items-center justify-center px-4 py-16"
+        className="relative min-h-screen w-full bg-[#0a0a0a] flex items-center justify-center px-4 py-16"
       >
 
         {/* ── Card ─────────────────────────────────────────────── */}
@@ -158,7 +151,7 @@ export default function Plan() {
                 <p className="text-[9px] tracking-[0.32em] text-[rgba(210,120,50,0.7)] uppercase font-medium mb-1">
                   2025 Pricing
                 </p>
-                <h1 className="font-cormorant text-[clamp(2.2rem,8vw,3.2rem)] font-light leading-[0.92] tracking-tight text-white">
+                <h1 className="text-[clamp(2.2rem,8vw,3.2rem)] font-light leading-[0.92] tracking-tight text-white">
                   Rate<br />
                   <em className="not-italic text-[rgba(210,120,50,0.9)]">Card.</em>
                 </h1>
@@ -171,7 +164,7 @@ export default function Plan() {
               <div ref={brandRef} className="text-right">
                 <div className="flex items-center justify-end gap-1.5">
                   <span className="w-[5px] h-[5px] rounded-full bg-[rgba(210,120,50,0.8)]" />
-                  <span className="font-cormorant text-[clamp(1rem,3.5vw,1.4rem)] font-semibold text-white tracking-wide">
+                  <span className="text-[clamp(1rem,3.5vw,1.4rem)] font-semibold text-white tracking-wide">
                     Dara Studios
                   </span>
                 </div>
@@ -227,7 +220,7 @@ export default function Plan() {
                   </div>
 
                   {/* Price */}
-                  <p className="font-cormorant text-[clamp(1rem,3.8vw,1.5rem)] font-normal text-[rgba(210,120,50,0.85)] group-hover:text-[rgba(210,120,50,1)] transition-colors duration-300 text-right whitespace-nowrap">
+                  <p className="text-[clamp(1rem,3.8vw,1.5rem)] font-normal text-[rgba(210,120,50,0.85)] group-hover:text-[rgba(210,120,50,1)] transition-colors duration-300 text-right whitespace-nowrap">
                     {s.price}
                   </p>
                 </div>
@@ -268,7 +261,7 @@ export default function Plan() {
                 </div>
               </div>
 
-              <p className="font-cormorant text-[clamp(0.75rem,2.5vw,0.9rem)] italic text-white/12 tracking-widest">
+              <p className="text-[clamp(0.75rem,2.5vw,0.9rem)] italic text-white/12 tracking-widest">
                 2025
               </p>
             </div>

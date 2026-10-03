@@ -63,10 +63,9 @@ function FAQItem({
           </span>
 
           <span
-            className={`text-base md:text-2xl font-light leading-snug tracking-wide transition-colors duration-300 ${isOpen
-              ? "text-white"
-              : "text-white/50 group-hover:text-white/80"
-              }`}
+            className={`text-base md:text-2xl font-light leading-snug tracking-wide transition-colors duration-300 ${
+              isOpen ? "text-white" : "text-white/50 group-hover:text-white/80"
+            }`}
           >
             {item.q}
           </span>
@@ -75,10 +74,11 @@ function FAQItem({
         <motion.span
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.35, ease: "easeInOut" }}
-          className={`relative mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border ${isOpen
-            ? "border-white/40"
-            : "border-white/15 group-hover:border-white/35"
-            }`}
+          className={`relative mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border ${
+            isOpen
+              ? "border-white/40"
+              : "border-white/15 group-hover:border-white/35"
+          }`}
         >
           <Plus className="h-4 w-4 text-white/70" />
         </motion.span>
@@ -173,14 +173,17 @@ export default function FAQs() {
             viewport={{ once: true }}
             className="py-20 md:py-28 flex flex-col md:flex-row md:items-end justify-between gap-10"
           >
-
             <motion.div
               custom={1}
               // variants={fadeUp}
               className="flex flex-col gap-4 max-w-2xl"
             >
-              <h2 className="font-cormorant text-[clamp(2.5rem,5vw,4rem)] font-light leading-none tracking-tight text-[#FEE9CE]">
-                Ready to make your <span className="not-italic text-white/30"> product unforgettable?</span>
+              <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-light leading-none tracking-tight text-[#FEE9CE]">
+                Ready to make your{" "}
+                <span className="not-italic text-white/30">
+                  {" "}
+                  product unforgettable?
+                </span>
               </h2>
             </motion.div>
 
@@ -196,7 +199,6 @@ export default function FAQs() {
                 border="border border-white"
               />
             </motion.div>
-
           </motion.div>
         </section>
       </div>

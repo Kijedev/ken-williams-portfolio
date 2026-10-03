@@ -398,7 +398,7 @@ export default function Page() {
                                 Pricing on request
                               </span>
                               <Link
-                                href="/contact"
+                                href="/Contact"
                                 className="text-[12px] tracking-widest capitalize text-[#FEE9CE]/70 hover:text-[#FEE9CE] transition-colors duration-300 border border-white/15 hover:border-[#FEE9CE]/40 px-4 py-2 rounded-full"
                               >
                                 Let's talk
@@ -432,7 +432,7 @@ export default function Page() {
                         </div>
                         <div className="flex items-baseline gap-3 mb-1">
                           <span
-                            className="font-cormorant text-[clamp(1rem,5vw,2rem)] font-light leading-none"
+                            className="text-[clamp(1rem,5vw,2rem)] font-light leading-none"
                             style={{ color: s.accent }}
                           >
                             {s.price}

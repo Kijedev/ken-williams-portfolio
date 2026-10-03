@@ -59,7 +59,7 @@ export default function TestimonialsSection() {
           className="relative mb-12 flex items-center justify-center lg:mt-10"
         >
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-            <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[9rem] text-[4rem] font-black tracking-tighter text-white/3 select-none">
+            <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap lg:text-[9rem] text-[4rem] font-black tracking-tighter text-white/6 select-none">
               Testimonials
             </h1>
           </div>
@@ -97,9 +97,6 @@ export default function TestimonialsSection() {
           </AnimatePresence>
         </div>
 
-        {/* Divider */}
-        <div className="w-10 h-px bg-[#FEE9CE]/20 mb-7 mt-7" />
-
         {/* Meta row */}
         <div className="flex items-center justify-between">
           <AnimatePresence mode="wait">
@@ -109,7 +106,7 @@ export default function TestimonialsSection() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4 }}
-              className="text-sm tracking-widest capitalize text-[#FEE9CE]/50"
+              className="text-md tracking-widest capitalize text-[#FEE9CE]"
             >
               {active.name}
             </motion.p>
@@ -159,14 +156,13 @@ export default function TestimonialsSection() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.8 }}
-              className="pointer-events-none select-none italic text-[16vw] font-black tracking-tighter text-white/3 md:text-[130px] leading-none whitespace-nowrap"
+              className="pointer-events-none select-none italic text-[16vw] font-black tracking-tighter text-white/6 md:text-[130px] leading-none whitespace-nowrap"
             >
               {active.name}
             </motion.span>
           </AnimatePresence>
 
           {/* Dots */}
-          
         </div>
       </div>
     </section>

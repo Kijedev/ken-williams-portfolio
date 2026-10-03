@@ -46,9 +46,11 @@ export default function Ourworkshero() {
               variants={fadeUp}
               initial="hidden"
               animate="show"
-              className="text-[clamp(2rem,14vw,4rem)] font-light tracking-tight leading-[0.9] text-[#FEE9CE] lg:max-w-3xl"
+              className="text-[clamp(2rem,14vw,4rem)] font-light tracking-tight leading-[0.9] text-[#FEE9CE] lg:max-w-6xl"
             >
-              We present to you, the guys we made <span className="font-bold text-[#EF5143]">Superstars</span> on the big screen
+              We present to you, the guys we made{" "}
+              <span className="font-semibold text-[#EF5143]">Superstars</span> on
+              the big screen
             </motion.h1>
           </div>
         </div>

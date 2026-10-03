@@ -45,7 +45,7 @@ export default function Mission() {
       className="relative h-screen w-full flex items-center justify-center bg-black"
     >
       <div
-        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] opacity-[0.05] z-1"
+        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-225 h-150 opacity-[0.05] z-1"
         style={{
           background: "radial-gradient(ellipse, #fff 0%, transparent 65%)",
         }}
@@ -63,8 +63,8 @@ export default function Mission() {
               to bottom,
               #E8A25C 0%,
               #E8A25C 50%,
-              #3a3a3a 50%,
-              #3a3a3a 100%
+              #0F0F0F 50%,
+              #0F0F0F 100%
             )
           `,
           backgroundSize: "100% 200%",

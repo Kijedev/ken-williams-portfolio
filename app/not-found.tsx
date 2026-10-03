@@ -87,15 +87,9 @@ export default function NotFound() {
 
   return (
     <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Barlow:wght@300;400;500&display=swap');
-        .font-cormorant { font-family: 'Cormorant Garamond', serif; }
-        .font-barlow    { font-family: 'Barlow', sans-serif; }
-      `}</style>
-
       <div
         ref={rootRef}
-        className="font-barlow relative w-full min-h-screen bg-black text-white flex flex-col items-center justify-center overflow-hidden px-6"
+        className="relative w-full min-h-screen bg-black text-white flex flex-col items-center justify-center overflow-hidden px-6"
       >
 
         {/* ── Grain ──────────────────────────────────────────── */}
@@ -155,19 +149,19 @@ export default function NotFound() {
           <div className="flex items-end gap-1 md:gap-2 mb-8 leading-none select-none">
             <span
               ref={fourRef}
-              className="font-cormorant font-light text-[clamp(7rem,22vw,14rem)] leading-none text-white/90 tracking-tighter"
+              className="font-light text-[clamp(7rem,22vw,14rem)] leading-none text-white/90 tracking-tighter"
             >
               4
             </span>
             <span
               ref={zeroRef}
-              className="font-cormorant font-light text-[clamp(7rem,22vw,14rem)] leading-none text-white/25 tracking-tighter"
+              className="font-light text-[clamp(7rem,22vw,14rem)] leading-none text-white/25 tracking-tighter"
             >
               0
             </span>
             <span
               ref={four2Ref}
-              className="font-cormorant font-light text-[clamp(7rem,22vw,14rem)] leading-none text-white/90 tracking-tighter"
+              className="font-light text-[clamp(7rem,22vw,14rem)] leading-none text-white/90 tracking-tighter"
             >
               4
             </span>
